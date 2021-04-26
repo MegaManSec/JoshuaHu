@@ -3,4 +3,4 @@ layout: page
 title: Contact
 ---
 
-Update the `menu/contact.md` file to change your Contact page.
+I can be contacted at [contact@joshua.hu](mailto:contact@joshua.hu).
