@@ -5,13 +5,13 @@ title: Projects
 
 I've worked on a range of different projects over the years. Some of the more interesting ones (to me) are listed below.
 
-- [Accurate Multi-Gas Emissions Equivalence Modelling of Greenhouse Gases](https://vrs.amsi.org.au/student-profile/joshua-rogers/)
+- [Accurate Multi-Gas Emissions Equivalence Modelling of Greenhouse Gases](/files/VRS_Mathematics_Report.pdf)
 
 - [Squid Caching Proxy: A Security Assessment]()
 
 - [HTTPGen](https://github.com/MegaManSec/HTTPGen)
 
-- [Game Lost: An Analysis of Video Game Preservation in the Digital Age](https://www.linkedin.com/pulse/game-lost-analysis-video-preservation-digital-age-joshua-rogers/)
+- [Game Lost: An Analysis of Video Game Preservation in the Digital Age](/files/GameLost.pdf)
 
 - [World of Nintendo: Exploring Nintendo in [Eastern] Europe](https://www.youtube.com/watch?v=0-DisAPdKF8&feature=youtu.be)
 
