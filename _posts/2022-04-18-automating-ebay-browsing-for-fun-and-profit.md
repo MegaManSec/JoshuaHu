@@ -115,7 +115,7 @@ If the auction was still active when it shouldn't be (i.e. the stored `EndTime` 
 
 The description of the auction was stored at this stage. The reason for not storing the description when first seeing a new auction is that many eBay users update the description after listing their item, so it's better to check it when the auction finishes, to see what information was added. 
 
-The number of views of the auction was recorded, as well as the number of bidders. The number of views of the auction was recorded, as well as the number of bidders. If the item sold, the ending price was recorded, as well as the winner's userid and their feedback number. Information about the listing was then logged, and finally, the item was set to inactive.
+The number of views of the auction was recorded, as well as the number of bidders. If the item sold, the ending price was recorded, as well as the winner's userid and their feedback number. Information about the listing was then logged, and finally, the item was set to inactive.
 
 Recording the winning bidder's name and feedback was useful because we liked to be able to check what other games a bidder had won in the past -- something not possible on eBay's website. Since eBay obfuscates the winner's userid (such as a****b) in the same way each auction, it was as simple as querying the local database for the winner's obfuscated userid, with a feedback score _approximately_ the same as an earlier auction
 
