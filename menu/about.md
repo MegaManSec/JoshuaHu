@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About Me
+permalink: /about
 ---
 
 My name is Joshua Rogers. I am originally from Melbourne, Australia, but these days live in Krakow, Poland. As of writing this page, I am 24-years old.

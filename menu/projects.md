@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Projects
+permalink: /projects
 ---
 
 I've worked on a range of different projects over the years. Some of the more interesting ones (to me) are listed below.
