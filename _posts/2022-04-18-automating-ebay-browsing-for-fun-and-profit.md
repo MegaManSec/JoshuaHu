@@ -52,13 +52,6 @@ If there are any new listings that had not been added to the database, the next 
 eBay provides another API to retrieve detailed information about listings, called [GetSingleItem](https://developer.ebay.com/devzone/shopping/docs/CallRef/GetSingleItem.html#detailControls).  They also provide an API to retrieve information about the shipping details of an item (some listers would inflate shipping costs, making their listing appear cheaper in the "original price") named [GetShippingCosts](https://developer.ebay.com/devzone/shopping/docs/CallRef/GetShippingCosts.html).
 By using these two APIs, the following information was collected:
 
-| Priority apples | Second priority | Third priority |
-|-------|--------|---------|
-| ambrosia | gala | red delicious |
-| pink lady | jazz | macintosh |
-| honeycrisp | granny smith | fuji |
-
-
 |Field| Type   | Note                                  |
 |--------------|--------|---------------------------------------|
 | UserID       | String |                                       |
@@ -123,9 +116,9 @@ The number of views of the auction was recorded, as well as the number of bidder
 
 Recording the winning bidder's name and feedback was useful because we liked to be able to check what other games a bidder had won in the past -- something not possible on eBay's website. Since eBay obfuscates the winner's userid (such as a****b) in the same way each auction, it was as simple as querying the local database for the winner's obfuscated userid, with a feedback score _approximately_ the same as an earlier auction
 
-![Terminal Screen Showing Output](/assets/img/terminal.png "Sample Output").
+[![Terminal Screen Showing Output](/assets/img/terminal.png)](/assets/img/terminal.png)
 
-In this screenshot of the terminal output, we can see what I saw when I opened the terminal. Blue lines were informational (such as whether a game had sold or not) as well as listings that were detected to be relisted. Yellow lines were warnings (which were expected and accounted for in the code). Green lines were new listings that had never been seen before (i.e. not a relisting) -- each of these lines caused a bell to sound in my terminal when they were printed.
+In this screenshot of the terminal output (press the image to open a larger version), we can see what I saw when I opened the terminal. Blue lines were informational (such as whether a game had sold or not) as well as listings that were detected to be relisted. Yellow lines were warnings (which were expected and accounted for in the code). Green lines were new listings that had never been seen before (i.e. not a relisting) -- each of these lines caused a bell to sound in my terminal when they were printed.
 
 This script ran for around 3-years and was extremely helpful in letting me obtain some great deals on rare games, and some of my friends (before telling them what I had made) commented that I must be on eBay refreshing every minute or so. The statistics of sold listings were also extremely helpful for myself and my friends in determining how many specific games had been sold over time, their prices, and sometimes to whom they were sold.
 
