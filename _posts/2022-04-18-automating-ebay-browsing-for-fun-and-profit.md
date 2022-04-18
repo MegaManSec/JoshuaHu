@@ -78,18 +78,19 @@ Various different decisions had to be made based on the information retrieved, w
 The bot also retrieved the first image from the gallery of the listing, and then MD5-hashed it, and stored it.
 The final query into the database looked like the following:
 ```php
-		$query = "INSERT INTO `sales` (" .
-		  "`active`, `userid`, `title`, `listingid`, `location`, `starttime`, `endtime`, `imgchk`, " .
-		  "`binprice`, `startprice`, `shippingcost`, " .
-		  "`bin`, `bestoffer`, `auction`, `endprice`, `realendtime`, `description`, `bidders`) VALUES (" .
+$query = "INSERT INTO `sales` (" .
+	"`active`, `userid`, `title`, `listingid`, `location`, `starttime`, `endtime`, `imgchk`, " .
+	"`binprice`, `startprice`, `shippingcost`, " .
+	"`bin`, `bestoffer`, `auction`, `endprice`, `realendtime`, `description`, `bidders`) VALUES (" .
 		  
-		  "'T', '" . $seller . "', '" . $title . "', '" . $itemid . "', '" . $location .
-		  "', '" . $starttime . "', '" . $endtime . "', '" . $img . "', '";
-		$query .= ($isBin ? $bin : "0.0");
-		$query .= "', '";
-		$query .= ($Auction ? $startprice : "0.0");
+	"'T', '" . $seller . "', '" . $title . "', '" . $itemid . "', '" . $location .
+	"', '" . $starttime . "', '" . $endtime . "', '" . $img . "', '";
 
-		$query .= "', '" . $shippingcost . "', '" . ($isBin?"T":"F") . "', '" . ($bestOffer?"T":"F") . "', '" . ($Auction?"T":"F") . "', " . "0,0,0,0);";
+$query .= ($isBin ? $bin : "0.0");
+	$query .= "', '";
+	$query .= ($Auction ? $startprice : "0.0");
+
+	$query .= "', '" . $shippingcost . "', '" . ($isBin?"T":"F") . "', '" . ($bestOffer?"T":"F") . "', '" . ($Auction?"T":"F") . "', " . "0,0,0,0);";
 ```
 Looking back, it certainly wasn't the most elegant, but it worked well.
 
