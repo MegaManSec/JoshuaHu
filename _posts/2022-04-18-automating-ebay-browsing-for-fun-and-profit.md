@@ -16,7 +16,9 @@ Originally, I collected everything; consoles, games, and everything in-between. 
 Doing repairs on broken systems was also a good way to practise some skills in electrical engineering (bleh).
 
 The reason I got into all of this is for another time to discuss, but I do find the NES and its history fascinating, and video game history outside of the USA and Japan has often been neglected.
-So while collecting, I also obtained a great detail of knowledge about the history of the games I was collecting, and have talked about that in various conferences, papers, and other write-ups.
+So while collecting, I also obtained a great detail of knowledge about the history of the games I was collecting.
+
+I've talked at various conferences (such as Penny Arcade Exhibition/PAX), have [written papers](https://www.linkedin.com/in/joshua-alexander-rogers/recent-activity/posts), have [contributed to newspapers](https://www.smh.com.au/technology/nintendos-nes-launched-30-years-ago-in-australia-this-month-or-did-it-20170707-gx6ex0.html), and have even contributed to [museum exhibitions](https://playitagainproject.com/nintendo-arrives-in-australia/) about the history of video games.
 I've also met many great people by collecting and researching these games and their histories, including professional scholars, archivists, and people from similar professions.
 One day (yeah, I'll keep saying it!) my book will be finished about the history of the NES in Australia/Europe.
 
