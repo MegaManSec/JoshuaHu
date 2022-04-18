@@ -51,6 +51,14 @@ Enumerating each of the _itemid_ values, the local database was queried to check
 If there are any new listings that had not been added to the database, the next step was to retrieve all the information about that listing, and decide what to do with the data.
 eBay provides another API to retrieve detailed information about listings, called [GetSingleItem](https://developer.ebay.com/devzone/shopping/docs/CallRef/GetSingleItem.html#detailControls).  They also provide an API to retrieve information about the shipping details of an item (some listers would inflate shipping costs, making their listing appear cheaper in the "original price") named [GetShippingCosts](https://developer.ebay.com/devzone/shopping/docs/CallRef/GetShippingCosts.html).
 By using these two APIs, the following information was collected:
+
+| Priority apples | Second priority | Third priority |
+|-------|--------|---------|
+| ambrosia | gala | red delicious |
+| pink lady | jazz | macintosh |
+| honeycrisp | granny smith | fuji |
+
+
 |Field| Type   | Note                                  |
 |--------------|--------|---------------------------------------|
 | UserID       | String |                                       |
