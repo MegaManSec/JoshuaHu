@@ -7,9 +7,6 @@ categories: journal
 #image: cutting.jpg
 ---
 
-
-Pikeproof: 
-
 **Introduction**
 
 In 2016, Google released Project Wycheproof. Put into simple terms, Wycheproof is a set of testcases for cryptographic libraries which have been formulated to pick up mistakes and pitfalls of certain cryptographic algorithms. If any of the testcases fail, it may indicate a vulnerability in the cryptographic library. If any of the testcases fail, it may indicate a vulnerability in the cryptographic library. A recent example of such a pitfall is [CVE-2022-21449/"Psychic Signatures" Java Vulnerability ](https://neilmadden.blog/2022/04/19/psychic-signatures-in-java/) -- something that Wycheproof would have picked up if anybody had bothered to use it.
