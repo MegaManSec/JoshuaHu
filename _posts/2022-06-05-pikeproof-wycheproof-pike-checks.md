@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Attacking The Pike Scripting Language (And The Nettle Cryptographic Library) With Wycheproof Crypto Tests"
+title: "Attacking a scripting language's cryptographic functions with Wycheproof"
 author: "Joshua Rogers"
 categories: journal
 #tags: [security work life]
