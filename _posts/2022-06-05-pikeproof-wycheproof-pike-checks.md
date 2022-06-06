@@ -20,7 +20,8 @@ Note: this research was conducted for/while working at Opera Software.
 
 **PikeProof**
 
-To test both Nettle and Pike for defects, I created a Pike project which uses Wycheproof's testcases where possible (not all tests concern algorithms that are supported in Pike) and reports any failures. This project was named PikeProof – i.e. _nettle-wycheproof-testsuite_. Note: although this project can check for issues in Pike, it does not guarantee that some issues do not exist in Nettle -- Pike's glue may 'hide' the issues in Nettle.
+To test both Nettle and Pike for defects, I created a Pike project which uses Wycheproof's testcases where possible (not all tests concern algorithms that are supported in Pike) and reports any failures. This project was named PikeProof (also known as _nettle-wycheproof-testsuite_.)
+Note: although this project can check for issues in Pike, it does not guarantee that some issues do not exist in Nettle -- Pike's glue may 'hide' the issues in Nettle.
 
 When writing the script, it quickly became apparent that I had to create a modular system that would plug-and-play different algorithms. This is because different algorithms require different initialisations, instructions, and designs. One of the biggest issues I had in creating this project was finding out how some algorithms are supposed to work -- I'm no cryptography expert, so it took quite a long time to learn about how these algorithms should be used.
 
@@ -76,7 +77,7 @@ Some other minor issues were found, however, are likely not worth noting.
 
 **Conclusion**
 
-Based on a suggestion from [Guido Vranken](guidovranken.com), I also tried running this script on a set of different architectures, since Nettle has assembly optimization for different CPUs. In the end, however, no extra issues were found.
+Based on a suggestion from [Guido Vranken](https://guidovranken.com), I also tried running this script on a set of different architectures, since Nettle has assembly optimization for different CPUs. In the end, however, no extra issues were found.
 
 The whole project itself was certainly something fun to work with -- learning about different cryptographic algorithms, how they work and what they're used for, and how to script in Pike.
 
