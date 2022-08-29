@@ -67,11 +67,12 @@ Because `handle_special_actions` is called at the beginning of every test, it is
 
 **Results**
 
-In total, four _major_ vulnerabilities were discovered in Pike's crypto handling (note: none of these bugs were due to issues in the Nettle library):
+In total, five _major_ vulnerabilities were discovered in Pike's crypto handling (note: none of these bugs were due to issues in the Nettle library):
 1. Null Pointer Dereference in [Crypto.AES.CCM](https://git.lysator.liu.se/pikelang/pike/-/issues/10072)
 2. Incorrect Digest [Crypto.AES.CCM](https://git.lysator.liu.se/pikelang/pike/-/issues/10074)
 3. Infinite Loop [Crypto.DSA](https://git.lysator.liu.se/pikelang/pike/-/issues/10075)
-4. Incorrect Signature Verification [Crypto.ECC.SECP_521R1](https://git.lysator.liu.se/pikelang/pike/-/issues/10078)
+4. Incorrect Signature Verification [Crypto.DSA](https://git.lysator.liu.se/pikelang/pike/-/issues/10077)
+5. Incorrect Signature Verification [Crypto.ECC.SECP_521R1](https://git.lysator.liu.se/pikelang/pike/-/issues/10078)
 
 Some other minor issues were found, however, are likely not worth noting.
 
