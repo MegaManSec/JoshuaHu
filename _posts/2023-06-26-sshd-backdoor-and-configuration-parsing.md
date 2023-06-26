@@ -76,4 +76,8 @@ What's even more fun is that when `sshd` is reloaded, current connections do not
 
 Is this what the DoD meant by [living off the land](https://media.defense.gov/2023/May/24/2003229517/-1/-1/0/CSA_Living_off_the_Land.PDF)? By knowing how programs use configuration files and abusing their functionality for exploitation?
 
-A more persistent threat would use something like [shc](https://github.com/neurobin/shc) to convert these scripts into binaries, use some type of encryption/encoding for the retrieval of the public key (versus plaintext over DNS), and use an alternative to altering the `ssh.service` systemd file (for example some type of service that monitors for when `sshd` starts/reloads and performs the necessary changes at the appropriate times, independent of systemd.)
+A more persistent threat would:
+1. Use something like [shc](https://github.com/neurobin/shc) to convert these scripts into binaries,
+2. Use some type of encryption/encoding for the retrieval of the public key (versus plaintext over DNS),
+3. Set the `ctime` of the files using a [basic trick](https://unix.stackexchange.com/a/557160),
+4. Use an alternative to altering the `ssh.service` systemd file (for example some type of service that monitors for when `sshd` starts/reloads and performs the necessary changes at the appropriate times, independent of systemd.) 
