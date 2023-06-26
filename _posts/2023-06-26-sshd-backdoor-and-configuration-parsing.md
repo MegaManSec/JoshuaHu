@@ -9,7 +9,7 @@ Configuration parsing is an interesting topic I have been working on in the cont
 
 A recent post titled [Everything that uses configuration files should report where they're located](https://utcc.utoronto.ca/~cks/space/blog/sysadmin/ReportConfigFileLocations) piqued my interest, as it related to the unique ways that configuration files are located, prioritized, and eventually parsed. The original post argued that programs should output the location that configuration files are parsed. I concur, and also believe that programs should report their _configurations_ as they are running. This post, among some information about `sshd`, outlines why.
 
-As pointed out in the comments of the HN post, parsing of configuration files generally take a "last occurrence wins" strategy -- if the same configuration option is specified multiple times, the final one takes preference (assuming the option cannot be specified multiple times). However, some programs, like `sshd` take the opposite approach: the _first_ occurrence wins. From `man sshd(8)`:
+As pointed out in the comments of [a HN post](https://news.ycombinator.com/item?id=36465886), parsing of configuration files generally take a "last occurrence wins" strategy -- if the same configuration option is specified multiple times, the final one takes preference (assuming the option cannot be specified multiple times). However, some programs, like `sshd` take the opposite approach: the _first_ occurrence wins. From `man sshd(8)`:
 ```
 Unless noted otherwise, for each keyword, the first obtained value will be used.
 ```
@@ -70,7 +70,7 @@ The key which exists in `/etc/calendar/root` will now be accepted for all users 
 
 Things get a bit more interesting when it comes to to `sshd`. `sshd_config` in Debian 11+ and Ubuntu 20.04+ "[sets several options as standard in /etc/ssh/sshd_config which are not the default](https://manpages.debian.org/bullseye/openssh-server/sshd_config.5.en.html)". Namely, `Include /etc/ssh/sshd_config.d/*.conf`. This is the first actionable configuration in `/etc/ssh/sshd_config` on Debian 11 and Ubuntu 20.04.
 
-Therefore, instead of editing `/etc/ssh/sshd_config`, it is possible to simply create a file ending in `.conf.` in `/etc/ssh/sshd_config.d/` and restart `sshd`, and then delete the file.
+Therefore, instead of editing `/etc/ssh/sshd_config`, it is possible to simply create a file ending in `.conf` in `/etc/ssh/sshd_config.d/` and restart `sshd`, and then delete the file.
 
 What's even more fun is that when `sshd` is reloaded, current connections do not acquire the new configuration. For multiplexed SSH connections, this means you may even hide your connection using an old configuration.
 
