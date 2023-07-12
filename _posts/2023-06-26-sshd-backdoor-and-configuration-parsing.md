@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Everything that uses configurations should report the values they are using (or: achieving persistence with a hidden SSH backdoor)"
+title: "Achieving persistence with a hidden SSH backdoor"
 author: "Joshua Rogers"
 categories: security
 ---
