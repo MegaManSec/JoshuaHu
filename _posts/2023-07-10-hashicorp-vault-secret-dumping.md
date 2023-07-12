@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hacking Hashicorp's Vault Secrets Using Login Enumeration"
+title: "Stealing All of Hashicorp Vault's Secrets Using Login Enumeration"
 author: "Joshua Rogers"
 categories: security
 ---
@@ -26,11 +26,10 @@ I made a bash script that recursively traverses each directory in Vault and atte
    - These functions handle tasks like creating directory structures, listing keys in a given path, and recursively enumerating subdirectories (within Vault).
 
 3. **Execution Flow**:
-   - The script sets the required environment variables, including the Vault address, and loops through each of the VAULT_TOKEN values in the "keys" file.
    - Nested loops iterate through different Vault paths (`kv`, `secret`, and `ssh`), listing subdirectories and calling the `enumerate_dirs()` function.
    - The `enumerate_dirs()` function calls the `list_keys()` function, which attempts to download any secrets in a directory.
    - The `enumerate_dirs()` function then calls itself and attempts to traverse further directories (a directory can contain secrets and another directory), which will run `list_keys().
-   - This recursive enumeration contains until all directories, secrets, Vault paths, and VAULT_TOKEN values, are traversed.
+   - This recursive enumeration continues until all directories, secrets, Vault paths, and VAULT_TOKEN values, are traversed.
 
 tl;dr: If you want to steal all the Vault secrets that can be accessed using a Vault token (or multiple), edit the following script's `VAULT_ADDR` value, and fill a file named `keys` with `VAULT_TOKEN` values.
 
