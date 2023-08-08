@@ -9,6 +9,8 @@ In recent years, nmap's prevalence for large-scale (TCP) port scanning has dimin
 
 Recently, I've been working on a tool which continuously scans large-scale networks (multiple /8 and /12 blocks, for ports 1-65535) and identifies the services running behind them (with the goal of periodically comparing reachable services between certain time-frames). Creating such a tool, I faced a few difficulties in terms of speed and accuracy, and I wanted to detail the challenges, considerations, and solutions, that I discovered. So, here's five tips for port service scanning at scale.
 
+---
+
 ### (1). Split scanning into multiple phases: use the right tool for the right job.
 It's as simple as this: at any serious type of scale, nmap is too slow for the task of determining whether a port is open or closed. Therefore, it's best to completely remove nmap from the formula when it comes to discovering open ports. Instead, we opt for purpose-built scanners like [masscan](https://github.com/robertdavidgraham/masscan) and [zmap](https://github.com/zmap/zmap). These tools are (literally) one thousand times faster than nmap when it comes to port discovery. By using these tools, we can then feed their results into nmap for service scanning. I ended up going with masscan.
 
