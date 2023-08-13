@@ -40,7 +40,7 @@ The format is also quite simple:
 
 ---
 
-It is extremely noteworthy that when nmap sends a probe, it **deliberately waits for a pre-defined amount of time**. That is to say, **there is a minimum amount of time each probe takes**. If a match is not received, the next probe is sent; up to a certain 'rarity' of probe -- "_Nmap uses the rarity metric to avoid trying probes that are extremely unlikely to match_". By default, probes are sent up to the _rarity_ of 7. For probe rarity 1-7, each probe waits at least 6-seconds (but most wait 7.5-seconds):
+It is extremely noteworthy that when nmap sends a probe, it **deliberately waits for a pre-defined amount of time**. That is to say, **there is a minimum amount of time each probe takes**. **Probes are not parallelized per port**. The first probe will be sent and a 6 seconds wait-time (assuming the connection is not closed) will happen. After 6 seconds, an attempt at matching the response happens. If a match is not received, the next probe is sent; up to a certain 'rarity' of probe -- "_Nmap uses the rarity metric to avoid trying probes that are extremely unlikely to match_". By default, probes are sent up to the _rarity_ of 7. For probe rarity 1-7, each probe waits at least 6-seconds (but most wait 7.5-seconds):
 ```
 # Wait for at least 6 seconds for data.  It used to be 5, but some
 # smtp services have lately been instituting an artificial pause (see
