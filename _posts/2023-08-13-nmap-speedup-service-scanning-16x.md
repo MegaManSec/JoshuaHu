@@ -115,7 +115,7 @@ Success! We've just turned our 160-second scan into just 10-seconds. Can we do a
 
 ---
 Using nmap's debugging flag, we can check to see the timeout and delays for various of its actions:
-```
+```text
 # nmap localhost -p9999 -sV -d2
 [...]
 NSOCK INFO [9.1460s] nsock_write(): Write request for 48 bytes to IOD #29 EID 699 [127.0.0.1:9999]
@@ -135,7 +135,7 @@ NSOCK INFO [9.4620s] nsock_read(): Read request from IOD #1 [127.0.0.1:9999] (ti
 ```
 
 We can see that the timeout is correctly being set to 300ms for the service scanning. However, NSE scripts, which nmap uses for version detection (among other things), use a different system for setting the timeout -- in this case, there is a maximum timeout of 7000ms. Diving into `nselib/comm.lua` reveals how this timeout is set by the scripts:
-```
+```lua
 -- This timeout value (in ms) is added to the connect timeout and represents
 -- the amount of processing time allowed for the host before it sends a packet.
 -- For justification of this value, see totalwaitms in nmap-service-probes
@@ -167,3 +167,61 @@ local function get_timeouts(host, opts)
 end
 ```
 
+Basically, a connection timeout and a request timeout is set based on the options defined in the NSE files. Not all default NSE scripts implicitly set a timeout, so a minimum 6-second _request_timeout_ is often used. Even from the scripts that do set a timeout, the timeout is usually 5-seconds or more.
+
+Instead of editing every NSE file to implicitly set a low timeout or `nselib/comm.lua`, we can edit the _l_set_timeout_ function in [nse_nsock.cc](https://github.com/nmap/nmap/blob/master/nse_nsock.cc#L772) to set a maximum of a 500ms timeout.
+
+The exact speed-up from doing this depends on the scripts which run during service and version scanning.
+
+---
+
+In this post, we've explored how nmap has a very high forced-delay for its service scanning, as well as high timeouts for its NSE scripts. By making a few simple changes, we can speed up service scanning by up to 16x. Note that the values of 500, 300, and 200ms are all arbitrary, however they are what I decided on based on my use-case and the network configuration of my environment.
+
+A patch is provided for nmap.
+```diff
+diff --git a/nse_nsock.cc b/nse_nsock.cc
+index 18a75a7bb..2e88c0fed 100644
+--- a/nse_nsock.cc
++++ b/nse_nsock.cc
+@@ -769,6 +769,8 @@ static int l_set_timeout (lua_State *L)
+   int timeout = nseU_checkinteger(L, 2);
+   if (timeout < -1) /* -1 is no timeout */
+     return luaL_error(L, "Negative timeout: %f", timeout);
++  if (timeout > 500)
++    timeout = 500;
+   nu->timeout = timeout;
+   return nseU_success(L);
+ }
+diff --git a/service_scan.cc b/service_scan.cc
+index f7de2ea8c..9b6d3af1f 100644
+--- a/service_scan.cc
++++ b/service_scan.cc
+@@ -1342,10 +1342,11 @@ void parse_nmap_service_probe_file(AllProbes *AP, const char *filename) {
+       } else if (strncmp(line, "fallback ", 9) == 0) {
+         newProbe->fallbackStr = strdup(line + 9);
+       } else if (strncmp(line, "totalwaitms ", 12) == 0) {
+-        long waitms = strtol(line + 12, NULL, 10);
++/*        long waitms = strtol(line + 12, NULL, 10);
+         if (waitms < 100 || waitms > 300000)
+           fatal("Error on line %d of nmap-service-probes file (%s): bad totalwaitms value.  Must be between 100 and 300000 milliseconds", lineno, filename);
+         newProbe->totalwaitms = waitms;
++*/
+       } else if (strncmp(line, "tcpwrappedms ", 13) == 0) {
+         long waitms = strtol(line + 13, NULL, 10);
+         if (waitms < 100 || waitms > 300000)
+diff --git a/service_scan.h b/service_scan.h
+index b17e3d242..807faa77a 100644
+--- a/service_scan.h
++++ b/service_scan.h
+@@ -84,8 +84,8 @@
+ #include <assert.h>
+ 
+ /**********************  DEFINES/ENUMS ***********************************/
+-#define DEFAULT_SERVICEWAITMS 5000
+-#define DEFAULT_TCPWRAPPEDMS 2000   // connections closed after this timeout are not considered "tcpwrapped"
++#define DEFAULT_SERVICEWAITMS 300
++#define DEFAULT_TCPWRAPPEDMS 200   // connections closed after this timeout are not considered "tcpwrapped"
+ #define DEFAULT_CONNECT_TIMEOUT 5000
+ #define DEFAULT_CONNECT_SSL_TIMEOUT 8000  // includes connect() + ssl negotiation
+ #define MAXFALLBACKS 20 /* How many comma separated fallbacks are allowed in the service-probes file? */
+```
