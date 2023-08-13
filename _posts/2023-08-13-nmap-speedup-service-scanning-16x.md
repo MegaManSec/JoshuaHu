@@ -9,7 +9,7 @@ In my [previous post](/port-scanning-networks-speeding-up-nmap-for-large-scales)
 
 ---
 
-In order to determine the service running on a specific port, nmap uses a so-called "_service detection probe list_" which is located in a file named "_nmap-service-probes_".
+In order to determine the service running on a specific port, nmap uses a so-called "_service detection probe list_" which is located in a file named "_nmap-service-probes_" (on my system, it is located in _/usr/share/nmap/nmap-service-probes_).
 
 A probe looks like the following:
 
