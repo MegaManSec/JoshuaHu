@@ -9,7 +9,7 @@ In my [previous post](/port-scanning-networks-speeding-up-nmap-for-large-scales)
 
 ---
 
-In order to determine the service running on a specific port, nmap uses a so-called "service detection probe list" which is located in a file named "nmap-service-probes".
+In order to determine the service running on a specific port, nmap uses a so-called "_service detection probe list_" which is located in a file named "_nmap-service-probes_".
 
 A probe looks like the following:
 
@@ -34,13 +34,13 @@ The syntax for the probe is the following:
 `match <service> <pattern> [<versioninfo>]`
 
 The format is also quite simple:
-* _service_: The service name such as "http", "ssh", "mysql", and so on.
+* _service_: The service name such as "_http_", "_ssh_", "_mysql_", and so on.
 * _pattern_: a perl-form regex pattern to match the response received from the probe.
 * _[\<versioninfo\>]_: Various optional flags for extracting/displaying extrra information about the match ([read more here](https://nmap.org/book/vscan-fileformat.html))
 
 ---
 
-It is extremely noteworthy that when nmap sends a probe, it **deliberately waits for a pre-defined amount of time**. That is to say, **there is a minimum amount of time each probe takes**. If a match is not received, the next probe is sent; up to a certain 'rarity' of probe -- "Nmap uses the rarity metric to avoid trying probes that are extremely unlikely to match". By default, probes are sent up to the _rarity_ of 7. For probe rarity 1-7, each probe waits at least 6-seconds (but most wait 7.5-seconds):
+It is extremely noteworthy that when nmap sends a probe, it **deliberately waits for a pre-defined amount of time**. That is to say, **there is a minimum amount of time each probe takes**. If a match is not received, the next probe is sent; up to a certain 'rarity' of probe -- "_Nmap uses the rarity metric to avoid trying probes that are extremely unlikely to match_". By default, probes are sent up to the _rarity_ of 7. For probe rarity 1-7, each probe waits at least 6-seconds (but most wait 7.5-seconds):
 ```
 # Wait for at least 6 seconds for data.  It used to be 5, but some
 # smtp services have lately been instituting an artificial pause (see
