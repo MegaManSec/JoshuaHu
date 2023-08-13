@@ -32,6 +32,6 @@ The results from a scan for open ports does not need to be fed into the service 
 ---
 
 ### (5). nmap should be patched the not deliberately be slow when scanning hosts.
-As it turns out, nmap's service scanning speed is deliberately extremely slow for accuracy purposes. Read more about it in my next post.
+As it turns out, nmap's service scanning speed is deliberately extremely slow for accuracy purposes. By making some changes to the nmap code, we can get 16x speedup in service scanning. Read about it [on this blog post here](/nmap-speedup-service-scanning-16x).
 
 
