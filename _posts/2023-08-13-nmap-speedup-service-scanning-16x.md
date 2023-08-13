@@ -96,3 +96,74 @@ user    0m0.401s
 sys     0m0.084s
 ```
 That isn't much of an improvement at all.
+
+As it turns out, probes which do not have a specifically defined _servicewaitms_ use a default value of 5000. Therefore, we can either add values to each of the probes, or we can compile nmap ourselves and change the default value in [service_scan.h](https://github.com/nmap/nmap/blob/master/service_scan.h#L79). I went for the second option, and changed the default value in nmap's source code and then compiled my own version of nmap.
+
+I didn't want to change the values of _totalwaitms_ and _tcpwrappedms_ at all in the /usr/share/nmap/nmap-service-probes file, so I also edited the [parsing code](https://github.com/nmap/nmap/blob/master/service_scan.cc#L1358) such that these values in the nmap-service-probes file are completely ignored:
+
+I once again tried scanning, and..
+```
+# time nmap localhost -p9999 -sV
+[..]
+
+real    0m10.481s
+user    0m0.400s
+sys     0m0.037s
+```
+
+Success! We've just turned our 160-second scan into just 10-seconds. Can we do anything to make it even faster? 
+
+---
+Using nmap's debugging flag, we can check to see the timeout and delays for various of its actions:
+```
+# nmap localhost -p9999 -sV -d2
+[...]
+NSOCK INFO [9.1460s] nsock_write(): Write request for 48 bytes to IOD #29 EID 699 [127.0.0.1:9999]
+NSOCK INFO [9.1460s] nsock_read(): Read request from IOD #29 [127.0.0.1:9999] (timeout: 300ms) EID 706
+NSOCK INFO [9.1460s] nsock_trace_handler_callback(): Callback: WRITE SUCCESS for EID 699 [127.0.0.1:9999]
+NSOCK INFO [9.4460s] nsock_trace_handler_callback(): Callback: READ TIMEOUT for EID 706 [127.0.0.1:9999]
+NSOCK INFO [9.4460s] nsock_iod_delete(): nsock_iod_delete (IOD #29)
+Completed Service scan at 15:02, 9.01s elapsed (1 service on 1 host)
+NSE: Script scanning 127.0.0.1.
+NSE: Starting runlevel 1 (of 2) scan.
+Initiating NSE at 15:02
+Completed NSE at 15:02, 0.00s elapsed
+NSE: Starting runlevel 2 (of 2) scan.
+Initiating NSE at 15:02
+[..]
+NSOCK INFO [9.4620s] nsock_read(): Read request from IOD #1 [127.0.0.1:9999] (timeout: 7000ms) EID 26
+```
+
+We can see that the timeout is correctly being set to 300ms for the service scanning. However, NSE scripts, which nmap uses for version detection (among other things), use a different system for setting the timeout -- in this case, there is a maximum timeout of 7000ms. Diving into `nselib/comm.lua` reveals how this timeout is set by the scripts:
+```
+-- This timeout value (in ms) is added to the connect timeout and represents
+-- the amount of processing time allowed for the host before it sends a packet.
+-- For justification of this value, see totalwaitms in nmap-service-probes
+local REQUEST_TIMEOUT = 6000
+
+-- Function used to get a connect and request timeout based on specified options
+local function get_timeouts(host, opts)
+  local connect_timeout, request_timeout
+  -- connect_timeout based on options or stdnse.get_timeout()
+  if opts and opts.connect_timeout then
+    connect_timeout = opts.connect_timeout
+  elseif opts and opts.timeout then
+    connect_timeout = opts.timeout
+  else
+    connect_timeout = stdnse.get_timeout(host)
+  end
+
+  -- request_timeout based on options or REQUEST_TIMEOUT + connect_timeout
+  if opts and opts.request_timeout then
+    request_timeout = opts.request_timeout
+  elseif opts and opts.timeout then
+    request_timeout = opts.timeout
+  else
+    request_timeout = REQUEST_TIMEOUT
+  end
+  request_timeout = request_timeout + connect_timeout
+
+  return connect_timeout, request_timeout
+end
+```
+
