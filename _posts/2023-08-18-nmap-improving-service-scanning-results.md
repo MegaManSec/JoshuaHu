@@ -9,6 +9,7 @@ In my past two blog posts, I've explored how to combine multiple port scanning t
 
 ---
 As discussed in the [previous post](/nmap-speedup-service-scanning-16x), the _nmap-service-probes_ file contains a series of probes and subsequent matching rules. To put it simply, in order to discover which service is running on a port, nmap will send a probe, wait a pre-defined period of time (unless the connection is closed) of around 6-7 seconds, and then attempt to match the response with a string. If no match is found, the next probe is sent. This repeats until either a match is found, or until the end of the list of probes. The process looks a bit like this:
+
 ![nmap probing diagram](/files/nmap-probes.png)
 
 As we can see, if a service is not identified, every probe is sent one after another -- not in parallel. This means that any service that nmap doesn't know about is going to slow down our scanning considerably.
