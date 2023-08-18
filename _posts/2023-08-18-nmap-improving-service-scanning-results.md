@@ -12,7 +12,7 @@ As discussed in the [previous post](/nmap-speedup-service-scanning-16x), the _nm
 
 ![nmap probing diagram](/files/nmap-probes.png)
 
-As we can see, if a service is not identified, every probe is sent one after another -- not in parallel. This means that any service that nmap doesn't know about is going to slow down our scanning considerably.
+As we can see, if a service is not identified, every probe is sent one after another -- **not in parallel**. This means that any service that nmap doesn't know about is going to slow down our scanning considerably.
 
 In the context of my tool, I was scanning an extremely large internal network which hosted thousands of instances of a software which nmap did not know about. This was an extreme slowdown, since it would send all the probes to all the instances, effectively blocking the service scanning process.
 
