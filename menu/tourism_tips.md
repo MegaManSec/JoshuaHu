@@ -132,7 +132,7 @@ Note: some of these restaurants provide a very small discount for Opera employee
 
 -   -   [PAMPA](https://goo.gl/maps/DUFogDxBzEjWjXuJA): Among some other things, this restaurant serves fresh Argentinian empanadas.
 
-**Breakfast/Brunch:
+**Breakfast/Brunch:**
 
 
 -   -   [Bułka z Masłem Włodkowica](https://goo.gl/maps/cxg5cAuPq4GjtZij8): Famous breakfast place in Wrocław, a bit overhyped but worth to check out.
