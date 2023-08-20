@@ -4,7 +4,7 @@ title: Recommendations for Wrocław
 permalink: /recommendations_wroclaw
 ---
 
-Wrocław is a medium-sized city located in the west of Poland. With an official population of 640,000 (with many hundreds of thousands likely not included in this statistic), it is Poland's fourth largest city.\
+Wrocław is a medium-sized city located in the west of Poland. With an official population of 640,000 (with many hundreds of thousands likely not included in this statistic), it is Poland's fourth largest city.
 Previously a part of Bohemia (Czechia), the Austrian Empire, Prussia and Germany (where it was known as, and is still the official name, "Breslau"; at the train station, for example, you can still see manhole covers entitled 'Breslau'), the city was [largely destroyed during World War 2](https://www.warhistoryonline.com/world-war-ii/defense-breslau-germany-fights.html), however was rebuilt: now, the city is a cultural and business hub for Poland.
 
 During your visit to the Wrocław, there are many things to see and do throughout the city (and beyond).
@@ -132,8 +132,8 @@ Note: some of these restaurants provide a very small discount for Opera employee
 
 -   -   [PAMPA](https://goo.gl/maps/DUFogDxBzEjWjXuJA): Among some other things, this restaurant serves fresh Argentinian empanadas.
 
-**Breakfast/Brunch:\
-**
+**Breakfast/Brunch:
+
 
 -   -   [Bułka z Masłem Włodkowica](https://goo.gl/maps/cxg5cAuPq4GjtZij8): Famous breakfast place in Wrocław, a bit overhyped but worth to check out.
     -   [Central Cafe](https://goo.gl/maps/Nqk9YJxrYDE9is2Y9)
