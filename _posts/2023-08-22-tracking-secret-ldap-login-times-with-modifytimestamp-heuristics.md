@@ -14,7 +14,7 @@ During a recent pentest of an LDAP server, I uncovered a clever trick to disclos
 Operational attributes are a special type of attributes that provide metadata about LDAP directory entries. There are multiple common ones, such as the following:
 
 **modifyTimestamp**: This attribute records the date and time when an LDAP entry was last modified. It's often used for auditing and tracking changes to directory entries. \
-**createTimestamp**: Similar to `modifyTimestamp`, this attribute records the date and time when an LDAP entry was created. \
+**createTimestamp**: Similar to **modifyTimestamp**, this attribute records the date and time when an LDAP entry was created. \
 **entryUUID**: Each LDAP entry is assigned a unique identifier (UUID), which is stored in this attribute. It's useful for tracking entries even if their Distinguished Name (DN) changes. \
 **entryDN**: This attribute contains the DN (Distinguished Name) of the entry itself. \
 **structuralObjectClass**: It indicates the structural object class of an entry, which defines the type of entry it is. \
