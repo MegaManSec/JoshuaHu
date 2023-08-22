@@ -39,7 +39,7 @@ where we can see, for example:
 **entryCSN**: 20230818070127.624230Z#000000#002#000000 \
 **modifiersName**: cn=root,dc=example,dc=com
 
---
+---
 
 ## The 'modifyTimestamp' Trick
 
