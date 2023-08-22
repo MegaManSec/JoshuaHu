@@ -8,9 +8,34 @@ categories: security
 During a recent pentest of an LDAP server, I uncovered a clever trick to disclose a hidden attribute which is used to record the exact time a user logs in. In this post, we'll delve into how this technique works, and how it can be used to expose concealed attributes like a 'VpnLoginTime'.
 
 
-### The 'modifyTimestamp' Trick and Operational Attributes
+### Operational Attributes
 
-_modifyTimestamp_ is a so-called _"operational attribute"_ in LDAP which is specifically designed to track the last modification time for an entry. Each user account has this attribute which looks like _20230809062809Z_. This is the YearMonthDayHourMinuteSecond that the user's account was changed _somehow_.
+Operational attributes are a special type of attributes that provide metadata about LDAP directory entries. There are multiple common ones, such as the following:
+**modifyTimestamp**: This attribute records the date and time when an LDAP entry was last modified. It's often used for auditing and tracking changes to directory entries.
+**createTimestamp**: Similar to `modifyTimestamp`, this attribute records the date and time when an LDAP entry was created.
+**entryUUID**: Each LDAP entry is assigned a unique identifier (UUID), which is stored in this attribute. It's useful for tracking entries even if their Distinguished Name (DN) changes.
+**entryDN**: This attribute contains the DN (Distinguished Name) of the entry itself.
+**structuralObjectClass**: It indicates the structural object class of an entry, which defines the type of entry it is.
+**subschemaSubentry**: This attribute points to the subschema entry in the directory, providing information about the schema used in the LDAP directory.
+
+
+You can search for operational attributes using the '+' query, such as:
+```
+ldapsearch -o ldif-wrap=no -x -LLL -H ldaps://ldap.server -b "ou=users,dc=example,dc=com"  '+'
+```
+
+where we can see, for example:
+
+**modifyTimestamp**: 20230817124530Z
+**createTimestamp**: 20230722093015Z
+**entryUUID**: 679b8b8a-045b-4e55-8a4c-23c7ec0d0012
+**entryDN**: cn=john.doe,ou=users,dc=example,dc=com
+**structuralObjectClass**: organizationalPerson
+**subschemaSubentry**: cn=Subschema
+
+### The 'modifyTimestamp' Trick
+
+_modifyTimestamp_ is an _"operational attribute"_ in LDAP which is specifically designed to track the last modification time for an entry. Each user account has this attribute which looks like _20230809062809Z_. This is the YearMonthDayHourMinuteSecond that the user's account was changed _somehow_.
 
 By regularly querying the LDAP server, we can check whether the _modifyTimestamp_ value for a specific user has changed.
 
