@@ -7,7 +7,6 @@ categories: security
 
 During a recent pentest of an LDAP server, I uncovered a clever trick to disclose a hidden attribute which is used to record the exact time a user logs in. In this post, we'll delve into how this technique works, and how it can be used to expose concealed attributes like a 'VpnLoginTime'.
 
-
 ## Operational Attributes
 
 Operational attributes are a special type of attributes that provide metadata about LDAP directory entries. There are multiple common ones, such as the following:
@@ -38,7 +37,6 @@ where we can see, for example:
 **entryCSN**: 20230818070127.624230Z#000000#002#000000 \
 **modifiersName**: cn=root,dc=example,dc=com
 
-
 ## The 'modifyTimestamp' Trick
 
 _modifyTimestamp_ is an _"operational attribute"_ in LDAP which is specifically designed to track the last modification time for an entry. Each user account has this attribute which looks like _20230809062809Z_. This is the YearMonthDayHourMinuteSecond that the user's account was changed _somehow_.
@@ -51,7 +49,7 @@ If we can see the _modifyTimestamp_ value change but we do not see any other cha
 
 ---
 
-While tracking a hidden attribute used to keep track of when a user logs in is interesting, there's a whole other discussion about the usefulness of this. Creepy? Sure. Intentional? No. Useful? Well... Maybe an attacker can identify patterns of when a user is logging in for stalking purposes, or for a future social engineering attack with a more realistic time.
+While tracking a hidden attribute used to keep track of when a user logs in is interesting, there's a whole other discussion about the usefulness of this. Creepy? Sure. Intentional? No. Useful? Well... Maybe an attacker can identify patterns of when a user is logging in for stalking purposes, or for a future social engineering attack with a more realistic time. Regardless of any of this, I just thought this was a fun discovery worth noting somewhere.
 
 ---
 
