@@ -43,13 +43,13 @@ where we can see, for example:
 
 ## The 'modifyTimestamp' Trick
 
-*modifyTimestamp* is an _"operational attribute"_ in LDAP which is specifically designed to track the last modification time for an entry. Each user account has this attribute which looks like *20230809062809Z*. This is the YearMonthDayHourMinuteSecond that the user's account was changed _somehow_.
+**modifyTimestamp** is an _"operational attribute"_ in LDAP which is specifically designed to track the last modification time for an entry. Each user account has this attribute which looks like **20230809062809Z**. This is the YearMonthDayHourMinuteSecond that the user's account was changed _somehow_.
 
-By regularly querying the LDAP server, we can check whether the *modifyTimestamp* value for a specific user has changed.
+By regularly querying the LDAP server, we can check whether the **modifyTimestamp** value for a specific user has changed.
 
-If, for example, a hidden attribute for a user tracks their last login (such as to a VPN using 'VpnLoginTime'), then we don't need to see the hidden attribute: we just need to see a new *modifyTimeStamp* and no other attribute change.
+If, for example, a hidden attribute for a user tracks their last login (such as to a VPN using 'VpnLoginTime'), then we don't need to see the hidden attribute: we just need to see a new **modifyTimeStamp** and no other attribute change.
 
-If we can see the *modifyTimestamp* value change but we do not see any other change to the user, then we know some type of hidden attribute has been modified. If there is no hidden attribute that is being updated regularly, then we can use this as a heuristic to strongly infer that the user has logged in at the new value of *modifyTimestamp*.
+If we can see the **modifyTimestamp** value change but we do not see any other change to the user, then we know some type of hidden attribute has been modified. If there is no hidden attribute that is being updated regularly, then we can use this as a heuristic to strongly infer that the user has logged in at the new value of **modifyTimestamp**.
 
 ---
 
@@ -57,4 +57,4 @@ While tracking a hidden attribute used to keep track of when a user logs in is i
 
 ---
 
-Of course, it is possible to hide operational attributes, which would also involve the *entryCSN* attribute, since it also tracks time. It may also be necessary to hide the *modifiersName* operational attribute too, since it can be used to infer a change has happened (and even identify the user which made the change).
+Of course, it is possible to hide operational attributes, which would also involve the **entryCSN** attribute, since it also tracks time. It may also be necessary to hide the **modifiersName** operational attribute too, since it can be used to infer a change has happened (and even identify the user which made the change).
