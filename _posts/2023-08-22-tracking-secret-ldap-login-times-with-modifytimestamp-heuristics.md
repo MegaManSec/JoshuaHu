@@ -7,8 +7,6 @@ categories: security
 
 During a recent pentest of an LDAP server, I uncovered a clever trick to disclose a hidden attribute which is used to record the exact time a user logs in. In this post, we'll delve into how this technique works, and how it can be used to expose concealed attributes like a 'VpnLoginTime'.
 
----
-
 ## Operational Attributes
 
 Operational attributes are a special type of attributes that provide metadata about LDAP directory entries. There are multiple common ones, such as the following:
@@ -38,8 +36,6 @@ where we can see, for example:
 **subschemaSubentry**: cn=Subschema \
 **entryCSN**: 20230818070127.624230Z#000000#002#000000 \
 **modifiersName**: cn=root,dc=example,dc=com
-
----
 
 ## The 'modifyTimestamp' Trick
 
