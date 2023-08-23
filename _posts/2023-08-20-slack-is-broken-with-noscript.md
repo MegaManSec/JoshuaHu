@@ -69,3 +69,7 @@ Please let us know if you have any further questions or concerns, and we’ll be
 ```
 
 Yay! Let's hope it gets patched soon enough.
+
+---
+
+Update: In fewer than 24 hours, it was fixed. Yay for bug bounties being useful for at least talking to a human!
