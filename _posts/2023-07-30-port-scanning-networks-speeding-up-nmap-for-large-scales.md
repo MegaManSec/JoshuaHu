@@ -7,7 +7,7 @@ categories: security
 
 In recent years, nmap's prevalence for large-scale (TCP) port scanning has diminiuished due to newer and faster tools such as zmap and masscan becoming available. However, nmap's service scanning still remains the best tool for identification of what is actually running on open ports, with its service scanning probes (and its scripting engine).
 
-Recently, I've been working on a tool which continuously scans large-scale networks (multiple /8 and /12 blocks, for ports 1-65535) and identifies the services running behind them (with the goal of periodically comparing reachable services between certain time-frames). Creating such a tool, I faced a few difficulties in terms of speed and accuracy, and I wanted to detail the challenges, considerations, and solutions, that I discovered. So, here's five tips for port service scanning at scale.
+Recently, I've been working on a tool which continuously scans large-scale networks (multiple /8 and /12 blocks, for ports 1-65535) and identifies the services running behind them (with the goal of periodically comparing reachable services between certain time-frames). Creating such a tool, I faced a few difficulties in terms of speed and accuracy, and I wanted to detail the challenges, considerations, and solutions, that I discovered (and with the massive help of my former boss). So, here's five tips for port service scanning at scale.
 
 ---
 
@@ -31,7 +31,7 @@ The results from a scan for open ports does not need to be fed into the service 
 
 ---
 
-### (5). nmap should be patched the not deliberately be slow when scanning hosts.
+### (5). nmap should be patched to not deliberately be slow when scanning hosts.
 As it turns out, nmap's service scanning speed is deliberately extremely slow for accuracy purposes. By making some changes to the nmap code, we can get 16x speedup in service scanning. Read about it [on this blog post here](/nmap-speedup-service-scanning-16x).
 
 
