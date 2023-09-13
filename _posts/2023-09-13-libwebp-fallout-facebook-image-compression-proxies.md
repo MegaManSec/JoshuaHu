@@ -16,7 +16,11 @@ Unable to Add Attachment
 Your image couldn't be uploaded due to restrictions on image dimensions. Image should be less than 2048 pixels in any dimension.
 ```
 
-Seemingly, this is because Facebook's systems which process uploaded images (whether it be its machine learning systems for classification, anti-spam/malicious, re-sizing, or compression) are vulnerable to CVE-2023-4863, and in order to mitigate the risk of a user uploading a malicious image to pwn Facebook's image processing systems (which are inevitably completely segregated from anything else due to the plethora of image processing exploits), they have restricted the upload size to a maximum which they believe does not pose a risk.
+Seemingly, this is because Facebook's systems which process uploaded images (whether it be its machine learning systems for classification, anti-spam/malicious, re-sizing, or compression) are vulnerable to CVE-2023-4863.
+
+Most likely, in order to mitigate the risk of a user uploading a malicious image to pwn Facebook's image processing systems (which are inevitably completely segregated from anything else due to the plethora of image processing exploits), they have restricted the upload size to a maximum which they believe does not pose a risk.
+
+---
 
 CVE-2023-4863 is going to be so much more than just Chrome, Firefox, and other browsers. Any system or service which processes images or relies on libwebp is vulnerable. That includes:
 - ffmpeg
