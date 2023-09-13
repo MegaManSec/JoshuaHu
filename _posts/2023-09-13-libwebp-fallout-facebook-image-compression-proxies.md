@@ -20,6 +20,8 @@ Seemingly, this is because Facebook's systems which process uploaded images (whe
 
 Most likely, in order to mitigate the risk of a user uploading a malicious image to pwn Facebook's image processing systems (which are inevitably completely segregated from anything else due to the plethora of image processing exploits), they have restricted the upload size to a maximum which they believe does not pose a risk.
 
+Alternatively, this could be to protect Facebook's userbase from being attacked. Imagine being sent an image via Facebook and it infecting your phone (or at least your Facebook app).
+
 ---
 
 CVE-2023-4863 is going to be so much more than just Chrome, Firefox, and other browsers. Any system or service which processes images or relies on libwebp is vulnerable. That includes:
