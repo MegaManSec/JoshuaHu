@@ -9,7 +9,7 @@ The news of a critical 0day fixed in Chrome has been getting quite a lot of atte
 
 Now, the newest vulnerability affecting _libwebp_, tracked as CVE-2023-4863, has seemingly affected Facebook.
 
-Users of Facebook's Messenger that attempt to upload large-ish images of the webp format are greeted with the following error:
+Users of Facebook's Messenger (at least the messenger.com and facebook.com websites) that attempt to upload large-ish images of the webp format are greeted with the following error:
 ```
 Unable to Add Attachment
 
