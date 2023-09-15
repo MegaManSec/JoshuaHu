@@ -36,15 +36,22 @@ CVE-2023-4863 is going to be so much more than just Chrome, Firefox, and other b
 - libreoffice
 - electron apps (slack, discord, microsoft teams, twitch, visual studio code, slack, skype)
 
-And let's not forget content proxies which manipulate (for example for compression) image content:
+Even game engines like Unreal and Unity use libwebp.
+
+and those are just products. _Services_ are processing images one way or another, too. All of the big players process images one way or another.
+So let's not forget about content proxies which manipulate (for example for compression) image content:
 - Cloudflare
 - Akamai
 - Cloudfront
 - Fastly
 - ...
 
-Even game engines like Unreal and Unity use libwebp.
-
 It would be naive to assume that other languages don't use libwebp, too. [PHP supports libwebp](https://www.php.net/manual/en/function.imagewebp.php).
 
 I wouldn't be surprised if this is going to hit some proxies which also compress and scan webp images.
+
+---
+
+The big players inevitably segregate the systems which manipulate image files already: the risk involved with handling the arbitrary data from users is too high not to.
+However, smaller players likely don't have the resources (or perhaps knowledge) to create a completely isolated environment to protect against server-side attacks of these sorts of bugs.
+There's not much they can do, other than update, and hope that there aren't any more issues lurking.
