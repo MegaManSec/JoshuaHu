@@ -9,6 +9,8 @@ categories: security
 ## Introduction
 When fuzzing large-scale applications, using a single server (even with 4 64-core AMD Ryzen CPUs) may not be powerful enough by itself. That's where parallelized/distributed fuzzing comes in (i.e. automatic sharing of results between fuzzing systems). In this guide, we'll take a look at how to set up multiple servers fuzzing the same program using [AFL++](https://github.com/AFLplusplus/AFLplusplus), linked all together with an NFS (Network File System).
 
+## Instructions
+
 ### Step 1: Set up the NFS servers
 To start, we need to set up an NFS on on each of the systems we're going to be fuzzing on. In this post, we're going to use four servers named _fuzz_, _buzz_, _ping_, and _pong_. Each server has the IP addresses _10.0.0.10_, _10.0.0.11_, _10.0.0.12_, and _10.0.0.13_, respectively.
 
@@ -63,7 +65,7 @@ Basically, we mount all of the remote NFS' on each server: if the directory alre
 
 Now we set up the fuzzing on each server. In this case, we start on _fuzz_. 
 
-When fuzzing, we are outputting the _local_ crashes to _/mnt/fuzz/_ and treat all of the remote NFS' as "foreign fuzzers": read-only. Locally, all fuzzers (using the _-M_ and _-S_ flags) share results, so we only need to specify the main queue for each foreign fuzzer: 
+When fuzzing, we are outputting the _local_ crashes to _/mnt/fuzz/_ and treat all of the remote NFS' as "foreign fuzzers": read-only. Locally, all fuzzers (using the _-M_ and _-S_ flags) already share results, so we only need to specify the main queue for each foreign fuzzer: 
 The flags are as followed:
 ```bash
 afl-fuzz -i corpus/ -M fuzz_1 -o /mnt/fuzz/ -F /mnt/buzz/buzz_1/queue/ -F /mnt/ping/ping_1/queue/ -F /mnt/pong/pong_1/queue/ ./fuzzed-program
