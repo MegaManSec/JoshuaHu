@@ -6,9 +6,7 @@ categories: security
 ---
 
 
-**Title**: Parallelized multi-system fuzzing with AFL++ and Network File Systems
-
-## Introduction 
+## Introduction
 When fuzzing large-scale applications, using a single server (even with 4 64-core AMD Ryzen CPUs) may not be powerful enough by itself. That's where parallelized/distributed fuzzing comes in (i.e. automatic sharing of results between fuzzing systems). In this guide, we'll take a look at how to set up multiple servers fuzzing the same program using [AFL++](https://github.com/AFLplusplus/AFLplusplus), linked all together with an NFS (Network File System).
 
 ### Step 1: Set up the NFS servers
