@@ -9,25 +9,11 @@ The scenario is this: a brand new Ubuntu 22.04 server has an account which is re
 
 ---
 
-Note: as mentioned, the _user_ is limited to _only_ running `sudo logrotate *` either through some `rbash`  setup, or an ssh _authorized_keys_ ForceCommand which limits execution -- the _user_ cannot run anything other than `sudo logrotate`:
-```bash
-#!/bin/sh
+Note: as mentioned, the _user_ is limited to _only_ running `sudo logrotate *` either through some `rbash`  setup, some ForceCommand setting in ssh, or something else. -- The point is: the _user_ cannot run anything other than `sudo logrotate`:
 
-case "$SSH_ORIGINAL_COMMAND" in
-    logrotate*)
-        sudo /usr/sbin/$SSH_ORIGINAL_COMMAND
-        ;;
-    *)
-        exit 1
-        ;;
-esac
-```
-
-and _/etc/sudoers_ contains the following:
 ```bash
 user ALL=(ALL:ALL) NOPASSWD: /usr/sbin/logrotate *
 ```
-
 
 ---
 
@@ -225,7 +211,7 @@ then wait until the cronjob is run, and just ssh in. That's my solution to this 
 
 ---
 
-And of course, the more appropriate way to achieve the goal of allowing a normal user to rotate logs would be to allow sudo to run a wrapper script like this:
+And of course, the slightly more appropriate way to achieve the goal of allowing a normal user to rotate logs would be to allow sudo to run a wrapper script like this:
 ```bash
 #!/bin/sh
 case "$1" in
