@@ -15,6 +15,8 @@ Note: as mentioned, the _user_ is limited to _only_ running `sudo logrotate *`. 
 user ALL=(ALL:ALL) NOPASSWD: /usr/sbin/logrotate *
 ```
 
+So we need to find some functionality __built into logrotate__ which will let us elevate to unrestricted root.
+
 ---
 
 Let's first look at logrotate's help text:
