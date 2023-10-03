@@ -9,11 +9,7 @@ The scenario is this: a brand new Ubuntu 22.04 server has an account which is re
 
 ---
 
-Note: as mentioned, the _user_ is limited to _only_ running `sudo logrotate *`. No other command is possible. This could be either through some `rbash`  setup, some ForceCommand setting in ssh, or something else. -- The point is: the _user_ cannot run anything other than `sudo logrotate`:
-
-```bash
-user ALL=(ALL:ALL) NOPASSWD: /usr/sbin/logrotate *
-```
+Note: as mentioned, the _user_ is limited to _only_ running `sudo logrotate *`. No other command is possible. This could be either through some `rbash`  setup, some ForceCommand setting in ssh, or something else. The point is: the _user_ cannot run anything other than `sudo logrotate`:
 
 So we need to find some functionality __built into logrotate__ which will let us elevate to unrestricted root.
 
