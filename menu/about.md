@@ -6,7 +6,7 @@ permalink: /about
 
 I'm Joshua Rogers. Originally from Melbourne, Australia. These days I live in Poland.
 
-I'm currently working at [Opera Software](https://opera.com/) keeping it hanging by a thread. AKA doing all things security: DevSecOps, pentesting, security engineering, security architecture, incident response, security research, network security, and general consulstancy. You'd think I just chose every field in the online security realm, but no, I truly have to do all of these things.
+I'm currently working at [Opera Software](https://opera.com/) keeping it hanging by a thread, and trying to add more threads along the way. In reality, I'm doing all things security: DevSecOps, pentesting, security engineering, security architecture, incident response, security research, network security, and general consulstancy. You'd think I just wrote every field in the online security realm, but no, I truly have to do all of these things.
 
 Moonlighting as a party hostel receptionist, bartender, pubcrawl/boatparty guide in Kraków.
 
