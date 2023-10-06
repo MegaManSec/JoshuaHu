@@ -34,4 +34,4 @@ Since living in Poland, I've taught myself B2 Polish. Sometimes I can speak Russ
 
 Currently, my primary focus revolves around the global alleviation of human suffering. I firmly believe that we can improve the human condition and reduce unnecessary suffering on a worldwide scale.
 
-I'm always open to offers on new projects, and if you think you've got something for me, you should [contact me](/contact.html).
+Looking for the best cyber security expert in the world? Well, look elsewhere! But if you're looking for a detail-oriented, dedicated, and passionate person that will never give up, then you might have found one. I'm always open to offers on new projects, and if you think you've got something for me, you should [contact me](/contact.html).
