@@ -4,4 +4,4 @@ title: Contact
 permalink: /contact
 ---
 
-I can be contacted at [contact@joshua.hu](mailto:contact@joshua.hu).
+The easiest way to contact me is via email: [contact@joshua.hu](mailto:contact@joshua.hu). Otherwise, I'm on [https://www.linkedin.com/in/joshua-alexander-rogers/](Linkedin).

@@ -4,27 +4,30 @@ title: About Me
 permalink: /about
 ---
 
-I'm Joshua Rogers, originally from Melbourne, Australia. These days I live in Poland.
+Joshua Rogers. Originally from Melbourne, Australia. These days I live in Poland.
 
-I'm currently working at [Opera Software](https://opera.com/) as a Security Engineer on a ton of awesome projects (and with awesome people).
+I'm currently working at [Opera Software](https://opera.com/) doing all things security: Devsecops, pentesting, security engineering, security architecture, incident response, security research, network security, and general consulstancy. You'd think I just chose every field in the online security realm, but no, I truly have to do all of these things. Some call me an all-rounder due to my ability to jump into nearly any situation and get the ball rolling immediately.
 
-I studied Applied Mathematics and Cinema/Film Studies at Swinburne University of Technology in Australia, completing both a BSc and a BA with an overall GPA of 3.25. People always tell me that Mathematics and Film is a weird mix: but I think, in a way, they complement each other.
+Moonlighting as a party hostel receptionist, bartender, pubcrawl/boatparty guide in Kraków.
 
-My main interests include (but are not limited to):
-- Algorithmics
+I have a BSc in Applied Mathematics and a BA in Cinema/Film studies. I have years of sysadmin experience (linux and freebsd) and even more in security.
+
+My hobbies, interests, and general topics that I'm passionate about include:
 - Architecture
 - Cybersecurity
-- Film/Cinema Studies
+- Film History
+- Human Rights
 - Mathematics
-- Music (Melodic House, Melodic Techno, House)
-- Programming
+- Music (Melodic House, Melodic Techno, House, Rap) [(My Spotify)](https://open.spotify.com/playlist/3wfARljUCoGyEGmFbjyvo3?si=a7b3eeb5d0894d10)
 - Sport (Bicycle Riding, Weight Lifting, Rock Climbing, Rowing)
 - Video Game History
 
-I'm an outgoing person and love to talk to people. I like presenting and discussing topics I'm interested in, too, because it gives me an opportunity to test my knowledge; that's one of my gripes about the IT industry -- the lack of social events and contact.
+New things excite me and I like putting myself into situations that require learning new skills, whether they're technical, physical, or social.
 
-I like learning new things and usually put myself in situations which require learning new skills, whether they're technical, physical, or social. If you think you have a project like that, you should [contact me](/contact.html).
+If you think you have a project like that, you should [contact me](/contact.html).
 
-I'm working on my ability to speak Polish, and Russian. I can understand Polish fairly well and can read most (non-technical!) documents in the language. Likewise, the Russian language has always fascinated me, and while I did take classes for a while, it has lagged behind my learning of Polish.
+I like presenting and discussing topics I'm interested in, because it gives me an opportunity to test my knowledge. I've had the privilege of speaking as a domain expert at several conferences.
 
-Officially speaking, I'm writing a book about the history of Nintendo in Europe, Australia, and some other places around the world. But that's going extremely slowly.
+Since living in Poland, I've taught myself B2 Polish. Sometimes I can speak Russian from some learning I did years ago.
+
+Currently, my primary focus revolves around the global alleviation of human suffering. I firmly believe that we can improve the human condition and reduce unnecessary suffering on a worldwide scale.
