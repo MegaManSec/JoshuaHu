@@ -5,11 +5,9 @@ author: "Joshua Rogers"
 categories: security
 ---
 
-title: TIL: It's remarkably simple to DoS MySQL/MariaDB and PostgreSQL
-
 At the heart of any Denial of Service (DoS) attack, there are two variables: a resource, and the limit of of which that resource can grow to: network bandwidth, processing power, or connection limits. A DoS attack is simply: the denial of a service to a legitimate user either deliberately or accidentally. Likewise, in any successful DoS attack, an attacker generally needs to make use of at least the same resource for which they are attacking. If you're performing a DoS attack on a server with a 10GbE uplink, an attacker will need attack with 10Gb/s of resources, to exhaust the resources of the uplink.
 
-That's why I was surprised to recently discover that it's incredibly easy to DoS MySQL/MariaDB and PostgresSQL servers.
+That's why I was surprised to discover that it's incredibly easy to DoS MySQL/MariaDB and PostgresSQL servers. In this case, the resource that can be exhausted if the number of connections to the database itself.
 
 ---
 
