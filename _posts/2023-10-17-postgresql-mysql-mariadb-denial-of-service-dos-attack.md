@@ -87,7 +87,7 @@ I ended up testing MySQL/MariaDB too, and as it turns, we can DoS those servers 
 
 ---
 
-In some cases, there can be legitimate reasons to have an SQL server accessible either via the internet or within some private network which may contain illegitimate users. Data in a database doesn't always have to be private, and may be publicly accessible. So how can we stop this attack? Well it's seemingly quite difficult.
+In some cases, there can be either a (legitimate or not) reason to have an SQL server accessible either via the internet or within some private network which may contain illegitimate users. Data in a database doesn't always have to be private, and may be publicly accessible. So how can we stop this attack? Well it's seemingly quite difficult.
 
 We could raise the _max_connections_ limit, but then an attacker can just open more connections. We could use stateful firewalling like Linux's iptables to rate-limit connections, but then an attacker could perform a spoofed syn-flood from a single server [which could overflow the conntrack table](https://blog.cloudflare.com/conntrack-tales-one-thousand-and-one-flows/). Some middleware like pgbouncer or pgpool could also be effective, but then who knows whether we would just exhaust the [connection limit for those softwares](https://www.pgbouncer.org/config.html#max_client_conn).
 
