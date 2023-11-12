@@ -26,7 +26,7 @@ First we make a coredump of the running bash _binary_ and load it into gdb:
 ```bash
 $ ps ax | grep test
 1234537 pts/2    S+     0:00 bash test.sh
-gcore -a 1234537
+# gcore -a 1234537
 0x00007fe7db6803ce in read () from /lib/x86_64-linux-gnu/libc.so.6
 warning: target file /proc/1234537/cmdline contained unexpected null characters
 Saved corefile core.1234537
