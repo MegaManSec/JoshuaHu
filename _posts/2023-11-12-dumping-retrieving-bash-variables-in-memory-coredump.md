@@ -7,7 +7,7 @@ categories: security
 
 Dumping the memory of a binary process and examining variable contents is intuitive enough for normal programs. But how about retrieving the in-script variables and their current values of a bash script? Slightly less intuitive.
 
-I've recently been working on a bash script which performs some continuous processing of information, with some of the processed information being appended to a string. Some like this:
+I've recently been working on a bash script which performs some continuous processing of information, with some of the processed information being appended to a string. Something like this:
 
 ```bash
 while IFS= read -r line; do
@@ -65,11 +65,11 @@ First we try to simply print `shell_variables` but that fails:
 
 Since bash hasn't been built with debugging symbols, gdb can't pick up the _VAR_CONTEXT_ type. So, we need to build bash with debugging symbols and add the symbols in gdb.
 ```bash
-apt-get source bash && \
-cd bash-* && \
-CFLAGS='-g' ./configure && \
-make -j32 && \
-cd ../
+$ apt-get source bash && \
+ cd bash-* && \
+ CFLAGS='-g' ./configure && \
+ make -j32 && \
+ cd ../
 ```
 
 We then determine the text address location of the newly compiled bash binary and then load them into gdb:
@@ -188,6 +188,8 @@ and run it:
       Value: /usr/bin/bash
       Name: MOTD_SHOWN
       Value: pam
+      Name: str
+      Value: 1: super secret string constructed in the bash script
       Name: s
       Value: sudo
       Name: LD_PRELOAD
@@ -198,9 +200,9 @@ and run it:
       Value: (null)
 [...]
 ```
-And that's exactly what we were looking for. An all-in-one gdb script makes this a bit easier, and assumes that the bash binary built with debugging information is available in `./bash-5.1/bash`:
+And that's exactly what we were looking for (the environmental values we could have retrieved from `/proc/1234537/environ` already ofc, but not `str`). An all-in-one gdb script makes this a bit easier, and assumes that the bash binary built with debugging information is available in `./bash-5.1/bash`:
 
-```perl
+```
 define add-symbol-file-bash
   shell echo set \$text_address=$(readelf -WS $arg0 | grep .text | awk '{ print "0x"$5 }') >/tmp/temp_gdb_text_address.txt
   source /tmp/temp_gdb_text_address.txt
@@ -236,9 +238,9 @@ print_keys_vals
 
 ---
 
-If you want to see the contents of associative arrays too, then you'll need to cast the value to the [ARRAY type](https://github.com/bminor/bash/blob/2bb3cbefdb8fd019765b1a9cc42ecf37ff22fec6/array.h#L41) and walk through the link, too:
+If you want to see the contents of associative arrays too, then you'll need to cast the value to the [ARRAY type](https://github.com/bminor/bash/blob/2bb3cbefdb8fd019765b1a9cc42ecf37ff22fec6/array.h#L41) and walk through the list, too:
 
-```perl
+```
 
 define print_keys_vals
   set $current = shell_variables

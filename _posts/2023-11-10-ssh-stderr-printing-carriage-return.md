@@ -5,7 +5,7 @@ author: "Joshua Rogers"
 categories: security
 ---
 
-We learn new things every day. Today it's about bash.
+We learn new things every day. Today it's about ssh. And this time it's not even about how to use it, but the format of its output.
 
 What would you expect this command to return?
 
