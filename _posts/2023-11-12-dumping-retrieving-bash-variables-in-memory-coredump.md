@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Retrieving bash variable values from memory using gdb"
+title: "Dumping bash variable values from memory using gdb"
 author: "Joshua Rogers"
 categories: security
 ---
