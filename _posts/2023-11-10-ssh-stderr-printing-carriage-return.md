@@ -5,6 +5,8 @@ author: "Joshua Rogers"
 categories: security
 ---
 
+We learn new things every day. Today it's about bash.
+
 What would you expect this command to return?
 
 ```bash
