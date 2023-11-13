@@ -17,7 +17,7 @@ while IFS= read -r line; do
 done < <(command)
 ```
 
-I then ran my script for a considerable amount of time. However, I completely forgot to include any printf of `$str`. Instead of having to start over and lose all of the data I had already processed, I thought _why not just dump the memory and find the value of str?_ So let's do that.
+I then ran my script for a considerable amount of time. However, I completely forgot to include any printf of `$str`. Instead of having to start over and lose all of the data I had already processed, I thought _why not just dump the memory and find the value of str?_ So let's do that. I wouldn't call it reverse engineering, but it's all the same in the end.
 
 ---
 
