@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Dumping bash variable values from memory using gdb"
+title: "More fun with bash: bash, ssh, and ssh-keygen version quirks"
 author: "Joshua Rogers"
 categories: security
 ---
