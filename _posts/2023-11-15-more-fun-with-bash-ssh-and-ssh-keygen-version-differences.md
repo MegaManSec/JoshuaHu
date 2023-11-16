@@ -10,7 +10,7 @@ Continuing the journey with bash, ssh, and so on, I hit some more fun facts and/
 Version numbers/ranges here aren't accurate, but the versions I've tested on.
 
 ---
-#### bash writes files to the disk for larger here-document operations:
+### bash writes files to the disk for larger here-document operations:
 How much can you get away with while having zero disk space? Surprisingly a lot. Most of the operations in bash happen in memory or read-only. In some cases however, here-documents will use disk space. 
 ```bash
 $ sudo mount -t tmpfs -o size=1M none "/dev/shm/empty"
@@ -26,7 +26,7 @@ $ TMPDIR=/dev/shm/empty/ cat <<< "$(perl -e "print 'X' x 65536")"
 ```
 
 ---
-####  bash <= 4.3 considers empty arrays as unset:
+###  bash <= 4.3 considers empty arrays as unset:
 ```bash
 #!/bin/bash
 set -o nounset
@@ -39,7 +39,7 @@ done
 ```
 
 ---
-#### bash > 4 expands in-variable array keys:
+### bash > 4 expands in-variable array keys:
 ```bash
 #!/bin/bash
 declare -A my_array
@@ -58,7 +58,7 @@ t.sh: line 5: my_array: bad array subscript
 ```
 
 ---
-#### bash > 4 expands AND executes in-variable array keys:
+### bash > 4 expands AND executes in-variable array keys:
 ```bash
 $ declare -A my_array
 $ un='$(huh)'
@@ -70,7 +70,7 @@ $ [[ -v my_array["$un"] ]] && return 1
 Arbitrary command execution if our variable(!) is `$(..)` the command will be executed! Great.. This issue is documented [here](https://mywiki.wooledge.org/BashPitfalls#A.5B.5B_-v_hash.5B.24key.5D_.5D.5D).
 
 ---
-#### ssh-keygen <= 6.6.1 can only display MD5 fingerprint hashes:
+### ssh-keygen <= 6.6.1 can only display MD5 fingerprint hashes:
 ```bash
 $ ssh-keygen -E md5 -lf .ssh/authorized_keys
 unknown option -- E
@@ -79,14 +79,14 @@ usage: ssh-keygen [options]
 Because why would anybody ever need anything other than MD5?!
 
 ---
-#### ssh <= 6.6.1 does not allowing appending to HostbasedKeyTypes or KexAlgorithms:
+### ssh <= 6.6.1 does not allowing appending to HostbasedKeyTypes or KexAlgorithms:
 ```bash
 $ ssh -oHostkeyAlgorithms=+ssh-rsa -oKexAlgorithms=+diffie-hellman-group1-sha1 host
 command-line line 0: Bad protocol 2 host key algorithms '+ssh-rsa'.
 ```
 
 ---
-#### ssh-keygen <= 6.6.1 does not differentiate between invalid passphrase and invalid format:
+### ssh-keygen <= 6.6.1 does not differentiate between invalid passphrase and invalid format:
 ```bash
 $ ssh-keygen
 Generating public/private rsa key pair.
@@ -118,7 +118,7 @@ load failed
 Newer versions print "incorrect passphrase supplied to decrypt private key" and "invalid format" respectively.
 
 ---
-#### ssh-keygen <= 6.6.1 cannot convert unprotected ssh private keys into their respective public key hashes:
+### ssh-keygen <= 6.6.1 cannot convert unprotected ssh private keys into their respective public key hashes:
 ```bash
 $ rm .ssh/id_rsa.pub ; ssh-keygen -lf .ssh/id_rsa
 key_read: uudecode PRIVATE KEY----- failed
@@ -127,7 +127,7 @@ key_read: uudecode PRIVATE KEY----- failed
 ```
 
 ---
-#### ssh-keygen <= 6.6.1 cannot convert a private key to a public key if the permissions are too public and a passphrase is not provided (even if the key doesn't have a passphrase):
+### ssh-keygen <= 6.6.1 cannot convert a private key to a public key if the permissions are too public and a passphrase is not provided (even if the key doesn't have a passphrase):
 ```bash
 $ chmod 777 ./ssh/id_rsa
 $ ssh-keygen -y -f ./ssh/id_rsa 
@@ -144,7 +144,7 @@ Enter passphrase:
 I couldn't imagine why it asks for a passphrase at all.
 
 ---
-####  ssh-keygen > 6.6.1 CAN convert unprotected ssh private keys into their respective public key hash even if they are too public:
+###  ssh-keygen > 6.6.1 CAN convert unprotected ssh private keys into their respective public key hash even if they are too public:
 ```bash
 $ chmod 777 ./ssh/id_rsa
 $ ssh-keygen -E md5 -lf .ssh/id_rsa
@@ -160,11 +160,17 @@ This private key will be ignored.
 The hash is printed to stdout and the rest to stderr. The return code is 0.
 
 ---
-#### ssh-keygen <= 6.6.1 AND > 6.6.1 CAN convert an unprotected private key into a private key and then convert the public key into a hash:
+### ssh-keygen <= 6.6.1 AND > 6.6.1 CAN convert an unprotected private key into a private key and then convert the public key into a hash:
 
 ```bash
 $ ssh-keygen -lf /dev/stdin <<<$(ssh-keygen -yf .ssh/id_rsa)
 8192 MD5:a7:60:50:03:8b:84:28:02:91:d4:f7:63:91:8b:c4:d2 no comment (RSA)
 ```
 
+But if you need to do that fileless, you have to:
+
+```bash
+$ ssh-keygen -lf <( (cat .ssh/id_rsa))
+8192 MD5:a7:60:50:03:8b:84:28:02:91:d4:f7:63:91:8b:c4:d2 no comment (RSA)
+```
 
