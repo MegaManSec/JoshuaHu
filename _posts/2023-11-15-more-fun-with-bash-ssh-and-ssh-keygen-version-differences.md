@@ -174,3 +174,9 @@ $ ssh-keygen -lf <( (cat .ssh/id_rsa))
 8192 MD5:a7:60:50:03:8b:84:28:02:91:d4:f7:63:91:8b:c4:d2 no comment (RSA)
 ```
 
+However, unfortunately, that's also not possible for all versions of ssh-keygen:
+
+```bash
+$ ssh-keygen -lf <( (cat .ssh/id_rsa))
+/dev/fd/63 is not a public key file
+```
