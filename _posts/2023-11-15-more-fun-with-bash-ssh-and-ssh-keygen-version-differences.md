@@ -70,6 +70,24 @@ $ [[ -v my_array["$un"] ]] && return 1
 Arbitrary command execution if our variable(!) is `$(..)` the command will be executed! Great.. This issue is documented [here](https://mywiki.wooledge.org/BashPitfalls#A.5B.5B_-v_hash.5B.24key.5D_.5D.5D).
 
 ---
+### bash 4.2.46's test does not support the -v flag
+```bash
+$ declare -A my_array
+$ my_array["key"]=1
+$ [[ -v 'my_array["key"]' ]] && echo exists
+$ [[ -v my_array["key"] ]] && echo exists
+$ [[ -v $my_array["key"] ]] && echo exists
+$ [[ -v "$my_array["key"]" ]] && echo exists
+$ bash --version
+GNU bash, version 4.2.46(1)-release (x86_64-redhat-linux-gnu)
+```
+
+So how can we test whether a key in the assoc array exists over multiple versions? This hack seems to work:
+```bash
+[[ -v 'my_array["key"]' || ${#my_array["key"]} -gt 0 ]] && echo exists
+```
+
+---
 ### ssh-keygen <= 6.6.1 can only display MD5 fingerprint hashes:
 ```bash
 $ ssh-keygen -E md5 -lf .ssh/authorized_keys
