@@ -144,6 +144,13 @@ key_read: uudecode PRIVATE KEY----- failed
 .ssh/id_rsa is not a public key file.
 ```
 
+```bash
+$ rm .ssh/id_rsa.pub ; ssh-keygen -lf .ssh/id_rsa
+.ssh/id_rsa is not a public key file.
+```
+
+The first one is for a PKCS#1 key file (BEGIN RSA PRIVATE KEY), while the second is in OpenSSH format.
+
 ---
 ### ssh-keygen <= 6.6.1 cannot convert a private key to a public key if the permissions are too public and a passphrase is not provided (even if the key doesn't have a passphrase):
 ```bash
