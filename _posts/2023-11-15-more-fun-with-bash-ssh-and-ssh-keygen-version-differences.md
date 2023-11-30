@@ -154,16 +154,16 @@ The first one is for a PKCS#1 key file (BEGIN RSA PRIVATE KEY), while the second
 ---
 ### ssh-keygen <= 6.6.1 cannot convert a private key to a public key if the permissions are too public and a passphrase is not provided (even if the key doesn't have a passphrase):
 ```bash
-$ chmod 777 ./ssh/id_rsa
-$ ssh-keygen -y -f ./ssh/id_rsa 
+$ chmod 777 .ssh/id_rsa
+$ ssh-keygen -y -f .ssh/id_rsa
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Permissions 0777 for './ssh/id_rsa' are too open.
+Permissions 0777 for '.ssh/id_rsa' are too open.
 It is required that your private key files are NOT accessible by others.
 This private key will be ignored.
-bad permissions: ignore key: ./ssh/id_rsa
-Enter passphrase: 
+bad permissions: ignore key: .ssh/id_rsa
+Enter passphrase:
 ```
 
 I couldn't imagine why it asks for a passphrase at all.
@@ -171,7 +171,7 @@ I couldn't imagine why it asks for a passphrase at all.
 ---
 ###  ssh-keygen > 6.6.1 CAN convert unprotected ssh private keys into their respective public key hash even if they are too public:
 ```bash
-$ chmod 777 ./ssh/id_rsa
+$ chmod 777 .ssh/id_rsa
 $ ssh-keygen -E md5 -lf .ssh/id_rsa
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
