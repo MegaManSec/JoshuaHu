@@ -9,6 +9,8 @@ Continuing the journey with bash, ssh, and so on, I hit some more fun facts and/
 
 Version numbers/ranges here aren't accurate, but the versions I've tested on.
 
+Some of these issues are documented in [https://mywiki.wooledge.org/BashFAQ/061](https://mywiki.wooledge.org/BashFAQ/061) already with better versioning.
+
 ---
 ### bash writes files to the disk for larger here-document operations:
 How much can you get away with while having zero disk space? Surprisingly a lot. Most of the operations in bash happen in memory or read-only. In some cases however, here-documents will use disk space. 
