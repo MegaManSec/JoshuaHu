@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SSH Adventures Continued: Invalid CVE-2018-15473 patches"
+title: "SSH Adventures Continued: Invalid CVE-2018-15473 Patches"
 author: "Joshua Rogers"
 categories: security
 ---
@@ -28,7 +28,7 @@ In 2018, it was discovered that by sending a specifically crafted packet to an o
 
 It seems that somehow, for over two years, the patch for _that_ vulnerability introduced a similar vulnerability into Ubuntu 18.04's openssh. Sending a specifically crafted packet to the server wasn't necessary: if you tried to connect with an invalid username, the client would simply report "Connection closed by [host] port [port]".
 
-As always, it's not so simple. Different versions of ssh (the client) report different error messages. I've discovered three variations so far.
+As always, it's not so simple. Different versions of ssh (the client) report different error messages. I've discovered three variations so far that indicate whether a user exists or not.
 
 ### OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13, OpenSSL 1.0.1f 6 Jan 2014
 
@@ -69,5 +69,5 @@ $ ssh invalid@10.0.0.1
 invalid@10.0.0.1: Permission denied (publickey).
 ````
 
-No different from an invalid key.
+No different from an invalid key, so it doesn't idicate whether the user exists or not (note: this is a Debian client, not Ubuntu).
 
