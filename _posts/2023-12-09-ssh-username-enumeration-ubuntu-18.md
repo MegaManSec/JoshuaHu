@@ -43,10 +43,17 @@ ssh's `-q` flag suppresses the error which indicates the username does not exist
 
 ### OpenSSH_7.2p2 Ubuntu-4ubuntu2.10, OpenSSL 1.0.2g 1 Mar 2018
 ```
-$ ssh -q invalid@10.0.0.1  
+$ ssh invalid@10.0.0.1
+Connection to 10.0.0.1 closed by remote host.
+Connection to 10.0.0.1 closed.
+$ ssh -q invalid@10.0.0.1
 Connection to 10.0.0.1 closed by remote host.
 ```
 In this example, the error message is shown despite ssh's `-q` flag being used. The error message is different.
+
+sdev@n22-04-04:~$ ssh lol@172.17.64.169
+Connection to 172.17.64.169 closed by remote host.
+Connection to 172.17.64.169 closed.
 
 ### OpenSSH_7.6p1 Ubuntu-4ubuntu0.3, OpenSSL 1.0.2n  7 Dec 2017
 ```
