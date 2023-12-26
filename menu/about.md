@@ -8,13 +8,15 @@ I'm Joshua Rogers. Originally from Melbourne, Australia. These days I live in Po
 
 I'm currently working at [Opera Software](https://opera.com/) keeping it hanging by a thread, and trying to add more threads along the way. In reality, I'm doing all things security: DevSecOps, pentesting, security engineering, security architecture, incident response, security research, network security, and general consulstancy. You'd think I just wrote every field in the online security realm, but no, I truly have to do all of these things.
 
-Moonlighting as a party hostel receptionist, bartender, pubcrawl/boatparty guide in Kraków.
+Moonlighting as a bartender in Kraków.
 
 Some call me an all-rounder due to my ability to jump into nearly any situation and get the ball rolling immediately. I get things done when others don't.
 
 Some people see one part of a problem, I see the whole picture. Putting things into perspective of the whole world is paramount, and both the significance and insignificance of ourselves and surroundings is crucial to driving meaningful change.
 
-I have a BSc in Applied Mathematics and a BA in Cinema/Film studies. I have years of sysadmin experience (linux and freebsd) and even more in security.
+I have a BSc in Applied Mathematics and a BA in Cinema/Film studies.
+
+I have 12+ years of security experience and have years of sysadmin experience (linux and freebsd).
 
 My hobbies, interests, and general topics that I'm passionate about include:
 - Architecture
