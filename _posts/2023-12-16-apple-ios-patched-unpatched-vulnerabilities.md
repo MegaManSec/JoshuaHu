@@ -7,7 +7,7 @@ categories: security
 
 What's the deal with iOS security updates, anyway?
 
-Not everybody can afford the newest and greatest Apple product. Luckily, Apple continues to support nearly-decade-old devices like the iPhone 6S, which and iOS 15.8 is still powering those devices, seemingly with official Apple support, with the latest update from [October the 25th, which addressed some security vulnerabilities](https://support.apple.com/en-gb/109032).
+Not everybody can afford the newest and greatest Apple product. Luckily, Apple continues to support nearly-decade-old devices like the iPhone 6S, with iOS 15.8 still powering those devices with official Apple support, with the latest update from [October the 25th, which addressed some security vulnerabilities](https://support.apple.com/en-gb/109032).
 
 In reality, however, Apple seems to only be addressing _some_ security issues in its older supported devices.
 
@@ -65,7 +65,7 @@ Taking that exploit from June:
 ```
 
 
-Aand trying it on the latest version of iOS that the (supported) iPhone 6S, we indeed see that the exploit _still_ works. When opening the page, your `/etc/passwd` is there for the world to see.
+and trying it on the latest version of iOS that the (supported) iPhone 6S, we indeed see that the exploit _still_ works. When opening the page, your `/etc/passwd` is there for the world to see.
 
 That means that any website visited by anybody using an iPhone 6S (or possibly later versions) can silently steal internal system files. What files could somebody steal? Well, there's always:
 
