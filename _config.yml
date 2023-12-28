@@ -21,7 +21,7 @@ plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-t
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           'Joshua.Hu'
-description:	       ''
+description:	       'Joshua.Hu is the personal blog of security researcher and hacker Joshua Rogers. This blog offers the typical observations and commentary on life and technology, focused on security.'
 author:              'Joshua Rogers'
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
