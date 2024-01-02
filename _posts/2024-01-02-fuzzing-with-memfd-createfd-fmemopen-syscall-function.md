@@ -5,8 +5,6 @@ author: "Joshua Rogers"
 categories: security
 ---
 
-# Fuzzing with memfd_create(2) and fmemopen(3)
-
 If you've done a fair amount of fuzzing, you've likely come across targets which are deeply dependent either on file descriptors or FILEs. Rewriting the whole codebase to accept a fuzzing harness from a buffer in shared memory is awfully cumbersome, so you're stuck with a slower fuzzing campaign than you'd hope. But then you hear about the `memfd_create(2)` syscall and the `fmemopen(3)` function.
 
 1. _memfd_create()  creates an anonymous file and returns a file descriptor that refers to it.  The file behaves like a regular file, and so can be modified, truncated, memory-mapped, and so on.  However, unlike a regular file, it lives in RAM and has a volatile backing storage._
