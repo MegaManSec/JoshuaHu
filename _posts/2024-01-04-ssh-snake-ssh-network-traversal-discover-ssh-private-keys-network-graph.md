@@ -104,7 +104,7 @@ Documentation and more information about running the script is available on GitH
 
 The script is essentially plug-and-plug: you can disable and enable different parts of it and the different strategies used to discover private keys and destinations those private keys may be used to connect to.
 
-The rest of this blog pertains to the technical details of how SSH-Snake works. It's more a collection of random information about how the script works rather than a well-formulated technical document. In fact, it may even be unintelligible! Enjoy!
+The rest of this blog pertains to the technical details of how SSH-Snake works. It's more a collection of random information about how the script works rather than a well-formulated technical document. In fact, it may even be unintelligible (excuse the complete lack of editing, I'll fix it up eventually)! Enjoy!
 
 ---
 
