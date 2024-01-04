@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SSH-Snake: Automatically traversal of networks using SSH private keys"
+title: "SSH-Snake: Automatic traversal of networks using SSH private keys"
 author: "Joshua Rogers"
 categories: security
 ---
