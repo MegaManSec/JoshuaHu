@@ -12,10 +12,10 @@ Today I am officially releasing a tool that I'm proud to have finally finished: 
 To put it simply, SSH-Snake performs three basic tasks:
 
 1.  On the current system, find any SSH private keys,
-2.  On the current system, find any hosts or destinations (`user@host`) that the private keys may be accepted,
+2.  On the current system, find any hosts or destinations (`user@host`) that the private keys may be accepted on,
 3.  Attempt to SSH into all of the discovered destinations using all of the private keys discovered.
 
-The interesting thing about SSH-Snake, however, is that it can perform all of these tasks recursively: once it connects to a new destination, it starts tasks #1-#3 again. It continues this into perpetuity; or until no new keys/destinations are found.
+The interesting thing about SSH-Snake, however, is that it can perform all of these tasks recursively: once it connects to a new destination, it starts tasks #1-#3 again. It continues this into perpetuity; or until no new keys/destinations are found. It's completely self-replicating and self-propagating -- and completely file-less.
 
 I hope this tool will be at least as useful to others than it has been for me.
 
