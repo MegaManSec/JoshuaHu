@@ -15,7 +15,7 @@ To put it simply, SSH-Snake performs three basic tasks:
 2.  On the current system, find any hosts or destinations (`user@host`) that the private keys may be accepted on,
 3.  Attempt to SSH into all of the discovered destinations using all of the private keys discovered.
 
-The interesting thing about SSH-Snake, however, is that it can perform all of these tasks recursively: once it connects to a new destination, it starts tasks #1-#3 again. It continues this into perpetuity; or until no new keys/destinations are found. It's completely self-replicating and self-propagating -- and completely file-less.
+The interesting thing about SSH-Snake, however, is that it can perform all of these tasks recursively: once it connects to a new destination, it starts tasks #1-#3 again. It continues this into perpetuity; or until no new keys/destinations are found. It's completely self-replicating and self-propagating -- and completely fileless.
 
 I hope this tool will be at least as useful to others than it has been for me.
 
@@ -37,7 +37,7 @@ _"Retro Super Mario jumping over computer server racks."_
 
 ---
 
-I thought about using cosmopolitan libc to build some type of binary which would run anywhere, but I wanted to create something that was minimalist (ironic, considering the script now contains over 1,250 lines of code sans comments), would run anywhere, and would could be executed file-lessly. Using something like [remote exec](http://phrack.org/issues/62/8.html) could have solved the latter issue, but why complicate it when we can just use what a human would use? And to be frank, I like challenges: creating a worm in Bash is certainly a challenge. Why not POSIX? Well, I like _challenges_; I'm not a masochist.
+I thought about using cosmopolitan libc to build some type of binary which would run anywhere, but I wanted to create something that was minimalist (ironic, considering the script now contains over 1,250 lines of code sans comments), would run anywhere, and would could be executed filelessly. Using something like [remote exec](http://phrack.org/issues/62/8.html) could have solved the latter issue, but why complicate it when we can just use what a human would use? And to be frank, I like challenges: creating a worm in Bash is certainly a challenge. Why not POSIX? Well, I like _challenges_; I'm not a masochist.
 
 ---
 
@@ -270,7 +270,7 @@ I'm starting to feel proof by induction vibes from university.
 
 ---
 
-With the basis of the file-less replication of the script via ssh, we can look at _what_ is actually passed using those variables. Various versions and revisions has resulted in the following:
+With the basis of the fileless replication of the script via ssh, we can look at _what_ is actually passed using those variables. Various versions and revisions has resulted in the following:
 
 ```bash
 script="$1"
@@ -1110,7 +1110,7 @@ As we see, we pass the base64-encoded modified script from memory to bash -- jus
 
 ---
 
-As I was finalizing this blog post and getting ready for the release of SSH-Snake, I was a bit dismayed that I couldn't claim the script was completely file-less. It was required to be downloaded on at least the host that the user was going to start running it on, due to the aforementioned function removal procedure:
+As I was finalizing this blog post and getting ready for the release of SSH-Snake, I was a bit dismayed that I couldn't claim the script was completely fileless. It was required to be downloaded on at least the host that the user was going to start running it on, due to the aforementioned function removal procedure:
 
 ```bash
   # Actually remove it all.
@@ -1142,7 +1142,7 @@ $ echo 'ZWNobyAiUHJldGVuZGluZyB0byByZW1vdmVfZnVuY3Rpb25zOiAkKGVjaG8gIiRUSElTX1ND
 echo "Pretending to remove_functions: $(echo "$THIS_SCRIPT" | base64 -w0)"
 ```
 
-And just like this, SSH-Snake becomes completely file-less:
+And just like this, SSH-Snake becomes completely fileless:
 
 ```diff
 diff --git a/Snake.sh b/Snake.sh
