@@ -67,7 +67,7 @@ The blue nodes indicate the _destination_ can connect to itself (user@host<-->us
 
 ---
 
-All three of these images represent a cluster of servers that are intrinsically linked with SSH. The first image was generated using graphviz, while the second one was built using [Gephi](https://gephi.org/). As it turns out, graphviz can't handle extremely large networks and will simply crash with either out-of-memory or some other type of issue; that's where Gephi comes in. The third image was generated using [Cytoscape](https://Cytoscape.org/)'s yFiles Hierarchical Layout generation, and is also suites for very large networks.
+All three of these images represent a cluster of servers that are intrinsically linked with SSH. The first image was generated using graphviz, while the second one was built using [Gephi](https://gephi.org/). As it turns out, graphviz can't handle extremely large networks and will simply crash with either out-of-memory or some other type of issue; that's where Gephi comes in. The third image was generated using [Cytoscape](https://Cytoscape.org/)'s yFiles Hierarchical Layout generation, and is also suites for very large networks. Cytoscape can also create cool web-based graphs [like this one](https://megamansec.github.io/SSH-Snake/) (try changing `layout`).
 
 In a future blog post, I will outline the process of creating graphs using these three software.
 
