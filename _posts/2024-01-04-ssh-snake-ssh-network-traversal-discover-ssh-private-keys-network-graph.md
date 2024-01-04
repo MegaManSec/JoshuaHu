@@ -1187,7 +1187,7 @@ $ cat Snake.sh | sed -e 's/^[ \t]*//' -e 's/^#.*$//' -e 's/[[:space:]]#.*//' -e 
 45846
 ```
 
-Maybe I should go back to that idea of the git pre-commit hook and include this minimized file automatically?:)
+Maybe I should go back to that idea of the git pre-commit hook and include this minimized file automatically?:) Ah.. done.
 
 ---
 
