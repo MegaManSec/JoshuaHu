@@ -195,7 +195,7 @@ This just keeps going on and on, until infinite (or until bash borks). The only 
 The previous section was a bit long-winded, I know. At least for me, it was difficult to grok how this actually worked. But what does it have to do with SSH and SSH-Snake? Well, it works via SSH, too:
 
 ```bash
-$ echo 'echo 1: $1, 2: $2' | ssh user@host bash -s a b'
+$ echo 'echo 1: $1, 2: $2' | ssh user@host bash -s a b
 1: a, 2: b
 ```
 
