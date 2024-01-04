@@ -41,13 +41,11 @@ I thought about using cosmopolitan libc to build some type of binary which would
 
 ---
 
-As stated, the original output that I was interested in was visualizations. [Just under 10 years ago](https://lwn.net/Articles/625988/), I was working with the well-known open source graph visualization tool [graphviz](https://graphviz.org/) (_mostly experimenting with afl-fuzz which had just been released_), and I have seen how BloodHound is able to visualize trust relationships between endpoints in Active Directory networks, so I knew it wouldn't be too difficult to create something like that but for SSH: all I needed to do was to actually build the script.
-
-![An example of the BloodHound software interface.](/files/AD.jpg)
+As stated, the original output that I was interested in was visualizations. [Just under 10 years ago](https://lwn.net/Articles/625988/), I was working with the well-known open source graph visualization tool [graphviz](https://graphviz.org/) (_mostly experimenting with afl-fuzz which had just been released_), and I have seen how BloodHound is able to visualize trust relationships between endpoints in MS Active Directory networks, so I knew it wouldn't be too difficult to create something like that but for SSH: all I needed to do was to actually build the script.
 
 ---
 
-In terms of those visualizations, the result is quite pretty:
+In terms of those visualizations, the result is quite pretty (I recommend opening the images in new tabs):
 
 ![A graph visualizing the relation between systems using SSH](https://raw.githubusercontent.com/MegaManSec/SSH-Snake/main/tools/SSH-Snake-dot-circo.png)
 
@@ -67,14 +65,14 @@ The blue nodes indicate the _destination_ can connect to itself (user@host<-->us
 
 ---
 
-All three of these images represent a cluster of servers that are intrinsically linked with SSH. The first image was generated using graphviz, while the second one was built using [Gephi](https://gephi.org/). As it turns out, graphviz can't handle extremely large networks and will simply crash with either out-of-memory or some other type of issue; that's where Gephi comes in. The third image was generated using [Cytoscape](https://Cytoscape.org/)'s yFiles Hierarchical Layout generation, and is also suites for very large networks. Cytoscape can also create cool web-based graphs [like this one](https://megamansec.github.io/SSH-Snake/) (try changing `layout`).
+All three of these images represent a cluster of servers that are intrinsically linked with SSH. The first image was generated using graphviz, while the second one was built using [Gephi](https://gephi.org/). As it turns out, graphviz can't handle extremely large networks and will simply crash with either out-of-memory or some other type of issue; that's where Gephi comes (the images do not display a large network). The third image was generated using [Cytoscape](https://Cytoscape.org/)'s yFiles Hierarchical Layout generation, and is also suites for very large networks. Cytoscape can also create cool web-based graphs [like this one](https://megamansec.github.io/SSH-Snake/) (try changing `layout`).
 
 In a future blog post, I will outline the process of creating graphs using these three software.
 
 ---
 
 The output of the script looks something like this:
-```C
+```bash
 [1704020277]jrogers@(10.128.0.25)
 [1704020279] jrogers@(10.128.0.25)[!/home/jrogers/.ssh/id_rsa]->jrogers@(10.128.0.25)
 [1704020279] jrogers@(10.128.0.25)[!/home/jrogers/.ssh/id_rsa]->jrogers@(10.128.0.27)
@@ -125,7 +123,7 @@ $ echo 'echo "$2"; echo "$1" | bash -s "$1" $(($2+1))' | bash -s 'echo "$2"; ech
 
 and the process tree (`ps f` for forest view):
 
-```
+```bash
 2304406 pts/0    Ss     0:00 -bash
 2306574 pts/0    S+     0:00  \_ bash -s echo "$2"; echo "$1" | bash -s "$1" $(($2+1)) 1
 2306576 pts/0    S+     0:00      \_ bash -s echo "$2"; echo "$1" | bash -s "$1" $(($2+1)) 2
@@ -210,7 +208,7 @@ ssh root@localhost "echo '$1' | base64 -d | bash -s -- '$1'"
 
 If we execute this file as follows:
 
-```
+```bash
 $ bash t.sh "$(base64 -w0 < "t.sh")"
 
 127.0.0.1 46384 127.0.0.1 22
@@ -687,7 +685,7 @@ Similar to `find_from_bash_history()`, this function also extracts the username 
 
 Some benchmarks:
 
-```
+```bash
 # xargs: 2m42.820s
 # for-loop: 7m52.145s
 # sudo xargs: 3m56.659s
