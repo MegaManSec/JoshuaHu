@@ -17,7 +17,7 @@ To put it simply, SSH-Snake performs three basic tasks:
 
 The interesting thing about SSH-Snake, however, is that it can perform all of these tasks recursively: once it connects to a new destination, it starts tasks #1-#3 again. It continues this into perpetuity; or until no new keys/destinations are found. It's completely self-replicating and self-propagating -- and completely fileless.
 
-I hope this tool will be at least as useful to others than it has been for me.
+I hope this tool will be at least as useful for others, as it has been for me.
 
 ---
 
@@ -37,11 +37,11 @@ _"Retro Super Mario jumping over computer server racks."_
 
 ---
 
-I thought about using cosmopolitan libc to build some type of binary which would run anywhere, but I wanted to create something that was minimalist (ironic, considering the script now contains over 1,250 lines of code sans comments), would run anywhere, and would could be executed filelessly. Using something like [remote exec](http://phrack.org/issues/62/8.html) could have solved the latter issue, but why complicate it when we can just use what a human would use? And to be frank, I like challenges: creating a worm in Bash is certainly a challenge. Why not POSIX? Well, I like _challenges_; I'm not a masochist.
+I thought about using cosmopolitan libc to build some type of binary which would run anywhere, but I wanted to create something that was minimalist (ironic, considering the script now contains over 1,250 lines of code sans comments), would run anywhere, and would be executed filelessly. Using something like [remote exec](http://phrack.org/issues/62/8.html) could have solved the latter issue, but why complicate it when we can just use what a human would use? And to be frank, I like challenges: creating a worm in Bash is certainly a challenge. Why not POSIX? Well, I like _challenges_; I'm not a masochist.
 
 ---
 
-As stated, the original output that I was interested in was visualizations. [Just under 10 years ago](https://lwn.net/Articles/625988/), I was working with the well-known open source graph visualization tool [graphviz](https://graphviz.org/) (_mostly experimenting with afl-fuzz which had just been released_), and I have seen how BloodHound is able to visualize trust relationships between endpoints in MS Active Directory networks, so I knew it wouldn't be too difficult to create something like that but for SSH: all I needed to do was to actually build the script.
+As stated, the original output that I was interested in was visualizations. [Just under 10 years ago](https://lwn.net/Articles/625988/), I was working with the well-known open source graph visualization tool [graphviz](https://graphviz.org/) (_mostly experimenting with afl-fuzz which had just been released_), and I have seen how BloodHound is able to visualize trust relationships between endpoints in MS Active Directory networks, so I knew it wouldn't be too difficult to create something: all I needed to do was to actually build the script.
 
 ---
 
@@ -65,7 +65,7 @@ The blue nodes indicate the _destination_ can connect to itself (user@host<-->us
 
 ---
 
-All three of these images represent a cluster of servers that are intrinsically linked with SSH. The first image was generated using graphviz, while the second one was built using [Gephi](https://gephi.org/). As it turns out, graphviz can't handle extremely large networks and will simply crash with either out-of-memory or some other type of issue; that's where Gephi comes (the images do not display a large network). The third image was generated using [Cytoscape](https://Cytoscape.org/)'s yFiles Hierarchical Layout generation, and is also suites for very large networks. Cytoscape can also create cool web-based graphs [like this one](https://megamansec.github.io/SSH-Snake/) (try changing `layout`).
+All three of these images represent a cluster of servers that are intrinsically linked with SSH. The first image was generated using graphviz, while the second one was built using [Gephi](https://gephi.org/). As it turns out, graphviz can't handle extremely large networks (which none of the above three images represent) and will simply crash with either out-of-memory or some other type of issue; that's where Gephi comes. The third image was generated using [Cytoscape](https://Cytoscape.org/)'s yFiles Hierarchical Layout generation, and is also suited for very large networks. Cytoscape can also create cool web-based graphs [like this one](https://megamansec.github.io/SSH-Snake/) (try changing `layout`).
 
 In a future blog post, I will outline the process of creating graphs using these three software.
 
@@ -94,7 +94,7 @@ The output of the script looks something like this:
 ....
 ```
 
-The IP address is enclosed in brackets in this output (another output doesn't contain this style of output, and instead prints exactly which destination was used in the `ssh -i key $destination` command). The reason for the brackets is that it identifies the system: it uses `hostname -I` (or a different method if `hostname -I` is not available) to list all of the IPv4 addresses of the system. Why? Well, imagine a system has two IPv4 address: 10.0.0.1 and 10.0.0.2. If we connect to root@10.0.0.1 and perform our scan, we might later access root@10.0.0.2; but we've already scanned this system, so we don't want to waste time scanning the system again: it's the same! Or, imagine if a system has 256 IPv4 addresses (for some reason): we would be spending an awfully long time connecting from 10.0.0.0->10.0.0.1->10.0.0.2->10.0.0.3->....->10.0.0.255. Also imagine how many effectively duplicate nodes we'd have on our graph!
+The IP address is enclosed in brackets in this output because it represents all of the IPv4 addresses on the system. `jrogers@(10.128.0.25:10.128.0.24)` would indicate the system has two IPv4 addresses.
 
 The output of the script is actually more verbose and includes other information such as the private keys discovered. A full description can be found [in the GitHub repository](https://github.com/MegaManSec/SSH-Snake/blob/main/OUTPUT.md).
 
