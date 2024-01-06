@@ -13,6 +13,10 @@ Originally called LDAP Stalker (because it can be used to stalk changes in an LD
 
 LDAP Watchdog was built with openldap/slapd environments in mind, and has been tested on Linux. It uses the `ldap3` python3 package for retrieving data from the LDAP server. It may or not work on other environments like Microsoft Active Directory (it is completely untested).
 
+The source code, documentation, and instructions on how to use LDAP Watchdog is [available on GitHub](https://github.com/MegaManSec/LDAP-Monitoring-Watchdog).
+
+The only really necessary options settings are `LDAP_SERVER`, `USE_SSL`, `BASE_DN`, and `SEARCH_FILTER` (and `LDAP_USERNAME` and `LDAP_PASSWORD` if necessary), and the rest can easily be configured later on during the monitoring stage of using the script.
+
 # Screenshots
 
 ### Colored Output:
@@ -34,13 +38,6 @@ LDAP Watchdog was built with openldap/slapd environments in mind, and has been t
 - **Customizable Output:** Console output provides clear and colored indications of additions, modifications, and deletions for easy visibility.
 - **Ignored Entries and Attributes:** Users can specify UUIDs and attributes to be ignored during the comparison process.
 - **Conditional Ignored Attributes:** Conditional filtering allows users to ignore specific attributes based on change type (additions, modifications, deletions).
-
-# Source Code
-
-The source code, documentation, and instructions on how to use LDAP Watchdog is [available on GitHub](https://github.com/MegaManSec/LDAP-Monitoring-Watchdog).
-
-The only really necessary options settings are `LDAP_SERVER`, `USE_SSL`, `BASE_DN`, and `SEARCH_FILTER` (and `LDAP_USERNAME` and `LDAP_PASSWORD` if necessary), and the rest can easily be configured later on during the monitoring stage of using the script.
-
 
 # History
 
