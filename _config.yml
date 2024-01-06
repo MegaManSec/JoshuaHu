@@ -20,7 +20,7 @@ permalink:           /:title
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           'Joshua.Hu | Joshua Rogers\' Scribbles'
+title:		           "Joshua.Hu | Joshua Rogers' Scribbles"
 description:	       '' #Joshua.Hu is the personal blog of security researcher and hacker Joshua Rogers. This blog offers the typical observations and commentary on life and technology, focused on security.'
 author:              'Joshua Rogers'
 
