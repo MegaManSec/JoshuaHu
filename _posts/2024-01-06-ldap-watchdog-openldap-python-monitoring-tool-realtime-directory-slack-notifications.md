@@ -9,13 +9,26 @@ categories: security
 
 LDAP Watchdog is a real-time LDAP monitoring script which detects additions, deletions, and changes in an LDAP directory. It provides visibility for those curious to see what's going on in an LDAP-based environment.
 
-Originally called LDAP Stalker (because it can be used to stalk changes in an LDAP environment like new hires, leavers, promotions, and so on in a corporate setting), LDAP Watchdog is capable of monitoring any changes to an LDAP directory. Want to stay up to date with all the changes going on in your environment? LDAP Watchdog is for you.
+Originally called LDAP Stalker (because it can be used to stalk changes in an LDAP environment like new hires, leavers, promotions, and so on in a corporate setting), LDAP Watchdog is capable of monitoring any changes to an LDAP directory.
+
+Do you want to:
+
+- know what's going on in your LDAP directory on-demand with Slack webhook integration?
+- see new hires, leavers, and promotions as they happen in LDAP?
+- monitor when and what HR is doing?
+- detect unauthorized changes in LDAP?
+- monitor for accidentally leaked data?
+- detect when users are logging in and out of LDAP?
+
+Then LDAP Watchdog is for you.
 
 LDAP Watchdog was built with openldap/slapd environments in mind, and has been tested on Linux. It uses the `ldap3` python3 package for retrieving data from the LDAP server. It may or not work on other environments like Microsoft Active Directory (it is completely untested).
 
 The source code, documentation, and instructions on how to use LDAP Watchdog is [available on GitHub](https://github.com/MegaManSec/LDAP-Monitoring-Watchdog).
 
 The only really necessary options settings are `LDAP_SERVER`, `USE_SSL`, `BASE_DN`, and `SEARCH_FILTER` (and `LDAP_USERNAME` and `LDAP_PASSWORD` if necessary), and the rest can easily be configured later on during the monitoring stage of using the script.
+
+
 
 # Screenshots
 
