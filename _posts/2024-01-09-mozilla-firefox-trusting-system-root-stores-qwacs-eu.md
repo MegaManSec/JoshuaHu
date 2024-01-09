@@ -7,7 +7,7 @@ categories: security
 
 ---
 
-When Firefox 120.0 was released in late November of 2023, it included this small piece of information: [_Firefox now imports user-added TLS trust anchors (e.g., certificates) from the operating system root store. This will be enabled by default on Windows, macOS, and Android, and if needed, can be turned off in settings (Settings → Privacy & Security → Certificates)._](https://www.mozilla.org/en-US/firefox/120.0/releasenotes/).
+When Firefox 120.0 was released in late November of 2023, it included this small piece of information: [_Firefox now imports TLS trust anchors (e.g., certificates) from the operating system root store. This will be enabled by default on Windows, macOS, and Android, and if needed, can be turned off in settings (Preferences → Privacy & Security → Certificates)._](https://www.mozilla.org/en-US/firefox/120.0/releasenotes/).
 
 That's a big move, especially considering it is antithetical to the goals of Mozilla, and what  Mozilla apparently stands for and believes in relation to certificates. By relinquishing the power they hold by maintaining their own root certificate store, they effectively revoke their own gate-keeping abilities -- which is a power they hold.
 
@@ -27,3 +27,8 @@ I, of course, have no explanation for any this change. Possibly it's some type o
 Surprisingly, there seems to be little discussion on this change. Did it slip through the cracks?
 
 Definitely something to monitor in the coming months.
+
+
+---
+
+Update: It seems at some stage Mozilla updated that blog post: _Firefox now imports user-added TLS trust anchors (e.g., certificates) from the operating system root store_. Specifically, __now imports user-added TLS trust anchors__.
