@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Firefox now automatically trusting the operating system's root store for TLS certificates"
+title: "Firefox now automatically trusting the operating system's root store for TLS certificates (update: and now it doesn't!)"
 author: "Joshua Rogers"
 categories: security
 ---
