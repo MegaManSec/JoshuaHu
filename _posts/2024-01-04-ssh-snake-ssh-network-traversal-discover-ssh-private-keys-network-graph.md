@@ -1197,4 +1197,4 @@ Yes, I know this, but it helps me keep track of all of the loops. It has no effe
 
 ---
 
-Thanks for reading!
+Thanks for reading! (This post is continued [here, with an update](https://joshua.hu/ssh-snake-multi-ip-domain-resolution-bash-cannot-assign-list-to-array-member).
