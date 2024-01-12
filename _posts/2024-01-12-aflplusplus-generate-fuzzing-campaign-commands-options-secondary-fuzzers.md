@@ -29,6 +29,8 @@ Imagine calculating all of that for each of your fuzzing campaigns...
 
 The source code [is available here on GitHub](https://github.com/MegaManSec/AFLplusplus-Parallel-Gen).
 
+---
+
 The script is slightly dumb in that it is possible for a fuzzing campaign to have: `-P explore -P exploit -a binary -a ascii` -- but it will still run fine.
 
 Usage is simple: call the python script like `./generate.py -n N --fuzz-out <dir> --corpus <dir> --fuzz-loc <loc> --san-fuzz-loc <loc> --cmp-fuzz-loc <loc>`. An example is as follows:
