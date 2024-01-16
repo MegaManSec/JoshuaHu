@@ -89,7 +89,7 @@ Work out the minimum state required to login, and the best endpoint: does the we
 
 ---
 
-You’ll want to do all of this using some type of VPN or proxy. Once the website operators find out about this, they’ll look back and find the first probing. Just because you’re checking accounts using proxies, Tor, a vpn, or some hacked server, doesn’t matter or your reconnaissance is done using your real ip.
+You’ll want to do all of this using some type of VPN or proxy. Once the website operators find out about this, they’ll look back and find the first probing. Just because you’re checking accounts using proxies, Tor, a vpn, or some hacked server, doesn’t matter your reconnaissance can be done using your real ip.
 
 ---
 
