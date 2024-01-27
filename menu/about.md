@@ -4,8 +4,7 @@ title: About Me
 permalink: /about
 ---
 
-![Joshua Rogers, hacker and security expert, bartender, from Melbourne](/files/Joshua_Rogers_Melbourne.jpg)
-<img src="/files/Joshua_Rogers_Melbourne.jpg" width="200" height="200" />
+<img src="/files/Joshua_Rogers_Melbourne.jpg" width="200" height="200" alt="Joshua Rogers, hacker and security expert, bartender, from Melbourne" />
 
 I'm Joshua Rogers. Originally from Melbourne, Australia. These days I live in Poland.
 
