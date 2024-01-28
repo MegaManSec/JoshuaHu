@@ -17,9 +17,12 @@ Quickly getting addicted to the game, I played it every night after school with 
 As it turned out, in this game, you could buy and sell in-game gold for real-life money. This meant that scammers and hackers were not uncommon in the game, as they could quickly gain gold, generally unpunished (RuneScape's ability to punish hackers and scammers was/are notoriously bad).
 After being scammed myself, and I _think_(this is a long time ago) hacked, I became fascinated by how these scams and hacks worked. In reality, they weren't anything interesting; social engineering, phishing, etc.
 
+I also became interested in in-game botting. Based on the backups I have, I first downloaded a bot called on Oct 19 2008 called "AutoTalkerXPro17.exe". This bot was used to automatically type the same thing over and over (sometimes with some differences between messages), which helped with selling in-game items.
+On Dec  2  2009, I downloaded the "rsbots" (from Rsbots.net) bot.
+
 While becoming interested in all of this, I also became fascinated with in-game glitching and bug abuse. This was something I had never experienced before in other games: abusing in-game bugs to achieve things that the developer of the game never intended. This could include things like becoming invincible, dying without losing items, making your in-game sprite some animal or a morphed version of what it should be, or in some cases, generating in-game gold or experience where it normally wouldn't be possible.
 
-At the time, there were two online forums for people interested in this sort of stuff: Ezud, and Tainted-Ones. Tainted-Ones shut down less than a week after I signed up for it, so Ezud was my go-to forum.
+At the time, there were two online forums for people interested in this sort of stuff: Ezud, and Tainted-Ones. Tainted-Ones shut down less than a week after I signed up for it, so Ezud was my go-to forum. This was around 2008.
 The forum was a vBulletin-3 software forum and included a chatbox (way better than what Discord is these days!). On the forum, people could discuss bugs they have found (but not so much that they revealed enough details to show how it was done -- RuneScape would regularly browse the forum to find out how bugs are done, and fix them), theories for finding bugs, and some other things.
 
 Making some friends on this forum, I was eventually shown a bug that could be used to generate some in-game items, which could be sold. I was banned a few days later in the game, and the bug was fixed.
@@ -31,8 +34,8 @@ As time went by, I got into phishing -- the act of creating fake websites which 
 At the time, various people were selling ready-to-use phishing programs on the Ezud forum. They were not so technical, and just simple PHP and HTML. I didn't really know how they worked, but I knew I could use them to hack people.
 This was one of my first introductions to programming: HTML. Editing the phishing pages to my liking, so they were more realistic. I still remember buying my first domain, and wondering "ok, now what; where do I put the files?" -- not knowing that I would need to purchase hosting, too!
 
-This went on for some time, before Ezud effectively died (at least the community). Most users migrated to a different forum, called G4HQ. It was the same sort of thing, but slightly more generalised.
-On G4HQ, I learnt more and more about programming scripts for various purposes.
+This went on for some time, before Ezud effectively died (at least the community). Most users migrated to a different forum, called G4HQ. It was the same sort of thing, but slightly more generalised. This was around early 2009.
+On G4HQ, I learnt more and more about programming scripts for various purposes. In one saved file that I have from a backup, I made an HTML page that was my "start page" in my Firefox, which linked to g4hq. The file is dated Oct 23  2009.
 
 Around this time, I started visiting 4chan's /b/ board, getting more and more into so-called "online culture". Memes, trolling, etc. Ten years on, I still visit regularly (although I visit /fit/ mostly).
 
