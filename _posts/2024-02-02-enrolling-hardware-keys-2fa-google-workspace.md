@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The End of Yubikeys as 2-Factor-Authentication? Google Breaks 2FA with Yubikeys"
+title: "The End of Yubikeys as 2-Factor-Authentication? Google Breaks 2FA with Yubikeys in Favor of Passkeys"
 author: "Joshua Rogers"
 categories: security
 ---
