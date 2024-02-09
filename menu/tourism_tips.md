@@ -4,6 +4,8 @@ title: Recommendations for Wrocław
 permalink: /recommendations_wroclaw
 ---
 
+
+<!-- YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IHNjcnlwdCB3V2thQmlwcXp5ZGcxZFVtNm0rWFV3IDE4Ck4wd0RYTU1uZ1VwNXN5aFFLVEsyK2pyb1FHb0tReU45b3pQKy9xVnJDRTAKLS0tIEZCTjhzL0JrYnZrN3c5TG5NTGNTTDUxcGJoUW94TUJaRjA0NGR3eEJtOTAKi55+yXf2mjoZ9va9Cy3r7YZ7AbhY7LsUjQNpIj41v04KBmsjC1oayyGOJcNOhiLb4gx5+Ni6ucanPvzXjFsgzTOWGq2FykMq4HQ5Vl89zV2c9yh3E5zKtvdG/UodO0o7dkXtXohO7L5mgelbkZZLHRLPEOivecDAhpJIUe1yywVcyEgOteFy49hbAFwkyiNn5asIiBEzpSIfajKL4bVtbp2rG40ilN1nYA4nivGbBBBOY54B3kdflpKHMQIFrWnwUtYwZloA9USYNyjPIr0w1xQEcdV71+Kzy8Q37/Ujm8r7xsO+zGRv9CJFM6fSZH2fh02QMDSPQNehFWIYK90/TNfs3lfHUzPLSMfoz2De4OuTpRupRTNJ8FSbp66ISxwbpgIJLhOBRt3wAQt3e5I2312bmuSuii6w0F2JT7NtlM2kEePjUbfph8PZRkS6WZ0ohRlpZ6vXz6hqLwVjmEhesyFXu8BQR6L4emld5epwZwYCCajnPoDuYU0kFiNzn2/05Qtl+w40g8v41HMq7jZrUHpC0w== -->
 Wrocław is a medium-sized city located in the west of Poland. With an official population of 640,000 (with many hundreds of thousands likely not included in this statistic), it is Poland's fourth largest city.
 Previously a part of Bohemia (Czechia), the Austrian Empire, Prussia and Germany (where it was known as, and is still the official name, "Breslau"; at the train station, for example, you can still see manhole covers entitled 'Breslau'), the city was [largely destroyed during World War 2](https://www.warhistoryonline.com/world-war-ii/defense-breslau-germany-fights.html), however was rebuilt: now, the city is a cultural and business hub for Poland.
 
