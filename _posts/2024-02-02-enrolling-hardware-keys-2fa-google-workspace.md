@@ -7,7 +7,7 @@ categories: security
 
 ---
 
-It seems that you can no longer _register_ a FIDO2 compliant hardware token, like a Yubikey, as a 2-factor-authentication method on Google. It can now _only_ be registered as a Passkey. If you have previously registered it as a 2fa hardware key, it still works: it's just that the registration interface is gone.
+It seems that you can no longer _register_ a FIDO2 compliant hardware token, like a Yubikey, as 2-factor-authentication method on Google. It can now _only_ be registered as a Passkey. If you have previously registered it as a 2fa hardware key, it still works: it's just that the registration interface is gone.
 
 I suppose it's the natural progression of things, but it is a bit annoying if you're not ready for Passkeys yet.
 
