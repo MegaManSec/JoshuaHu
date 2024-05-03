@@ -5,7 +5,7 @@ author: "Joshua Rogers"
 categories: security
 ---
 
-I recently read a blog post by a [similar title as this one](https://kerkour.com/backdoored-dependencies-and-supply-chain-attacks), which outlined different supply chain attacks on CI/CD pipelines, and largely focused on software immeditely related to the deployment and development of products. Although the post contained a few well-known attacks, I thought I could expand on them with a greater focus on supply chains which may not be noticed by (especially) smaller organizations. Variations and combinations of each of these may also be a concern.
+I recently read a blog post with a [similar title as this one](https://kerkour.com/backdoored-dependencies-and-supply-chain-attacks), which outlined different supply chain attacks on CI/CD pipelines, and largely focused on software immediately related to the deployment and development of products. Although the post contained a few well-known attacks, I thought I could expand on them with a greater focus on supply chains which may not be noticed by (especially) smaller organizations. Variations and combinations of each of these may also be a concern.
 
 ### Your hosting provider is easily socially-engineered
 
@@ -13,13 +13,13 @@ One day, your hosting provider receives a phone call appearing to come from _you
 
 After a quick chat where _Archibald_ exchanges some not-so-private information like date-of-birth, email address, and address, he is provided with a method to gain access to _your_ hosting account. The friendly support person even removes the 2-factor-authentication for you!
 
-Quickly, _"you"_ use the remote administration tool provided by the hosting provider to gain root access to all of the servers and siphon off all the assets you'd ever want, either disppearing into thin-air after that, or performing some sort of defacement or whatever.
+Quickly, _"you"_ use the remote administration tool provided by the hosting provider to gain root access to all of the servers and siphon off all the assets you'd ever want, either disappearing into thin-air after that or performing some sort of defacement or whatever.
 
 ### Your hosting provider is vulnerable to ...
 
 SQL Injection, IDOR, or even insecure random-number-generation for password resets, _you_ cannot know how secure your hosting provider is. An attacker could compromise your account by hacking the actual hosting provider itself, and either simply log in as you, or perform actions on your behalf: sometimes without your knowledge.
 
-When your hosting company gets popped, [like Linode](https://www.exploit-db.com/papers/25306) (rip zee), you won't have a chance to even know you've been compromised because the hosting provider has the ability to do anything on its assets either through BMCs using `init=/bin/bash`, "management tools" that don't require any login for the system, or some tool to reset the root password otherwise. In some cases a reboot may happen, but would your first instinct be that "someone has hacked my hosting provider" if your server reboots unexpectedly? 
+When your hosting company gets popped, [like Linode](https://www.exploit-db.com/papers/25306) (rip zee), you won't have a chance to even know you've been compromised because the hosting provider can do anything on its assets either through BMCs using `init=/bin/bash`, "management tools" that don't require any login for the system, or some tool to reset the root password otherwise. In some cases a reboot may happen, but would your first instinct be that "someone has hacked my hosting provider" if your server reboots unexpectedly? 
 
 ### Your domain registrar is vulnerable to ...
 
@@ -33,7 +33,7 @@ This happens more and more often these days for obvious reasons (cryptocurrency)
 
 A few years ago, the South Korean KakaoTalk platform suffered a BGP hijacking where the attackers were focused on a single file: a javascript file that the platform hosted, which was inadvertently being used by a cryptocurrency exchange named KlaySwap. Since the javascript file was loaded on the exchange's website, when the route was hijacked, the attackers served a slightly altered version which siphoned off users' cryptocurrency when they visited the exchange's website. The attackers generated a valid tls certificate [the moment after hijacking the route](https://medium.com/s2wblog/post-mortem-of-klayswap-incident-through-bgp-hijacking-en-3ed7e33de600), so they could serve the file with a valid certificate, too.
 
-What could KlaySwap do? Host its own version of KakaoTalk's SDK? Use subresource integrity and hope that KakaoTalk will communicate changes to the script in the future? (Perhaps a better system could in-fact use subresource integrity, and temporarily disable the functionality that the SDK provides the platform in case the hash changes, informing someone at KlaySwap that they should check the changes which have occured and update the resource hash if it looks reasonable; something that may be difficult or annoying if the script is minimized and obsfucated.)
+What could KlaySwap do? Host its own version of KakaoTalk's SDK? Use subresource integrity and hope that KakaoTalk will communicate changes to the script in the future? (Perhaps a better system could use subresource integrity, and temporarily disable the functionality that the SDK provides the platform in case the hash changes, informing someone at KlaySwap that they should check the changes and update the resource hash if it looks reasonable; something that may be difficult or annoying if the script is minimized and obfuscated.)
 
 
 ### Your bug-bounty provider's support panel gets infiltrated
@@ -46,3 +46,5 @@ I doubt the people doing this are interested in receiving a measly few thousand 
 ---
 
 In many of these cases, there's not many preventative measures you can really put in place to defend against an attack. However, the existence of these avenues of attack should at least be understood and realized.
+
+And maybe I've forgotten that someone could have just rented all of the hoster's servers, [backdoored their BMCs](https://therecord.media/two-new-vulnerabilities-found-in-baseboard-software), and waited for you to rent the server. Or the BMC was just [left wide open lol](https://news.ycombinator.com/item?id=21312965). 
