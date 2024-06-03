@@ -6,6 +6,8 @@ permalink: /projects
 
 I've worked on a range of different projects over the years. Some of the more interesting ones (to me) are listed below.
 
+- [SSH-Snake: self-propagating, self-replicating, file-less script that automates the post-exploitation task of SSH private key and host discovery.](https://github.com/MegaManSec/SSH-Snake)
+
 - [PikeProof: A Wycheproof implemention in the Pike scripting language](https://joshua.hu/pikeproof-wycheproof-pike-checks)
 
 - [Accurate Multi-Gas Emissions Equivalence Modelling of Greenhouse Gases](/files/VRS_Mathematics_Report.pdf)
