@@ -5,7 +5,7 @@ author: "Joshua Rogers"
 categories: personal
 ---
 
-Fuzzing applications needs no introduction, and I have written about some interesting problems related to fuzzing in the past [0](https://joshua.hu/fuzzing-multiple-servers-parallel-aflplusplus-nfs)[1](https://joshua.hu/fuzzing-glibc-libresolv)[2](https://joshua.hu/fuzzing-with-memfd-createfd-fmemopen-syscall-function)[3](https://joshua.hu/aflplusplus-generate-fuzzing-campaign-commands-options-secondary-fuzzers). At scale, fuzzing has traditionally focused on compiled binaries and detecting crashes and other memory corruption issues. In this blog, we'll be looking at how you can easily fuzz _scripting_ languages whether it be php, perl, ruby, python, or even lisp, using the fuzzing software traditionally built for binaries. We'll also look at some interesting bug classes which can be caught this way.
+Fuzzing applications needs no introduction, and I have written about some interesting problems related to fuzzing in the past [[0]](https://joshua.hu/fuzzing-multiple-servers-parallel-aflplusplus-nfs)[[1]](https://joshua.hu/fuzzing-glibc-libresolv)[[2]](https://joshua.hu/fuzzing-with-memfd-createfd-fmemopen-syscall-function)[[3]](https://joshua.hu/aflplusplus-generate-fuzzing-campaign-commands-options-secondary-fuzzers). At scale, fuzzing has traditionally focused on compiled binaries and detecting crashes and other memory corruption issues. In this blog, we'll be looking at how you can easily fuzz _scripting_ languages whether it be php, perl, ruby, python, or even lisp, using the fuzzing software traditionally built for binaries. We'll also look at some interesting bug classes which can be caught this way.
 
 ---
 
