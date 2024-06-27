@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Fuzzing scripting languages and interpreters natively using AFL++ to find memory corruption and more"
+title: "Fuzzing scripting languages' interpreters' native functions using AFL++ to find memory corruption and more"
 author: "Joshua Rogers"
 categories: personal
 ---
@@ -76,9 +76,9 @@ CFLAGS='-O1 -fcf-protection=none -flto -fno-common -fno-inline' CPPFLAGS='-O1 -f
 
 ---
 
-Pike is now built and we can now create a Pike _script_ to start fuzzing the internal functions of the language (or we could simply fuzz whatever Pike/scripting code we have and find non-memory-related bugs). We have a lot to choose from: image decoders, JSON parsers, BSON parsers, and so on. In this case, we'll look at Pike's serializer and deserializer: [encode_value](https://pike.lysator.liu.se/generated/manual/modref/ex/predef_3A_3A/encode_value.html) and [decode_value](https://pike.lysator.liu.se/generated/manual/modref/ex/predef_3A_3A/decode_value.html#decode_value).
+Pike is now built and we can now create a Pike _script_ to start fuzzing the internal functions of the language (or we could simply fuzz whatever Pike/scripting code we have and find non-memory-related bugs, but note that coverage is based on the native C code, not on the Pike script). We have a lot of C code to choose from in Pike: image decoders, JSON parsers, BSON parsers, and so on. In this case, we'll look at Pike's serializer and deserializer: [encode_value](https://pike.lysator.liu.se/generated/manual/modref/ex/predef_3A_3A/encode_value.html) and [decode_value](https://pike.lysator.liu.se/generated/manual/modref/ex/predef_3A_3A/decode_value.html#decode_value). These functions are defined in the [~5,500-LOC src/encode](https://github.com/pikelang/Pike/blob/b92b3513f379531244b2382eb77df355294244e7/src/encode.c) file of the source code.
 
-Our Pike script looks like this:
+Thus our Pike script to fuzz the C function looks like this:
 ```C
 int main() {
         while(__builtin.AFL_LOOP(10000)) { // Read 10,000 fuzzing payloads before restarting.
@@ -118,7 +118,7 @@ int main() {
 
 To prove this, I changed Pike's interpreter to abort when exiting normally, by editing the final line of (reachable) code in [src/main.c](https://github.com/pikelang/Pike/blob/7d99ae0328982c37436f15db1caaa453acd09563/src/main.c#L692) to `abort();`. Then in the Pike script, `return 0;` was replaced with `_exit(0);` (which calls the [C code `exit`](https://pike.roxen.se/generated/manual/modref/ex/predef_3A_3A/_exit.html#_exit) directly).
 
-As it turned out, there was a bug in the `do_something` function which, given a specific input, resulted in Pike simply "walking away from its responsibilities, and exiting the interpreter". Not great, for things running as a daemon especially.
+As it turned out, there was a bug in the `do_something` function which, given a specific input, resulted in Pike simply "walking away from its responsibilities, and exiting the interpreter, as if the script had contained an exit()". Not great, for things running as a daemon especially.
 
 ---
 
@@ -170,4 +170,4 @@ Lots of other testing can be done too. In late 2021, I submitted a patch to the 
 
 Likewise, AFL++ recently added preliminary support for [fuzzing for injections like SQLi, XSS, and and LDAPi](https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.injections.md). This seems like a prime target for future research using the fuzzing method outlined in this blog post.
 
-Even whole codebases can be fuzzed this way: if the code handles some arbitrary data, just start fuzzing it instead of sending random payloads, ensuring that the codebase will abort or raise some error which AFL++ will pick up (the environmental value `AFL_CRASH_EXITCODE` can be used to specify an [error code indicating an error](https://github.com/AFLplusplus/AFLplusplus/blob/stable/docs/env_variables.md#4-settings-for-afl-fuzz).
+Even whole codebases can be fuzzed this way: if the code handles some arbitrary data, just start fuzzing it instead of sending random payloads, ensuring that the codebase will abort or raise some error which AFL++ will pick up (the environmental value `AFL_CRASH_EXITCODE` can be used to specify an [error code indicating an error](https://github.com/AFLplusplus/AFLplusplus/blob/stable/docs/env_variables.md#4-settings-for-afl-fuzz).) Note that this won't actually (based on coverage and instrumentation) fuzz the _script_ itself, but it will fuzz any of the interesting underlying C code which has been instrumented by AFL++'s llvm extension.
