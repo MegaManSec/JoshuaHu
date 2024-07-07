@@ -2,7 +2,7 @@
 layout: post
 title: "On using private browsing mode for half a year"
 author: "Joshua Rogers"
-categories: personal
+categories: journal
 ---
 
 Since the beginning of the year, I've been experimenting with a nearly-permanent use of "private browsing" in the browser on my computers, and phone.
