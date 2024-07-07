@@ -2,9 +2,7 @@
 layout: post
 title: "Attacking a scripting language's cryptographic functions with Wycheproof"
 author: "Joshua Rogers"
-categories: journal
-#tags: [security work life]
-#image: cutting.jpg
+categories: security
 ---
 
 **Introduction**

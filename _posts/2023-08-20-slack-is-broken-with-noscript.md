@@ -2,9 +2,7 @@
 layout: post
 title: "Slack login is broken with noscript"
 author: "Joshua Rogers"
-categories: journal
-#tags: [security work life]
-#image: cutting.jpg
+categories: security
 ---
 
 Hurrah! Another website that is completely broken when disabling Javascript: this time with a false redirect!

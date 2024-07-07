@@ -2,7 +2,7 @@
 layout: post
 title: "Cute color progression for my battery status indicator"
 author: "Joshua Rogers"
-categories: personal
+categories: journal
 ---
 
 
