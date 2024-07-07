@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Encrypted DNS over TLS on FreeBSD, and Blocking Unencrypted DNS Traffic"
+title: "Encrypted DNS over TLS on FreeBSD with Unbound, and Blocking Unencrypted DNS Traffic"
 author: "Joshua Rogers"
 categories: security
 ---
@@ -9,7 +9,7 @@ Unlike systemd-based Linux distributions, FreeBSD does not [come with a switch](
 
 ---
 
-Note: FreeBSD comes with a built-in caching DNS resolver called `local-unbound(8)`. This is a stripped-down version of [unbound](https://www.nlnetlabs.nl/projects/unbound/about/) which provides a basic local caching and forwarding resolver, with relaxed validation (in order to be compatible with corporate and public network setups). The configuration for this resolver is located in `/var/unbound` (note: `/etc/unbound@ -> ../var/unbound`), however this configuration is overwritten periodically, so we won't be using this^[in fact, we could put our configuration in `/var/unbound/conf.d`, however this is not a proper use-case and may be subject to breakage.]. Instead, we'll be using the `dns/unbound` port.
+Note: FreeBSD comes with a built-in caching DNS resolver called `local-unbound(8)`. This is a stripped-down version of [unbound](https://www.nlnetlabs.nl/projects/unbound/about/) which provides a basic local caching and forwarding resolver, with relaxed validation (in order to be compatible with corporate and public network setups). The configuration for this resolver is located in `/var/unbound` (note: `/etc/unbound@ -> ../var/unbound`), however this configuration is overwritten periodically, so we won't be using this^[in fact, we could put our configuration in `/var/unbound/conf.d`, however this is not a proper use-case and may be subject to breakage.] -- likewise, many hardening options are unavailable in this version. Instead, we'll be using the `dns/unbound` port.
 
 Previously, I used [dnscrypt-proxy](https://github.com/DNSCrypt/dnscrypt-proxy) to setup a forwarding resolver which forwards to a DNS-over-HTTPS (DoH) server. I wanted to learn about unbound this time, so went with this. unbound has an [open feature request](https://github.com/NLnetLabs/unbound/issues/308) for DoH, but it looks like nobody has started development on it yet. In my opinion, DoH is more secure than DoT, as an unsophisticated firewall can simply block port 853 (DoT default port) traffic, and deny access. Oh well.
 
