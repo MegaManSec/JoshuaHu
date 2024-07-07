@@ -2,7 +2,7 @@
 layout: post
 title: "Losing Sight and Vision of Your Mission and Culture"
 author: "Joshua Rogers"
-categories: blog
+categories: journal
 ---
 
 You: You're a system administrator for a large insurance company that offers travel insurance. One day, you notice an uptick in bots accessing your website. Although these bots are doing nothing but crawling your website, you are slightly frightened that other bots could be attempting to hack you. Using your state-of-the-art monitoring and analytics system, you notice that these bots are mostly coming from Asia. Your company isn't based in Asia, so you think to yourself: well golly, I'll just configure my state-of-the-art Web Application Firewall (WAF) to block all traffic come from Asia. We're not based in Asia after all, so why should we serve any traffic from there? Case Closed.
