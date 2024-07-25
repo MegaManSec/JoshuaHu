@@ -12,7 +12,7 @@ I've worked on a range of different projects over the years. Some of the more in
 
 - [Accurate Multi-Gas Emissions Equivalence Modelling of Greenhouse Gases](/files/VRS_Mathematics_Report.pdf)
 
-- [Squid Caching Proxy: A Security Assessment]()
+- [Squid Caching Proxy: A Security Assessment](https://megamansec.github.io/Squid-Security-Audit/)
 
 - [HTTPGen](https://github.com/MegaManSec/HTTPGen)
 
