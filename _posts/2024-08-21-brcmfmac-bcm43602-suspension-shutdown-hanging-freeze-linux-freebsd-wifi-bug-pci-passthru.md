@@ -167,6 +167,27 @@ The `pciconf` source code shows that the system crash occurs exactly when `ioctl
 
 Similarly, if `clear driver` is not executed and instead the `vmm` module is unloaded forcefully, `pciconf -lvc` does does display the full capabilities the first time it is executed, but on the second execution, causes a system freeze. In fact, after the vmm module is unloaded, every operation on the pci device causes the system to freeze (particularly every operation supported by `devctl`).
 
+None of the sysctls worked, either:
+
+```
+hw.acpi.disable_on_poweroff
+hw.pci.allow_unsupported_io_range
+hw.pci.clear_bars
+hw.pci.clear_buses
+hw.pci.clear_pci
+hw.pci.clear_pcib
+hw.pci.do_power_resume
+hw.pci.do_power_suspend
+hw.pci.enable_aspm
+hw.pci.enable_msi
+hw.pci.enable_msix
+hw.pci.pci_enable_pcie_e
+hw.pci.pci_enable_pcie_hp
+hw.pci.realloc_bars
+hw.pci_do_power_nodriver
+hw.usb.no_suspend_wait
+```
+
 
 So I took a different approach. As it turns out, it _is_ possible to reset `pci3`, but in a slightly different sequence. We first need to disable the `pcib4` bridge which bridges the `pci3` adapter. With the modified wifibox script which does __not__ run `clear driver`:
 
