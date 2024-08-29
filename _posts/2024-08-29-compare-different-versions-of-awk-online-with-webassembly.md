@@ -52,7 +52,4 @@ By default, the program (the `main()` function) is run automatically. To disable
 
 Anyways, the website itself isn't too fancy. It reminded me that I hate CSS. "_The answer to many CSS formatting problems seems to be "add another <div>!"_" indeed.. [Or this comment](https://stackoverflow.com/questions/526035/how-can-i-position-my-div-at-the-bottom-of-its-container#comment339220_526035).
 
-I added some examples. The most interesting example for me is that `\s` will be the character `s` in all versions except for gawk, where it matches a space. Seems like an interesting gotcha.
-
-
-
+I added some examples. The most interesting example for me is that `\s` will match the character `s` in all versions except for gawk, where it matches a space. Seems like an interesting gotcha.
