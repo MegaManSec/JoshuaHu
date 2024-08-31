@@ -10,13 +10,13 @@ menu:
 - {name: 'About Me', path: 'menu', url: 'about.html'}
 #- {name: 'Writing', path: 'menu', url: 'writing.html'}
 - {name: 'Projects', path: 'menu', url: 'projects.html'}
-- {name: 'Wrocław Recommendations', path: 'menu', url: 'recommendations_wroclaw.html'}
+- {name: 'Curriculum Vitae', path: 'menu', url: 'files/joshua-rogers-security-engineer.pdf'}
 - {name: 'Contact', path: 'menu', url: 'contact.html'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
 social:
 - {icon: 'github', link: 'https://github.com/MegaManSec'}
-- {icon: 'twitter', link: 'https://twitter.com/MegaManSec'}
+- {icon: 'x-twitter', link: 'https://x.com/MegaManSec'}
 - {icon: 'linkedin', link: 'https://www.linkedin.com/in/joshua-alexander-rogers/'}
 #- {icon: 'envelope', link: 'mailto:contact@joshua.hu'}
 - {icon: 'rss-square', link: '/feed.xml'}
