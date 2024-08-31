@@ -22,6 +22,8 @@ Do you want to:
 
 Then LDAP Watchdog is for you.
 
+# LDAP Watchdog
+
 ---
 
 LDAP Watchdog was built with openldap/slapd environments in mind, and has been tested on Linux. It uses the `ldap3` python3 package for retrieving data from the LDAP server. It may or not work on other environments like Microsoft Active Directory (it is completely untested).
@@ -32,13 +34,14 @@ The only really necessary options settings are `LDAP_SERVER`, `USE_SSL`, `BASE_D
 
 
 
----
+## Screenshots
 
-# Screenshots
+---
 
 ### Colored Output:
 
 ![The colored output](https://raw.githubusercontent.com/MegaManSec/LDAP-Monitoring-Watchdog/main/example.png)
+
 ---
 
 ### Slack Output:
@@ -47,7 +50,8 @@ The only really necessary options settings are `LDAP_SERVER`, `USE_SSL`, `BASE_D
 
 ---
 
-# Features
+## Features
+
 - **Real-time Monitoring:** LDAP Watchdog continuously monitors an LDAP directory for changes in user and group entries.
 - **Change Comparison:** The tool compares changes between consecutive LDAP searches, highlighting additions, modifications, and deletions.
 - **Control User Verification:** LDAP Watchdog supports a control user mechanism, triggering an error if the control user's changes are not found.
@@ -57,9 +61,9 @@ The only really necessary options settings are `LDAP_SERVER`, `USE_SSL`, `BASE_D
 - **Ignored Entries and Attributes:** Users can specify UUIDs and attributes to be ignored during the comparison process.
 - **Conditional Ignored Attributes:** Conditional filtering allows users to ignore specific attributes based on change type (additions, modifications, deletions).
 
----
+## History
 
-# History
+---
 
 I was looking for some type of tool that I can do to take periodic snapshots of an LDAP directory and monitor and watch the changes that were happening over a certain period. I found [LDAPmonitor](https://github.com/p0dalirius/LDAPmonitor), but as far as I can tell, it's only intended for use on Microsoft Active Directory. It didn't work for what I wanted to do, and looking at the Python source, it seems highly dependent on AD [OID](https://ldap.com/ldap-oid-reference-guide/)s.
 
@@ -89,9 +93,9 @@ After attempting to make a small script to automatically diff an LDAP directory 
 
 Personally, using a Perl script which I don't really understand simply isn't a possibility for me; mentally, at least. Therefore, I decided to just make what I originally wanted: a script that would notify me of changes to an LDAP directory as they happened. LDAP Stalker (renamed to LDAP Watchdog) was thus born.
 
----
+## Development
 
-# Development
+---
 
 The script itself isn't anything too interesting, but it was quite tedious to work with so many nested loops. At one point, there's a 5-nested-for-loop. [The comparison function is highly commented](https://github.com/MegaManSec/LDAP-Monitoring-Watchdog/blob/main/ldap-watchdog.py#L237) (necessary due to the labyrinth of for-loops).
 

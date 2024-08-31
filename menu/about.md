@@ -8,16 +8,18 @@ permalink: /about
 
 I'm Joshua Rogers. Originally from Melbourne, Australia. These days I live in Poland.
 
+My CV can be found here: [joshua-rogers-security-engineer.pdf](/files/joshua-rogers-security-engineer.pdf).
+
 I have 12+ years of security experience and have years of sysadmin experience 
 (linux and freebsd). I have a BSc in Applied Mathematics and a BA in 
 Cinema/Film studies.
 
 I'm driven by the unfamiliar and unexplored. I'm motivated by the unknown and 
-chaotic, and this is a driving force or my problem-solver attitude, which has 
+chaotic, and this is a driving force of my problem-solver attitude, which has 
 allowed me to solve problems that others overlook. I try to make a real 
 difference in everything that I do, and not be replaceable.
 
-If you're interesting in chatting (and I always am), you should [contact 
+If you're interested in chatting (and I always am), you should [contact 
 me](/contact.html).
 
 Some call me an all-rounder due to my ability to jump into nearly any 
@@ -32,8 +34,8 @@ driving meaningful change.
 The following is a summary of an in-depth look into who I am, my values, my 
 interests, my history, my motivations, and what I'm looking for from others. 
 Looking for the best cyber security expert in the world? Well, look elsewhere! 
-I may not be able to solve leetcode problems, nor do I take part in bug 
-bounties, but it you're looking for a detail-oriented, dedicated, and 
+But, well.. I may not be able to solve leetcode problems, nor do I take part 
+in bug bounties, but if you're looking for a detail-oriented, dedicated, and 
 passionate person that enjoys solving problems, never gives up, and will learn 
 the how to do anything that hasn't been learnt before, then I might just be 
 the person you're looking for.
@@ -67,7 +69,7 @@ with security issues related to running online gaming servers as well.
 In 2011, I became the head administrator and system administrator for a forum 
 dedicated to the discussion of bug abuse, glitching, and hacking for the 
 RuneScape MMORPG. Here, I header a team of two other administrators and five 
-moderators to runt he forum. I continued to learn more about web exploitation, 
+moderators to run the forum. I continued to learn more about web exploitation, 
 but this time from the defensive side, and learnt about system hardening. I 
 wrote custom PHP code, found vulnerabilities in addons for the vBulletin 
 software as well as the vBulletin software itself, and worked with software 
@@ -106,15 +108,17 @@ spontaneous travels led me to Poland. The manager at the hostel I was staying
 at suggested I should work there for a few months. I ended up accepting and 
 started to work as a bartender, and receptionist. I ended up staying longer 
 than expected, and quickly integrated into the local gastronomy community. 
-During this time, I balanced studies which continued in Australia, work, and 
-continued travel throughout Europe (with Poland as base), and found ways to 
-"hack the system" to continue my education while away from Australia. I 
-also hacked the system to stay in Europe beyond what the Schengen agreement would 
-normally allow an Australian. I learnt Polish, and worked in various roles in 
-gastronomy: barbacking, cleaning, marketing, customer service, bartending, 
-supervisory, management, and yes, sometimes tech support (fixing things but 
-also especially: "see something and make them better with management 
-collaboration").
+During this time, I balanced studies which continued in Australia 
+(unofficially remotely), work, and continued travel throughout Europe (with 
+Poland as base), and found ways to "hack the system" to continue my education 
+while away from Australia. I also hacked the system to stay in Europe beyond 
+what the Schengen agreement would normally allow an Australian. I learnt 
+Polish, and worked in various roles in gastronomy: barbacking, cleaning, 
+marketing, customer service, bartending, supervisory, management, and yes, 
+sometimes tech support (fixing things but also especially: "see something and 
+make them better with management collaboration"). I also took part in a paid 
+mathematics scholarship, remotely representing my university Australian 
+Mathematical Sciences Institute.
 
 In late 2020, I began working in the security team at Opera Software, working 
 remotely while travelling throughout Europe. I very quickly made a name for 
@@ -148,9 +152,9 @@ projects with new employees and interns in the security team, and created a
 roadmap for the security team. During this time, Ialso continued to travel 
 throughout Europe (and occasionally back to Australia and a bit of Asia on the 
 way). When I travel, I try to hang out with locals by meeting them through 
-places like Couchsurfing, or friends of friends: or people that I had met in 
-my previous job. Or, just meeting strangers, workers of the hostels I stayed 
-at, or other guests.
+places like Couchsurfing; or friends of friends; or people that I had met in 
+my previous job. Or, sometimes, just meeting strangers, workers of the hostels 
+I stayed at, or other guests.
 
 In the beginning of 2024, I came to the realisation that I had offered 
 everything I could to Opera and they had offered everything they could to me. 

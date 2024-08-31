@@ -2,14 +2,47 @@
 layout: default
 ---
 
-<h1>
+{% capture toc_content %}
+  {% include toc.html html=content %}
+{% endcapture %}
+
+{% if toc_content and toc_content.size > 20 %}
+  <div class="before-sidebar">
+    <div class="sidebar">
+      <input type="checkbox" id="toggle-toc" style="display:none;">
+      <div class="actions">
+        <ul class="icon-list">
+          <li class="up-arrow">
+            <a href="#" class="tooltip">
+              <i class="fas fa-chevron-up fa-lg" style="line-height:initial;"></i>
+              <span class="tooltiptext">Back To Top</span>
+            </a>
+          </li>
+          <li class="sidebar-spacer" style="margin: 0 50px;"></li>
+          <li class="bars">
+            <label for="toggle-toc" class="tooltip-left">
+              <i class="fas fa-bars fa-lg" style="line-height:initial;"></i>
+              <span class="tooltiptext-left">Hide ToC</span>
+              <span class="tooltiptext-left-checked">Show ToC</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <span class="conditional-toc">
+        {{ toc_content }}
+      </span>
+    </div>
+  </div>
+{% endif %}
+
+<h1 class="post-title">
   {{ page.title }}
 </h1>
 {% if page.image %}
   <img src="{{ site.github.url }}/assets/img/{{ page.image }}">
 {% endif %}
 <article>
-  {{ content }}
+  {% include anchor_headings.html html=content anchorBody="#" %}
 </article>
 {% if site.hide_post_date != true %}
   {% include post-date.html %}

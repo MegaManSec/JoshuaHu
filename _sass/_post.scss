@@ -30,3 +30,230 @@
 .related-posts a {
   text-decoration: none;
 }
+
+article a {
+  color: #08C;
+}
+
+.post-title {
+  font-weight: bold;
+}
+
+article h1 a, 
+article h2 a, 
+article h3 a, 
+article h4 a, 
+article h5 a, 
+article h6 a {
+  float: right;
+}
+
+.sidebar > span > ul {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.sidebar > span > li {
+  margin-left: 1rem;
+}
+
+.sidebar ul li ul {
+  padding-left: 1.5rem;
+}
+
+.sidebar ul li {
+  list-style-type: circle;
+}
+
+.sidebar ul ul li {
+  list-style-type: disc;
+}
+
+.sidebar ul ul li li {
+  list-style-type: square;
+}
+
+.sidebar ul ul li li ul li {
+  list-style-type: circle;
+}
+
+p > code.language-plaintext.highlighter-rouge {
+  white-space: nowrap;
+  overflow-x: auto;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+  line-height: 1.2; 
+}
+
+article {
+  word-wrap: break-word; /* Wraps long words at the end of a line */
+  overflow-wrap: break-word; /* Ensures words wrap properly without breaking them mid-word */
+  white-space: normal; /* Ensures the text wraps naturally */
+  hyphens: auto; /* Automatically hyphenate if necessary */
+  width: 100%; /* Ensure the container takes up the full available width */
+  box-sizing: border-box; /* Considers padding and borders within the width */
+}
+
+before-sidebar {
+  display: none;
+  visibility: hidden;
+}
+
+.sidebar {
+  display: none;
+  visibility: hidden;
+}
+
+.actions {
+  display: none;
+  visibility: hidden;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    visibility: visible;
+    display: inline-block;
+    background-color: #F9FAFF;
+    border: 1px solid #D7DFE3;
+    box-sizing: border-box;
+    max-width: 90%;
+    overflow-y: auto;
+    max-height: 90vh;
+    margin-top: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+ }
+
+  .before-sidebar {
+    visibility: visible;
+    display: block;
+    justify-content: flex-end;
+    position: fixed;
+    right: 1rem;
+    top: 50%;
+    padding-right: 0.5rem;
+    line-height: calc(0.25rem + 0.6vw);
+    transform: translateY(-50%) scale(1);
+    margin-left: 2rem;
+    word-wrap: break-word;
+    width: 22%;
+    font-size: calc(0.5rem + 0.2vw);
+  }
+
+  .actions {
+    visibility: visible;
+    display: block;
+    background-color: #F9FAFF;
+    border: 1px solid #D7DFE3;
+    box-sizing: border-box;
+    padding: 0.1rem;
+  }
+
+  .actions > ul > li {
+    display: inline-block;
+  }
+
+  .icon-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .up-arrow .tooltip {
+    padding-left: 1rem;
+  }
+
+  .bars .tooltip-left {
+    padding-right: 1rem;
+    display: flex;
+    cursor: pointer;
+  }
+
+  .icon-list li {
+    margin: 0;
+  }
+
+  .tooltip {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .tooltip-left {
+    position: relative;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: max-content;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    transition: opacity 1s;
+    padding-left: 100%;
+    opacity: 0;
+  }
+
+  .tooltip-left .tooltiptext-left {
+    visibility: hidden;
+    width: max-content;
+    padding-right: 100%;
+    position: absolute;
+    z-index: 1;
+    right: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .tooltip-left:hover .tooltiptext-left {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .tooltip-left:hover {
+    color: $light-gray-color;
+  }
+
+  .conditional-toc {
+    transition: opacity 1s ease;
+  }
+  
+  #toggle-toc:checked ~ .conditional-toc {
+    overflow: hidden;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    display: inline-block;
+  }
+
+  .tooltip-left .tooltiptext-left-checked {
+    visibility: hidden;
+    width: max-content;
+    padding-right: 100%;
+    position: absolute;
+    z-index: 1;
+    right: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
+  #toggle-toc:checked + .actions .tooltip-left:hover .tooltiptext-left-checked {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #toggle-toc:checked + .actions .tooltip-left .tooltiptext-left {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+

@@ -119,7 +119,7 @@ The number of views of the auction was recorded, as well as the number of bidder
 
 Recording the winning bidder's name and feedback was useful because we liked to be able to check what other games a bidder had won in the past -- something not possible on eBay's website. Since eBay obfuscates the winner's userid (such as a****b) in the same way each auction, it was as simple as querying the local database for the winner's obfuscated userid, with a feedback score _approximately_ the same as an earlier auction
 
-[![Terminal Screen Showing Output](/assets/img/terminal.png)](/assets/img/terminal.png)
+[![Terminal Screen Showing Output](/files/terminal.png)](/files/terminal.png)
 
 In this screenshot of the terminal output (press the image to open a larger version), we can see what I saw when I opened the terminal. Blue lines were informational (such as whether a game had sold or not) as well as listings that were detected to be relisted. Yellow lines were warnings (which were expected and accounted for in the code). Green lines were new listings that had never been seen before (i.e. not a relisting) -- each of these lines caused a bell to sound in my terminal when they were printed.
 

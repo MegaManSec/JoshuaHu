@@ -1,7 +1,8 @@
 ---
-layout: page
-title: Recommendations for Wrocław
-permalink: /recommendations_wroclaw
+layout: post
+title: "My Wrocław tourism tips and recommendations"
+author: "Joshua Rogers"
+categories: journal
 ---
 
 Wrocław is a medium-sized city located in the west of Poland. With an official population of 640,000 (with many hundreds of thousands likely not included in this statistic), it is Poland's fourth largest city.
