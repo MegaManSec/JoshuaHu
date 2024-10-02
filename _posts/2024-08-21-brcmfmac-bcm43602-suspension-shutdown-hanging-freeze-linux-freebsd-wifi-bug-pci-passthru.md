@@ -7,6 +7,8 @@ categories: journal
 
 Over the past month or so, I've been investigating the BCM43602 chip, and its ability to: 1. work on freebsd using wifibox, 2. suspend with acpi's s3/suspend-to-ram.
 
+## FreeBSD
+
 As it stands, when starting the wifibox service, a bhyve VM is created with Alpine Linux, and PCI passthrough is used to proxy the BCM43602 chip to the VM. When the service and VM starts, the following debugging messages can be observed:
 
 ```
@@ -120,6 +122,7 @@ When it comes to suspend/resume however, things start to go awry. I have observe
 4. I can start and stop wifibox as many times as needed: the problem is when I unload vmm / suspend.
 
 After some debugging, I discovered that I can freeze the system on-demand by: starting/stopping wifibox, and then attempting to read from the pci device, for example by using `pciconf -lvc`. Wifibox, by default, clears the pci forcefully-set driver using `devctl clear driver -f ppt0`. After wifibox is finished shutting down, manually running `pciconf -lc pci0:3:0:0` will list the device as with no capabilities (note: I removed the `clear driver` invocation from the wifibox shutdown script and have manually run it to demonstrate the output):
+
 ```
 Stopping wifibox...
 tap0: link state changed to DOWN
@@ -142,7 +145,8 @@ none0@pci0:3:0:0:       class=0x028000 rev=0x01 hdr=0x00 vendor=0x14e4 device=0x
 $
 ```
 
- Running the `pciconf -lvc` command again will cause a total system freeze. __Before__ the `clear driver` command is run, pciconf returns the following:
+Running the `pciconf -lvc` command again will cause a total system freeze. __Before__ the `clear driver` command is run, pciconf returns the following:
+
 ```
 ppt0@pci0:3:0:0:	class=0x028000 rev=0x01 hdr=0x00 vendor=0x14e4 device=0x43ba subvendor=0x106b subdevice=0x0152
     vendor     = 'Broadcom Inc. and subsidiaries'
@@ -199,7 +203,8 @@ So I took a different approach. As it turns out, it _is_ possible to reset `pci3
 6. `devctl enable pcib4`
 7. `service wifibox onestart`
 
-The output of running this can be seen below. Note that I have added some debugging messages into FreeBSD's pci kernel module.
+The output of running this can be seen below. Note that I have added some debugging messages into FreeBSD's pci kernel module:
+
 ```
 $ service wifibox onestop
 Stopping wifibox....pcib4: Josh: pcib_release_resource
@@ -348,6 +353,7 @@ none2@pci0:3:0:0:        class=0x028000 rev=0x01 hdr=0x00 vendor=0x14e4 device=0
 ```
 
 Of note is some differences in the "found->" line. The original:
+
 ```
 cmdreg=0x0006, statreg=0x0010, cachelnsz=64 (dwords)
 map[10]: type Memory, range 64, base 0xa0800000, size 15, enabled
@@ -355,6 +361,7 @@ map[18]: type Memory, range 64, base 0xa0400000, size 22, enable
 ```
 
 and the new output after suspend/resume:
+
 ```
 cmdreg=0x0000, statreg=0x0010, cachelnsz=0 (dwords)
 map[10]: type Memory, range 64, base 0, size 15, memory disabled
@@ -370,6 +377,7 @@ pcib4: failed to allocate initial prefetch window: 0-0xfffff
 ```
 
 Likewise, the `pciconf` output is different:
+
 ```
 1c1
 < ppt0@pci0:3:0:0:	class=0x028000 rev=0x01 hdr=0x00 vendor=0x14e4 device=0x43ba subvendor=0x106b subdevice=0x0152
@@ -413,6 +421,7 @@ ppt0: using IRQ 45 for MSI
 ```
 
 Although wifibox started and there seems to be _some_ activity in the pci buses, the VM cannot succesfully probe and attach to the chip. The dmesg output reveals:
+
 ```
 [    0.888052] brcmfmac: brcmf_chip_recognition: SB chip is not supported
 [    0.888055] brcmfmac: brcmf_pcie_probe: failed 14e4:43ba
@@ -526,6 +535,7 @@ ppt0: using IRQ 45 for MSI
 ```
 
 Then we connect to the VM and "remove" the device:
+
 ```
 $ wifibox console
 Connecting, type "~." to leave the session...
@@ -671,6 +681,8 @@ Using the following sequence of operations, suspend/resume completely works with
 
 Now comes the difficult part: where is the actual issue here located?
 
+## Linux
+
 According to the Linux documentation, [pci remove "does not involve any kind of hot-plug functionality"](https://www.kernel.org/doc/Documentation/filesystems/sysfs-pci.txt), "e.g. powering off the device". So "removing" the device doesn't power off the device. But what _does_ it does, especially to invoke those "ppt0: attempting to allocate 1 MSI vectors (16 supported)" messages that are present?
 
 In [drivers/pci/remove.c](https://github.com/torvalds/linux/blob/6e4436539ae182dc86d57d13849862bcafaa4709/drivers/pci/remove.c#L117), `pci_stop_and_remove_bus_device` calls `pci_stop_bus_device` and `pci_remove_bus_device`.
@@ -730,7 +742,7 @@ The issue here may have been obvious for someone with more experience with drive
 
 ---
 
-For the sake of anybody searchin this device via their favorite search engine in the future, I include some dumps from `pciconf -lvc` and `devinfo -rv`:
+For the sake of anybody searching about this device via their favorite search engine in the future, I include some dumps from `pciconf -lvc` and `devinfo -rv`:
 
 ```
 hostb0@pci0:0:0:0:	class=0x060000 rev=0x08 hdr=0x00 vendor=0x8086 device=0x0d04 subvendor=0x106b subdevice=0x0147
