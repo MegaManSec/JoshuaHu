@@ -1053,6 +1053,8 @@ For Firefox, we need to specifically enable hardware acceleration. This is as si
 
 There is a [long-standing bug](https://forums.freebsd.org/threads/sleep-resume-caveats-and-gotchas.90831/post-638290) in X on FreeBSD, where hardware acceleration will cease to work if the virtual terminal is switched more than once. Since we boot into v0 and the X session occupies v8, any changes from the X session will make acceleration stop working until a reboot.
 
+To force H264 in Firefox, you can use the [enhanced-h264ify](https://github.com/alextrv/enhanced-h264ify) extension.
+
 When suspension happens, the vt is automatically switched. To ensure this doesn't happen, set the following in `/etc/sysctl.conf`:
 
 ```bash
