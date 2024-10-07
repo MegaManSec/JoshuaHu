@@ -25,7 +25,7 @@ The source code of what I _did_ create is on [my GitHub](https://github.com/Mega
 
 ---
 
-Debian provides a comprehensive archive of published packages at [https://snapshot.debian.org/](https://snapshot.debian.org/), dating all the way back to March, 2023. Daily (and sometimes more often) snapshots include all of the packages ever published, and can act as drop-ins for the normal Debian archives:
+Debian provides a comprehensive archive of published packages at [https://snapshot.debian.org/](https://snapshot.debian.org/), dating all the way back to March, 2005. Daily (and sometimes more often) snapshots include all of the packages ever published, and can act as drop-ins for the normal Debian archives:
 
 ```
 https://snapshot.debian.org/archive/debian/ shows that we have imports for the main Debian archive, http://ftp.debian.org/debian/, from 2005 until the present. Picking October of 2009, https://snapshot.debian.org/archive/debian/?year=2009;month=10, provides us with a list of many different states of the debian archive, roughly spaced 6 hours apart (the update frequency of ftp.debian.org at that time). Following any of these links, say https://snapshot.debian.org/archive/debian/20091004T111800Z/, shows how `ftp.debian.org/debian` looked on the 4th of October 2009 at around 11:18 UTC.
