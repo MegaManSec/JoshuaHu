@@ -513,6 +513,8 @@ $ pwcview -y -f 25
 
 ## Sensor calibration
 
+---
+
 When you load the `facetimehd` driver, you will see the following warning (it is not an error):
 
 ```
@@ -543,6 +545,8 @@ $ modprobe facetimehd
 
 # The Future
 
-The setup outlined in this post was heavily inspired by [wifibox](https://github.com/pgj/freebsd-wifibox). In the longterm, I would like to create something that mimicks wifibox:a mini read-only VM which automatically handles everything outlined in this post, which runs as a service on the FreeBSD host. Likewise, since wifibox already runs a micro VM for WiFi, I would like to just simply add my `facetimehd` packages into that, since there's no need to run two Alpine VMs at the same time.
+---
+
+The setup outlined in this post was heavily inspired by [wifibox](https://github.com/pgj/freebsd-wifibox). In the longterm, I would like to create something that mimicks wifibox: a mini read-only VM which automatically handles everything outlined in this post, which runs as a service on the FreeBSD host. Likewise, since wifibox already runs a mini VM for WiFi, I would like to just simply add my `facetimehd` packages into that, since there's no need to run two Alpine VMs at the same time.
 
 But that's for the future.
