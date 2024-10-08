@@ -11,23 +11,23 @@ categories: journal
 
 In my previous post, _[A Full Guide: FreeBSD 13.3 on a MacBook Pro 11.4 (Mid 2015) (A1398)](https://joshua.hu/FreeBSD-on-MacbookPro-114-A1398)_, I outlined how to get nearly every device on a Macbook Pro 11,4 functioning while running FreeBSD. Nearly everything: except for the webcam.
 
-In this post, I'll outline how to get the camera working on FreeBSD, by using a tiny Alpine Linux VM using FreeBSD's hypervisor bhyve, and PCI passthrough.
+In this post, I'll outline how to get the camera working on FreeBSD, by using a tiny Alpine Linux VM using FreeBSD's hypervisor bhyve, and PCI passthrough. At the end of this post, you'll have a working webcam.
 
-At the end of this post, you'll have a working webcam. In the following screenshot, you see me running `webcamd` on the FreeBSD host, `ffmpeg` and `socat` in the Alpine Linux VM, `ffmpeg` and `nc` on the FreeBSD host, and `pwcview` on the FreeBSD host:
+In the following screenshot, you see me running `webcamd` on the FreeBSD host (top right), `ffmpeg` and `socat` in the Alpine Linux VM (top left), `ffmpeg` and `nc` on the FreeBSD host (bottom), and `pwcview` on the FreeBSD host:
 
 ![Selfie using a Macbook Pro webcam on FreeBSD](/files/freebsd-selfie.png)
 
 ## Broadcom 1570
 
---
+---
 
-The Broadcom 1570 (the webcam used by this and many other Mac products) is apparently "_[based on Ambarellas S2 series of IP cameras; likely a nerfed version of the S2Lm.]_(https://github.com/patjak/facetimehd/wiki/Specification---Features)". The camera can be turned on [without activating the green light](https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-brocker.pdf).
+The Broadcom 1570 (the webcam used by this and many other Mac products) is apparently "[_based on Ambarellas S2 series of IP cameras; likely a nerfed version of the S2Lm._](https://github.com/patjak/facetimehd/wiki/Specification---Features)". The camera can be turned on [without activating the green light](https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-brocker.pdf).
 
 Broadcom does not offer any driver for this device, but luckily it has been reverse-engineered by someone and a driver exists for Linux.
 
 ## PCI Passthrough and Alpine Linux
 
---
+---
 
 In order to utilize the Linux driver, we obviously need to be running... Linux. So, the plan is to start a tiny VM running Alpine Linux, install the `facetimehd` driver, and stream the webcam back to the FreeBSD host, ultimately using `webcamd` to turn the stream into a webcam device.
 
@@ -36,7 +36,7 @@ In order to utilize the Linux driver, we obviously need to be running... Linux. 
 
 ## bhyve VM installation
 
---
+---
 
 First we install the `bhyve-firmware` and `vm-bhyve` packages:
 
@@ -453,7 +453,7 @@ done
 
 The idea here is that `socat` will listen on port 8888, and once a connection is made, it will execute `ffmpeg` and connect to the webcam. It will then send the feed over port 8888 in matroska format to whoever is connecting.
 
-You can use either `yuv420p` or `yuyv422` for the `pix_fmt`. I can't see any difference between the two, but the former uses less CPU-power.
+You can use either `yuv420p` or `yuyv422` for the `pix_fmt`. I can't see any difference between the two, but the former uses fewer cycles.
 
 You can lower the CPU usage by playing around with the `-s` and `-r` parameters.
 
@@ -501,22 +501,48 @@ Finally, we need to connect to the VM on port 8888 and simply pipe the data rece
 $ nc -N -n --no-tcpopt 192.168.8.2 8888 | ffmpeg -hide_banner -r 25 -i pipe: -f v4l2 /dev/video0
 ```
 
-
-
-
+#### looking in the mirror
 
 ---
 
-###
+We can use the `pwcview` program to view the website (or any other way, like Firefox):
 
+```console
+$ pwcview -y -f 25
+```
+
+## Sensor calibration
+
+When you load the `facetimehd` driver, you will see the following warning (it is not an error):
+
+```
 [    1.743182] facetimehd 0000:00:07.0: Direct firmware load for facetimehd/1871_01XX.dat failed with error -2
+```
 
+You may also note that the camera's colors are messed up.
 
+From [the wiki](https://github.com/patjak/facetimehd/wiki/Extracting-the-sensor-calibration-files) of the driver, we can retrieve this file. The author of that post noted that "_when using the set files (sensor calibration settings) the colors look much better._"
 
+Instructions for manually performing those actions can be found on the wiki above. Alternatively, you can (from the VM):
 
+```console
+$ su packager
+$ mkdir ~/aports/facetimehd-calibration/
+$ cd ~/aports/facetimehd-calibration/
+$ wget https://raw.githubusercontent.com/MegaManSec/webcam-aports/refs/heads/main/facetimehd-calibration/APKBUILD
+$ abuild -r
+$ doas apk add ~/packages/aports/x86_64/facetimehd-calibration-1.0.0-r0.apk
+```
 
+Reloading the `facetimehd` driver, the warning should no longer be displayed, and the colors of your website will be.. more correct:
 
+```console
+$ rmmod facetimehd
+$ modprobe facetimehd
+```
 
-Improving the colors is outlined in [this wiki page](https://github.com/patjak/facetimehd/wiki/Extracting-the-sensor-calibration-files).
+# The Future
 
+The setup outlined in this post was heavily inspired by [wifibox](https://github.com/pgj/freebsd-wifibox). In the longterm, I would like to create something that mimicks wifibox:a mini read-only VM which automatically handles everything outlined in this post, which runs as a service on the FreeBSD host. Likewise, since wifibox already runs a micro VM for WiFi, I would like to just simply add my `facetimehd` packages into that, since there's no need to run two Alpine VMs at the same time.
 
+But that's for the future.
