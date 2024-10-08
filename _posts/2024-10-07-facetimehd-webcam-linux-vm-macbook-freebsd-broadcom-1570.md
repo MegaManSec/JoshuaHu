@@ -48,7 +48,7 @@ $ pkg install bhyve-firmware vm-bhyve
 
 ---
 
-We're going to use FreeBSD's Packet Filter (pf) to forward packets from the VM to the correct interface. This is necessary because if you're using `wifibox`, you can't do `vm switch add public wifibox0` to get the VM to use wifibox's network. We need to enable gateways (AKA `sysctl net.inet.ip.forwarding=1`) We also need to disable VM host checks because it causes a system crash for some reason. In `/etc/rc.conf`, we handle all of this (and enable VMs):
+We're going to use FreeBSD's Packet Filter (pf) to forward packets from the VM to the correct interface. This is necessary because if you're using `wifibox`, you can't do `vm switch add public wifibox0` to get the VM to use wifibox's network. We need to enable gateways (AKA `sysctl net.inet.ip.forwarding=1`). We also need to disable VM host checks because it causes a system crash for some reason. In `/etc/rc.conf`, we handle all of this (and enable VMs):
 
 ```
 vm_enable="YES"
@@ -505,7 +505,7 @@ $ nc -N -n --no-tcpopt 192.168.8.2 8888 | ffmpeg -hide_banner -r 25 -i pipe: -f 
 
 ---
 
-We can use the `pwcview` program to view the website (or any other way, like Firefox):
+We can use the `pwcview` program to view the webcam (or any other way, like Firefox):
 
 ```console
 $ pwcview -y -f 25
@@ -536,7 +536,7 @@ $ abuild -r
 $ doas apk add ~/packages/aports/x86_64/facetimehd-calibration-1.0.0-r0.apk
 ```
 
-Reloading the `facetimehd` driver, the warning should no longer be displayed, and the colors of your website will be.. more correct:
+Reloading the `facetimehd` driver, the warning should no longer be displayed, and the colors of your webcam will be.. more correct:
 
 ```console
 $ rmmod facetimehd
