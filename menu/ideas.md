@@ -13,3 +13,15 @@ permalink: /ideas
 - Fuzz scripting languages' _scripts_ using AFL++ to instrument actual in-script functions.
 
 - Some type of "fake symbol insertion" into binary files so when they're debugged, incorrect code is shown.
+
+- Discuss about Iranian censorship -- https://ooni.org/post/2022-iran-technical-multistakeholder-report/#blocking-of-browser-extension-repositories
+
+- Talk about how multibillion dollar companies are being taken over by children
+
+- Discuss movie posters history
+
+- Invent an IPv6 blocklist algorithm that works for hosting and residential
+
+- On being arrested in 2014
+
+- Create a page that tracks BA members now/then.
