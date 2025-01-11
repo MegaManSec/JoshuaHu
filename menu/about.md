@@ -90,7 +90,7 @@ involvement in cybersecurity. During this time, I started focusing on an
 interest of mine: retro video game history. I entered a niche group of video 
 game collectors within Australia, and quickly became an important member of 
 the community, researching history and collecting "local knowledge" to 
-disperse publicly. I discovered previously undocumented historical artefacts.  
+disperse publicly. I discovered previously undocumented historical artefacts.
 Using the skills that I had previously acquired in doxing, I was able to track 
 down people from the 80s and 90s that could (try to) answer questions about 
 the operations of the companies they worked for (or ran themselves), and 
@@ -117,7 +117,7 @@ Polish, and worked in various roles in gastronomy: barbacking, cleaning,
 marketing, customer service, bartending, supervisory, management, and yes, 
 sometimes tech support (fixing things but also especially: "see something and 
 make them better with management collaboration"). I also took part in a paid 
-mathematics scholarship, remotely representing my university Australian 
+mathematics scholarship, remotely representing my university at the Australian
 Mathematical Sciences Institute.
 
 In late 2020, I began working in the security team at Opera Software, working 
@@ -180,8 +180,37 @@ My hobbies, interests, and general topics that I'm passionate about include:
 - Film History
 - Human Rights
 - Mathematics
-- Music (Melodic House, Melodic Techno, House, Rap, Hip Hop) [(My Spotify)](https://open.spotify.com/playlist/3wfARljUCoGyEGmFbjyvo3?si=a7b3eeb5d0894d10)
+- Music (Melodic House, Melodic Techno, House, Rap, Hip Hop) ([My Liked Songs](https://open.spotify.com/playlist/3wfARljUCoGyEGmFbjyvo3?si=a7b3eeb5d0894d10), [My Morning Playlist](https://open.spotify.com/playlist/5W5BBbyJwilmlfota810bT), and [My Bar Music](https://open.spotify.com/playlist/2dERa2XNjDmrtwb8r5TsED))
 - Sport (Bicycle Riding, Weight Lifting, Rock Climbing, Rowing)
 - Video Game History
 - Sociology
+
+--
+
+On the subject of music, since it seems to interest some people, I reguarly 
+currently listen to artists like (in no particular order): Monoplay, Alexey 
+Union, Nicholas Jaar, Keinemusik (their old stuff), Oliver Koletzki (his old 
+stuff), Acid Arab, Adam Ten, Miss Monique (old sets), ARTBAT (their old 
+stuff), Space Motion (his old stuff), TENDER, Zola Blood, UNKLE (old stuff), 
+Hunter/Game, Kid Cudi, RYSY, Kavinsky, Daft Punk, Kanye West, Woo York, Goom 
+Gum, Natasha Wax & Sony Vibe, Eminem, Anyma (old stuff), Jay-Z, ZHU (old 
+stuff), Spada, The Chemical Brothers, Travis Scott, PARTYNEXTDOOR (old stuff), 
+Kinky Sound, Sasha, Fatboy Slim, Stereoporno, Acid Pauli, XXYYXX, Kimanne 
+Foxman, Para Noir, Lorn, Dolor, gleb filipchenkow, Dino Lenny, Manuel Tur, 
+Lost.Act, Moby (old stuff), Tycho, Bonobo, DARKSIDE, ALAMPA, Klangstof, Pluto 
+Mars (old stuff), BONES, Rone, Cubicolor, Night Lovell, Iron Maiden, and some other 
+artists that I've forgotten at the moment. I like jazz, too, as well as some 
+[video game music](https://www.youtube.com/watch?v=zlaGd4zYex4).
+
+From that list, my all-time favorites (which never seem to fade away) are 
+Monoplay, Nicholas Jaar, TENDER, Hunter/Game, Kid Cudi, Daft Punk, Kanye West, 
+Woo York, The Chemical Brothers, Travis Scott, PARTYNEXTDOOR, Fatboy Slim, 
+Acid Pauli, Lorn, Dolor, Manuel Tur, Lost.Act, and DARKSIDE. Since discovering 
+Monoplay (also known as [Raha](https://soundcloud.com/raha)) on VK in 2015 
+(back when VK music was at the forefront of good music for free), I haven't been able to say any other name for my favorite artist. LORN is a close second.
+
+I don't use Spotify a whole lot these days. I've had Youtube Premium since 
+2015 (when it was called Youtube Red), and mostly listen to sets.
+At the moment, some of my downloaded sets are [Natasha Wax/Sony Vibe](https://www.youtube.com/watch?v=tr8-MxADd_o), [Stereoporno](https://www.youtube.com/watch?v=XwiFbUur0jU), [Para Noir](https://www.youtube.com/watch?v=_0ErFSi0P-g), [Alexey Union](https://www.youtube.com/watch?v=knoqz0-9WM0), [Kinky Sound](https://www.youtube.com/watch?v=Q9a8Esn2SrQ), [Adam Ten](https://www.youtube.com/watch?v=WeLK17kAFfM), [Jenia Vice](https://www.youtube.com/watch?v=T-pg0mKwm2Q), [Monoplay](https://www.youtube.com/watch?v=YVc7x6bo-RI), and [Darkside](https://www.youtube.com/watch?v=NrwB8Jlihlc). The majority of these are artists from CIS countries. Why? I'm not sure; I think it's because they are so different from artists that I hear everywhere else, the unique mixed tracks (and original productions) are a breath of fresh air. I mean, who else would listen to a mixed version of [Zemfira's Progulka, by Belarussian Para Noir](https://soundcloud.com/para-noir-382162389/zemfira-progulka-para-noir-remix)?
+
 
