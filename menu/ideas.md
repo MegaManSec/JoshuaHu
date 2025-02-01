@@ -25,5 +25,3 @@ permalink: /ideas
 - On being arrested in 2014
 
 - Create a page that tracks BA members now/then.
-
-- Blogger's Atom URI doesn't accept If-Modified-Since header. Why?
