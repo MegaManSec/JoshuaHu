@@ -25,3 +25,5 @@ permalink: /ideas
 - On being arrested in 2014
 
 - Create a page that tracks BA members now/then.
+
+- CSPT CSP spec
