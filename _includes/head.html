@@ -1,7 +1,7 @@
 <head>
   <title>
     {% if page.title == "Home" %}
-      {{ site.title }} | {{ site.description }}
+      {{ site.title }}
     {% else %}
       {{ page.title }} | {{ site.title }}
     {% endif %}
@@ -13,8 +13,7 @@
   <!-- Use Atom -->
   {% feed_meta %}
   <!-- Use RSS-2.0 -->
-  <!--<link href="{{ site.github.url }}/rss-feed.xml" type="application/rss+xml" rel="alternate" title="{{ site.title }} | {{ site.description }}"/>
-  //-->
+  <link href="{{ site.github.url }}/rss-feed.xml" type="application/rss+xml" rel="alternate" title="{{ site.title }} | {{ site.description }}"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quattrocento+Sans">
@@ -32,4 +31,7 @@
   <!-- {% include google-analytics.html %} -->
   <!-- Use Jekyll SEO plugin -->
   {% seo %}
+  {% if page.title == "About Me" or page.title == "Home" %}
+    <meta name="description" content="Joshua Rogers is an Australian technologist, penetration tester, hacker, security engineer, and security researcher. He studied at Swinburne University in Melbourne, and currently lives in Poland. He has gone under the name MegaManSec, mmsc, and Toil, and has run hacking websites such as bugabuse.net and internot.info." />
+  {% endif %}
 </head>
