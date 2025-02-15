@@ -37,7 +37,7 @@ After considering the options of "where it's going wrong", I tried disabling HTT
 
 ## Calling mitmproxy to the secure
 
-My next idea was to ditch Burp because it's useless for debugging, and move to mitmproxy. And luckily enough, that exhibited the exact same behavior!
+My next idea was to ditch Burp because it's useless for debugging as it's closed source, and move to mitmproxy. And luckily enough, that exhibited the exact same behavior!
 
 mitmproxy provides much greater debugging capabilities, and I was able to find the HTTP/2 error message corresponding to the request to the to the file which could not be retrieved:
 
@@ -53,7 +53,7 @@ Great! Something is wrong, but we're still not sure certain _what_. So, let's se
 SSLKEYLOGFILE=/tmp/keys mitmproxy  --set proxy_debug=true
 ```
 
-to run mitmproxy while logging ssl session keys, which Wireshark can use to decrypt HTTP/2 packets (note: this is another thing that Burp does not support.)
+to run mitmproxy while logging ssl session keys, which Wireshark can use to decrypt HTTP/2 packets (note: at the time of testing, I didn't know that it was possible to log session keys in Burp, too.)
 
 ## Wireshark traffic analysis
 
@@ -96,7 +96,3 @@ My understanding of [this comment](https://bugzilla.mozilla.org/show_bug.cgi?id=
 I imagine the reason browsers cannot simply "continuously try the connection again if it gets reset/closed on the same connection as a GOAWAY was received" is to avoid a [thundering herd problem](https://en.wikipedia.org/wiki/Thundering_herd_problem). Some browsers do try again _once_, though -- but if the second attempt results in the same problem, it gives up trying.
 
 Based on my tests, Firefox is able to handle the problem the best, which I [believe is due to this commit](https://hg.mozilla.org/integration/autoland/rev/dd75cefee794) (which is [still in the src](https://github.com/mozilla/gecko-dev/blob/f3a243812e5b0c1452e307ec9c900479c7678dec/netwerk/protocol/http/Http2Session.cpp#L3290)) where any "busted http2 sessions" are retried in with HTTP/1.1 _once_ (unlike Chrome, [which retries with HTTP/2](https://chromium.googlesource.com/chromium/src.git/+/c4769d412d1b89724db8eb42577cd975fd85f559%5E!/#F2)).
-
-## Final Thoughts
-
-All in all, investigating this took too long, and I was extremely lucky that mitmproxy exhibited the same behavior as Burp. Without that, I'm not sure I would have been able to discover the issue, since Burp does not provide any way to debug its proxy, and does not allow the exporting of TLS session keys. Maybe this blog post will convince them to allow at least one of those things to happen.
