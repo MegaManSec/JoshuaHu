@@ -54,3 +54,20 @@
 .pagination-active:hover {
   background-color: $pagination-button-color;
 }
+
+.posts-list {
+  list-style: none;
+  padding: 0;
+}
+
+.posts-list li {
+  display: flex;
+  align-items: center;
+}
+
+.posts-list .post-date {
+  width: 50px;
+  text-align: left;
+  flex-shrink: 0;
+  padding-left: 20px;
+}
