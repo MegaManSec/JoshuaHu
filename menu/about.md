@@ -117,7 +117,7 @@ than expected, and quickly integrated into the local gastronomy community.
 During this time, I balanced studies which continued in Australia 
 (unofficially remotely), work, and continued travel throughout Europe (with 
 Poland as base), and found ways to "hack the system" to continue my education 
-while away from Australia. I also hacked the system to stay in Europe beyond 
+while away from Australia. [I also hacked the system](https://joshua.hu/i-was-an-illegal-immigrant-schengen-visa-overstay-poland) to stay in Europe beyond 
 what the Schengen agreement would normally allow an Australian. I learnt 
 Polish, and worked in various roles in gastronomy: barbacking, cleaning, 
 marketing, customer service, bartending, supervisory, management, and yes, 

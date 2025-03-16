@@ -8,8 +8,6 @@ permalink: /ideas
 
 - A service which stores credentials for websites that a team/company has a single login for, and allows team-members to use the service without knowing the password (like proxy with persistent cookies for login). This may include "modules" for certain websites that handle login on the website automatically.
 
-- Post about how it's possible to be an illegal immigrant in Europe, semi-legally.
-
 - Fuzz scripting languages' _scripts_ using AFL++ to instrument actual in-script functions.
 
 - Some type of "fake symbol insertion" into binary files so when they're debugged, incorrect code is shown.
@@ -22,7 +20,7 @@ permalink: /ideas
 
 - Invent an IPv6 blocklist algorithm that works for hosting and residential
 
-- On being arrested in 2014
+- On being arrested in 2013, 2014, 20x4
 
 - Create a page that tracks BA members now/then.
 
