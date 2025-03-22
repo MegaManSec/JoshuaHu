@@ -25,3 +25,11 @@ permalink: /ideas
 - Create a page that tracks BA members now/then.
 
 - CSPT CSP spec
+
+- Slack watcher, similar to LDAP
+
+- Javascript security
+
+- Infinite tail call recursion crashes
+
+- 'Fixing' SSRF in AutoGPT
