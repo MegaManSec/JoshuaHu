@@ -12,8 +12,6 @@ permalink: /ideas
 
 - Some type of "fake symbol insertion" into binary files so when they're debugged, incorrect code is shown.
 
-- Discuss about Iranian censorship -- https://ooni.org/post/2022-iran-technical-multistakeholder-report/#blocking-of-browser-extension-repositories
-
 - Talk about how multibillion dollar companies are being taken over by children
 
 - Discuss movie posters history
@@ -31,3 +29,5 @@ permalink: /ideas
 - Javascript security
 
 - Infinite tail call recursion crashes
+
+- On Rokso residential IP abuse and fraud
