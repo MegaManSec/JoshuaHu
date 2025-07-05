@@ -29,5 +29,3 @@ permalink: /ideas
 - Javascript security
 
 - Infinite tail call recursion crashes
-
-- On Rokso residential IP abuse and fraud
