@@ -4,7 +4,7 @@ title: Ideas
 permalink: /ideas
 ---
 
-- An LLVM extension that rewrites a codebase into a single `main()` function.
+- An LLVM extension that rewrites a codebase into a single `main()` function (or: c-fucked).
 
 - A service which stores credentials for websites that a team/company has a single login for, and allows team-members to use the service without knowing the password (like proxy with persistent cookies for login). This may include "modules" for certain websites that handle login on the website automatically.
 
@@ -29,3 +29,13 @@ permalink: /ideas
 - Javascript security
 
 - Infinite tail call recursion crashes
+
+- Fuzz Dante proxy
+
+- Okta phishing (disabling FastPass script check)
+
+- Disabling Kandji et al.
+
+- Helicopter story.
+
+- AI LLM Security Bot review

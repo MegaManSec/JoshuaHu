@@ -30,7 +30,7 @@ codeql database analyze --rerun /tmp/cql/"$(basename "$PWD")" ~/work/codeql/java
 codeql database analyze --rerun /tmp/cql/"$(basename "$PWD")" ~/work/codeql/javascript/ql/src/ --format=sarifv2.1.0 --output=/tmp/cql/"scan-$(basename "$PWD")-$(date +%s).sarif" # Uses all .ql files found in the selected folder. Can either be directory of file(s).
 ```
 
-The first `database create` command statically analyzes the source code, creating a database in `/tmp/cql/"$(basename "$PWD")"`. 
+The first `database create` command statically analyzes the source code, creating a database in `/tmp/cql/"$(basename "$PWD")"`.
 
 The final two lines query the analysis (sort of like SQL).
 The first `database analyze` uses a "pack", which will use pre-specified queries, saving the results in `--output=/tmp/cql/"scan-$(basename "$PWD")-$(date +%s).sarif"`. The second `database analyze` command will find all `.ql` files in the `~/work/codeql/javascript/ql/src/` directory, and use them to query the database created in `/tmp/cql/"$(basename "$PWD")`, and save them in `--output=/tmp/cql/"scan-$(basename "$PWD")-$(date +%s).sarif"`.
@@ -84,4 +84,13 @@ codeql database analyze /tmp/cql/"$(basename "$PWD")" --download githubsecurityl
 
 ```shell
 codeql database analyze /tmp/cql/"$(basename "$PWD")" --download trailofbits/cpp-queries:codeql-suites/tob-cpp-full.qls --format=sarif-latest --output=/tmp/cql/"scan-$(basename "$PWD")-$(date +%s).sarif"
+```
+
+
+For Java, I do the following:
+
+```shell
+export JAVA_HOME=/opt/homebrew/opt/openjdk@21
+codeql database analyze --rerun /tmp/cql/"$(basename "$PWD")" --ram=28000 ~/work/codeql-repo/java/ql/src/codeql-suites/java-* --format=sarifv2.1.0 --output=/tmp/cql/"scan-$(basename "$PWD")-$(date +%s).sarif"
+codeql database create /tmp/cql/"$(basename "$PWD")" --language=java --overwrite
 ```
