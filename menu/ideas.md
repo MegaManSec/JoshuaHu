@@ -37,5 +37,3 @@ permalink: /ideas
 - Disabling Kandji et al.
 
 - Helicopter story.
-
-- AI LLM Security Bot review
