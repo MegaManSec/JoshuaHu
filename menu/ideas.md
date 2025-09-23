@@ -34,6 +34,4 @@ permalink: /ideas
 
 - Okta phishing (disabling FastPass script check)
 
-- Disabling Kandji et al.
-
 - Helicopter story.
