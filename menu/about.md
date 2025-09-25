@@ -200,7 +200,7 @@ stuff), Acid Arab, Adam Ten, Miss Monique (old sets), ARTBAT (their old
 stuff), Space Motion (his old stuff), TENDER, Zola Blood, UNKLE (old stuff), 
 Hunter/Game, Kid Cudi, RYSY, Kavinsky, Daft Punk, Kanye West, Woo York, Goom 
 Gum, Natasha Wax & Sony Vibe, Eminem, Anyma (old stuff), Jay-Z, ZHU (old 
-stuff), Spada, The Chemical Brothers, Travis Scott, PARTYNEXTDOOR (old stuff), 
+stuff), I Monster, Spada, The Chemical Brothers, Travis Scott, PARTYNEXTDOOR (old stuff), 
 Kinky Sound, Sasha, Fatboy Slim, Stereoporno, Acid Pauli, XXYYXX, Kimanne 
 Foxman, Para Noir, Lorn, Dolor, gleb filipchenkow, Dino Lenny, Manuel Tur, 
 Lost.Act, Moby (old stuff), Tycho, Bonobo, DARKSIDE, ALAMPA, Klangstof, Pluto 
@@ -237,3 +237,145 @@ or [Kino's Kukushka, mixed by Andrew DRUM](https://soundcloud.com/kinetikamusic/
 Clearly, these transcend culture and language.
 
 
+---
+
+I like the following brands, and general things.
+
+#### Cologne
+
+- Azzaro The Most Wanted EDP Intense
+- Valentino Born in Roma The Gold Uomo
+- Ralph Lauren Blue
+- Various custom perfumes from Parfimerija Sava
+- Le Labo ANOTHER 13 (or its knockoff, DIFFERENT 013)
+
+#### Clothing
+
+- Medicine, Poland
+- Perks and Mini, Melbourne
+- surf.inc, Poland
+- Pan tu nie stał, Poland
+- Paul's Boutique, Kraków
+- YSL, Global
+- Disciplina Store, Belgrade
+- POKRET, Belgrade
+- Dechkotzar, Belgrade
+- A plethora of second-hand/vintage stores.
+- Pass~Port, Australia (who knew?)
+- Viychuk, Ukraine (not for me, ofc)
+- Cultoni, Ukraine
+- Maison MIHARA YASUHIRO, Global
+- six000000, Ukraine
+- Syndicate, Kyiv
+- RIOTDIVISION, Kyiv
+- KAPKAN, Kyiv
+- HARD, Kyiv
+- Brosbi, Global
+- Ellese, Global
+- TFH CONCEPT STORE, Warsaw
+- SINICHKI.STORE, Almaty
+- Qazaq Republic, Kazhakstan
+- .raw store, Ljubljana
+- danieloshop, Poland
+- DEMOBAZA, Global
+- Fb42, Russia
+- Antidoto28, Barcelona
+- Zelenyy, Lviv
+- Open Store, Lviv
+- Forum Designu, Kraków
+- Obcy w mojej szafie vintage store, Kraków
+- good good, Wrocław
+- Pavilon Vintage Classics, Kraków
+- Bazar Miejski, Wrocław
+- Scotch & Soda, Global
+- AS Color, Global
+- We Are Not Friends, Global
+- NOWHERE (NWHR), Global
+- Warsaw Saints, Poland
+- ZimnoZimno, Poland
+- cocktailored, Sweden
+- HouseOfBanks, Poland
+
+.. and a ton of second-hand stores, other concept stores, and random shops I walk into.
+
+#### Food
+
+- Chocolate
+- Licorice
+
+#### Books
+
+- The Day of the Triffids
+- To Kill a Mockingbird
+- The Dogs of War
+- The Repossession Mambo
+- Do Android Dream of Electric Sheep
+- The Great Gatsby
+- Lord of the Flies
+- Brave New World
+- Fahrenheit 451
+- Cosmopolis
+
+#### Movies
+
+- Enter the Void
+- Donnie Darko
+- Moon
+- Solaris
+- The Game
+- 12 Monkeys
+- 2001
+- One Flew Over the Cuckoo's Nest
+- Falling Down
+- Brazil
+- Blade Runner
+- Training Day
+- Enemy
+- City of God
+- The City of Lost Children
+- Whiplash
+- Spirited Away
+- Metropolis (1927, and 2001)
+- Neo Tokyo
+- Mon Oncle
+- The Dark Knight Rises
+- The Signal
+- Sunshine
+- Logan's Run
+- District 9
+- Children of Men
+- City of Ember
+- Full Metal Jacket
+- Another Earth
+- Seven Pounds
+- Cosmopolis
+- Slumdog Millionaire
+- Vanishing Waves
+- Lost River
+
+#### TV Shows
+
+- Samurai Jack
+- Spicy City
+- Jericho
+- The X Files
+- Courage the Cowardly Dog
+- The Simpsons
+- Night Head Genesis
+- Cowboy Bebop
+- Johnny Bravo
+- House M.D.
+- The Twilight Zone
+- Law and Order (SVU, and Criminal Intent)
+
+#### Other Junk to Save
+
+- https://tpienczak.com/product-category/pionowe/#shop
+- https://www.debutart.com/artist/alan-berry-rhys
+- https://jennygasebaker.blogspot.com/2011/01/samurai-jack.html
+- Norm Core, Warsaw
+- https://v9gallery.com/
+- Dydo Poster Gallery
+- https://letitiamorris.com/
+- https://www.acmi.net.au/
+- Stanczyk
