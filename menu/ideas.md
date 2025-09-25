@@ -39,3 +39,9 @@ permalink: /ideas
 - Gixy-ng blog
 
 - BMC blog
+
+- Bug Bounty Post
+
+- Github bug ($500 bounty wtf)
+
+- LDAP Fuzzing
