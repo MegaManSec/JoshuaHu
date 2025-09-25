@@ -18,7 +18,7 @@ permalink: /ideas
 
 - Invent an IPv6 blocklist algorithm that works for hosting and residential
 
-- On being arrested in 2013, 2014, 20x4
+- On being """arrested""" in 2013, 2014, 2024, and thoughts on police priorities and goals
 
 - Create a page that tracks BA members now/then.
 
@@ -30,8 +30,12 @@ permalink: /ideas
 
 - Infinite tail call recursion crashes
 
-- Fuzz Dante proxy
-
 - Okta phishing (disabling FastPass script check)
 
 - Helicopter story.
+
+- Various "security solutions" from https://github.com/MegaManSec/Security-Solutions
+
+- Gixy-ng blog
+
+- BMC blog
