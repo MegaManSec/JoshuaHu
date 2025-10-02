@@ -4,8 +4,6 @@ title: Ideas
 permalink: /ideas
 ---
 
-- An LLVM extension that rewrites a codebase into a single `main()` function (or: c-fucked).
-
 - A service which stores credentials for websites that a team/company has a single login for, and allows team-members to use the service without knowing the password (like proxy with persistent cookies for login). This may include "modules" for certain websites that handle login on the website automatically.
 
 - Fuzz scripting languages' _scripts_ using AFL++ to instrument actual in-script functions.
@@ -45,3 +43,9 @@ permalink: /ideas
 - Github bug ($500 bounty wtf)
 
 - LDAP Fuzzing
+
+- CCBot (+ crashes)
+
+- `gaas` and `recheck-http-api`
+
+- ReDoS linter
