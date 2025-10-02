@@ -26,8 +26,6 @@ permalink: /ideas
 
 - Javascript security
 
-- Infinite tail call recursion crashes
-
 - Okta phishing (disabling FastPass script check)
 
 - Helicopter story.
