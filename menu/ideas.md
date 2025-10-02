@@ -47,3 +47,5 @@ permalink: /ideas
 - `gaas` and `recheck-http-api`
 
 - ReDoS linter
+
+- About how the fake security research at DEFCON, and how it should be celebrated.
