@@ -40,8 +40,6 @@ permalink: /ideas
 
 - LDAP Fuzzing
 
-- CCBot (+ crashes)
-
 - `gaas` and `recheck-http-api`
 
 - ReDoS linter
