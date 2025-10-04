@@ -30,8 +30,6 @@ permalink: /ideas
 
 - Helicopter story.
 
-- Various "security solutions" from https://github.com/MegaManSec/Security-Solutions
-
 - Gixy-ng blog
 
 - Bug Bounty Post
