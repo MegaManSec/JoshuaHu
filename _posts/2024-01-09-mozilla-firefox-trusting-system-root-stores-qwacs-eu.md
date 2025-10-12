@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Firefox now automatically trusting the operating system's root store for TLS certificates (update: and now it doesn't!)"
+title: "Firefox now automatically trusting the operating system's root store for TLS certificates - update: it does so only for user-added ones"
 author: "Joshua Rogers"
 categories: security
 ---
@@ -32,3 +32,13 @@ Definitely something to monitor in the coming months.
 ---
 
 Update: It seems at some stage Mozilla updated that blog post: _Firefox now imports user-added TLS trust anchors (e.g., certificates) from the operating system root store_. Specifically, __now imports user-added TLS trust anchors__.
+
+So the change is actually that Firefox will automatically import **user-added** certificates from the system trust store -- and the original release notes were merely incorrect. That makes a lot more sense.
+
+This begs the question: how does Firefox determine what a user-added certificate is? This is handled in [security/manager/ssl/EnterpriseRoots.cpp](https://github.com/mozilla-firefox/firefox/blob/main/security/manager/ssl/EnterpriseRoots.cpp), and ChatGPT summarizes quite nicely:
+
+-   Windows: it opens the ROOT and CA stores only under LM, CU, Group Policy, and Enterprise locations that are intended for user/admin installed certs. The comment spells it out: these stores should not include Microsofts root program. It then filters for TLS server auth and imports roots from those locations only. No access to AuthRoot or other Microsoft built-in stores.
+
+-   macOS: it enumerates third-party keychain certs, then immediately discards any cert that has trust settings in the System domain, which is how Apple ships built-ins. Only User/Admin domain trust that indicates Trust Root or Trust As Root is treated as a trust anchor.
+
+-   Android: it calls the Java wrapper to fetch entries from the Android CA store and treats whatever comes back as roots. In Firefoxs implementation that wrapper returns user-installed CAs, not the system set. There is no code here that queries the system CA list directly.
