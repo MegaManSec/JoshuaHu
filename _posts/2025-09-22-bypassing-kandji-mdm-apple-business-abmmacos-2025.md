@@ -15,6 +15,8 @@ If your system was purchased by a company and then hand-administred by somebody 
 
 This guide assumes a factory-reset MacOS system, however it does not need to be reset. Some of the menus and so on may be different, and some extra or fewer steps may be necessary but somebody competent should manage.
 
+Note-to-self: the output of the command `system_profiler SPConfigurationProfileDataType` will reveal a lot of interesting changes that your MDM does to your system.
+
 ## Apple Business Manager (ABM)
 
 When your system is started for the first time after a factory reset, MacOS forces you to connect the system to the internet. Without connecting to the internet, you cannot do the typical MacOS setup procedure. Once connected to the internet, the system retrieves a profile from Apple's servers, and follows whatever instructions have been configured by the business your system is registered to, such as installing further MDM / EDM solutions. The idea is that ABM facilitates the installation of an external MDM system.
