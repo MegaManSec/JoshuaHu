@@ -9,6 +9,7 @@ disqus:
 menu:
 - {name: 'About Me', path: 'menu', url: 'about.html'}
 #- {name: 'Writing', path: 'menu', url: 'writing.html'}
+- {name: 'Services', path: 'menu', url: 'services.html'}
 - {name: 'Projects', path: 'menu', url: 'projects.html'}
 - {name: 'Ideas', path: 'menu', url: 'ideas.html'}
 - {name: 'Curriculum Vitae', path: 'menu', url: 'files/joshua-rogers-security-engineer.pdf'}
