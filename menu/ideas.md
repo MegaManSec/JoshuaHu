@@ -30,8 +30,6 @@ permalink: /ideas
 
 - Helicopter story.
 
-- Gixy-ng blog
-
 - Bug Bounty Post
 
 - Github bug ($500 bounty wtf)
