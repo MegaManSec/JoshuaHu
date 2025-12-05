@@ -72,7 +72,7 @@ So, to ensure that the hostname is re-resolved, some type of variable must be us
 
 In my testing, it isn't mandatory for the "domain name" specifically to be set using a variable, it can be anything inside the `proxy_pass` directive (including the path). For example, `proxy_pass https://example.com/$uri` results in the `resolver` being used. If you set that `proxy_pass` directive without a `resolver` directive, you'll probably see error messages like `no resolver defined to resolve example.com`.
 
-The downside to all of this is that we cannot use the `upstream` module while being able to re-resolve hosts unless we use nginx's paid version, NGINX Plus. So for those using the free version of nginx, there's a decision to make: is it likely that an IP address of a host will change, or do you need to use the `upstream` module more and accept the privacy, security, and unknown issues that may arise from `proxy_pass` pointing to stale IP addresses?
+The downside to all of this is that we cannot use the `upstream` module while being able to re-resolve hosts unless we use nginx's paid version, NGINX Plus. So for those using the free version of nginx, there's a decision to make: is it likely that an IP address of a host will change, or do you need to use the `upstream` module more and accept the privacy, security, and unknown issues that may arise from `proxy_pass` pointing to stale IP addresses? (*Note*: this is seemingly now outdated. See below.)
 
 # a solution
 
@@ -94,3 +94,38 @@ server {
 ```
 
 Note: using a public resolver [may not be the best idea](https://web.archive.org/web/20250604032459/https://blog.zorinaq.com/nginx-resolver-vulns/), but YMMV. Most systems have some type of local resolver.
+
+# an update
+
+As pointed out by [Jeppe Fihl-Pearson](https://tenzer.dk/nginx-with-dynamic-upstreams/), on November 26 2024 nginx 1.27.3 was released with [the following](https://nginx.org/en/CHANGES) changes:
+
+> Changes with nginx 1.27.3                                        26 Nov 2024
+>
+>     *) Feature: the "server" directive in the "upstream" block supports the
+>        "resolve" parameter.
+>
+>     *) Feature: the "resolver" and "resolver_timeout" directives in the
+>        "upstream" block.
+
+Indeed, the [documentation](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#resolve) now specifies:
+
+>  resolve
+>     monitors changes of the IP addresses that correspond to a domain name of the server, and automatically modifies the upstream configuration without the need of restarting nginx (1.5.12). The server group must reside in the shared memory.
+>
+>     In order for this parameter to work, the resolver directive must be specified in the http block or in the corresponding upstream block.
+>
+>         Prior to version 1.27.3, this parameter was available only as part of our commercial subscription.
+
+As such, a configuration such as the following should monitor for changes in the IP address of the upstream host, on-the-fly:
+
+```
+resolver 8.8.8.8;
+upstream backends {
+    server backends.example.com:8080 resolve;
+}
+server {
+    location / {
+        proxy_pass http://backends;
+    }
+}
+```
