@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Comparing different versions of AWK with WebAssembly"
-author: "Joshua Rogers"
+description: "Compare different versions of AWK directly in your browser. Read about building 'awk-compare' using WebAssembly and Emscripten to test script compatibility."
 categories: security
 ---
 

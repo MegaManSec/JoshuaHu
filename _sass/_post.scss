@@ -48,13 +48,8 @@ article h6 a {
   float: right;
 }
 
-.sidebar > span > ul {
-  padding-right: 1rem;
+.sidebar > .conditional-toc > ul {
   padding-left: 1rem;
-}
-
-.sidebar > span > li {
-  margin-left: 1rem;
 }
 
 .sidebar ul li ul {

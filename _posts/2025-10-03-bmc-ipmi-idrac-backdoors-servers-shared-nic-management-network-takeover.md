@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Network Security: Absurdity of Shared NICs with BMCs and Management Networks"
-author: "Joshua Rogers"
+description: "The security risks of shared NICs on servers. How to hijack the management network (IPMI/BMC) directly from the host OS via VLAN tagging."
 categories: security
 ---
 

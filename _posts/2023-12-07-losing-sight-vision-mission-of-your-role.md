@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Losing Sight and Vision of Your Mission and Culture"
-author: "Joshua Rogers"
+description: "A more personal piece on how easy it is to drift from the original mission of my role, and some practical thoughts on recalibrating direction and priorities."
 categories: journal
 ---
 

@@ -1,23 +1,41 @@
 <head>
   <title>
-    {% if page.title == "Home" %}
+    {% if page.path == "index.html" %}
       {{ site.title }}
     {% else %}
       {{ page.title }} | {{ site.title }}
     {% endif %}
   </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
-  <link rel="stylesheet" href="{{ site.github.url }}/assets/css/main.css">
-  <link rel="stylesheet" href="{{ site.github.url }}/assets/css/syntax.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" href="/assets/css/main.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="/assets/css/syntax.css" as="style" onload="this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+  </noscript>
+
   <!-- Use Atom -->
   {% feed_meta %}
   <!-- Use RSS-2.0 -->
-  <link href="{{ site.github.url }}/rss-feed.xml" type="application/rss+xml" rel="alternate" title="{{ site.title }} | {{ site.description }}"/>
+  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="{{ site.title }} | {{ site.description }}"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quattrocento+Sans">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/web-app-manifest-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/web-app-manifest-512x512.png">
+
 <!--  <script type="text/javascript" async
     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
     MathJax.Hub.Config({
@@ -30,8 +48,5 @@
   <!-- Google Analytics -->
   <!-- {% include google-analytics.html %} -->
   <!-- Use Jekyll SEO plugin -->
-  {% seo %}
-  {% if page.title == "About Me" or page.title == "Home" %}
-    <meta name="description" content="Joshua Rogers is an Australian technologist, penetration tester, hacker, security engineer, and security researcher. He studied at Swinburne University in Melbourne, and currently lives in Poland. He has gone under the name MegaManSec, mmsc, and Toil, and has run hacking websites such as bugabuse.net and internot.info." />
-  {% endif %}
+  {% seo title=false %}
 </head>

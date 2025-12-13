@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Supply chain attacks and the many (other) different ways I've backdoored your dependencies"
-author: "Joshua Rogers"
+description: "Supply chain attacks go beyond code. Explore overlooked vectors like hosting provider social engineering, domain registrar hacks, and BGP hijacking risks."
 categories: security
 ---
 

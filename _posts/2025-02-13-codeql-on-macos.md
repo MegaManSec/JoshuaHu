@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CodeQL on MacOS"
-author: "Joshua Rogers"
+description: "A step-by-step guide to setting up CodeQL on MacOS. Learn to install, create databases, and run standard or custom security queries on your code."
 categories: security
 ---
 

@@ -3,7 +3,7 @@ layout: default
 ---
 
 {% capture toc_content %}
-  {% include toc.html html=content %}
+  {% include toc.html html=content sanitize=true %}
 {% endcapture %}
 
 {% if toc_content and toc_content.size > 20 %}
@@ -28,9 +28,9 @@ layout: default
           </li>
         </ul>
       </div>
-      <span class="conditional-toc">
+      <nav class="conditional-toc" aria-label="Table of contents">
         {{ toc_content }}
-      </span>
+      </nav>
     </div>
   </div>
 {% endif %}
@@ -51,7 +51,7 @@ layout: default
   {% include social-sharing.html %}
 {% endif %}
 {% if site.hide_related_posts != true %}
-  {% include related-posts.html %}
+<!--   {% include related-posts.html %} -->
 {% endif %}
 {% if site.data.settings.disqus.comments %}
   {% include disqus.html %}

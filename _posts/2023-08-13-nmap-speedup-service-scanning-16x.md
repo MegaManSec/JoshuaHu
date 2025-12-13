@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Speeding up nmap service scanning 16x"
-author: "Joshua Rogers"
+description: "Deep dive into nmap's service detection timeouts, NSE behavior, and the tiny source changes that turned a 160 second probe into a 10 second one."
 categories: security
 ---
 

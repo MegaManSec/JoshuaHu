@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to DoS MySQL/MariaDB and PostgresSQL Servers With Fewer Than 55kb of Data"
-author: "Joshua Rogers"
+description: "Demonstrating how a few dozen kilobytes of traffic and unauthenticated connections are enough to exhaust MySQL, MariaDB, or PostgreSQL connection limits and deny service."
 categories: security
 ---
 

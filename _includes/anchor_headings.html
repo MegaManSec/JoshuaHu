@@ -140,11 +140,21 @@
       {% endif %}
 
       {% assign repeatedAnchorBody = '' %}
-      {% for i in (1..headerLevel) %}
-        {% assign repeatedAnchorBody = repeatedAnchorBody | append: include.anchorBody %}
-      {% endfor %}
 
-      {% capture anchor %}<a {{ anchor }}>{{ repeatedAnchorBody | replace: '%heading%', escaped_header | default: '' }}</a>{% endcapture %}
+      {% if include.anchorClass %}
+        {% capture anchorClass %}class="{{ include.anchorClass }} anchor-link"{% endcapture %}
+      {% else %}
+        {% capture anchorClass %}class="anchor-link"{% endcapture %}
+      {% endif %}
+
+      {% comment %} Inject our class into the anchor tag definition {% endcomment %}
+      {% if anchor contains "class=" %}
+         {% assign anchor = anchor | replace: 'class="', 'class="anchor-link ' %}
+      {% else %}
+         {% assign anchor = anchor | append: ' class="anchor-link"' %}
+      {% endif %}
+
+      {% capture anchor %}<a {{ anchor }} aria-hidden="true"></a>{% endcapture %}
 
       <!-- In order to prevent adding extra space after a heading, we'll let the 'anchor' value contain it -->
       {% if beforeHeading %}

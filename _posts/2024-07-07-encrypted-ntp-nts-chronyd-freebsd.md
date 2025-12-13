@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Encrypted NTP using NTS and chrony on FreeBSD"
-author: "Joshua Rogers"
+description: "Secure your system time on FreeBSD using Network Time Security (NTS). A step-by-step guide to replacing ntpd with Chrony for authenticated, encrypted NTP."
 categories: security
 ---
 

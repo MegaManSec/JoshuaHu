@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Playing with SSH: carriage returns on stderr output"
-author: "Joshua Rogers"
+description: "A tiny ssh quirk: stderr lines are terminated with CRLF, where it came from, and why it matters if stderr is being parsed programmatically."
 categories: security
 ---
 

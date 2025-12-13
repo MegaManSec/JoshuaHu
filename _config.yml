@@ -19,12 +19,28 @@ highlighter:         rouge
 permalink:           /:title
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
-# Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           "Joshua.Hu | Joshua Rogers' Scribbles"
-description:	       '' #Joshua.Hu is the personal blog of security researcher and hacker Joshua Rogers. This blog offers the typical observations and commentary on life and technology, focused on security.'
-author:              'Joshua Rogers'
+kramdown:
+  header_offset: 1
 
-include: [llms.txt]
+# Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
+title:		           "Joshua Rogers' Scribbles"
+description:	       '' #Joshua.Hu is the personal blog of security researcher and hacker Joshua Rogers. This blog offers the typical observations and commentary on life and technology, focused on security.'
+author:
+  name: Joshua Rogers
+  twitter: MegaManSec
+
+twitter:
+  username: MegaManSec
+
+social:
+  name: Joshua Rogers
+  links:
+    - https://github.com/MegaManSec
+    - https://x.com/MegaManSec
+    - https://www.linkedin.com/in/joshua-alexander-rogers
+    - https://news.ycombinator.com/user?id=mmsc
+
+include: [llms.txt, llms-full.txt]
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swapping/Remapping the silcrow (§) key for a tilde on international Macbooks"
-author: "Joshua Rogers"
+description: "Fix the misplaced tilde and silcrow (§) keys on international MacBooks. A guide to remapping keys using hidutil and LaunchAgents."
 categories: security
 ---
 

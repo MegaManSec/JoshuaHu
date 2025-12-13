@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "POV: You land at Melbourne Airport"
-author: "Joshua Rogers"
+description: "A satirical POV on the frustration of entering Melbourne Airport: paper forms, broken WiFi, and a confusing public transport experience."
 categories: personal
 ---
 

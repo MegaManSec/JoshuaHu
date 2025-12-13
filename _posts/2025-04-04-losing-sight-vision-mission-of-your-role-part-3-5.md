@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Losing Sight and Vision of Your Mission and Culture: Part 3.5"
-author: "Joshua Rogers"
+description: "How report-uri.com uses Cloudflare Turnstile to ironically block the very CSP violation reports it is designed to collect from browsers."
 categories: personal
 ---
 

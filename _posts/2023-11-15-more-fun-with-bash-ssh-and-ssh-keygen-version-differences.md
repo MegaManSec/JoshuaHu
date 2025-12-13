@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "More fun with bash: bash, ssh, and ssh-keygen version quirks"
-author: "Joshua Rogers"
+description: "Exploring odd, version specific behavior between bash, ssh, and ssh-keygen, and how subtle CLI or format differences can break scripts in surprising ways."
 categories: security
 ---
 

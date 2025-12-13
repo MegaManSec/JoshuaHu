@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mounting and reading an ext4 drive on MacOS"
-author: "Joshua Rogers"
+description: "A quick guide on reading ext4 drives on macOS. Learn how to install macfuse and ext4fuse, configure kernel permissions, and mount Linux partitions on your Mac."
 categories: security
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "5 Tips For Port Service Scanning 16x Faster: Part 1"
-author: "Joshua Rogers"
+description: "Designing large scale port and service scanning: separating discovery from service ID, mixing masscan or zmap with nmap, and avoiding DoSing the networks being scanned."
 categories: security
 ---
 

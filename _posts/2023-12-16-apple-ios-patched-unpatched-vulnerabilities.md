@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "No new iPhone? No secure iOS: Looking at an unfixed iOS vulnerability"
-author: "Joshua Rogers"
+description: "A look at the messy reality of iOS vulnerabilities: which bugs get patched, which quietly linger, and the challenges of tracking real device risk over time."
 categories: security
 ---
 

@@ -63,3 +63,52 @@
 .css .o,
 .css .o + .nt,
 .css .nt + .nt { color: #999; }
+
+.anchor-link {
+  text-decoration: none;
+  border: 0;
+  margin-left: 0.5rem;
+  opacity: 1;
+  user-select: none;
+}
+
+article h1 .anchor-link::after {
+  content: "#";
+}
+
+article h2 .anchor-link::after {
+  content: "##";
+}
+
+article h3 .anchor-link::after {
+  content: "###";
+}
+
+article h4 .anchor-link::after {
+  content: "####";
+}
+
+article h5 .anchor-link::after {
+  content: "#####";
+}
+
+article h6 .anchor-link::after {
+  content: "######";
+}
+
+.menu a {
+  text-decoration: none;
+}
+
+.menu {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+.menu-content a {
+  margin-right: 10px;
+  padding: 1px;
+}
+
+.conditional-toc {
+  display: block;
+}

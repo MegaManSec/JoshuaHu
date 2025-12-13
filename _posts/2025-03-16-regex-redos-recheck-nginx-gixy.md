@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Identifying ReDoS Vulnerabilities in Nginx Configurations Using gixy-ng"
-author: "Joshua Rogers"
+description: "Automating ReDoS detection in Nginx. How I integrated 'recheck' into 'gixy-ng' to identify vulnerable regex configurations via a custom plugin."
 categories: security
 ---
 

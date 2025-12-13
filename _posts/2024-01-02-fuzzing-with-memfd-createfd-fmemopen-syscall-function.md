@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fuzzing with memfd_create(2) and fmemopen(3)"
-author: "Joshua Rogers"
+description: "Learn how to speed up fuzzing campaigns using memfd_create(2) and fmemopen(3). This benchmark compares execution speeds against stdin and tmpfs for faster results."
 categories: security
 ---
 

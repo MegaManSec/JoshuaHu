@@ -1,7 +1,14 @@
+{% if page.url == "/" %}
+  {% assign title_tag = "h1" %}
+{% else %}
+  {% assign title_tag = "h3" %}
+{% endif %}
+
 <header class="header">
-  <h3 class="header-title">
-    <a href="{{ site.github.url }}/">{{ site.title }}</a>
+  <{{ title_tag }} class="header-title">
+    <a href="{{ site.url | default: '/' }}">{{ site.title }}</a>
     <small class="header-subtitle">{{ site.description }}</small>
-    {% include menu.html %}
-  </h3>
+  </{{ title_tag }}>
+
+  {% include menu.html %}
 </header>

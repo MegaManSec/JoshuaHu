@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Creating an eBay crawler for fun and profit"
-author: "Joshua Rogers"
 categories: journal
+description: "How I built a PHP/MySQL bot to crawl Australian eBay for NES listings, filter relists, track sales history and snipe rare retro games automatically."
 #tags: [security work life]
 #image: cutting.jpg
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Some Thoughts on \"Fixing Security Issues\""
-author: "Joshua Rogers"
+description: "Thoughts on fixing bugs versus fixing security issues. Why developers should focus on mitigating exploitation classes rather than just patching individual bugs."
 categories: security
 ---
 

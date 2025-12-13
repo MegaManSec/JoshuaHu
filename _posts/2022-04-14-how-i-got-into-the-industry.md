@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "How I got into the security industry"
-author: "Joshua Rogers"
 categories: journal
+description: "How I went from RuneScape glitching and game hacking to running a 25,000 member forum and eventually working professionally in online security."
 #tags: [security work life]
 #image: cutting.jpg
 ---

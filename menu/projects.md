@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Projects
+description: "Browse the portfolio of Joshua Rogers, featuring security tools like SSH-Snake and PikeProof, mathematical modeling, and video game history research."
 permalink: /projects
 ---
 

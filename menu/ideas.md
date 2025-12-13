@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Ideas
+description: "Explore a collection of cybersecurity research ideas and future projects by Joshua Rogers"
 permalink: /ideas
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "body: A bash script to get the middle of a file, instead of head | tail"
-author: "Joshua Rogers"
+description: "Meet 'body': A faster, smarter alternative to 'head | tail' for extracting and printing the middle lines of a large file in Bash."
 categories: security
 ---
 

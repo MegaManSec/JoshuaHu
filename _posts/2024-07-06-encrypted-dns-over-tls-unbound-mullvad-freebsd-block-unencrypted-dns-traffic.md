@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Encrypted DNS over TLS on FreeBSD with Unbound, and Blocking Unencrypted DNS Traffic"
-author: "Joshua Rogers"
+description: "Secure your FreeBSD networking by setting up Unbound for DNS-over-TLS. This guide covers configuration, hardening, and blocking unencrypted DNS traffic."
 categories: security
 ---
 

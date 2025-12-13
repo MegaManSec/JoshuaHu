@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "proxy_pass: nginx's Dangerous URL Normalization of Paths"
-author: "Joshua Rogers"
+description: "Is your Nginx configuration vulnerable? A deep dive into dangerous URL normalization in proxy_pass, path traversal risks, and how to secure it."
 categories: security
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Revisiting the past: Security recommendations of a 17-year-old Joshua"
-author: "Joshua Rogers"
+description: "Re-reading my 17 year old hardening advice, like running Firefox as another user, via a new oss-security thread, and reflecting on what aged well and what did not."
 categories: journal
 #tags: [security work life]
 #image: cutting.jpg

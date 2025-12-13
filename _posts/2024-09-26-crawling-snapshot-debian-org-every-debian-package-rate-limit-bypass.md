@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Crawling every Debian .deb package in history from snapshot.debian.org, learning the .deb format, and finding rate-limiting bypasses"
-author: "Joshua Rogers"
+description: "A deep dive into crawling snapshot.debian.org for historical .deb packages. Learn about the .deb format and techniques to bypass rate limits using IPv6."
 categories: security
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Losing Sight and Vision of Your Mission and Culture: Part 2"
-author: "Joshua Rogers"
+description: "Part 2 of 'Losing Sight of Your Mission.' A satirical look at modern app development priorities, illustrated by a frustrating user experience in an airport."
 categories: journal
 ---
 

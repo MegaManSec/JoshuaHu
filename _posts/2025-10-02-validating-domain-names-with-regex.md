@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Securely Validating Domain Names with Regular Expressions"
-author: "Joshua Rogers"
+description: "Validating domain names securely. A ReDoS-safe regular expression pattern for verifying hostnames and handling Punycode domains."
 categories: security
 ---
 

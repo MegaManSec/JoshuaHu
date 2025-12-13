@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bypassing Zscaler, Kandji MDM, and Apple Business Manager for Fun and Lulz"
-author: "Joshua Rogers"
+description: "How to bypass Apple Business Manager and remove Kandji/Zscaler MDM from macOS using recovery mode, file system modification, and DNS blocking."
 categories: security
 ---
 

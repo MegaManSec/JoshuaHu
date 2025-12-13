@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fuzzing glibc's libresolv's res_init()"
-author: "Joshua Rogers"
+description: "Fuzzing glibc's res_init by chrooting into tmpfs and mutating resolv.conf, resulting in an infinite loop in sortlist handling and a reachable assertion on long search lines."
 categories: security
 ---
 

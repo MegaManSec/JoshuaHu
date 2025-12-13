@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "My Wrocław tourism tips and recommendations"
-author: "Joshua Rogers"
+description: "A long, opinionated guide to Wroclaw: what to see, where to eat, drink, party, and stay, plus lots of local quirks and pragmatic tips."
 categories: journal
 ---
 
