@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Security Engineering & Penetration Testing Services
+description: "Expert Security Engineering & Penetration Testing services. Get candid findings, code review, and secure architecture design by Joshua Rogers."
 permalink: /services
 ---
 
@@ -26,7 +27,7 @@ In addition to the _security_ related services below, I am also available to jus
 
 ## Services
 
-###  Penetration testing (software)
+### Penetration testing (software)
 
 Application security testing, closed and open source. Web/API, mobile, desktop, cloud/K8s, CI/CD, developer tooling, and software-exposed services (no hardware/IoT, no social engineering).
 

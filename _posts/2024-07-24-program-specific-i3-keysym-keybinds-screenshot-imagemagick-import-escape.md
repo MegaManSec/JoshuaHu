@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Exclusive i3 keysyms for specific programs. or: Binding Escape on imagemagick's import"
-author: "Joshua Rogers"
+description: "Master i3wm binding modes for program-specific shortcuts. Learn how to bind Escape to cancel screenshots without conflicting with global keybindings."
 categories: security
 ---
 

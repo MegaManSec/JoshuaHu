@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Cute color progression for my battery status indicator"
-author: "Joshua Rogers"
+description: "A simple algorithm to color-code battery percentage. Learn how to calculate RGB bitshifts to create a smooth gradient from green to red for status bars."
 categories: journal
 ---
 

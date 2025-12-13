@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tracking a secret LoginTime LDAP attribute with Operational Attributes"
-author: "Joshua Rogers"
+description: "Using LDAP operational attributes like modifyTimestamp as a side channel to infer hidden login time fields and user activity patterns."
 categories: security
 ---
 

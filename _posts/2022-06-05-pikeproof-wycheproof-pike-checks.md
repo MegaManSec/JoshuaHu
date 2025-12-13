@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Attacking a scripting language's cryptographic functions with Wycheproof"
-author: "Joshua Rogers"
+description: "Using Project Wycheproof to test Pike's Nettle-based crypto APIs, I built PikeProof and uncovered multiple vulnerabilities in Pike's cryptography layer."
 categories: security
 ---
 

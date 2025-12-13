@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "gixy-ng: an overview of a gixy fork with updated, improved, and new checks"
-author: "Joshua Rogers"
+description: "Overview of gixy-ng: New Nginx security checks I added, and the quality degradation caused by low-quality AI-generated contributions."
 categories: security
 ---
 

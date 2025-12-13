@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hello, Kafka Support Here, How Can I Help You? GitHub Edition"
-author: "Joshua Rogers"
+description: "A Kafkaesque experience with GitHub support regarding case-sensitivity bugs in commit emails, and dealing with unhelpful 'AI' style responses."
 categories: journal
 ---
 

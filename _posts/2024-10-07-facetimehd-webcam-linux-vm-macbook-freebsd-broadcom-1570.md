@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Webcam support on a Macbook running FreeBSD using PCI passthrough"
-author: "Joshua Rogers"
+description: "Enable the FacetimeHD webcam on a MacBook running FreeBSD. A guide to using a tiny Alpine Linux VM with PCI passthrough to stream video back to the host."
 categories: journal
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Feedburner's Caching Problem"
-author: "Joshua Rogers"
+description: "Google Feedburner's lack of caching support wastes bandwidth. A look at how broken ETag/If-Modified-Since handling affects bots and RSS feeds."
 categories: journal
 ---
 

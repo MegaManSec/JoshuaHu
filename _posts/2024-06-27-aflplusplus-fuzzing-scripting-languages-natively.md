@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fuzzing scripting languages' interpreters' native functions using AFL++ to find memory corruption and more"
-author: "Joshua Rogers"
+description: "Learn to fuzz scripting languages like Pike using AFL++. Discover how to hook internal C functions via scripts to find memory corruption and interpreter bugs."
 categories: security
 ---
 

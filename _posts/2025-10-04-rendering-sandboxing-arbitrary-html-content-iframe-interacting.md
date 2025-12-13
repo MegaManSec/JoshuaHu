@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "One-Way Sandboxed Iframes: Creating a Read-Only Iframe Sandbox That Can't Read Back"
-author: "Joshua Rogers"
+description: "Creating a secure, one-way sandboxed iframe. How to render untrusted HTML and execute commands safely via postMessage without risking the parent."
 categories: security
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "LDAP Watchdog: Real-time LDAP Monitoring for Linux and OpenLDAP"
-author: "Joshua Rogers"
+description: "Monitor your LDAP directory in real-time with LDAP Watchdog. Detect unauthorized changes, track new hires, and get instant Slack notifications for updates."
 categories: security
 ---
 

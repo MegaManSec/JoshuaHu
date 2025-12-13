@@ -2,17 +2,19 @@
 layout: page
 title: About Me
 permalink: /about
+description: "Meet Joshua Rogers, a Security Engineer and hacker based in Poland. Discover his background in cybersecurity, system administration, and retro gaming history."
 ---
 
-<img src="/files/Joshua_Rogers_Melbourne.jpg" width="200" height="200" alt="Joshua Rogers, hacker and security expert, bartender, master troll, from Melbourne Australia, living in Krakow, Poland" />
+<img src="/files/Joshua_Rogers_Melbourne.jpg" width="200" height="200" alt="Joshua Rogers, hacker and security expert, sysadmin, bartender and master troll, from Melbourne Australia, living in Krakow, Poland." />
 
-I'm Joshua Rogers. Originally from Melbourne, Australia. These days I live in Poland.
+I'm Joshua Rogers. Originally from Melbourne, Australia, and these days I live in Poland.
 
 My CV can be found here: [joshua-rogers-security-engineer.pdf](/files/joshua-rogers-security-engineer.pdf).
 
 I have 12+ years of security experience and have years of sysadmin experience 
-(linux and freebsd). I have a BSc in Applied Mathematics and a BA in 
-Cinema/Film studies.
+(linux and freebsd). I studied at Swinburne University of Technology in
+Melbourne, where I completed a BSc in Applied Mathematics and a BA in 
+Cinema/Film studies,
 
 I'm driven by the unfamiliar and unexplored. I'm motivated by the unknown and 
 chaotic, and this is a driving force of my problem-solver attitude, which has 
@@ -20,7 +22,7 @@ allowed me to solve problems that others overlook. I try to make a real
 difference in everything that I do, and not be replaceable.
 
 If you're interested in chatting (and I always am), you should [contact 
-me](/contact.html).
+me](/contact).
 
 Some call me an all-rounder due to my ability to jump into nearly any 
 situation and get the ball rolling immediately. I get things done when others 
@@ -28,6 +30,9 @@ don't. Some people see one part of a problem, I see the whole picture. Putting
 things into perspective of the whole world is paramount, and both the 
 significance and insignificance of ourselves and surroundings is crucial to 
 driving meaningful change.
+
+In earlier years I went by the name "Toil" and ran the hacking sites bugabuse.net
+and internot.info. Online I still use the handle "MegaManSec".
 
 ---
 

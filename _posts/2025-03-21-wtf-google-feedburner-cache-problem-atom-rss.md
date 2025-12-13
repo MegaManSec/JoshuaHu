@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "wtf Google: cacheable rss feeds are dead, and Atom feeds are delayed"
-author: "Joshua Rogers"
+description: "Update: Google kills RSS support and breaks Atom feeds. How Feedburner's continued caching failures and stale data affect aggregators."
 categories: journal
 ---
 

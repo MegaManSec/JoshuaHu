@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Can Nginx Configurations Be Vulnerable to ReDoS Expressions?"
-author: "Joshua Rogers"
+description: "Can Nginx configurations be DDoSed? Exploring ReDoS vulnerabilities in regex directives and how to crash a server with simple request strings."
 categories: security
 ---
 

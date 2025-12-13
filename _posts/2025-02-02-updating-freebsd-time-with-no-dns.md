@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Updating FreeBSD's datetime without DNS"
-author: "Joshua Rogers"
+description: "Fixing SSL handshake errors on FreeBSD caused by system clock resets. A quick guide to manually updating system time without DNS access."
 categories: security
 ---
 

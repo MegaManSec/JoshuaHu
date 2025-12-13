@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Debugging failures of HTTP/2 in Burp, mitmproxy, and browsers"
-author: "Joshua Rogers"
+description: "Debugging Nginx and Burp Suite HTTP/2 failures. How 'keepalive_requests' exhaustion causes GOAWAY frames and broken resource loading."
 categories: security
 ---
 

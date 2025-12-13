@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Another AI slop story: ChatGPT vs. Human"
-author: "Joshua Rogers"
+description: "Incident response failure: How engineers trusted ChatGPT over technical evidence regarding a critical Nginx DNS data leak."
 categories: security
 ---
 

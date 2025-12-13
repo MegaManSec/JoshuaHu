@@ -2,12 +2,38 @@
 layout: null
 ---
 
-# LLM Feed for joshua.hu
+# LLM Feed for Hacker Joshua Rogers' blog, https://joshua.hu/
 _Generated: {{ site.time | date_to_rfc822 }}_
 
 
-## All posts
-The links below take you to the raw Markdown content.
+## All Posts
 
-{% for post in site.posts %}- [{{ post.title }}](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/{{ post.path }})
+===============================================================================
+POSTS
+===============================================================================
+
+The links below take you to the raw Markdown content, and the blog posts themselves.
+
+{% for post in site.posts %}- [{{ post.title }}](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/{{ post.path }}): [{{ post.description }}](https://joshua.hu{{ post.url }})
+
 {% endfor %}
+
+===============================================================================
+
+## All Menu Pages
+
+===============================================================================
+MENU PAGES
+===============================================================================
+
+The links below take you to the raw Markdown content, and the menu pages themselves.
+
+{% assign menu_pages = site.pages | where_exp: "p", "p.path contains 'menu/'" %}
+{% for page in menu_pages %}- [{{ page.title }}](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/{{ page.path }}): [{{ page.description }}](https://joshua.hu{{ page.url }})
+
+{% endfor %}
+
+===============================================================================
+
+
+

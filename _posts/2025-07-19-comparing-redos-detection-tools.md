@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Comparison of Tools to Detect ReDoS-vulnerable Expressions"
-author: "Joshua Rogers"
+description: "Benchmarking ReDoS detection tools. I compared Semgrep, CodeQL, regexploit, and others against a corpus of vulnerable regexes."
 categories: security
 ---
 

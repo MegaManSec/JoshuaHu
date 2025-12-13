@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "On using private browsing mode for half a year"
-author: "Joshua Rogers"
+description: "I used only Private Browsing mode for six months. Read my experience regarding browser history, cookie consent fatigue, and the benefits of ephemeral sessions."
 categories: journal
 ---
 

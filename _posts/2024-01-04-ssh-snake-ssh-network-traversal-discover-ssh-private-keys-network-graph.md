@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SSH-Snake: Automatic traversal of networks using SSH private keys"
-author: "Joshua Rogers"
+description: "Discover SSH-Snake, a powerful self-replicating tool for automatic network traversal using SSH private keys. Learn how it maps networks and finds credentials."
 categories: security
 ---
 

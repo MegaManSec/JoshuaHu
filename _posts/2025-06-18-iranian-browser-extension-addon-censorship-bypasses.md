@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "On Iranian Censorship, Bypasses, Browser Extensions, and Proxies"
-author: "Joshua Rogers"
+description: "Investigating a fake Opera Addon store used to bypass Iranian censorship, and the role of 'Reality' proxies and Sandvine in internet restrictions."
 categories: security
 ---
 

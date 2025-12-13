@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Contact
+description: "Get in touch with Joshua Rogers for security engineering, penetration testing, or collaboration. Connect via email or LinkedIn for contracting opportunities."
 permalink: /contact
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "An automatic captive-portal resolver and DNS white-lister for DNS over TLS with Unbound"
-author: "Joshua Rogers"
+description: "Automate captive portal logins while using DNS-over-TLS. This script detects portal DNS servers and dynamically configures Unbound to allow necessary traffic."
 categories: security
 ---
 

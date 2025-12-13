@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Losing Sight and Vision of Your Mission and Culture: Part 3"
-author: "Joshua Rogers"
+description: "When security tools break usability: A look at how Cloudflare Turnstile blocks legitimate API requests and frustrates paid users."
 categories: personal
 ---
 

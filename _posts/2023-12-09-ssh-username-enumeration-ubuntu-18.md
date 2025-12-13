@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SSH Adventures Continued: Invalid CVE-2018-15473 Patches"
-author: "Joshua Rogers"
+description: "Walking through how OpenSSH behaves on Ubuntu 18, and how error handling and timing can leak valid usernames for remote enumeration."
 categories: security
 ---
 

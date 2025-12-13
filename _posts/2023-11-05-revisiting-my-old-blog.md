@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Revisiting My Old Blog"
-author: "Joshua Rogers"
+description: "A tour of my 2012 to 2016 blog posts, including eBay SQLi, PayPal 2FA bypass, a dpkg bug, and more, plus some honest commentary on my younger self's work and writing."
 categories: journal
 ---
 

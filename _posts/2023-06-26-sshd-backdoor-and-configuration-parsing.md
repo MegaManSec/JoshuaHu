@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Achieving persistence with a hidden SSH backdoor"
-author: "Joshua Rogers"
+description: "How to hide a persistent SSH backdoor in plain sight by abusing sshd's first-wins config parsing, systemd hooks, and sneaky authorized_keys locations."
 categories: security
 ---
 

@@ -1,0 +1,44 @@
+---
+layout: null
+---
+
+# LLM Full Feed for Hacker Joshua Rogers' blog, https://joshua.hu/
+_Generated: {{ site.time | date_to_rfc822 }}_
+
+## All Posts
+
+===============================================================================
+POSTS
+===============================================================================
+
+{% for post in site.posts %}
+Title: {{ post.title }}
+Type: post
+URL: {{ site.url }}{{ post.url }}
+Source: https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/{{ post.path }}
+Description: {{ post.description }}
+Date: {{ post.date | date_to_rfc822 }}
+Categories: {% for category in post.categories %}{{ category }}{% unless forloop.last %}, {% endunless %}{% endfor %}
+
+{{ post.content | strip_html | strip }}
+
+{% endfor %}
+===============================================================================
+
+
+===============================================================================
+PAGES (menu/)
+===============================================================================
+
+{% assign menu_pages = site.pages | where_exp: "p", "p.path contains 'menu/'" %}
+{% for page in menu_pages %}
+Title: {{ page.title | default: page.name }}
+Type: page
+URL: {{ site.url }}{{ page.url }}
+Source: https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/{{ page.path }}
+Description: {{ page.description }}
+
+{{ page.content | strip_html | strip }}
+
+{% endfor %}
+===============================================================================

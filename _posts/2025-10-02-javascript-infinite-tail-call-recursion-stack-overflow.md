@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Flattening Arrays, Tail Call Recursion, and Stack Overflows in JavaScript"
-author: "Joshua Rogers"
+description: "Fixing 'Maximum call stack size exceeded' in JavaScript. How to replace recursion with iteration and local stacks when flattening arrays."
 categories: security
 ---
 

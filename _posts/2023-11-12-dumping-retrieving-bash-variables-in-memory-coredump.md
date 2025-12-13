@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Dumping bash variable values from memory using gdb"
-author: "Joshua Rogers"
+description: "Using gcore and gdb with bash's debug symbols to walk VAR_CONTEXT and hash tables to recover live shell variables from a bash process core dump."
 categories: security
 ---
 

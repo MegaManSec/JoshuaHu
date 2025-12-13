@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "NXDOMAIN'd: Catching unregistered domains for fun and profit"
-author: "Joshua Rogers"
+description: "NXDOMAIN'd: A browser extension to detect unregistered domains in your supply chain for potential takeover and security research."
 categories: security
 ---
 

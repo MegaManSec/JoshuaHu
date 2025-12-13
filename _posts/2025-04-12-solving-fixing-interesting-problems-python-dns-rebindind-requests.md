@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A small solution to DNS rebinding in Python"
-author: "Joshua Rogers"
+description: "Prevent DNS rebinding attacks in Python. A secure implementation of a HostHeaderSSLAdapter to validate resolved IP addresses in Requests."
 categories: security
 ---
 

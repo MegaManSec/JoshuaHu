@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "NodeJS, nvm, yarn, and npm on MacOS in 2025"
-author: "Joshua Rogers"
+description: "Setting up a JavaScript dev environment on MacOS in 2025? Here is a simple guide for installing Node.js, nvm, npm, and yarn without the bloat."
 categories: journal
 ---
 

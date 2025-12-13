@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "root with a single command: sudo logrotate"
-author: "Joshua Rogers"
+description: "Starting from the constraint that only sudo logrotate * may be run, and ending at root: abusing the log file flag to overwrite root owned scripts and ride cron to privilege escalation."
 categories: security
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SSH-Snake Update: Multi-IP Domain Resolution"
-author: "Joshua Rogers"
+description: "An update to SSH-Snake adding multi-IP domain resolution. Learn about the implementation details and solving Bash array assignment limitations in scripting."
 categories: security
 ---
 
