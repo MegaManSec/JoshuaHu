@@ -228,4 +228,4 @@ No decoding will occur, so you're safe!
 
 I was surprised to find that there were no online tools to automatically detect this issue on webservers, either externally or internally (i.e. by probing the webserver versus analysis of configuration). Therefore, I plan to make a tool which can detect these issues automatically.
 
-In the meantime, I've sent a PR to [gixy-ng](https://github.com/dvershinin/gixy) with a new plugin to detect this issue. gixy-ng is an actively maintained fork of Yandex's nginx configuration static analyzer. This issue will be detected automatically, with this post as reference!
+In the meantime, I've sent a PR to [GixyNG](https://github.com/megamansec/gixyng) with a new plugin to detect this issue. The documentation can be found [here](https://gixy.io/plugins/proxy_pass_normalized/). GixyNG is an actively maintained fork of Yandex's nginx configuration static analyzer. This issue will be detected automatically, with this post as reference!
