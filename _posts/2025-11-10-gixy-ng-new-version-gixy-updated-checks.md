@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "GixyNG: an overview of a Gixy fork with updated, improved, and new checks"
-description: "Overview of GixyNG: New Nginx security checks I added, and the quality degradation caused by low-quality AI-generated contributions."
+title: "Gixy-Next: an overview of a Gixy fork with updated, improved, and new checks"
+description: "Overview of Gixy-Next: New Nginx security checks I added, and the quality degradation caused by low-quality AI-generated contributions."
 categories: security
 ---
 
-## From gixy to GixyNG
+## From gixy to Gixy-Next
 
 `gixy` is an old static analyzer for nginx configurations, which allows the operator to automatically discover vulnerabilities in statis nginc files. It works by reading the configuration into memory, and performing various static checks on the serialized, full configuration, with plugins (plug-and-play checks with the configuration tree). It is able to find the following misconfigurations:
 
@@ -18,11 +18,11 @@ categories: security
 - Multiline response headers
 - Path traversal via misconfigured alias
 
-While `gixy` generally works OK, the last real update was around 7 years ago, and there are a ton of bugs, inconsistencies, and missing support, which reveal themselves when using the tool with a large, enterprise-level (™) nginx configuration. [GixyNG](https://gixy.io/) is the saving-grace of this problem: it is an (semi-)actively maintained version of `gixy` which fixes all of those bugs, inconsistencies, and usability issues, and adds a ton of new checks for other security issues, while greatly improving the detection-rate for the issues that the original `gixy` scanned for.
+While `gixy` generally works OK, the last real update was around 7 years ago, and there are a ton of bugs, inconsistencies, and missing support, which reveal themselves when using the tool with a large, enterprise-level (™) nginx configuration. [Gixy-Next](https://gixy.io/) is the saving-grace of this problem: it is an (semi-)actively maintained version of `gixy` which fixes all of those bugs, inconsistencies, and usability issues, and adds a ton of new checks for other security issues, while greatly improving the detection-rate for the issues that the original `gixy` scanned for.
 
-## New plugins in GixyNG
+## New plugins in Gixy-Next
 
-In addition to major changes in _how_ detection of misconfigurations is handled in the older plugins, the new `GixyNG` adds the following checks:
+In addition to major changes in _how_ detection of misconfigurations is handled in the older plugins, the new fork adds the following checks:
 
 - If is evil when used in location context
 - Allow specified without deny
@@ -42,7 +42,7 @@ In addition to major changes in _how_ detection of misconfigurations is handled 
 - Return directive bypasses allow/deny restrictions in the same context
 - Low keepalive_requests configuration value
 
-I created quite a few of these plugins, most of which I've documented previously on my blog [here](https://joshua.hu/nginx-return-allow-deny), [here](https://joshua.hu/nginx-dns-caching), [here](https://joshua.hu/regex-redos-recheck-nginx-gixy), [here](https://joshua.hu/http2-burp-proxy-mitmproxy-nginx-failing-load-resources-chromium#nginx-keepalive_requests), and [here](https://joshua.hu/proxy-pass-nginx-decoding-normalizing-url-path-dangerous). I also vastly improved some of the other checks, which missed very obvious improvements on detection. ~~The only update of mine that has (still..) not landed yet is the "nginx's DNS caching problem" plugin, where nginx [caches the address of hostnames](https://joshua.hu/nginx-dns-caching) at runtime with no expiration until complete nginx restart, so any `proxy_pass` directive that concerns a hostname may send data to the wrong IP address if the IP address of the host has been rotated.~~ This plugin has now landed in [GixyNG](https://github.com/MegaManSec/GixyNG)!
+I created quite a few of these plugins, most of which I've documented previously on my blog [here](https://joshua.hu/nginx-return-allow-deny), [here](https://joshua.hu/nginx-dns-caching), [here](https://joshua.hu/regex-redos-recheck-nginx-gixy), [here](https://joshua.hu/http2-burp-proxy-mitmproxy-nginx-failing-load-resources-chromium#nginx-keepalive_requests), and [here](https://joshua.hu/proxy-pass-nginx-decoding-normalizing-url-path-dangerous). I also vastly improved some of the other checks, which missed very obvious improvements on detection. ~~The only update of mine that has (still..) not landed yet is the "nginx's DNS caching problem" plugin, where nginx [caches the address of hostnames](https://joshua.hu/nginx-dns-caching) at runtime with no expiration until complete nginx restart, so any `proxy_pass` directive that concerns a hostname may send data to the wrong IP address if the IP address of the host has been rotated.~~ This plugin has now landed in [Gixy-Next](https://github.com/MegaManSec/Gixy-Next)!
 
 ## Further changes for quality improvement
 
@@ -63,13 +63,13 @@ Some of the changes I made to the engine itself include:
 
 All of these changes took months to get working to a level of quality that I was happy with, especially with gixy's parser which was a mix of pyparsing rules and ... a bunch of regular expressions. Those regular expressions were the most difficult to work with, because formulation weren't so obvious. LLMs didn't help in explaining how they actually worked or why they were chosen the way they were (for the specific text they were parsing), so "fixing" them to work with the nginx configurations I had (which were valid, but gixy either rejected them or completely crashed) was ... difficult:).
 
-In any case, the ~80,000-line nginx configurations (enterprise quality! (™)) which spanned various systems (kubernetes loadbalancers, an nginx fork acting as a web application firewall, "raw" nginx, etc) were finally scannable, and `GixyNG` could correctly detect all of the issues I could see by manually reviewing the configuration.
+In any case, the ~80,000-line nginx configurations (enterprise quality! (™)) which spanned various systems (kubernetes loadbalancers, an nginx fork acting as a web application firewall, "raw" nginx, etc) were finally scannable, and Gixy-Next could correctly detect all of the issues I could see by manually reviewing the configuration.
 
-Before I started working on all of these changes, GixyNG would crash with those configurations -- and report success at the end! Indeed, _someone_ was using `gixy` against these configurations already, but ... nothing was ever reported as being vulnerable, because `gixy` was crashing upon scanning. Oops! As an estimate, I would guess that my total contributions totaled around 4000-lines changed in the `GixyNG` codebase.
+Before I started working on all of these changes, Gixy-Next would crash with those configurations -- and report success at the end! Indeed, _someone_ was using `gixy` against these configurations already, but ... nothing was ever reported as being vulnerable, because `gixy` was crashing upon scanning. Oops! As an estimate, I would guess that my total contributions totaled around 4000-lines changed in the Gixy-Next codebase.
 
 ## Quality degradation
 
-Up until this point in writing, I haven't been completely truthful, as I've been using the name GixyNG. In reality, GixyNG is my fork of *another* fork, `gixy-ng`. Originally, I had submitted all of my changes to that fork, and most were accepted. _Note: If the rest of this blog post seems a bit wonky in terms of grammar, apologies: it was written before I created the GixyNG fork and only did some light editing after the fork!_
+Up until this point in writing, I haven't been completely truthful, as I've been using the name Gixy-Next. In reality, Gixy-Next is my fork of *another* fork, `gixy-ng`. Originally, I had submitted all of my changes to that fork, and most were accepted. _Note: If the rest of this blog post seems a bit wonky in terms of grammar, apologies: it was written before I created the Gixy-Next fork and only did some light editing after the fork!_
 
 After landing around 70% of my changes in `dvershinin/gixy` on GitHub, the main developer of the fork, Danila Vershinin, went radio-silent. I put this down to them being busy elsewhere, and didn't see any reason to ask them to land the changes sooner rather than later; I had my local repository which I was using, so I was happy. I posted *that* fork on hackernews, and the GitHub project shot up from ~30 stars to ~1,000 within a day or so.
 
@@ -95,7 +95,7 @@ While bringing this up (while reporting, "there's something very wrong with many
 
 In general, I find this situation ... really sad. I invested a significant amount of time into making this tool much better, and now the code that was created with love and passion was ... replaced by an inferior (most importantly) codebase, with a heartless (and apparently dumb) robot. In addition to my contributions being replaced with less-quality alternatives, most of the contributions I submitted to this project have been wiped from the git history. I don't know how, or why, but the majority (but not all) of the PRs I submitted were simply applied locally and then committed by the developer, which effectively wiped my name from the "Author" field in the commits. Links to my blog which explain (in technical detail) why certain configurations are unsafe have been replaced with local copies which are incomplete. This is not in the spirit of open-source, and ignores the simple principal of attribution.
 
-## GixyNG
+## Gixy-Next
 
 ### **Update: December 15, 2025**
 
@@ -105,4 +105,4 @@ The upside of all of this is that his AI usage produced some comedy gold like [t
 
 ## Further work
 
-A lot of the additions, changes, and bug fixes that I made in `GixyNG` came from simply coming across those issues myself and wanting to have a working product locally detecting various problems. For example, that [proxy_pass caching issue](https://joshua.hu/nginx-dns-caching) was something completely new to me, and I didn't want to have to detect that issue manually; so the new plugin deals with that (see my "[if you're doing the same thing more than once, you're doing it wrong](/ccbot-chrome-checker-bot-googlechromereleases-chromium-updates)" attitude). The `keepalive_requests` plugin came from coming across this issue [in-the-wild](https://joshua.hu/http2-burp-proxy-mitmproxy-nginx-failing-load-resources-chromium#nginx-keepalive_requests). Why I mention this, is that I am sure there are more configurations that I simply do not know about, which could be included in `GixyNG`. But until somebody documents those issues, or I comes across them, automated checks remain missing. Further contributions with issues that people hold as institutional knowledge are highly appreciated! I am sure there are more vulnerabilities which crop up due to nginx configurations, so `GixyNG` is not a "completed" project by any metric.
+A lot of the additions, changes, and bug fixes that I made in Gixy-Next came from simply coming across those issues myself and wanting to have a working product locally detecting various problems. For example, that [proxy_pass caching issue](https://joshua.hu/nginx-dns-caching) was something completely new to me, and I didn't want to have to detect that issue manually; so the new plugin deals with that (see my "[if you're doing the same thing more than once, you're doing it wrong](/ccbot-chrome-checker-bot-googlechromereleases-chromium-updates)" attitude). The `keepalive_requests` plugin came from coming across this issue [in-the-wild](https://joshua.hu/http2-burp-proxy-mitmproxy-nginx-failing-load-resources-chromium#nginx-keepalive_requests). Why I mention this, is that I am sure there are more configurations that I simply do not know about, which could be included in Gixy-Next. But until somebody documents those issues, or I comes across them, automated checks remain missing. Further contributions with issues that people hold as institutional knowledge are highly appreciated! I am sure there are more vulnerabilities which crop up due to nginx configurations, so Gixy-Next is not a "completed" project by any metric.

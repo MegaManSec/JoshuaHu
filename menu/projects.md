@@ -24,3 +24,5 @@ I've worked on a range of different projects over the years. Some of the more in
 - [Australian History: Bad Boys & Brawlers - The NES Downunder](https://www.youtube.com/watch?v=kh1drqSLzPM)
 
 - [The Nintendo Entertainment System in South Africa](https://www.linkedin.com/pulse/video-games-around-world-south-africa-joshua-rogers/)
+
+- [Gixy-Next: NGINX Configuration Security Scanner](https://gixy.io)

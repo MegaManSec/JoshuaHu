@@ -64,6 +64,6 @@ So with just 50 concurrent requests, it's possible to bring the server to a stan
 
 ---
 
-How can we detect this automatically? Well, we can use a tool to check whether a regular expression used it vulnerable to ReDoS, but it seems the only good checker, [recheck](https://github.com/makenowjust-labs/recheck/), is only available in Scala and JavaScript, and DoyenSec's [regexploit](https://github.com/doyensec/regexploit) fails to catch the above (very simple) example. In the long-term, I would like to add something to gixy-ng, but it's not so obvious how that's going to be possible.
+How can we detect this automatically? Well, we can use a tool to check whether a regular expression used it vulnerable to ReDoS, but it seems the only good checker, [recheck](https://github.com/makenowjust-labs/recheck/), is only available in Scala and JavaScript, and DoyenSec's [regexploit](https://github.com/doyensec/regexploit) fails to catch the above (very simple) example. In the long-term, I would like to add something to [Gixy-Next](https://gixy.io/), but it's not so obvious how that's going to be possible.
 
 
