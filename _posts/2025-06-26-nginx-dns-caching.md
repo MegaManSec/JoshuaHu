@@ -129,3 +129,5 @@ server {
     }
 }
 ```
+
+NGINX also released a blog post about bringing this feature to open source nginx [here](https://blog.nginx.org/blog/dynamic-dns-resolution-open-sourced-in-nginx).
