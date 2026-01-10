@@ -85,7 +85,7 @@ article {
   word-wrap: break-word; /* Wraps long words at the end of a line */
   overflow-wrap: break-word; /* Ensures words wrap properly without breaking them mid-word */
   white-space: normal; /* Ensures the text wraps naturally */
-  hyphens: auto; /* Automatically hyphenate if necessary */
+/*  hyphens: auto; */ /* Automatically hyphenate if necessary */
   width: 100%; /* Ensure the container takes up the full available width */
   box-sizing: border-box; /* Considers padding and borders within the width */
 }
