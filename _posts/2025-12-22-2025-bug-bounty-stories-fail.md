@@ -325,9 +325,9 @@ I replied:
 
 I sent an email back to Vercel, and received the following response:
 
->I'm looking at our policy and that does seem to be part of it. That being said, it was added before I started at Vercel and I'm not sure what the context is surrounding the rule. I've personally handled some DoS since I've been here, so I'm talking with our H1 reps about this to better understand the purpose of this policy rule and possibly get it changed if we feel that its removal is warranted. 
+>I'm looking at our policy and that does seem to be part of it. That being said, it was added before I started at Vercel and I'm not sure what the context is surrounding the rule. I've personally handled some DoS since I've been here, so I'm talking with our H1 reps about this to better understand the purpose of this policy rule and possibly get it changed if we feel that its removal is warranted.
 >
->In the meantime, please send me the H1 links to the reports that were closed and I will manually review them to determine if we want to take action. 
+>In the meantime, please send me the H1 links to the reports that were closed and I will manually review them to determine if we want to take action.
 
 I replied:
 
@@ -335,12 +335,12 @@ I replied:
 
 I received the following reply:
 
->I've reopened your reports and instructed the H1 analysts assigned to them to ignore the DoS policy for now while I discuss this with our lead H1 representative to make a policy change. 
+>I've reopened your reports and instructed the H1 analysts assigned to them to ignore the DoS policy for now while I discuss this with our lead H1 representative to make a policy change.
 >
->Part of this is my fault, I accidentally added you to our Vercel "official" program that we use for the vercel platform and infrastructure, instead of our "OSS" program, which we use for Vercel owned open source software. I've just sent you an invite to OSS as well. This won't affect these tickets, but going forward submitting OSS reports (like these tickets) on our OSS program should help in getting analysts who are best suited to handle your submissions assigned. 
+>Part of this is my fault, I accidentally added you to our Vercel "official" program that we use for the vercel platform and infrastructure, instead of our "OSS" program, which we use for Vercel owned open source software. I've just sent you an invite to OSS as well. This won't affect these tickets, but going forward submitting OSS reports (like these tickets) on our OSS program should help in getting analysts who are best suited to handle your submissions assigned.
 >
 >Apologies for the confusion and the difficulty here.
->It shouldn't be your responsibility to deal with this as much as you've had to, so thank you for working with me through this process. 
+>It shouldn't be your responsibility to deal with this as much as you've had to, so thank you for working with me through this process.
 >
 >Please let me know if you have any other questions or concerns.
 
@@ -364,6 +364,12 @@ I ended up just not responding any more to the reports, as it was a complete was
 ## curl
 
 The curl bug bounty was by far the best to deal with. As detailed previously in [my post](/llm-engineer-review-sast-security-ai-tools-pentesters), and Daniel Stenberg's [post](https://daniel.haxx.se/blog/2025/10/10/a-new-breed-of-analyzers/), I used AI SASTs to search for vulnerabilities in the curl codebase. Daniel and one of the other maintainers of curl [performed a technical analysis](https://hackerone.com/reports/3341476) of the vulnerability, and we decided and agreed that it is extremely unlikely that the vulnerability actually resulted in real-world risk. The bug was fixed, the report was publicized, and I was rewarded in PR of my personal brand. It was as easy as that.
+
+## AutoGPT
+
+Upon disocvering the _huntr_ platform for reporting vulnerabilities in participating AI/LLM-related technology, I reported an SSRF protection bypass in the AutoGPT software. A few hours later, the huntr platform marked my report as a duplicate, and _publicized my report_ immediately. This report was not a duplicate at all, and they had just revealed the full report to the world.
+
+I contacted the AutoGPT people in private, and they were pissed. They cancelled their huntr contract, and completely dropped the platform. The vulnerabilities (there were actually two) were fixed and publicized on GitHub [here](https://github.com/Significant-Gravitas/AutoGPT/security/advisories/GHSA-wvjg-9879-3m7w) and [here](https://github.com/Significant-Gravitas/AutoGPT/security/advisories/GHSA-ggcm-93qg-gfhp). No bounties were given, but that's OK: the entertainment of seeing this bounty platform being dropped was priceless.
 
 # Thoughts
 
