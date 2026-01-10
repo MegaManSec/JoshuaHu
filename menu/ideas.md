@@ -29,12 +29,6 @@ permalink: /ideas
 
 - Okta phishing (disabling FastPass script check)
 
-- Helicopter story.
-
-- Bug Bounty Post
-
-- Github bug ($500 bounty wtf)
-
 - LDAP Fuzzing
 
 - `gaas` and `recheck-http-api`
