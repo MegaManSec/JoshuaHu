@@ -27,6 +27,14 @@
     <link rel="stylesheet" href="/assets/css/syntax.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </noscript>
+  <meta property="og:image" content="https://joshua.hu/web-app-manifest-192x192.png" />
+  <meta property="og:image:width" content="192" />
+  <meta property="og:image:height" content="192" />
+  {% if page.path == "index.html" %}
+    <meta property="og:image:alt" content="{{ site.title }}" />
+  {% else %}
+    <meta property="og:image:alt" content="{{ page.title }} | {{ site.title }}" />
+  {% endif %}
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
   <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
