@@ -25,4 +25,4 @@ I've worked on a range of different projects over the years. Some of the more in
 
 - [The Nintendo Entertainment System in South Africa](https://www.linkedin.com/pulse/video-games-around-world-south-africa-joshua-rogers/)
 
-- [Gixy-Next: NGINX Configuration Security Scanner](https://gixy.io)
+- [Gixy-Next: NGINX Configuration Security Scanner](https://gixy.io). Also see [this](https://aur.archlinux.org/packages/gixy-next), [this](https://layers.openembedded.org/layerindex/recipe/483201/), [this](https://deepwiki.com/MegaManSec/Gixy-Next), [this](https://trendshift.io/repositories/16800), [this](https://www.libhunt.com/r/Gixy-Next), [this](https://app.readthedocs.org/projects/gixy-next2/), and [this](https://hellogithub.com/en/repository/megamansec/gixy-next)
