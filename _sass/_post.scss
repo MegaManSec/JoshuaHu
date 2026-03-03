@@ -18,19 +18,6 @@
   }
 }
 
-.related {
-  padding-bottom: 2rem;
-}
-
-.related-posts {
-  padding-left: 0px;
-  list-style: none;
-}
-
-.related-posts a {
-  text-decoration: none;
-}
-
 article a {
   color: #08C;
 }
@@ -221,7 +208,7 @@ before-sidebar {
   .conditional-toc {
     transition: opacity 1s ease;
   }
-  
+
   #toggle-toc:checked ~ .conditional-toc {
     overflow: hidden;
     height: 0;
@@ -252,3 +239,66 @@ before-sidebar {
   }
 }
 
+/* Related posts */
+.related {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid $extra-light-gray-color;
+}
+
+.related-title {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+}
+
+.related-posts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.related-post {
+  margin-top: 0.2rem;
+}
+
+.related-link {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.related-link a:hover .related-post-title {
+  color: $light-gray-color;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+}
+
+.related-link a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.related-post-title {
+  color: $dark-gray-color;
+  line-height: 1.25;
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 25%, transparent);
+  text-decoration-thickness: 1px;
+  font-weight: normal;
+  font-size: inherit;
+}
+
+.related-post-date {
+  color: $light-gray-color;
+  line-height: 1.25;
+  white-space: nowrap;
+  font-size: 0.7rem;
+  font-weight: normal;
+}
+
+.related-empty {
+  margin: 0.5rem 0 0 0;
+  color: $light-gray-color;
+}

@@ -11,7 +11,7 @@ I've worked on a range of different projects over the years. Some of the more in
 
 - [PikeProof: A Wycheproof implemention in the Pike scripting language](https://joshua.hu/pikeproof-wycheproof-pike-checks)
 
-- [Gixy-Next: NGINX Configuration Security Scanner](https://gixy.io) (on [GitHub](https://github.com/megamansec/gixy-next)
+- [Gixy-Next: NGINX Configuration Security Scanner](https://gixy.io) (on [GitHub](https://github.com/megamansec/gixy-next))
 
 - [GTFOArgs: Argument Injection Documentation](https://gtfoargs.github.io/)
 
