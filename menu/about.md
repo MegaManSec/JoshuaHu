@@ -7,9 +7,11 @@ description: "Meet Joshua Rogers, a Security Engineer and hacker based in Poland
 
 <img src="/files/Joshua_Rogers_Melbourne.jpg" width="200" height="200" alt="Joshua Rogers, hacker and security expert, sysadmin, bartender and master troll, from Melbourne Australia, living in Krakow, Poland." />
 
-I'm Joshua Rogers. Originally from Melbourne, Australia, and these days I live in Poland.
+I'm Joshua Rogers. Originally from Melbourne, Australia, and these days I live in Poland. My CV can be found here: [joshua-rogers-security-engineer.pdf](/files/joshua-rogers-security-engineer.pdf). You can see some of the public projects I've worked on on my [projects](/projects) page.
 
-My CV can be found here: [joshua-rogers-security-engineer.pdf](/files/joshua-rogers-security-engineer.pdf).
+Note: this section, and my CV, are pretty outdated. One day, when I'm able, I will update both of them.
+
+---
 
 I have 12+ years of security experience and have years of sysadmin experience 
 (linux and freebsd). I studied at Swinburne University of Technology in
