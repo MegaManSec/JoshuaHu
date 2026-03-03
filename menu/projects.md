@@ -11,9 +11,25 @@ I've worked on a range of different projects over the years. Some of the more in
 
 - [PikeProof: A Wycheproof implemention in the Pike scripting language](https://joshua.hu/pikeproof-wycheproof-pike-checks)
 
-- [Accurate Multi-Gas Emissions Equivalence Modelling of Greenhouse Gases](/files/VRS_Mathematics_Report.pdf)
+- [Gixy-Next: NGINX Configuration Security Scanner](https://gixy.io) (on [GitHub](https://github.com/megamansec/gixy-next)
+
+- [GTFOArgs: Argument Injection Documentation](https://gtfoargs.github.io/)
+
+- [LDAP Watchdog: Linux-first watchdog for LDAP directories](https://github.com/MegaManSec/LDAP-Monitoring-Watchdog)
+
+- [NXDOMAINd: Browser extension to monitor for expired domains](https://github.com/MegaManSec/NXDOMAINd)
+
+- [awk-compare: Compare different versions of awk](https://github.com/MegaManSec/awk-compare)
+
+- [CCBot: Chrome Checker Bot](https://github.com/MegaManSec/CCBot)
+
+- [Nettle wycheproof-testsuite: Wycheproof testsuite against Pike and Nettle](https://github.com/megamansec/nettle-wycheproof-testsuite)
 
 - [Squid Caching Proxy: A Security Assessment](https://megamansec.github.io/Squid-Security-Audit/)
+
+- [Fuzzing Pike with AFL++](https://joshua.hu/aflplusplus-fuzzing-scripting-languages-natively)
+
+- [Accurate Multi-Gas Emissions Equivalence Modelling of Greenhouse Gases](/files/VRS_Mathematics_Report.pdf)
 
 - [HTTPGen](https://github.com/MegaManSec/HTTPGen)
 
@@ -25,4 +41,3 @@ I've worked on a range of different projects over the years. Some of the more in
 
 - [The Nintendo Entertainment System in South Africa](https://www.linkedin.com/pulse/video-games-around-world-south-africa-joshua-rogers/)
 
-- [Gixy-Next: NGINX Configuration Security Scanner](https://gixy.io). Also see [this](https://aur.archlinux.org/packages/gixy-next), [this](https://layers.openembedded.org/layerindex/recipe/483201/), [this](https://deepwiki.com/MegaManSec/Gixy-Next), [this](https://trendshift.io/repositories/16800), [this](https://www.libhunt.com/r/Gixy-Next), [this](https://app.readthedocs.org/projects/gixy-next2/), [this](https://hellogithub.com/en/repository/megamansec/gixy-next), [this](https://debricked.com/select/package/pkg%3Apypi%2Fgixy-next), [this](https://awesome.ecosyste.ms/projects/github.com%2Fmegamansec%2Fgixy-next), [this](https://hub.docker.com/u/megamansec), and [this](https://hub.docker.com/r/megamansec/gixy-next), and [this](https://trendshift.io/repositories/20491).

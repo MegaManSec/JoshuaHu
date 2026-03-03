@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "From gixy-ng to Gixy-Next: rescuing Gixy from AI slop"
+title: "From gixy-ng to Gixy-Next: rescuing the nginx security scanner, Gixy, from AI slop"
 description: "Introducing Gixy-Next, a maintained fork of Gixy for modern Python: improved nginx config parsing, new plugins, normalized output, and a local in-browser scanner."
 categories: security
 ---
