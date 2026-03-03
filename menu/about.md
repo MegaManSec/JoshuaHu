@@ -9,6 +9,8 @@ description: "Meet Joshua Rogers, a Security Engineer and hacker based in Poland
 
 I'm Joshua Rogers. Originally from Melbourne, Australia, and these days I live in Poland. My CV can be found here: [joshua-rogers-security-engineer.pdf](/files/joshua-rogers-security-engineer.pdf). You can see some of the public projects I've worked on on my [projects](/projects) page.
 
+If you're interested in seeing what I write about, it may be more interesting to visit my [Topics](https://joshua.hu/topics) page, where I categorize each of my posts to make it easier to understand what this website is about.
+
 Note: this section, and my CV, are pretty outdated. One day, when I'm able, I will update both of them.
 
 ---
