@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Exclusive i3 keysyms for specific programs. or: Binding Escape on imagemagick's import"
+tags: [linux, dev_tools]
 description: "Master i3wm binding modes for program-specific shortcuts. Learn how to bind Escape to cancel screenshots without conflicting with global keybindings."
-categories: security
 ---
 
 Years ago when setting up i3 on my FreeBSD laptop, I used ImageMagick's [import(1)](https://man.freebsd.org/cgi/man.cgi?query=import&manpath=ports) to take screenshots of my X windows and save them for the future (my screenshot collection goes back to 2009; like a photo collection but of my online identity, but that's another topic for another day).

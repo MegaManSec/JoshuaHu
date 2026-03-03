@@ -1,10 +1,8 @@
 ---
 layout: post
 title: "How I got into the security industry"
-categories: journal
+tags: [essays, security]
 description: "How I went from RuneScape glitching and game hacking to running a 25,000 member forum and eventually working professionally in online security."
-#tags: [security work life]
-#image: cutting.jpg
 ---
 
 One of the most common questions I get related to my job (other than, _what does it mean to work in online security?_) is how I got into the industry. "How did I become a hacker?", and "how can I do it too?" are common questions. Unfortunately, the true answer is never what people want; there is no simple method to get into this industry, and unless you are interested in security and breaking things, you're not going to enjoy it at all. It's something that you need a passion for. If you don't like breaking things, thinking outside the box, challenging assumptions and asking questions such as "why not?", it's probably not for you. Being able to say "I don't believe you" (_you_ being either a person _or_ a system) is also essential in this line of work. Challenging the status-quo, sort of thing.

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Crawling every Debian .deb package in history from snapshot.debian.org, learning the .deb format, and finding rate-limiting bypasses"
+tags: [data_scraping, linux, security, programming]
 description: "A deep dive into crawling snapshot.debian.org for historical .deb packages. Learn about the .deb format and techniques to bypass rate limits using IPv6."
-categories: security
 ---
 
 Some time ago, I had the idea of collecting all of the `md5sums` files for every published Debian package in history, and publishing them online in a single repository to be easily queryable. `md5sums` files contains a list of MD5 checksums for each file a Debian package installs. For example, the Debian package `libdrm-amdgpu1_2.4.104-1~bpo10%2B1_amd64.deb` contains a "control archive" file, `control.tar.gz`, that contains files containing metadata, including a file called `md5sums`:

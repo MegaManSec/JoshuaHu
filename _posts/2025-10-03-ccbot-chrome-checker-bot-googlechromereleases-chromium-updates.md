@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "CCBot: Chrome Checker Bot for Chrome Security Releases"
+tags: [dev_tools, programming, security]
 description: "Automating chrome security tracking. CCBot is a Python tool that parses the chaotic Google Chrome Releases blog to alert on critical updates."
-categories: security
 ---
 
 In IT (and perhaps in life in general), if you're ever doing the same thing more than once, you're doing it wrong. Indeed; if you're the head of application security at a browser company that uses Chromium and your role includes checking the official Google Chrome Release page every day or two in order to find out whether Google has patched some vulnerability in Chromium -- so you can send a Slack message directing your browser's developers to upgrade Chromium, to protect all of your users -- then you're ... doing it wrong.

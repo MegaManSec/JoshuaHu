@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Automatically Generating a Well-Tuned Fuzzing Campaign With AFL++"
+tags: [fuzzing, aflpp, dev_tools]
 description: "Automate your AFL++ fuzzing campaigns. Use this script to generate optimized parallel commands and tune secondary fuzzer options based on your available cores."
-categories: security
 ---
 
 ---

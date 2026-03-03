@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Another AI slop story: ChatGPT vs. Human"
+tags: [ai_slop, security, nginx, incident_investigation]
 description: "Incident response failure: How engineers trusted ChatGPT over technical evidence regarding a critical Nginx DNS data leak."
-categories: security
 ---
 
 In my [last](https://joshua.hu/ai-slop-okta-nextjs-0auth-security-vulnerability) two [posts](https://joshua.hu/gixy-ng-new-version-gixy-updated-checks#quality-degradation), I outlined different stories about my experiences dealing with developers that had offloaded their work to low-quality LLMs, resulting in frustrating performance degradation. Today, I'll be writing about a similar experience, wherein responding to a potential security incident, my professional expertise and technical analysis was disregarded due to ChatGPT stating that I was wrong -- only for it later to be proved that ChatGPT was wrong.

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "wtf is NS_ERROR_INVALID_CONTENT_ENCODING? investigating shared dictionaries and ChatGPT breakage in Firefox"
+tags: [browsers, firefox, web_platform, incident_investigation, ai]
 description: "Investigating and diagnosing ChatGPT's outage for Firefox users, resulting in endless loading and inoperable buttons."
-categories: security
 ---
 
 Today I learnt about the `NS_ERROR_INVALID_CONTENT_ENCODING` error (or "Content Encoding Error") in Firefox, which started popping up in my Network tab while trying to access ChatGPT. Indeed, while having access to ChatGPT has allowed me to keep up the charade that I actually know what I'm doing in (life\|work\|security\|etc), the service became completely inoperable in Firefox a few days ago. I couldn't find any analysis online, so I dug into it myself.

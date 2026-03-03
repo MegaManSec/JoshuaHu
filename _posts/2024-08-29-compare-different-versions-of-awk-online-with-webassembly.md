@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Comparing different versions of AWK with WebAssembly"
+tags: [wasm, programming, dev_tools]
 description: "Compare different versions of AWK directly in your browser. Read about building 'awk-compare' using WebAssembly and Emscripten to test script compatibility."
-categories: security
 ---
 
 After releasing [SSH-Snake](https://github.com/MegaManSec/SSH-Snake), I quickly received a bug report: when the script ran on Debian Jessie systems, the script wouldn't function properly due to the awk script which ran at the beginning of the script not being compatible with the system's awk program.

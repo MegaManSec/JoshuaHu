@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "NodeJS, nvm, yarn, and npm on MacOS in 2025"
+tags: [dev_tools, macos, programming]
 description: "Setting up a JavaScript dev environment on MacOS in 2025? Here is a simple guide for installing Node.js, nvm, npm, and yarn without the bloat."
-categories: journal
 ---
 
 Apparently these days I'm back on MacOS. And with it, I had to set up a javascript development environment. Online resources seem to be outdated and overly complicated (why?), so I thought I would document the process of installation here. It's as simple as:

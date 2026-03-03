@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Attacking a temperamental ten-year-old Jenkins server"
+tags: [security, incident_investigation, appsec]
 description: "A walk-through of abusing Jenkins script console access, why Metasploit's jenkins_script_console/jenkins_gather failed on ancient hardware, and the patches I wrote to make it work."
-categories: security
 ---
 
 During my pen-testing, I've found it quite common to find Jenkins instances which either have open registration, or an easy-to-guess login combination.

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Identifying ReDoS Vulnerabilities in Nginx Configurations Using Gixy-Next"
+tags: [nginx, gixy, regex, redos, security]
 description: "Automating ReDoS detection in Nginx. How I integrated 'recheck' into 'Gixy-Next' to identify vulnerable regex configurations via a custom plugin."
-categories: security
 ---
 
 ## ReDoS in Nginx

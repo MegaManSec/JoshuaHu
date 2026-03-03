@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Slack login is broken with noscript"
+tags: [web_platform, browsers, privacy, incident_investigation]
 description: "Breaking down Slack's noscript redirect bug, the open redirect angle, bug bounty back and forth, and the suspicion it doubled as a dark pattern."
-categories: security
 ---
 
 Hurrah! Another website that is completely broken when disabling Javascript: this time with a false redirect!

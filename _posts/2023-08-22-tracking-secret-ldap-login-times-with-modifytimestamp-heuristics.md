@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Tracking a secret LoginTime LDAP attribute with Operational Attributes"
+tags: [ldap, security, incident_investigation]
 description: "Using LDAP operational attributes like modifyTimestamp as a side channel to infer hidden login time fields and user activity patterns."
-categories: security
 ---
 
 During a recent pentest of an LDAP server, I uncovered a clever trick to disclose a hidden attribute which is used to record the exact time a user logs in. In this post, we'll delve into how this technique works, and how it can be used to expose concealed attributes like a 'VpnLoginTime'.

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "A Full Guide: FreeBSD 13.3 on a MacBook Pro 11.4 (Mid 2015) (A1398)"
+tags: [freebsd, macos, linux, dev_tools]
 description: "A complete guide to installing FreeBSD 13.3 on a MacBook Pro 11,4. Covers Wi-Fi via wifibox, graphics, sound, keyboard backlights, and power saving config."
-categories: journal
 ---
 
 ---

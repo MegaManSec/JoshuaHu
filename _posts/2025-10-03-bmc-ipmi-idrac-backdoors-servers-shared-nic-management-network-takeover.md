@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Network Security: Absurdity of Shared NICs with BMCs and Management Networks"
+tags: [networking, security]
 description: "The security risks of shared NICs on servers. How to hijack the management network (IPMI/BMC) directly from the host OS via VLAN tagging."
-categories: security
 ---
 
 BMCs are [back in the news again](https://genius.com/31040477), with a vulnerability in Supermicros BMC being discovered that allows someone to install [unsigned (read: malicious) firmware that persists across normal update paths](https://thehackernews.com/2025/09/two-new-supermicro-bmc-bugs-allow.html). Since BMCs are—quite literally—backdoors on a server's motherboard that allow remote control, this is a real problem. BMCs are the technical component of what's commonly called a "remote management controller," and implementations span vendors: Dell iDRAC, HPE iLO, Supermicro BMC, Lenovo XClarity, and so on. They let administrators control systems when the OS isn't reachable (for example, networking is misconfigured or the OS is being reinstalled). These BMCs are fun for hacking, and a few years ago I learnt about the absurdity of how some of these are designed to use a shared NIC for both the host OS and the BMC.

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Fuzzing glibc's libresolv's res_init()"
+tags: [fuzzing, aflpp, linux, dns, security]
 description: "Fuzzing glibc's res_init by chrooting into tmpfs and mutating resolv.conf, resulting in an infinite loop in sortlist handling and a reachable assertion on long search lines."
-categories: security
 ---
 
 Looking back at the issue I [had with libresolv nearly 10 years ago](https://joshua.hu/revisiting-my-old-blog), I decided it might be interesting to fuzz glibc's [res_init()](https://man7.org/linux/man-pages/man3/res_init.3.html) to see if we can find any bugs.

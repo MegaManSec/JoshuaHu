@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Fuzzing with multiple servers in parallel: AFL++ with Network File Systems"
+tags: [fuzzing, aflpp, networking, linux]
 description: "How to wire up several servers with NFS and AFL++ so they share queues and crashes, giving distributed fuzzing with minimal coordination code."
-categories: security
 ---
 
 

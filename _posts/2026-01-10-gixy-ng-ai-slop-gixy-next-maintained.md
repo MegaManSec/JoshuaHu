@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "From gixy-ng to Gixy-Next: rescuing the nginx security scanner, Gixy, from AI slop"
+tags: [gixy, nginx, security, ai_slop, programming]
 description: "Introducing Gixy-Next, a maintained fork of Gixy for modern Python: improved nginx config parsing, new plugins, normalized output, and a local in-browser scanner."
-categories: security
 ---
 
 I recently decided to fork and maintain a new version of the Gixy nginx security tooling, calling my fork *Gixy-Next*. The official website is [https://gixy.io/](https://gixy.io/), and the source code is available on GitHub at [MegaManSec/Gixy-Next](https://github.com/megamansec/gixy-next). The Python package is available on [PyPi](https://pypi.org/project/gixy-next), but there's also an [online scanner](https://gixy.io/scanner/) which can be run in your browser (locally; with WASM).

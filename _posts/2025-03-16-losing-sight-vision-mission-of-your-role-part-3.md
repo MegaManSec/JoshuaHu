@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Losing Sight and Vision of Your Mission and Culture: Part 3"
+tags: [culture_mission, essays]
 description: "When security tools break usability: A look at how Cloudflare Turnstile blocks legitimate API requests and frustrates paid users."
-categories: personal
 ---
 
 _Part two can be found [here](https://joshua.hu/losing-sight-vision-mission-of-your-role-part-2)._

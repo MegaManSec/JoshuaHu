@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Losing Sight and Vision of Your Mission and Culture: Part 2"
+tags: [culture_mission, essays]
 description: "Part 2 of 'Losing Sight of Your Mission.' A satirical look at modern app development priorities, illustrated by a frustrating user experience in an airport."
-categories: journal
 ---
 
 _Part one can be found [here](https://joshua.hu/losing-sight-vision-mission-of-your-role)._

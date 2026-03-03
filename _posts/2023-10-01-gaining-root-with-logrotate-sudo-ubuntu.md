@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "root with a single command: sudo logrotate"
+tags: [linux, security, vuln_research]
 description: "Starting from the constraint that only sudo logrotate * may be run, and ending at root: abusing the log file flag to overwrite root owned scripts and ride cron to privilege escalation."
-categories: security
 ---
 
 The scenario is this: a brand new Ubuntu 22.04 server has an account which is restricted to running `sudo logrotate *`.  Can we get root? Short answer: Yes. I couldn't find much online about this type of exploitation of logrotate, so let's document something for future use.

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "More fun with bash: bash, ssh, and ssh-keygen version quirks"
+tags: [bash, ssh, dev_tools]
 description: "Exploring odd, version specific behavior between bash, ssh, and ssh-keygen, and how subtle CLI or format differences can break scripts in surprising ways."
-categories: security
 ---
 
 Continuing the journey with bash, ssh, and so on, I hit some more fun facts and/or pitfalls of the trade.

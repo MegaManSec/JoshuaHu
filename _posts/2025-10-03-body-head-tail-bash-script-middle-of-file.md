@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "body: A bash script to get the middle of a file, instead of head | tail"
+tags: [bash, dev_tools]
 description: "Meet 'body': A faster, smarter alternative to 'head | tail' for extracting and printing the middle lines of a large file in Bash."
-categories: security
 ---
 
 `body` is a small bash script that replaces a common two-shot command that I find myself running from time to time: `head -n5000 file.txt | tail -n1`. Basically, I want to view approximately the middle of a file, to see the middle contents. I realized that there must be a better way, and that's why I made a small script that does what I want: it's not `head`, it's not `tail`, it's `body`: for when you want to print (around) the middle of a file.

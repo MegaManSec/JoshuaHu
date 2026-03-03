@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Supply chain attacks and the many (other) different ways I've backdoored your dependencies"
+tags: [supply_chain, security, essays]
 description: "Supply chain attacks go beyond code. Explore overlooked vectors like hosting provider social engineering, domain registrar hacks, and BGP hijacking risks."
-categories: security
 ---
 
 I recently read a blog post with a [similar title as this one](https://kerkour.com/backdoored-dependencies-and-supply-chain-attacks), which outlined different supply chain attacks on CI/CD pipelines, and largely focused on software immediately related to the deployment and development of products. Although the post contained a few well-known attacks, I thought I could expand on them with a greater focus on supply chains which may not be noticed by (especially) smaller organizations. Variations and combinations of each of these may also be a concern.

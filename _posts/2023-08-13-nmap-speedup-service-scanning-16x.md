@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Speeding up nmap service scanning 16x"
+tags: [recon_scanning, nmap, security]
 description: "Deep dive into nmap's service detection timeouts, NSE behavior, and the tiny source changes that turned a 160 second probe into a 10 second one."
-categories: security
 ---
 
 In my [previous post](/port-scanning-networks-speeding-up-nmap-for-large-scales) post, I began writing about how I was designing a port and service scanner for large-scale networks by combining port-scanning tools like masscan/zmap and service scanning tools like nmap. In this post, I'm going to dive into some of the details of nmap's service scanning, and outline how I was able to speed up nmap's service scanning by 16-times.

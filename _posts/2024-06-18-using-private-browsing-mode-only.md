@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "On using private browsing mode for half a year"
+tags: [privacy, browsers, essays]
 description: "I used only Private Browsing mode for six months. Read my experience regarding browser history, cookie consent fatigue, and the benefits of ephemeral sessions."
-categories: journal
 ---
 
 Since the beginning of the year, I've been experimenting with a nearly-permanent use of "private browsing" in the browser on my computers, and phone.

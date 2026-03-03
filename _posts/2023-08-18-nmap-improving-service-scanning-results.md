@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Improve nmap's service scanning with this 1 weird trick!"
+tags: [recon_scanning, nmap, security]
 description: "Teaching nmap about odd services by extending nmap-service-probes with custom matches, improving accuracy and cutting scan time on large fleets."
-categories: security
 ---
 
 In my past two blog posts, I've explored how to combine multiple port scanning tools to create a fast service scanning tool for large networks, and how I sped up nmap's service scanning by changing its "wait for content" time. In this post, I'm going to be exploring how you can enrich the nmap-services-probes file with new information which offers both better results but also further speeds up service scanning.

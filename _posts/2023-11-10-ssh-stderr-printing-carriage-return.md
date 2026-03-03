@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Playing with SSH: carriage returns on stderr output"
+tags: [ssh, dev_tools]
 description: "A tiny ssh quirk: stderr lines are terminated with CRLF, where it came from, and why it matters if stderr is being parsed programmatically."
-categories: security
 ---
 
 We learn new things every day. Today it's about ssh. And this time it's not even about how to use it, but the format of its output.

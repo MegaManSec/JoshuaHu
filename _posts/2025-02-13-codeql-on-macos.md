@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "CodeQL on MacOS"
+tags: [dev_tools, macos, security]
 description: "A step-by-step guide to setting up CodeQL on MacOS. Learn to install, create databases, and run standard or custom security queries on your code."
-categories: security
 ---
 
 Continuing the MacOS trend, I wanted to document the steps I took to getting CodeQL setup on my system.

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Proxy Services, Hijacked Companies, and the Rabbit-Hole of Fake Hosting Companies and Big Sky Services"
+tags: [proxy_abuse, security, incident_investigation]
 description: "Investigating 'Big Sky Services': How hijacked shell companies and a massive proxy network flooded an Opera legacy endpoint with traffic."
-categories: security
 ---
 
 One of the benefits of working for a large, albeit stuck-in-the-past technology company which has a whole range of strange services running to fit different decades' ideals -- like Opera -- is the ability to observe strange behavior and investigate it. You can find interesting things to investigate in every corner, whether that be due to concerns with security, or simply trying to work out "why is this happening?" At Opera, [another strange case](/iranian-browser-extension-addon-censorship-bypasses) caught my eye, and the story is one of my favorite from my time there.

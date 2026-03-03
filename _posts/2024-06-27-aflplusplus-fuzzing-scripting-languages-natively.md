@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Fuzzing scripting languages' interpreters' native functions using AFL++ to find memory corruption and more"
+tags: [fuzzing, aflpp, memory_corruption, security]
 description: "Learn to fuzz scripting languages like Pike using AFL++. Discover how to hook internal C functions via scripts to find memory corruption and interpreter bugs."
-categories: security
 ---
 
 Fuzzing applications needs no introduction, and I have written about some interesting problems related to fuzzing in the past [[0]](https://joshua.hu/fuzzing-multiple-servers-parallel-aflplusplus-nfs)[[1]](https://joshua.hu/fuzzing-glibc-libresolv)[[2]](https://joshua.hu/fuzzing-with-memfd-createfd-fmemopen-syscall-function)[[3]](https://joshua.hu/aflplusplus-generate-fuzzing-campaign-commands-options-secondary-fuzzers). At scale, fuzzing has traditionally focused on compiled binaries and detecting crashes and other memory corruption issues. In this blog, we'll be looking at how you can easily fuzz _scripting_ languages whether it be php, perl, ruby, python, or even lisp, using the fuzzing software traditionally built for binaries. We'll also look at some interesting bug classes which can be caught this way.
