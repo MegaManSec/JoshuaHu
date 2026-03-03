@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "wtf Google: cacheable rss feeds are dead, and Atom feeds are delayed"
+tags: [rss_feeds, web_platform, incident_investigation]
 description: "Update: Google kills RSS support and breaks Atom feeds. How Feedburner's continued caching failures and stale data affect aggregators."
-categories: journal
 ---
 
 In a [previous post](/google-feedburner-broken-caching-if-modified-since), I outlined how Google's Feedburner refuses to serve `304 Not Modified` for cached Atom feeds. I also outlined how rss feeds were serving stale results, resulting in delays of new posts of up to a few days. After sending that post to Feedburner's support contact in the hopes that they would fix the delayed rss feed results and respect attempts at caching, they instead... completely got rid of the rss feed, and started serving stale results in the Atom feed. Nice!

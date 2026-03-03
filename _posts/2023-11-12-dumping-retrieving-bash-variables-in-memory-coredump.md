@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Dumping bash variable values from memory using gdb"
+tags: [bash, dev_tools]
 description: "Using gcore and gdb with bash's debug symbols to walk VAR_CONTEXT and hash tables to recover live shell variables from a bash process core dump."
-categories: security
 ---
 
 Dumping the memory of a binary process and examining variable contents is intuitive enough for normal programs. But how about retrieving the in-script variables and their current values of a bash script? Slightly less intuitive.

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "My 2025 Bug Bounty Stories"
+tags: [bug_bounty, security, essays]
 description: "A recap of my 2025 bug bounty experiences, featuring failures and stories from Google Cloud, GitHub, Vercel, Opera, and others."
-categories: security
 ---
 
 This year, I've reported more issues via bug bounties than perhaps the past 10 years combined. The issues were all in completely random places, and the only reason they were reported via bug bounty programs is because it is generally impossible to get a human response [any other way](/slack-is-broken-with-noscript) from tech companies (even when you have a full [technical analysis of the issue](/death-of-a-tech-support-github-edition)).

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Extracting TLS Session Keys in Burp Proxy à la SSLKEYLOGFILE"
+tags: [tls_http, security, dev_tools]
 description: "How to extract TLS session keys from Burp Suite to decrypt HTTP/2 traffic in Wireshark for better debugging and network analysis."
-categories: security
 ---
 
 In [my previous post](https://joshua.hu/http2-burp-proxy-mitmproxy-nginx-failing-load-resources-chromium), I outlined how I discovered a bug in the handling of closing HTTP/2 keep-alive requests in Burp Suite, and how I had to debug the issue by using mitmproxy due to Burp's limited debugging capabilities.

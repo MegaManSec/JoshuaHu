@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Gixy-Next: an overview of a Gixy fork with updated, improved, and new checks"
+tags: [gixy, nginx, security, programming]
 description: "Overview of Gixy-Next: New Nginx security checks I added, and the quality degradation caused by low-quality AI-generated contributions."
-categories: security
 ---
 
 ## From gixy to Gixy-Next

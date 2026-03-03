@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Fuzzing with memfd_create(2) and fmemopen(3)"
+tags: [fuzzing, aflpp, linux, programming]
 description: "Learn how to speed up fuzzing campaigns using memfd_create(2) and fmemopen(3). This benchmark compares execution speeds against stdin and tmpfs for faster results."
-categories: security
 ---
 
 If you've done a fair amount of fuzzing, you've likely come across targets which are deeply dependent either on file descriptors or FILEs. Rewriting the whole codebase to accept a fuzzing harness from a buffer in shared memory is awfully cumbersome, so you're stuck with a slower fuzzing campaign than you'd hope. But then you hear about the `memfd_create(2)` syscall and the `fmemopen(3)` function.

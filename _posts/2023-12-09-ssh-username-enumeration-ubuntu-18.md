@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "SSH Adventures Continued: Invalid CVE-2018-15473 Patches"
+tags: [ssh, security, vuln_research]
 description: "Walking through how OpenSSH behaves on Ubuntu 18, and how error handling and timing can leak valid usernames for remote enumeration."
-categories: security
 ---
 
 Let's say you're like me, and you're indirectly conducting research into how different versions of the ssh client on Ubuntu produce warning/error messages when connecting to different versions of the ssh server.

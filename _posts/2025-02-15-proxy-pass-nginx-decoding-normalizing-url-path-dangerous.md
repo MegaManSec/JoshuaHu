@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "proxy_pass: nginx's Dangerous URL Normalization of Paths"
+tags: [nginx, security, web_platform]
 description: "Is your Nginx configuration vulnerable? A deep dive into dangerous URL normalization in proxy_pass, path traversal risks, and how to secure it."
-categories: security
 ---
 
 I have recently been looking into dangerous path normalization by webservers (and browsers!) and ways to exploit typical configurations that are used on the internet. I've been looking at how servers handle the forward and back-slash characters (`/\`) and the dot (`.`), as well as their URL-encoded values, `%2F %5C %2E` respectively. I have detailed this problem in depth [in a proposal](https://megamansec.github.io/CSPT-CSP-Mitigation-Proposal/#problem-description) to extend the Content-Security-Policy feature, however today I want to discuss three ways this problem can be exploited, and how nginx's `proxy_pass` directive is commonly configured to allow exploitation, without operators realizing.

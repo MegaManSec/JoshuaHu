@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "An automatic captive-portal resolver and DNS white-lister for DNS over TLS with Unbound"
+tags: [freebsd, dns, networking, security, programming]
 description: "Automate captive portal logins while using DNS-over-TLS. This script detects portal DNS servers and dynamically configures Unbound to allow necessary traffic."
-categories: security
 ---
 
 In my previous post [_encrypted DNS over TLS on FreeBSD_](https://joshua.hu/encrypted-dns-over-tls-unbound-mullvad-freebsd-block-unencrypted-dns-traffic), I mentioned that "_This setup, unsurprisingly, breaks captive portals and so on. But for my use-case, it’s fine_". That is because I block regular DNS traffic from my computer (unencrypted, over port 53 using UDP). This post details a script that can be, for example at cafes, hotels/hostels, airports, etc., which can automatically deal with captive portals.

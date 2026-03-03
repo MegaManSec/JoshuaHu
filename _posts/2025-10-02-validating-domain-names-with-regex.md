@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Securely Validating Domain Names with Regular Expressions"
+tags: [regex, security, programming]
 description: "Validating domain names securely. A ReDoS-safe regular expression pattern for verifying hostnames and handling Punycode domains."
-categories: security
 ---
 
 Regular expressions are rarely the solution, but sometimes they can be helpful. I recently needed to create some regex which could be used to parse _real_ domain names, and finding a definitive expression seemed to be difficult; especially one that wasn't vulnerable to ReDoS.

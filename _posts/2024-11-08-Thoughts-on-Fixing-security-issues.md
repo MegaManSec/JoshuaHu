@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Some Thoughts on \"Fixing Security Issues\""
+tags: [security, essays]
 description: "Thoughts on fixing bugs versus fixing security issues. Why developers should focus on mitigating exploitation classes rather than just patching individual bugs."
-categories: security
 ---
 
 _This post was inspired by [upcoming hardening in PHP](https://dustri.org/b/upcoming-hardening-in-php.html)._

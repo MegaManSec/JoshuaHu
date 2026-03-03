@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "LLMs are destroying art: the art of code, literature, and culture."
+tags: [ai, ai_slop, culture_mission, essays]
 description: "My views on how LLMs have made me stop caring about code as an artform, articles generated with LLMs, and culture copied from an RNG"
-categories: personal
 ---
 
 If the [medium is the message](https://en.wikipedia.org/wiki/The_medium_is_the_message), messages created by LLMs are the lowest of them all.

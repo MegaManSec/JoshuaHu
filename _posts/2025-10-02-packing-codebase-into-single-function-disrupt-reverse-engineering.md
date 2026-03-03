@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Breaking decompilers with single-function, and no-main() C codebases"
+tags: [c, reverse_engineering, programming]
 description: "Breaking reverse engineering tools by packing an entire C codebase into a single 'main' function or removing main entirely to confuse decompilers."
-categories: security
 ---
 
 ## A Funny Idea

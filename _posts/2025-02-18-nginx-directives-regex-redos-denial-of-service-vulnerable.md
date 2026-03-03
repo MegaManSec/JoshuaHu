@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Can Nginx Configurations Be Vulnerable to ReDoS Expressions?"
+tags: [nginx, regex, redos, security]
 description: "Can Nginx configurations be DDoSed? Exploring ReDoS vulnerabilities in regex directives and how to crash a server with simple request strings."
-categories: security
 ---
 
 [Betteridge's law of headlines](https://en.wikipedia.org/wiki/Betteridge%27s_law_of_headlines) fails again! The answer is yes.

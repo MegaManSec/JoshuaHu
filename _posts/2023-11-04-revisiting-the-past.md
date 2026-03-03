@@ -1,10 +1,8 @@
 ---
 layout: post
 title: "Revisiting the past: Security recommendations of a 17-year-old Joshua"
+tags: [security, essays]
 description: "Re-reading my 17 year old hardening advice, like running Firefox as another user, via a new oss-security thread, and reflecting on what aged well and what did not."
-categories: journal
-#tags: [security work life]
-#image: cutting.jpg
 ---
 
 Do you ever experience huge coincidences that you wonder how it's possible that they can come to be? I do; fortunately or unfortunately, it constantly seems like the world is so small and time is so short. That's reigned true most recently while reading an email on the [oss-security mailing list](https://www.openwall.com/lists/oss-security/) -- which I re-subscribed to just a few weeks ago. In this case, it's a happy coincidence which has brought back quite fond memories. On the 24th of October, [an email discussing a security issue in Firefox](https://www.openwall.com/lists/oss-security/2023/10/24/2) came through. Let's go through it, and try to bring back even more memories

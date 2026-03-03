@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Hello, Kafka Support Here, How Can I Help You? GitHub Edition"
+tags: [essays, dev_tools]
 description: "A Kafkaesque experience with GitHub support regarding case-sensitivity bugs in commit emails, and dealing with unhelpful 'AI' style responses."
-categories: journal
 ---
 
 In a [previous post](/slack-is-broken-with-noscript), I outlined how I found an extremely annoying bug in Slack's website, causing it to automatically redirect me to an invalid page every single time I visited the Slack website with NoScript enabled. Looking to get this issue fixed, my post outlined how support could not be more unhelpful, informing me the broken website was, in fact, working completely fine and as intended, and it wouldn't be "fixed" because there's nothing to be fixed! Eventually, my only way to get the issue fixed was to report it via Slack's bug bounty, where technologically-inclined people were available to look at my issue. In this post, I'll outline a similar story about experiencing a bug in GitHub, reporting the bug with full technical details, and receiving useless feedback and the typical "it's your fault it's not working, we won't fix anything". Of course, the bug has been fixed, and it was not "my fault".

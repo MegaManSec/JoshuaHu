@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "On being an illegal immigrant, hacking an unlimited Schengen visa, and becoming Polish"
+tags: [essays, travel]
 description: "My story of staying in Europe by legally exploiting bilateral visa agreements, avoiding Schengen limits, and eventually obtaining citizenship."
-categories: personal
 ---
 
 ## ~~Moving~~ Staying in Poland

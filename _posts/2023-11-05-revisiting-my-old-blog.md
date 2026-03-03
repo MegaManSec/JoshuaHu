@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Revisiting My Old Blog"
+tags: [essays]
 description: "A tour of my 2012 to 2016 blog posts, including eBay SQLi, PayPal 2FA bypass, a dpkg bug, and more, plus some honest commentary on my younger self's work and writing."
-categories: journal
 ---
 
 While reminiscing about my blog posts from 2014, I decided to take a further look down memory lane at other blog posts from that time. Some I remembered completely, and some I'd totally forgotten about.

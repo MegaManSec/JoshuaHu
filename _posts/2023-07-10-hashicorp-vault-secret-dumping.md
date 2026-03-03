@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Stealing All of Hashicorp Vault's Secrets Using Login Enumeration"
+tags: [security, appsec, vuln_research]
 description: "Using stolen Vault tokens, bash, jq, and GNU parallel to recursively enumerate and dump every reachable secret from HashiCorp Vault."
-categories: security
 ---
 
 ## Introduction

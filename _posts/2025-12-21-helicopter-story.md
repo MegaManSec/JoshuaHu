@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "A helicopter story"
+tags: [essays]
 description: "A personal story about how a friend and I organized a helicopter ride from Austria to Poland, where everything that could go wrong, did."
-categories: personal
 ---
 
 Some time ago, a friend of mine and I hired a helicopter to fly us from Vienna to Wrocław. The story regarding this is, in my humble opinion, extremely funny, albeit long. Therefore, I decided to write it up so that instead of explaining it for ~45 minutes each time somebody asks, I can simply link this post.

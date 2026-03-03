@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "5 Tips For Port Service Scanning 16x Faster: Part 1"
+tags: [recon_scanning, nmap, security]
 description: "Designing large scale port and service scanning: separating discovery from service ID, mixing masscan or zmap with nmap, and avoiding DoSing the networks being scanned."
-categories: security
 ---
 
 In recent years, nmap's prevalence for large-scale (TCP) port scanning has diminiuished due to newer and faster tools such as zmap and masscan becoming available. However, nmap's service scanning still remains the best tool for identification of what is actually running on open ports, with its service scanning probes (and its scripting engine).

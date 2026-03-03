@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Flattening Arrays, Tail Call Recursion, and Stack Overflows in JavaScript"
+tags: [javascript, programming]
 description: "Fixing 'Maximum call stack size exceeded' in JavaScript. How to replace recursion with iteration and local stacks when flattening arrays."
-categories: security
 ---
 
 Tail Call Optimization (TCO) is a programming technique which allows a supportive engine to optimize functions which may call continuously call themselves. For example, take the following code:

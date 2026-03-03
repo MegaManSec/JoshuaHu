@@ -1,10 +1,8 @@
 ---
 layout: post
 title: "Creating an eBay crawler for fun and profit"
-categories: journal
+tags: [data_scraping, programming]
 description: "How I built a PHP/MySQL bot to crawl Australian eBay for NES listings, filter relists, track sales history and snipe rare retro games automatically."
-#tags: [security work life]
-#image: cutting.jpg
 ---
 
 My first video game was a Gameboy Advance SP (the obviously superior blue version). Other than Pokemon (Sapphire Blue!), my favorite game was Super Mario World: Super Mario Advance 2.

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Feedburner's Caching Problem"
+tags: [rss_feeds, web_platform, incident_investigation]
 description: "Google Feedburner's lack of caching support wastes bandwidth. A look at how broken ETag/If-Modified-Since handling affects bots and RSS feeds."
-categories: journal
 ---
 
 I'm a big fan of minimizing the work required to perform a task correctly (without reducing quality), whether it be technical or otherwise. In today's case, I'm talking about retrieving RSS/Atom feeds from Google's Feedburner, and caching is seemingly not supported.

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "A DoS Attack in RuneScape: In 3-Dimensions!"
+tags: [security, dos, vuln_research]
 description: "Explore a unique '3D Denial of Service' in RuneScape. See how players abused door mechanics in Player Owned Houses to block movement and disrupt gameplay."
-categories: security
 ---
 
 I was recently discussing security, bugs, and glitches with a journalist and was reminded of an interesting bug in RuneScape, which when viewed through the lens of security, can be described as a Denial of Service (DoS) attack in three-dimensions. 

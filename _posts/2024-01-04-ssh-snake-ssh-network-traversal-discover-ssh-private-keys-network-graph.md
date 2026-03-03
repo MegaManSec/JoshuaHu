@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "SSH-Snake: Automatic traversal of networks using SSH private keys"
+tags: [ssh, networking, security, programming]
 description: "Discover SSH-Snake, a powerful self-replicating tool for automatic network traversal using SSH private keys. Learn how it maps networks and finds credentials."
-categories: security
 ---
 
 ---

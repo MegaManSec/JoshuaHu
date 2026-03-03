@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "CVE-2023-4863: Fallout hits Facebook; probably much much more"
+tags: [security, vuln_research, incident_investigation]
 description: "A quick look at CVE-2023-4863 in libwebp, Facebook's odd WebP limits, and why this bug likely touches browsers, apps, CDNs, and media pipelines everywhere."
-categories: security
 ---
 
 The news of a critical 0day fixed in Chrome has been getting quite a lot of attention the past few days. However, it's not just an issue in Chrome: it's a vulnerabilitry in the library Chrome uses to process [WebP](https://en.wikipedia.org/wiki/WebP) images: libwebp.

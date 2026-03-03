@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Encrypted NTP using NTS and chrony on FreeBSD"
+tags: [freebsd, ntp, networking, security]
 description: "Secure your system time on FreeBSD using Network Time Security (NTS). A step-by-step guide to replacing ntpd with Chrony for authenticated, encrypted NTP."
-categories: security
 ---
 
 By default, FreeBSD uses the standard `ntpd(8)` daemon that is built with the FreeBSD world. This daemon only supports symmetric keys for encryption which must be configured per client/server duo, and thus cannot at-scale guarantee authenticity of the data received from the Network Time Protocol (NTP) server. [Recent developments like RFC 8915/Network Time Security (NTS)](https://fedoramagazine.org/secure-ntp-with-nts/) have allowed for the automatic establishment of those keys over TLS. With a focus on both authenticity (so an attacker on-the-wire cannot set your clock forwards/backwards) and privacy (so a passive attacker cannot identify systems when they change networks), NTS seems to be the way forward, so let's use it on a FreeBSD machine.

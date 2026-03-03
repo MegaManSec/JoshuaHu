@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "nginx's proxy_pass DNS caching problem"
+tags: [nginx, dns, networking, incident_investigation]
 description: "Nginx proxy_pass doesn't respect TTLs by default. Learn the security risks of stale DNS records and how to force re-resolution in your config."
-categories: security
 ---
 
 # a problem

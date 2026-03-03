@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Updating FreeBSD's datetime without DNS"
+tags: [freebsd, dns, networking, dev_tools]
 description: "Fixing SSL handshake errors on FreeBSD caused by system clock resets. A quick guide to manually updating system time without DNS access."
-categories: security
 ---
 
 Recently opening up my FreeBSD-on-MacBook case to clean, I inadvertently reset the internal time by disconnecting the battery. When booting up the system again, my local DNS server using DNS-over-TLS refused to cooperate:

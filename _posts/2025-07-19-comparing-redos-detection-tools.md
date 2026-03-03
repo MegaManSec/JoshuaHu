@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "A Comparison of Tools to Detect ReDoS-vulnerable Expressions"
+tags: [regex, redos, security, programming]
 description: "Benchmarking ReDoS detection tools. I compared Semgrep, CodeQL, regexploit, and others against a corpus of vulnerable regexes."
-categories: security
 ---
 
 I recently compared various tools for identifying regular expressions which are vulnerable to Regular Expression Denial of Service ([ReDoS](https://en.wikipedia.org/wiki/ReDoS)), as I wanted to build a small worfflow which would flag vulnerable expressions for me.

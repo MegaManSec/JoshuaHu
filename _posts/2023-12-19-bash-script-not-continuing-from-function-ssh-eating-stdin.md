@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Bash and SSH fun: SSH is eating my stdin! Or: why does my Bash script not continue after returning from a function?"
+tags: [bash, ssh, dev_tools]
 description: "Debugging a bash script that mysteriously stops after an ssh call, and explaining how ssh consumes stdin and interacts with while read loops and process substitution."
-categories: security
 ---
 
 Another day, another bash and ssh discovery.

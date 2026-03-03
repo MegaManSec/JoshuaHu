@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "ipgrep: grepping for ip addresses"
+tags: [dev_tools, programming, networking]
 description: "ipgrep: A simple, powerful Bash alias using Extended Regular Expressions to quickly and accurately grep IPv4 addresses from text or logs."
-categories: security
 ---
 
 Regex is rarely a solution, but sometimes it can be helpful. One of the best bash aliases I started to use nearly 15 years ago is called `ipgrep`. It's a simple alias for grep, to find IPv4 addresses.

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Encrypted DNS over TLS on FreeBSD with Unbound, and Blocking Unencrypted DNS Traffic"
+tags: [freebsd, dns, networking, security]
 description: "Secure your FreeBSD networking by setting up Unbound for DNS-over-TLS. This guide covers configuration, hardening, and blocking unencrypted DNS traffic."
-categories: security
 ---
 
 Unlike systemd-based Linux distributions, FreeBSD does not [come with a switch](https://wiki.archlinux.org/title/systemd-resolved#DNS_over_TLS) to automatically turn on DNS-over-TLS (DoT) for the system resolver, and requires a bit of work to use an encrypted channel for domain resolution. In this post, we'll look at how to set up DoT for FreeBSD using `unbound(8)`, enable some hardening, and block all non-encrypted DNS traffic over port-53.

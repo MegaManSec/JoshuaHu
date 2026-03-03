@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Credential Stuffing Done Right: Some Tips"
+tags: [security, appsec]
 description: "Learn the technical mechanics of credential stuffing. This post outlines systematic approaches for filtering lists, bypassing rate limits, and handling captchas."
-categories: security
 ---
 
 ---

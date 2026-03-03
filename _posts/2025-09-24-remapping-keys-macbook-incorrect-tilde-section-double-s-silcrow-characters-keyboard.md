@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Swapping/Remapping the silcrow (§) key for a tilde on international Macbooks"
+tags: [macos, dev_tools]
 description: "Fix the misplaced tilde and silcrow (§) keys on international MacBooks. A guide to remapping keys using hidutil and LaunchAgents."
-categories: security
 ---
 
 On every single keyboard I've used in my whole life, the tilde (\`) character has been on the top left of the keyboard -- until today. Apparently some Macbooks have a strange character called a silcrow (§) (or section key, or double-s key) where the tilde normally is, and there is no easy setting to change the mapping of this character in MacOS.

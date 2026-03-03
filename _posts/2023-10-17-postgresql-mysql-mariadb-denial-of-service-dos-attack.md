@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "How to DoS MySQL/MariaDB and PostgresSQL Servers With Fewer Than 55kb of Data"
+tags: [security, dos, vuln_research]
 description: "Demonstrating how a few dozen kilobytes of traffic and unauthenticated connections are enough to exhaust MySQL, MariaDB, or PostgreSQL connection limits and deny service."
-categories: security
 ---
 
 At the heart of any Denial of Service (DoS) attack, there are two variables: a resource, and the limit of which that resource can grow to: network bandwidth, processing power, connection limits, and so on.

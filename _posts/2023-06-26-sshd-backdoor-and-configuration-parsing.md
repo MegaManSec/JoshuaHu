@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Achieving persistence with a hidden SSH backdoor"
+tags: [ssh, security, vuln_research]
 description: "How to hide a persistent SSH backdoor in plain sight by abusing sshd's first-wins config parsing, systemd hooks, and sneaky authorized_keys locations."
-categories: security
 ---
 
 Configuration parsing is an interesting topic I have been working on in the context of my hacking and creating simple backdoors which are hidden from your average sysadmin.
