@@ -51,3 +51,4 @@ pagination:
 #related_posts: 'You may also enjoy:'
 
 post_date_prefix: 'Published on'
+use_related_posts: true

@@ -1,23 +1,47 @@
-<div class="related">
-  <h1 >{{ site.data.settings.related_posts }}</h1>
-  {% assign listed_posts_urls = page.url | split: ' ' %}
-  <ul class="related-posts">
-    {% for tag in page.tags %}
-      {% for mypost in site.tags[tag] limit:3 %}
-        {% if listed_posts_urls contains mypost.url %}
-        {% else %}
-          <li>
-            <h3>
-              <a href="{{ site.github.url }}{{ mypost.url }}">
-                {{ mypost.title }}
-                <!--<img src="{{ site.url }}{{ site.baseurl }}/images/{{ mypost.image.teaser }}">-->
-                <!--<small>{{ mypost.date | date: "%B %-d, %Y" }}</small>-->
-              </a>
-            </h3>
-          </li>
-          {% assign listed_posts_urls = listed_posts_urls | push: mypost.url %}
-        {% endif %}
-      {% endfor %}
+{% assign listed_urls = "" | split: "" %}
+{% assign listed_urls = listed_urls | push: page.url %}
+
+{% assign max_related = 6 %}
+{% assign count = 0 %}
+
+{% capture related_items %}
+  {% for tag in page.tags %}
+    {% for mypost in site.tags[tag] %}
+      {% if count >= max_related %}
+        {% break %}
+      {% endif %}
+
+      {% unless listed_urls contains mypost.url %}
+        <li class="related-post">
+          <div class="related-link">
+            <span class="related-post-title">
+              <a href="{{ mypost.url | relative_url }}">{{ mypost.title }}</a>
+            </span>
+            {% if mypost.date %}
+              <time class="related-post-date" datetime="{{ mypost.date | date_to_xmlschema }}">
+                {{ mypost.date | date: "%B %-d, %Y" }}
+              </time>
+            {% endif %}
+          </div>
+        </li>
+
+        {% assign listed_urls = listed_urls | push: mypost.url %}
+        {% assign count = count | plus: 1 %}
+      {% endunless %}
     {% endfor %}
-  </ul>
-</div>
+    {% if count >= max_related %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+{% if count > 0 %}
+  <div class="related">
+    <h2 class="related-title">
+      {{ site.data.settings.related_posts | default: "Related Posts" }}
+    </h2>
+    <ul class="related-posts" role="list">
+      {{ related_items }}
+    </ul>
+  </div>
+{% endif %}
