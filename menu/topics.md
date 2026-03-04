@@ -7,7 +7,7 @@ permalink: /topics
 
 ## AI, LLMs, and AI slop (culture + security + tooling)
 
-* [LLMs are destroying art: the art of code, literature, and culture.](https://joshua.hu/code-is-art-llm-people-losers)
+* [LLMs are destroying art: the art of code, literature, and culture](https://joshua.hu/code-is-art-llm-people-losers)
 * [wtf is NS_ERROR_INVALID_CONTENT_ENCODING? investigating shared dictionaries and ChatGPT breakage in Firefox](https://joshua.hu/chatgpt-fail-loading-firefox)
 * [From gixy-ng to Gixy-Next: rescuing Gixy from AI slop](https://joshua.hu/gixy-ng-ai-slop-gixy-next-maintained)
 * [Another AI slop story: ChatGPT vs. Human](https://joshua.hu/ai-slop-story-nginx-leaking-dns-chatgpt)
@@ -35,6 +35,7 @@ permalink: /topics
 * [wtf Google: cacheable rss feeds are dead, and Atom feeds are delayed](https://joshua.hu/wtf-google-feedburner-cache-problem-atom-rss)
 * [Firefox now automatically trusting the operating system's root store for TLS certificates - update: it does so only for user-added ones](https://joshua.hu/mozilla-firefox-trusting-system-root-stores-qwacs-eu)
 * [Slack login is broken with noscript](https://joshua.hu/slack-is-broken-with-noscript)
+* [ Making Firefox's right-click not suck with about:config](https://joshua.hu/firefox-making-right-click-not-suck)
 
 ## FreeBSD, Macs, and hardened networking
 
