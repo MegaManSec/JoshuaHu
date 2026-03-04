@@ -9,7 +9,7 @@ I've worked on a range of different projects over the years. Some of the more in
 
 - [SSH-Snake: self-propagating, self-replicating, file-less script that automates the post-exploitation task of SSH private key and host discovery.](https://github.com/MegaManSec/SSH-Snake)
 
-- [PikeProof: A Wycheproof implemention in the Pike scripting language](https://joshua.hu/pikeproof-wycheproof-pike-checks)
+- [PikeProof: A Wycheproof implemention in the Pike scripting language](https://joshua.hu/pikeproof-wycheproof-pike-checks) (on [GitHub](https://github.com/megamansec/nettle-wycheproof-testsuite))
 
 - [Gixy-Next: NGINX Configuration Security Scanner](https://gixy.io) (on [GitHub](https://github.com/megamansec/gixy-next))
 
@@ -23,11 +23,11 @@ I've worked on a range of different projects over the years. Some of the more in
 
 - [CCBot: Chrome Checker Bot](https://github.com/MegaManSec/CCBot)
 
-- [Nettle wycheproof-testsuite: Wycheproof testsuite against Pike and Nettle](https://github.com/megamansec/nettle-wycheproof-testsuite)
-
 - [Squid Caching Proxy: A Security Assessment](https://megamansec.github.io/Squid-Security-Audit/)
 
 - [Fuzzing Pike with AFL++](https://joshua.hu/aflplusplus-fuzzing-scripting-languages-natively)
+
+- [Hacking with AI SASTs: An overview of 'AI Security Engineers' / 'LLM Security Scanners'](https://joshua.hu/llm-engineer-review-sast-security-ai-tools-pentesters) and the accompanying [conference talk](www.youtube.com/watch?v=ib7fLw2EUbw&t=26152s) at KazHackStan 2025.
 
 - [Accurate Multi-Gas Emissions Equivalence Modelling of Greenhouse Gases](/files/VRS_Mathematics_Report.pdf)
 
