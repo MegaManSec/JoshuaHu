@@ -27,7 +27,7 @@ Private jets were out of the question, for three reasons: 1) too expensive for t
 
 I'd actually flown in a helicopter before, in Pyongyang, North Korea -- but I completely forgot about it when we were planning this.
 
-| ![Helicopter in Pyongyang](/files/slov/NK_2.JPG) | ![Pyongyang Hotel](/files/slov/NK_1.JPG)
+| ![Helicopter in Pyongyang](/files/slov/NK_2.JPG) | ![Pyongyang Hotel](/files/slov/NK_1.JPG) |
 |:--:|:--:|
 | *Pyongyang Airport (2017)* | *The power of Juche blessing my camera* |
 
