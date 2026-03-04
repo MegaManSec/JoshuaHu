@@ -31,7 +31,7 @@ Enough venting, let's clean this all up. The following settings in `about:config
 * `extensions.formautofill.addresses.enabled` -- Disables address autofill and the associated menu/button that sometimes appears in forms.
 * `extensions.formautofill.creditCards.enabled` -- Disables credit card/payment method autofill and removes the associated menu/button that sometimes appears in forms.
 * `widget.macos.native-context-menus` -- Turns off native macOS context menus so Firefox uses its own menus. This removes the "Services" button.
-* `print.enabled` -- Completely disables Firefox' printing UI and capabilities, which also removes the "Print" and "Print Selection..." buttons (why does this menu have `...` after "Print Selection"? The world will, of course, never know.)
+* `print.enabled` -- Completely disables Firefox' printing UI and capabilities, which also removes the "Print" and "Print Selection..." buttons.
 
 How do we look now?
 
@@ -53,11 +53,11 @@ We still have the following useless buttons though:
 * "Set Image as Desktop Background..."
 * "Bookmark Page..."
 
-Why do all of the above have `...`? No clue. But the real bad news is that we can't get rid of these things by simply toggling some option in `about:config`.
+Why do all of the above have `...`? ~~No clue~~ (edit: according to [this](https://news.ycombinator.com/item?id=47252016), "_it means that more information is required to complete the task (e.g. requesting the filename for saving a file)_". But the real bad news is that we can't get rid of these things by simply toggling some option in `about:config`.
 
 We also have these when we right-click in a form:
 
-* "Check Spelling" (right-clicking in a form)
+* "Check Spelling"
 * "Languages"
 
 | <img src="/files/form-firefox-annoying.png" alt="Form right-click annoying buttons" width="300"> |
@@ -71,4 +71,3 @@ Those remaining useless buttons can only be removed by creating a custom [userCh
 ---
 
 For what it's worth, it is nice that these buttons can be enabled/disabled, and `userChrome.css` is cool. But at the same time, imagine being a completely new Firefox user, who has zero use for any of this? How are they supposed to figure out how to do all of this? It took me a significant amount of time to find those settings to disable (and some of them are hacks, like disabling `print.enabled`). Maybe Firefox should implement something similar to their "Customize Toolbar", which makes it easy to plug & play each of the right-click buttons. "PRs welcome" as they say, I suppose.
-
