@@ -35,7 +35,8 @@ permalink: /topics
 * [wtf Google: cacheable rss feeds are dead, and Atom feeds are delayed](https://joshua.hu/wtf-google-feedburner-cache-problem-atom-rss)
 * [Firefox now automatically trusting the operating system's root store for TLS certificates - update: it does so only for user-added ones](https://joshua.hu/mozilla-firefox-trusting-system-root-stores-qwacs-eu)
 * [Slack login is broken with noscript](https://joshua.hu/slack-is-broken-with-noscript)
-* [ Making Firefox's right-click not suck with about:config](https://joshua.hu/firefox-making-right-click-not-suck)
+* [Making Firefox's right-click not suck with about:config](https://joshua.hu/firefox-making-right-click-not-suck)
+* [Making Firefox's right-click not suck, even more, with userChrome.css](https://joshua.hu/firefox-making-right-click-not-suck-even-more-with-userchrome)
 
 ## FreeBSD, Macs, and hardened networking
 
