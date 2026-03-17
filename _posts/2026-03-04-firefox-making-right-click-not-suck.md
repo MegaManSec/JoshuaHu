@@ -24,7 +24,7 @@ Set the following to `false` in `about:config`:
 * `browser.translations.select.enable` -- Removes the "Translate Selection" button from the right-click menu.
 * `screenshots.browser.component.enabled` -- Disables the built-in Firefox screenshot functionality, which also removes the "Take Screenshot" button.
 * `dom.text_fragments.enabled` -- Disables Text Fragments support, which also removes the "Copy Link to Highlight" button (and disables the auto-focus on URLs that include `#:~:text=...`). Don't want to remove this functionality? See [my next post](https://joshua.hu/firefox-making-right-click-not-suck-even-more-with-userchrome).
-* `privacy.query_stripping.strip_on_share.enabled` -- Removes the "Copy Clean Link" / "Copy Clean Link to Highlight" buttons.
+* `privacy.query_stripping.strip_on_share.enabled` -- Removes the "Copy Clean Link" / "Copy Clean Link to Highlight" buttons. Want to make this to default to copying a "Clean Link" when it's avaialble? Read [my other post](https://joshua.hu/firefox-always-copy-clean-link-url-userchrome-css).
 * `devtools.accessibility.enabled` -- Disables the DevTools Accessibility Inspector and removes the "Inspect Accessibility Properties" button.
 * `browser.ml.chat.menu` -- Removes the "Ask an AI Chatbot" button.
 * `browser.ml.linkPreview.enabled` -- Disables Link Previews (and the AI-generated key points inside them), removing "Preview Link" button.

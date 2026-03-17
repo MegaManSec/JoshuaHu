@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Making Firefox's right-click not suck, even more, with userChrome.css"
-tags: [firefox, browsers, dev_tools, macos, ai]
+tags: [firefox, browsers, dev_tools, macos]
 description: "A practical userChrome.css guide for decluttering Firefox right-click menus on macOS, hiding AI/chatbot prompts, link previews, OCR, visual search, and other low-value context menu items."
 ---
 
@@ -26,7 +26,9 @@ Below are instructions for hiding all of the menu items that I find useless.
 First, we navigate to [about:profiles](about:profiles), and find the "*Root Directory*" of the profile currently in use (the top-most one also specified by "_This is the profile in use_"). Mine is `/Users/jrogers/Library/Application Support/Firefox/Profiles/escb03o9.default-release`. In that directory, we need to create a new directory `chrome/`, and in _that_ directory, create a file called `userChrome.css`. Put the following in that file:
 
 ```css
-/* Copy Clean Link */
+/* To default to always cleaning links by default if possible, see also:
+   https://joshua.hu/firefox-always-copy-clean-link-url-userchrome-css
+ */
 #context-stripOnShareLink,
 
 /* Send Link to Device */
