@@ -13,7 +13,7 @@
 {% endfor %}
 
 {% assign related_posts = related_posts | sort: "date" | reverse %}
-{% assign related_posts = related_posts | slice: 0, 6 %}
+{% assign related_posts = related_posts | slice: 0, 600 %}
 
 {% if related_posts.size > 0 %}
   <div class="related">
