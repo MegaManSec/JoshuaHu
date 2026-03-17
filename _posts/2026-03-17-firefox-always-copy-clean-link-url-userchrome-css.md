@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Always 'Copy Clean Link' when possible on Firefox, with userChrome.css"
-tags: [firefox, browsers, dev_tools]
+tags: [firefox, browsers]
 description: "A userChrome.css guide for ensuring that Firefox always copies a 'Clean Link' if available, while only showing the default 'Copy Link' button on right-click."
 ---
 

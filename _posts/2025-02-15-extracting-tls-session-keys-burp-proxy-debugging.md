@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Extracting TLS Session Keys in Burp Proxy à la SSLKEYLOGFILE"
-tags: [tls_http, security, dev_tools]
+tags: [tls_http, security]
 description: "How to extract TLS session keys from Burp Suite to decrypt HTTP/2 traffic in Wireshark for better debugging and network analysis."
 ---
 

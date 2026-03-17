@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Slack login is broken with noscript"
-tags: [web_platform, browsers, privacy, incident_investigation]
+tags: [web_platform, browsers, privacy]
 description: "Breaking down Slack's noscript redirect bug, the open redirect angle, bug bounty back and forth, and the suspicion it doubled as a dark pattern."
 ---
 

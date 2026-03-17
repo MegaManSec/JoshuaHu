@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The End of Yubikeys as 2-Factor-Authentication? Google Breaks 2FA with Yubikeys in Favor of Passkeys"
-tags: [security, appsec, incident_investigation]
+tags: [security]
 description: "Google now forces Passkeys for hardware tokens. Use this workaround link to register Yubikeys and FIDO2 keys as standard 2FA devices on your Google account."
 ---
 

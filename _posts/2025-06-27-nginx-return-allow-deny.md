@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "nginx 'allow' and 'deny' directives with 'return'"
-tags: [nginx, web_platform, dev_tools]
+tags: [nginx, web_platform]
 description: "The 'return' directive in Nginx bypasses 'allow' and 'deny' rules due to rewrite phases. Learn why this happens and how to fix it with try_files."
 ---
 

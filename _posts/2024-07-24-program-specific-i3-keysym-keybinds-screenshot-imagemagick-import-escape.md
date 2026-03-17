@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Exclusive i3 keysyms for specific programs. or: Binding Escape on imagemagick's import"
-tags: [linux, dev_tools]
+tags: [linux]
 description: "Master i3wm binding modes for program-specific shortcuts. Learn how to bind Escape to cancel screenshots without conflicting with global keybindings."
 ---
 

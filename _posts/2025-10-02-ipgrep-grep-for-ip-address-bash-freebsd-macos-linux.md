@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ipgrep: grepping for ip addresses"
-tags: [dev_tools, programming, networking]
+tags: [programming, networking]
 description: "ipgrep: A simple, powerful Bash alias using Extended Regular Expressions to quickly and accurately grep IPv4 addresses from text or logs."
 ---
 

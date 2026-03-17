@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Proxy Services, Hijacked Companies, and the Rabbit-Hole of Fake Hosting Companies and Big Sky Services"
-tags: [proxy_abuse, security, incident_investigation]
+tags: [proxy_abuse, security]
 description: "Investigating 'Big Sky Services': How hijacked shell companies and a massive proxy network flooded an Opera legacy endpoint with traffic."
 ---
 

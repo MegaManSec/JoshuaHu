@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "LLMs are destroying art: the art of code, literature, and culture."
-tags: [ai, ai_slop, culture_mission, essays]
+tags: [ai, ai_slop, essays]
 description: "My views on how LLMs have made me stop caring about code as an artform, articles generated with LLMs, and culture copied from an RNG"
 ---
 

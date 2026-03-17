@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Making Firefox's right-click not suck with about:config"
-tags: [firefox, browsers, dev_tools, macos, ai]
+tags: [firefox, browsers, macos]
 description: "A practical about:config checklist to declutter Firefox right-click menus on macOS, disabling AI/chatbot prompts, link previews, OCR, visual search, and other low-value context menu items."
 ---
 

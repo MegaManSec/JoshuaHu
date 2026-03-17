@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Supply chain attacks and the many (other) different ways I've backdoored your dependencies"
-tags: [supply_chain, security, essays]
+tags: [supply_chain, security]
 description: "Supply chain attacks go beyond code. Explore overlooked vectors like hosting provider social engineering, domain registrar hacks, and BGP hijacking risks."
 ---
 

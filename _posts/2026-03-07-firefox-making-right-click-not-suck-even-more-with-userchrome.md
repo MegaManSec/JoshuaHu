@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Making Firefox's right-click not suck, even more, with userChrome.css"
-tags: [firefox, browsers, dev_tools, macos]
+tags: [firefox, browsers, macos]
 description: "A practical userChrome.css guide for decluttering Firefox right-click menus on macOS, hiding AI/chatbot prompts, link previews, OCR, visual search, and other low-value context menu items."
 ---
 
