@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CVE-2023-4863: Fallout hits Facebook; probably much much more"
-tags: [security, vuln_research, incident_investigation]
+tags: [security, vuln_research]
 description: "A quick look at CVE-2023-4863 in libwebp, Facebook's odd WebP limits, and why this bug likely touches browsers, apps, CDNs, and media pipelines everywhere."
 ---
 

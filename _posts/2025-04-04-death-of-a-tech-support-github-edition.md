@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hello, Kafka Support Here, How Can I Help You? GitHub Edition"
-tags: [essays, dev_tools]
+tags: [essays]
 description: "A Kafkaesque experience with GitHub support regarding case-sensitivity bugs in commit emails, and dealing with unhelpful 'AI' style responses."
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "BCM43602: Debugging a Wifi chipset causing a whole-system hang with FreeBSD's bhyve VM"
-tags: [freebsd, networking, incident_investigation, dev_tools]
+tags: [freebsd, networking]
 description: "Debugging a system freeze on FreeBSD using wifibox and BCM43602. Discover the root cause involving PCI passthrough and the Linux kernel patch that fixes it."
 ---
 

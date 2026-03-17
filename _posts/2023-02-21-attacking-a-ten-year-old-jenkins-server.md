@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Attacking a temperamental ten-year-old Jenkins server"
-tags: [security, incident_investigation, appsec]
+tags: [security, appsec]
 description: "A walk-through of abusing Jenkins script console access, why Metasploit's jenkins_script_console/jenkins_gather failed on ancient hardware, and the patches I wrote to make it work."
 ---
 

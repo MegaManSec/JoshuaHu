@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Feedburner's Caching Problem"
-tags: [rss_feeds, web_platform, incident_investigation]
+tags: [rss_feeds, web_platform]
 description: "Google Feedburner's lack of caching support wastes bandwidth. A look at how broken ETag/If-Modified-Since handling affects bots and RSS feeds."
 ---
 

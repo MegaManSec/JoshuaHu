@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Comparing different versions of AWK with WebAssembly"
-tags: [wasm, programming, dev_tools]
+tags: [wasm, programming]
 description: "Compare different versions of AWK directly in your browser. Read about building 'awk-compare' using WebAssembly and Emscripten to test script compatibility."
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Describing All Kubernetes Pods of All Namespaces for Fun and Profit"
-tags: [kubernetes, dev_tools, security]
+tags: [kubernetes, security]
 description: "A simple but effective kubectl plus GNU parallel script to describe every pod in every namespace for trawling env vars for secrets."
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "An automatic captive-portal resolver and DNS white-lister for DNS over TLS with Unbound"
-tags: [freebsd, dns, networking, security, programming]
+tags: [freebsd, dns, networking, security]
 description: "Automate captive portal logins while using DNS-over-TLS. This script detects portal DNS servers and dynamically configures Unbound to allow necessary traffic."
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CCBot: Chrome Checker Bot for Chrome Security Releases"
-tags: [dev_tools, programming, security]
+tags: [programming, security]
 description: "Automating chrome security tracking. CCBot is a Python tool that parses the chaotic Google Chrome Releases blog to alert on critical updates."
 ---
 
