@@ -1,19 +1,36 @@
 {% assign listed_urls = "" | split: "" %}
 {% assign listed_urls = listed_urls | push: page.url %}
 
-{% assign max_related = 6 %}
-{% assign count = 0 %}
+{% assign related_posts = "" | split: "" %}
 
-{% capture related_items %}
-  {% for tag in page.tags %}
-    {% for mypost in site.tags[tag] %}
-      {% if count >= max_related %}
-        {% break %}
-      {% endif %}
+{% for tag in page.tags %}
+  {% for mypost in site.tags[tag] %}
+    {% unless listed_urls contains mypost.url %}
+      {% assign related_posts = related_posts | push: mypost %}
+      {% assign listed_urls = listed_urls | push: mypost.url %}
+    {% endunless %}
+  {% endfor %}
+{% endfor %}
 
-      {% unless listed_urls contains mypost.url %}
+{% assign related_posts = related_posts | sort: "date" | reverse %}
+{% assign related_posts = related_posts | slice: 0, 6 %}
+
+{% if related_posts.size > 0 %}
+  <div class="related">
+    <h2 class="related-title">
+      {{ site.data.settings.related_posts | default: "Related Posts" }}
+    </h2>
+    <ul class="related-posts" role="list">
+      {% for mypost in related_posts %}
+        {% assign shared_tags = "" | split: "" %}
+        {% for post_tag in mypost.tags %}
+          {% if page.tags contains post_tag %}
+            {% assign shared_tags = shared_tags | push: post_tag %}
+          {% endif %}
+        {% endfor %}
+
         <li class="related-post">
-          <div class="related-link">
+          <div class="related-link" title="Related tags: {{ shared_tags | join: ', ' }}">
             <span class="related-post-title">
               <a href="{{ mypost.url | relative_url }}">{{ mypost.title }}</a>
             </span>
@@ -24,24 +41,7 @@
             {% endif %}
           </div>
         </li>
-
-        {% assign listed_urls = listed_urls | push: mypost.url %}
-        {% assign count = count | plus: 1 %}
-      {% endunless %}
-    {% endfor %}
-    {% if count >= max_related %}
-      {% break %}
-    {% endif %}
-  {% endfor %}
-{% endcapture %}
-
-{% if count > 0 %}
-  <div class="related">
-    <h2 class="related-title">
-      {{ site.data.settings.related_posts | default: "Related Posts" }}
-    </h2>
-    <ul class="related-posts" role="list">
-      {{ related_items }}
+      {% endfor %}
     </ul>
   </div>
 {% endif %}
