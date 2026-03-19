@@ -50,3 +50,40 @@ Generally speaking, I would much rather it just always showed 'Copy Link' and th
 This ensures that links are always cleaned if possible, and the right-click menu button always says 'Copy Link'.
 
 Maybe Firefox will one day offer a "Copy Clean Link by Default" option, but until then, this is a good solution.
+
+By the way, if you want to do the same thing with "Copy Clean Link to Highlight", you can use a similar css (making sure again that `#context-copy-link-to-highlight` and friends are not disabled (from the previous blog post), and `dom.text_fragments.enabled` is enabled in `about:config`:
+
+```css
+#context-copy-clean-link-to-highlight[disabled=true] {
+  display: none !important;
+}
+#contentAreaContextMenu:has(#context-copy-clean-link-to-highlight:not([disabled=true])) #copy-link-to-highlight {
+  display: none !important;
+}
+```
+
+or
+
+```css
+#context-copy-clean-link-to-highlight[disabled],
+#context-copy-clean-link-to-highlight[hidden],
+#context-copy-link-to-highlight[hidden] {
+  display: none !important;
+}
+
+#contentAreaContextMenu:has(#context-copy-clean-link-to-highlight:not([disabled]):not([hidden]))
+  #context-copy-link-to-highlight {
+  display: none !important;
+}
+
+#context-copy-link-to-highlight .menu-text,
+#context-copy-clean-link-to-highlight .menu-text {
+  visibility: collapse !important;
+}
+
+#context-copy-link-to-highlight::after,
+#context-copy-clean-link-to-highlight::after {
+  content: "Copy Link to Highlight" !important;
+  display: -moz-box !important;
+}
+```

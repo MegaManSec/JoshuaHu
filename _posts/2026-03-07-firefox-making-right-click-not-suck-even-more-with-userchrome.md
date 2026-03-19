@@ -29,10 +29,17 @@ First, we navigate to [about:profiles](about:profiles), and find the "*Root Dire
 /* To default to always cleaning links by default if possible, see also:
    https://joshua.hu/firefox-always-copy-clean-link-url-userchrome-css
  */
+/* Copy Clean Link */
 #context-stripOnShareLink,
 
 /* Send Link to Device */
 #context-sendlinktodevice,
+
+/* Translate Selection to ... */
+#context-translate-selection,
+
+/* Separator below "Translate Selection to ... */
+#frame-sep,
 
 /* Separator above "Send Link to Device" */
 #context-sep-sendlinktodevice,
@@ -42,6 +49,12 @@ First, we navigate to [about:profiles](about:profiles), and find the "*Root Dire
 
 /* Take Screenshot */
 #context-take-screenshot,
+
+/* Separator below "Take Screenshot" */
+#context-sep-screenshots,
+
+/* Separator above "Copy Link [..]" */
+#context-sep-selectall,
 
 /* Copy Link to Highlight */
 #context-copy-link-to-highlight,
@@ -64,10 +77,10 @@ First, we navigate to [about:profiles](about:profiles), and find the "*Root Dire
 /* Email Image... */
 #context-sendimage,
 
-/* Set Image as Desktop Background... */
+/* Set Image as Desktop Background… */
 #context-setDesktopBackground,
 
-/* Separator above "Set Image as Desktop Background..." */
+/* Separator above "Set Image as Desktop Background…" */
 #context-sep-setbackground,
 
 /* Bookmark Page... */
@@ -78,9 +91,6 @@ First, we navigate to [about:profiles](about:profiles), and find the "*Root Dire
 
 /* Check Spelling */
 #spell-check-enabled,
-
-/* Take Snapshot... */
-#context-video-saveimage,
 
 /* Languages submenu in the spelling section */
 #spell-dictionaries
