@@ -2,38 +2,27 @@
 layout: null
 ---
 
-# LLM Feed for Hacker Joshua Rogers' blog, https://joshua.hu/
+# Joshua Rogers' Scribbles — joshua.hu
+
+> Joshua Rogers' personal blog covering cybersecurity research, systems administration, offensive security, programming, and essays. Joshua is a security researcher with 12+ years of experience, formerly on the security team at Opera Software.
+
 _Generated: {{ site.time | date_to_rfc822 }}_
 
+## About
 
-## All Posts
+- [About Me](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/menu/about.md): [Joshua Rogers — security researcher, hacker, writer](https://joshua.hu/about)
+- [Projects](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/menu/projects.md): [Portfolio of security tools and research projects](https://joshua.hu/projects)
+- [Topics](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/menu/topics.md): [Posts organized by subject](https://joshua.hu/topics)
+- [Contact](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/menu/contact.md): [Get in touch](https://joshua.hu/contact)
 
-===============================================================================
-POSTS
-===============================================================================
-
-The links below take you to the raw Markdown content, and the blog posts themselves.
+## Posts
 
 {% for post in site.posts %}- [{{ post.title }}](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/{{ post.path }}): [{{ post.description }}](https://joshua.hu{{ post.url }})
-
 {% endfor %}
 
-===============================================================================
+## Optional
 
-## All Menu Pages
+### Menu Pages
 
-===============================================================================
-MENU PAGES
-===============================================================================
-
-The links below take you to the raw Markdown content, and the menu pages themselves.
-
-{% assign menu_pages = site.pages | where_exp: "p", "p.path contains 'menu/'" %}
-{% for page in menu_pages %}- [{{ page.title }}](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/{{ page.path }}): [{{ page.description }}](https://joshua.hu{{ page.url }})
-
+{% assign menu_pages = site.pages | where_exp: "p", "p.path contains 'menu/'" %}{% for page in menu_pages %}- [{{ page.title }}](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/{{ page.path }}): [{{ page.description }}](https://joshua.hu{{ page.url }})
 {% endfor %}
-
-===============================================================================
-
-
-
