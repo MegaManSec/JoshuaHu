@@ -2,14 +2,15 @@
 layout: null
 ---
 
-# LLM Full Feed for Hacker Joshua Rogers' blog, https://joshua.hu/
+# Joshua Rogers' Scribbles — joshua.hu (Full Content)
+
+> Joshua Rogers' personal blog covering cybersecurity research, systems administration, offensive security, programming, and essays. Joshua is a security researcher with 12+ years of experience, formerly on the security team at Opera Software.
+
 _Generated: {{ site.time | date_to_rfc822 }}_
 
-## All Posts
+This file contains the full text content of all posts and pages. For a concise link listing, see [llms.txt](https://joshua.hu/llms.txt).
 
-===============================================================================
-POSTS
-===============================================================================
+## Posts
 
 {% for post in site.posts %}
 Title: {{ post.title }}
@@ -23,15 +24,10 @@ Categories: {% for tag in post.tags %}{{ tag }}{% unless forloop.last %}, {% end
 {{ post.content | strip_html | strip }}
 
 {% endfor %}
-===============================================================================
 
+## Pages
 
-===============================================================================
-PAGES (menu/)
-===============================================================================
-
-{% assign menu_pages = site.pages | where_exp: "p", "p.path contains 'menu/'" %}
-{% for page in menu_pages %}
+{% assign menu_pages = site.pages | where_exp: "p", "p.path contains 'menu/'" %}{% for page in menu_pages %}
 Title: {{ page.title | default: page.name }}
 Type: page
 URL: {{ site.url }}{{ page.url }}
@@ -41,4 +37,3 @@ Description: {{ page.description }}
 {{ page.content | strip_html | strip }}
 
 {% endfor %}
-===============================================================================
