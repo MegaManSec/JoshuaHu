@@ -25,12 +25,6 @@ So, somewhat now less jokingly, I suggested, "huh, I wonder if we can actually d
 
 Private jets were out of the question, for three reasons: 1) too expensive for too few people, 2) this was not an Instagram photo shoot (and I did not want to be associated with these losers that take pictures on private jets to feel rewarded in life), 3) I've flown in a private jet before (am I cool yet? pictures not included.)
 
-I'd actually flown in a helicopter before, in Pyongyang, North Korea -- but I completely forgot about it when we were planning this.
-
-| ![Helicopter in Pyongyang](/files/slov/NK_2.JPG) | ![Pyongyang Hotel](/files/slov/NK_1.JPG) |
-|:--:|:--:|
-| *Pyongyang Airport (2017)* | *The power of Juche blessing my camera* |
-
 Finding a helicopter from Slovenia to Poland seemed unlikely: Slovenia is a small place, and it was unlikely a company would really cater to such requests. So I thought, why not somewhere bigger and closer? So, Vienna it was.
 
 Looking for Vienna to Wrocław helicopter trips, we had a few options, but many of the companies offer exorbitant prices, as "they are based in Warsaw, and would have to fly all the way." $15,000 USD for a ~1.5 hour trip wouldn't be worth it.
