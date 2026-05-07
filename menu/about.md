@@ -116,7 +116,7 @@ institute focused on Australian media. I collaborated with a few senior
 members of the institute, and eventually presented at two conferences with 
 them.
 
-In late 2017, I decided to go to -, on a week-long tour for New 
+In late 2017, I decided to go to North Korea, on a week-long tour for New 
 Year's Eve. The reason was simply: "that sounds extremely interesting, unique, 
 and somewhat outrageous." After that, I continued to Europe, and my 
 spontaneous travels led me to Poland. The manager at the hostel I was staying 
