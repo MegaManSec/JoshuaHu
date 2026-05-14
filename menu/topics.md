@@ -122,6 +122,13 @@ permalink: /topics
 * [Speeding up nmap service scanning 16x](https://joshua.hu/nmap-speedup-service-scanning-16x)
 * [Improve nmap's service scanning with this 1 weird trick!](https://joshua.hu/nmap-improving-service-scanning-results)
 
+## Video game history and culture series
+
+* [Video Games Around The World: South Africa](https://joshua.hu/video-games-around-the-world-south-africa)
+* [Video Game History Around The World: An Essay](https://joshua.hu/video-game-history-around-the-world-essay)
+* [Exploring "Bus Tours" of Nintendo and Sega: The Nintendo Challenger, Campus Challenge, and More](https://joshua.hu/exploring-bus-tours-of-nintendo-and-sega)
+* [Some Thoughts on Cross-Cultural Video Game and Music](https://joshua.hu/some-thoughts-on-cross-cultural-video-game-and-music)
+
 ## Personal essays, travel, and culture series
 
 * [A helicopter story](https://joshua.hu/helicopter-story)
