@@ -48,6 +48,7 @@ permalink: /topics
 * [An automatic captive-portal resolver and DNS white-lister for DNS over TLS with Unbound](https://joshua.hu/captive-portal-automatic-unbound-resolve-forward-zone-blocked-dns-traffic)
 * [Encrypted NTP using NTS and chrony on FreeBSD](https://joshua.hu/encrypted-ntp-nts-chronyd-freebsd)
 * [Updating FreeBSD's datetime without DNS](https://joshua.hu/updating-freebsd-time-with-no-dns)
+* [Magic Switch: Easily switch Apple Magic devices between Macs for free](https://joshua.hu/magic-switch-easily-switch-magic-keyboard-trackpad-mouse-between-mac-macbook-macos)
 * [Mounting and reading an ext4 drive on MacOS](https://joshua.hu/mounting-ext4-on-macos)
 * [Swapping/Remapping the silcrow (S) key for a tilde on international Macbooks](https://joshua.hu/remapping-keys-macbook-incorrect-tilde-section-double-s-silcrow-characters-keyboard)
 * [Exclusive i3 keysyms for specific programs. or: Binding Escape on imagemagick's import](https://joshua.hu/program-specific-i3-keysym-keybinds-screenshot-imagemagick-import-escape)
