@@ -59,7 +59,7 @@ So anyways, that's all `blue-switch` was. It didn't have authentication, encrypt
 
 I called it Magic Switch.
 
-[![Magic Switch app icon](/files/magic-switch/icon.png)](https://github.com/MegaManSec/magic-switch)
+<a href="https://github.com/MegaManSec/magic-switch"><img src="/files/magic-switch/icon.png" alt="Magic Switch app icon" width="250"></a>
 
 The source code is available [on GitHub](https://github.com/MegaManSec/magic-switch), as well as an immutable build, built with GitHub runners.
 
@@ -74,7 +74,7 @@ For security, I went with:
 - Since we're using 12-character pairing codes, we also rate-limit to 5 crypto failures per 60 seconds: if that limit hits, we block the device for 15-minutes.
 - Hardened the connections themselves: 30s idle / 5-min total budgets, per-connection state (killed the racy shared `ConnectionManager`), and IP canonicalization so an attacker can't double their budget by alternating IPv4/IPv6.
 
-One may question ~commitment to sparkle motion~ why I bothered with all of that for a simple LAN-only connection which just tells the other client "connect to this Bluetooth device; disconnect from that Bluetooth device". In reality, it's because I wanted to learn things. And have fun.
+One may question ~~commitment to sparkle motion~~ why I bothered with all of that for a simple LAN-only connection which just tells the other client "connect to this Bluetooth device; disconnect from that Bluetooth device". In reality, it's because I wanted to learn things. And have fun.
 
 ## Smoothing out the handoff
 
