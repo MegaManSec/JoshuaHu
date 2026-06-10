@@ -15,11 +15,11 @@ Similar to [GHSA-m5qc-5hw7-8vg7](https://github.com/image-size/image-size/securi
 
 ### Details
 
-`jxlpBox.size` (for example) may be zero, resulting in the offset not being advanced, resulting in an infinite loop.
+In the JXL image parsing code, a loop exists which depends on the incrementation of a JXL's box size increasing. However, `jxlpBox.size` (for example) may be zero, resulting in the offset not being advanced, resulting in an infinite loop.
 
 Consider:
 
-```
+```js
 export function findBox(
   input: Uint8Array,
   boxName: string,
@@ -32,12 +32,11 @@ export function findBox(
 [..]
   }
 }
-
 ```
 
 Now consider how `findBox()` is used in jxl parsing:
 
-```
+```js
 function extractPartialStreams(input: Uint8Array): Uint8Array[] {
   const partialStreams: Uint8Array[] = []
   let offset = 0
@@ -60,7 +59,7 @@ The `while (offset < input.length)` loop will continue forever, as the offset wi
 
 An example PoC for the heif parser:
 
-```source-js
+```js
 // mkdir 2.0.2
 // cd 2.0.2/
 // npm i image-size@2.0.2
