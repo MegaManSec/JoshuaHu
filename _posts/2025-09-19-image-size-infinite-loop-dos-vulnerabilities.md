@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Two infinite loop / DoS vulnerabilities in image-size"
-tags: [security, appsec]
-description: "I discovered an infinite loop / DoS vulnerability in the npm package image-size. This post outlines the details."
+tags: [security, appsec, dos, vuln_research]
+description: "Two infinite loop / Denial of Service vulnerabilities I found while auditing the npm package image-size, affecting its HEIF, JP2, JXL, and ICNS parsing in every version up to at least 2.0.2."
 ---
 
 While auditing some code to be used in my company's product, I had to look at the codebase for [image-size](https://www.npmjs.com/package/image-size). This package can be used to determine the size of an image file, across a range of formats. Imagine for example you receive arbitrary image files from a user, and need to determine the size for whatever reason: this package is how you would do it.
