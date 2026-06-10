@@ -1,0 +1,24 @@
+name: Validate posts
+
+# No-op twin of validate-posts.yml: branch protection requires the
+# "Frontmatter + topics.md coverage" check by name, but the real workflow is
+# path-filtered and never reports on PRs that don't touch posts, leaving them
+# blocked forever. paths-ignore here must stay the exact inverse of the
+# paths list in validate-posts.yml.
+on:
+  pull_request:
+    paths-ignore:
+      - "_posts/**"
+      - "menu/topics.md"
+      - ".github/workflows/validate-posts.yml"
+      - ".github/scripts/validate_posts.py"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Frontmatter + topics.md coverage
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "No post-related changes; nothing to validate."

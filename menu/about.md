@@ -388,3 +388,16 @@ I like the following brands, and general things.
 - https://letitiamorris.com/
 - https://www.acmi.net.au/
 - Stanczyk
+- Beliani
+- Zwoltex-partner / El-tex, AMZ (Tencel?)
+- ESTELLA Satynowa
+- Balolo/Oakywood
+- Mathmos
+- Danieloshop
+- Bloomingville
+- "sirocco" hairdryer, cordless
+- Szpeje
+- https://www.itsnicethat.com/features/the-view-from-mumbai-matchbook-graphic-design-130426
+- https://sabukaru.online/articles/the-insane-history-of-polish-movie-posters
+- https://culture.pl/en/gallery/posters-from-the-design-dialogue-poland-brazil-exhibition-image-gallery
+- Gamma+
