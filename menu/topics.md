@@ -83,6 +83,7 @@ permalink: /topics
 
 * [55 Vulnerabilities in Squid Caching Proxy and 35 0days](https://joshua.hu/squid-security-audit-35-0days-45-exploits)
 * [CVE-2023-4863: Fallout hits Facebook; probably much much more](https://joshua.hu/libwebp-fallout-facebook-image-compression-proxies)
+* [Two infinite loop / DoS vulnerabilities in image-size](https://joshua.hu/image-size-infinite-loop-dos-vulnerabilities)
 * [How to DoS MySQL/MariaDB and PostgresSQL Servers With Fewer Than 55kb of Data](https://joshua.hu/postgresql-mysql-mariadb-denial-of-service-dos-attack)
 * [root with a single command: sudo logrotate](https://joshua.hu/gaining-root-with-logrotate-sudo-ubuntu)
 * [Supply chain attacks and the many (other) different ways I've backdoored your dependencies](https://joshua.hu/how-I-backdoored-your-supply-chain)
