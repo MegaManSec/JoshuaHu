@@ -12,7 +12,7 @@ menu:
 - {name: 'Services', path: 'menu', url: 'services'}
 - {name: 'Projects', path: 'menu', url: 'projects'}
 - {name: 'Ideas', path: 'menu', url: 'ideas'}
-- {name: 'Curriculum Vitae', path: 'menu', url: 'files/joshua-rogers-security-engineer.pdf'}
+#- {name: 'Curriculum Vitae', path: 'menu', url: 'files/joshua-rogers-security-engineer.pdf'}
 - {name: 'Contact', path: 'menu', url: 'contact'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
