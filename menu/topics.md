@@ -81,6 +81,7 @@ permalink: /topics
 
 ## Big writeups: incidents, vulns, audits, and DoS
 
+* [Hacking fun with zip-slips, tar-slips, symlinks, hardlinks, collisions, and more](https://joshua.hu/tarslip-zipslip-symlink-hardlink-generator)
 * [55 Vulnerabilities in Squid Caching Proxy and 35 0days](https://joshua.hu/squid-security-audit-35-0days-45-exploits)
 * [CVE-2023-4863: Fallout hits Facebook; probably much much more](https://joshua.hu/libwebp-fallout-facebook-image-compression-proxies)
 * [Two infinite loop / DoS vulnerabilities in image-size](https://joshua.hu/image-size-infinite-loop-dos-vulnerabilities)
