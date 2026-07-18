@@ -255,6 +255,7 @@ I like the following brands, and general things.
 - Azzaro The Most Wanted EDP Intense
 - Valentino Born in Roma The Gold Uomo
 - Ralph Lauren Blue
+- Rabanne Invictus
 - Various custom perfumes from Parfimerija Sava
 - Le Labo ANOTHER 13 (or its knockoff, DIFFERENT 013)
 
