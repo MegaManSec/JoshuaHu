@@ -21,6 +21,12 @@ With Punycode, that becomes:
 ^(?!.{254,})(?:(?!-)(?:xn--[A-Za-z0-9-]{1,59}|(?!xn--)[A-Za-z0-9-]{1,63})(?<!-)\.)+(?:xn--[A-Za-z0-9-]{1,59}|[A-Za-z]{2,63})$
 ```
 
+With no negative lookbehind, that becomes:
+
+```
+/^(?!.{254,})(?:[\dA-Za-z](?:[\dA-Za-z-]{0,61}[\dA-Za-z])?\.)+(?:xn--[\dA-Za-z-]{1,59}|[A-Za-z]{2,63})$/
+```
+
 If you care about ReDoS, it's important to keep the anchoring here: by removing the anchors, the expressions will become vulnerable to ReDoS. If you need to parse unformatted text for hostnames, split the text by spaces and attempt to parse URLs (or something like that) before testing for the regex.
 
 If you want to include *hostnames* (or other similar identifiers) which do not have a `.` separator (such as `hostname` or `my-local-hostname`), change `+(?:xn--[A-Za-z0-9-]{1,59}|[A-Za-z]{2,63}$` to `?(?:xn--[A-Za-z0-9-]{0,59}|[A-Za-z]{0,63}$` (or `+[A-Za-z]{2,63}$` to `?[A-Za-z]{0,63}$`).
