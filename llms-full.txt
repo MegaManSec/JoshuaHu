@@ -10,6 +10,8 @@ _Generated: {{ site.time | date_to_rfc822 }}_
 
 This file contains the full text content of all posts and pages. For a concise link listing, see [llms.txt](https://joshua.hu/llms.txt).
 
+Usage: automated indexing, retrieval, and summarization are welcome with attribution and a link to the original article on joshua.hu. Article content © Joshua Rogers; the site theme is MIT-licensed (see LICENSE.md).
+
 ## Posts
 
 {% for post in site.posts %}

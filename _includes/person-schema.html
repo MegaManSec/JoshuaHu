@@ -1,0 +1,39 @@
+{% comment %}
+  Person entity for Joshua Rogers, emitted on the homepage and /about.
+  Complements the WebSite/BlogPosting JSON-LD that jekyll-seo-tag generates:
+  the stable @id lets search engines tie the author named in articles to one
+  entity. Facts here mirror menu/about.md and menu/services.md — keep them in
+  sync. sameAs comes from site.social.links in _config.yml.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://joshua.hu/#person",
+  "name": "Joshua Rogers",
+  "alternateName": "MegaManSec",
+  "url": "https://joshua.hu/",
+  "image": "https://joshua.hu/files/Joshua_Rogers_Melbourne.jpg",
+  "jobTitle": "Security Engineer and Penetration Tester",
+  "description": "Security researcher, penetration tester, and systems administrator with 12+ years of experience, formerly on the security team at Opera Software.",
+  "email": "mailto:contact@joshua.hu",
+  "nationality": { "@type": "Country", "name": "Australia" },
+  "homeLocation": { "@type": "Country", "name": "Poland" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Swinburne University of Technology" },
+  "knowsAbout": [
+    "security research",
+    "penetration testing",
+    "vulnerability research",
+    "fuzzing",
+    "nginx",
+    "systems administration",
+    "FreeBSD",
+    "Linux",
+    "SSH",
+    "network security",
+    "video game history"
+  ],
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://joshua.hu/about" },
+  "sameAs": {{ site.social.links | jsonify }}
+}
+</script>

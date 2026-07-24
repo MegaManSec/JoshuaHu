@@ -17,8 +17,15 @@ _Generated: {{ site.time | date_to_rfc822 }}_
 
 ## Posts
 
-{% for post in site.posts %}- [{{ post.title }}](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/{{ post.path }}): [{{ post.description }}](https://joshua.hu{{ post.url }})
+{% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}{% for year in posts_by_year %}### {{ year.name }}
+
+{% for post in year.items %}- [{{ post.title }}](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/{{ post.path }}): [{{ post.description }}](https://joshua.hu{{ post.url }})
 {% endfor %}
+{% endfor %}
+
+## Usage
+
+The raw Markdown sources linked above are provided for convenient machine consumption. Automated indexing, retrieval, and summarization are welcome with attribution and a link to the original article on joshua.hu. Article content © Joshua Rogers; the site theme is MIT-licensed (see LICENSE.md). A full-content version of this file is available at [llms-full.txt](https://joshua.hu/llms-full.txt).
 
 ## Optional
 
