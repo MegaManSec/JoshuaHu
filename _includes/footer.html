@@ -1,4 +1,9 @@
 <footer class="footer">
   {% include social-icons.html %}
-  <div class="footer-description"><a href="{{ site.github.url }}/">{{ site.title }} | {{ site.description }} by {{ site.author.name }}</a></div>
+  {% comment %}
+    site.description is metadata-only (og/meta description, feed subtitle) --
+    don't render it here. The visible tagline is site.header_subtitle (unset),
+    same as _includes/header.html.
+  {% endcomment %}
+  <div class="footer-description"><a href="{{ site.github.url }}/">{{ site.title }} | {{ site.header_subtitle }} by {{ site.author.name }}</a></div>
 </footer>

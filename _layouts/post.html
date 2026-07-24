@@ -38,8 +38,16 @@ layout: default
 <h1 class="post-title">
   {{ page.title }}
 </h1>
-{% if page.image %}
-  <img src="{{ site.github.url }}/assets/img/{{ page.image }}">
+{% comment %}
+  page.image defaults to the site-wide social card (_config.yml defaults),
+  which is for link previews only -- don't render it in the post body.
+{% endcomment %}
+{% if page.image and page.image != "/assets/img/social-card.png" %}
+  {% if page.image contains "/" %}
+    <img src="{{ page.image }}" alt="{{ page.title | escape }}">
+  {% else %}
+    <img src="{{ site.github.url }}/assets/img/{{ page.image }}" alt="{{ page.title | escape }}">
+  {% endif %}
 {% endif %}
 <article>
   {% include anchor_headings.html html=content anchorBody="#" %}

@@ -24,13 +24,19 @@ kramdown:
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           "Joshua Rogers' Scribbles"
-description:	       '' #Joshua.Hu is the personal blog of security researcher and hacker Joshua Rogers. This blog offers the typical observations and commentary on life and technology, focused on security.'
+url:		           "https://joshua.hu"
+# Used by jekyll-seo-tag (meta/og description fallback) and jekyll-feed (subtitle).
+# The visible header subtitle is site.header_subtitle (unset), see _includes/header.html.
+description:	       "Joshua Rogers is an Australian technologist, sysadmin, security engineer, and pentester sharing long-form writeups on hacking, binary web and infra security, programming, technology, politics, and life itself."
+# Publisher logo for jekyll-seo-tag JSON-LD (BlogPosting publisher on articles).
+logo:		           /web-app-manifest-512x512.png
 author:
   name: Joshua Rogers
   twitter: MegaManSec
 
 twitter:
   username: MegaManSec
+  card: summary_large_image
 
 social:
   name: Joshua Rogers
@@ -41,6 +47,17 @@ social:
     - https://news.ycombinator.com/user?id=mmsc
 
 include: [llms.txt, llms-full.txt]
+
+# Default social-sharing image for every page/post. jekyll-seo-tag picks it up
+# (og:image, twitter:image, twitter:card=summary_large_image, JSON-LD image);
+# posts can override it with their own `image:` front matter. The post layout
+# and head.html special-case this exact path -- keep them in sync if renamed.
+# Regenerate the card with: python3 .github/social-card/generate.py
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/social-card.png
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:

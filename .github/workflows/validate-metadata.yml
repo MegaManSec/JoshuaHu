@@ -1,0 +1,33 @@
+name: Validate metadata
+
+# Builds the site with Jekyll and validates the metadata that actually ships:
+# Open Graph / Twitter tags, JSON-LD, canonical URLs, social-image existence
+# and dimensions, and per-article uniqueness. Runs on every push/PR (no path
+# filter) so it always reports and needs no no-op twin for branch protection.
+
+on:
+  push:
+    branches: [gh-pages]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Built-site metadata
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+
+      - name: Build site
+        run: bundle exec jekyll build
+
+      - name: Validate social and structured metadata
+        run: python3 .github/scripts/validate_metadata.py
