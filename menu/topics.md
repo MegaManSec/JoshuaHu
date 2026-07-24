@@ -5,7 +5,15 @@ description: "Browse the various posts written by Joshua Rogers, ordered and gro
 permalink: /topics
 ---
 
+Every post on this site, grouped by subject. If you're new here, this is the
+fastest way to work out what this blog is about: pick whichever cluster looks
+interesting and go from there.
+
 ## AI, LLMs, and AI slop (culture + security + tooling)
+
+Critiques of LLM-generated code and culture, alongside hands-on evaluations of
+AI-powered security tooling: what these tools actually find, and the messes
+they leave behind.
 
 * [LLMs are destroying art: the art of code, literature, and culture](https://joshua.hu/code-is-art-llm-people-losers)
 * [wtf is NS_ERROR_INVALID_CONTENT_ENCODING? investigating shared dictionaries and ChatGPT breakage in Firefox](https://joshua.hu/chatgpt-fail-loading-firefox)
@@ -17,6 +25,11 @@ permalink: /topics
 
 ## Nginx, Gixy-Next, ReDoS, and regex security
 
+Research into nginx configuration pitfalls — proxy_pass URL normalization,
+DNS caching, allow/deny surprises — plus Gixy-Next (the maintained fork of the
+Gixy configuration scanner) and work on detecting ReDoS-vulnerable regular
+expressions.
+
 * [Gixy-Next: an overview of a Gixy fork with updated, improved, and new checks](https://joshua.hu/gixy-ng-new-version-gixy-updated-checks)
 * [Identifying ReDoS Vulnerabilities in Nginx Configurations Using Gixy-Next](https://joshua.hu/regex-redos-recheck-nginx-gixy)
 * [Can Nginx Configurations Be Vulnerable to ReDoS Expressions?](https://joshua.hu/nginx-directives-regex-redos-denial-of-service-vulnerable)
@@ -27,6 +40,10 @@ permalink: /topics
 * [nginx's proxy_pass DNS caching problem](https://joshua.hu/nginx-dns-caching)
 
 ## Web platform, browsers, feeds, and HTTP/TLS debugging
+
+Debugging writeups from the web's plumbing: HTTP/2 breakage in intercepting
+proxies, TLS session key extraction, sandboxed iframes, broken feed caching,
+and making Firefox behave.
 
 * [Debugging failures of HTTP/2 in Burp, mitmproxy, and browsers](https://joshua.hu/http2-burp-proxy-mitmproxy-nginx-failing-load-resources-chromium)
 * [Extracting TLS Session Keys in Burp Proxy a la SSLKEYLOGFILE](https://joshua.hu/extracting-tls-session-keys-burp-proxy-debugging)
@@ -40,6 +57,9 @@ permalink: /topics
 * [Always 'Copy Clean Link' when possible on Firefox, with userChrome.css](https://joshua.hu/2026-03-17-firefox-always-copy-clean-link-url-userchrome-css)
 
 ## FreeBSD, Macs, and hardened networking
+
+Running FreeBSD on Apple hardware, locking down the network layer with
+encrypted DNS and NTP, and assorted macOS and desktop quality-of-life fixes.
 
 * [A Full Guide: FreeBSD 13.3 on a MacBook Pro 11.4 (Mid 2015) (A1398)](https://joshua.hu/FreeBSD-on-MacbookPro-114-A1398)
 * [Webcam support on a Macbook running FreeBSD using PCI passthrough](https://joshua.hu/facetimehd-webcam-linux-vm-macbook-freebsd-broadcom-1570)
@@ -56,6 +76,10 @@ permalink: /topics
 
 ## Fuzzing and vulnerability research (AFL++, harnessing, corpora)
 
+Practical fuzzing engineering with AFL++: harnessing interpreters and
+libraries, tuning campaigns, and the tricks that make large-scale fuzzing
+actually work.
+
 * [Fuzzing scripting languages' interpreters' native functions using AFL++ to find memory corruption and more](https://joshua.hu/aflplusplus-fuzzing-scripting-languages-natively)
 * [Automatically Generating a Well-Tuned Fuzzing Campaign With AFL++](https://joshua.hu/aflplusplus-generate-fuzzing-campaign-commands-options-secondary-fuzzers)
 * [Fuzzing with memfd_create(2) and fmemopen(3)](https://joshua.hu/fuzzing-with-memfd-createfd-fmemopen-syscall-function)
@@ -64,6 +88,10 @@ permalink: /topics
 * [Attacking a scripting language's cryptographic functions with Wycheproof](https://joshua.hu/pikeproof-wycheproof-pike-checks)
 
 ## SSH, LDAP, and internal-network offensive engineering
+
+Offensive tooling and techniques for internal networks: SSH-Snake, SSH
+backdoors and quirks, LDAP monitoring, and post-exploitation adventures in
+Kubernetes and Vault.
 
 * [SSH-Snake: Automatic traversal of networks using SSH private keys](https://joshua.hu/ssh-snake-ssh-network-traversal-discover-ssh-private-keys-network-graph)
 * [SSH-Snake Update: Multi-IP Domain Resolution](https://joshua.hu/ssh-snake-multi-ip-domain-resolution-bash-cannot-assign-list-to-array-member)
@@ -80,6 +108,9 @@ permalink: /topics
 * [Stealing All of Hashicorp Vault's Secrets Using Login Enumeration](https://joshua.hu/hashicorp-vault-secret-dumping)
 
 ## Big writeups: incidents, vulns, audits, and DoS
+
+The long ones: a 55-vulnerability Squid audit, supply-chain backdoors, libwebp
+fallout, and other incidents, audits, and denial-of-service research.
 
 * [Hacking fun with zip-slips, tar-slips, symlinks, hardlinks, collisions, and more](https://joshua.hu/tarslip-zipslip-symlink-hardlink-generator)
 * [55 Vulnerabilities in Squid Caching Proxy and 35 0days](https://joshua.hu/squid-security-audit-35-0days-45-exploits)
@@ -100,12 +131,18 @@ permalink: /topics
 
 ## Auth, accounts, and credential abuse
 
+How authentication breaks in practice: hardware keys and 2FA, session
+persistence, credential stuffing, and one very broken bank PIN.
+
 * [The End of Yubikeys as 2-Factor-Authentication? Google Breaks 2FA with Yubikeys in Favor of Passkeys](https://joshua.hu/enrolling-hardware-keys-2fa-google-workspace)
 * [On the Google Account Persistence Exploit](https://joshua.hu/on-google-account-persistence-exploit-malware-session-api-token-theft)
 * [Credential Stuffing Done Right: Some Tips](https://joshua.hu/credential-stuffing-done-right)
 * [A RuneScape Hacker's Dream: An Authenticator and PIN Bypass](https://joshua.hu/runescape-bank-pin-exploit-bypass-username-enumeration-captchaless-login)
 
 ## Programming, tooling, and practical notes
+
+Smaller tools and practical notes: bash oddities, decompiler abuse, crawlers,
+and development-environment setups that actually work.
 
 * [CCBot: Chrome Checker Bot for Chrome Security Releases](https://joshua.hu/ccbot-chrome-checker-bot-googlechromereleases-chromium-updates)
 * [body: A bash script to get the middle of a file, instead of head \| tail](https://joshua.hu/body-head-tail-bash-script-middle-of-file)
@@ -121,11 +158,16 @@ permalink: /topics
 
 ## Recon and scanning
 
+Making nmap dramatically faster at service scanning, with measurements.
+
 * [5 Tips For Port Service Scanning 16x Faster: Part 1](https://joshua.hu/port-scanning-networks-speeding-up-nmap-for-large-scales)
 * [Speeding up nmap service scanning 16x](https://joshua.hu/nmap-speedup-service-scanning-16x)
 * [Improve nmap's service scanning with this 1 weird trick!](https://joshua.hu/nmap-improving-service-scanning-results)
 
 ## Video game history and culture series
+
+Research into retro video game history around the world: regional markets,
+promotional bus tours, and cross-cultural essays.
 
 * [Video Games Around The World: South Africa](https://joshua.hu/video-games-around-the-world-south-africa)
 * [Video Game History Around The World: An Essay](https://joshua.hu/video-game-history-around-the-world-essay)
@@ -133,6 +175,9 @@ permalink: /topics
 * [Some Thoughts on Cross-Cultural Video Game and Music](https://joshua.hu/some-thoughts-on-cross-cultural-video-game-and-music)
 
 ## Personal essays, travel, and culture series
+
+Travel, immigration adventures, workplace culture, and the other things that
+don't fit anywhere else.
 
 * [A helicopter story](https://joshua.hu/helicopter-story)
 * [POV: You land at Melbourne Airport](https://joshua.hu/pov-entering-melbourne-airport-total-failure-society)

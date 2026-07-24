@@ -1,7 +1,7 @@
 <head>
   <title>
     {% if page.path == "index.html" %}
-      {{ site.title }}
+      {{ page.title | default: site.title }}
     {% else %}
       {{ page.title }} | {{ site.title }}
     {% endif %}
@@ -21,19 +21,17 @@
   {% feed_meta %}
   <!-- Use RSS-2.0 -->
 
-  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="{{ site.title }} | {{ site.description }}"/>
+  <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="{{ site.title }}"/>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet" href="/assets/css/syntax.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </noscript>
-  <meta property="og:image" content="https://joshua.hu/web-app-manifest-192x192.png" />
-  <meta property="og:image:width" content="192" />
-  <meta property="og:image:height" content="192" />
-  {% if page.path == "index.html" %}
-    <meta property="og:image:alt" content="{{ site.title }}" />
-  {% else %}
-    <meta property="og:image:alt" content="{{ page.title }} | {{ site.title }}" />
+  {% if page.path contains "_posts" %}
+    <meta property="article:author" content="https://joshua.hu/about" />
+    {% if page.last_modified_at %}
+      <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}" />
+    {% endif %}
   {% endif %}
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
@@ -58,4 +56,24 @@
   <!-- {% include google-analytics.html %} -->
   <!-- Use Jekyll SEO plugin -->
   {% seo title=false %}
+  {% comment %}
+    jekyll-seo-tag emits og:image/twitter:image from page.image (defaulted
+    site-wide to the social card in _config.yml). Supplement the default
+    card's dimensions and alt text here; these og:image:* structured
+    properties must come after the og:image tag above.
+  {% endcomment %}
+  {% if page.image == "/assets/img/social-card.png" %}
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    {% if page.path == "index.html" %}
+      <meta property="og:image:alt" content="{{ site.title | escape }}" />
+      <meta name="twitter:image:alt" content="{{ site.title | escape }}" />
+    {% else %}
+      <meta property="og:image:alt" content="{{ page.title | escape }} | {{ site.title | escape }}" />
+      <meta name="twitter:image:alt" content="{{ page.title | escape }} | {{ site.title | escape }}" />
+    {% endif %}
+  {% endif %}
+  {% if page.path == "index.html" or page.url == "/about" %}
+    {% include person-schema.html %}
+  {% endif %}
 </head>
