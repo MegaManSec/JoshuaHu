@@ -112,7 +112,7 @@ Kubernetes and Vault.
 The long ones: a 55-vulnerability Squid audit, supply-chain backdoors, libwebp
 fallout, and other incidents, audits, and denial-of-service research.
 
-* [31 Vulnerabilities in cJSON](https://joshua.hu/cjson-json-parser-cve-vulnerabilities)
+* [33 Vulnerabilities in cJSON](https://joshua.hu/cjson-json-parser-cve-vulnerabilities)
 * [Hacking fun with zip-slips, tar-slips, symlinks, hardlinks, collisions, and more](https://joshua.hu/tarslip-zipslip-symlink-hardlink-generator)
 * [55 Vulnerabilities in Squid Caching Proxy and 35 0days](https://joshua.hu/squid-security-audit-35-0days-45-exploits)
 * [CVE-2023-4863: Fallout hits Facebook; probably much much more](https://joshua.hu/libwebp-fallout-facebook-image-compression-proxies)
@@ -180,6 +180,7 @@ promotional bus tours, and cross-cultural essays.
 Travel, immigration adventures, workplace culture, and the other things that
 don't fit anywhere else.
 
+* [On self-imposed constraints and shame](https://joshua.hu/self-imposed-constraints)
 * [A helicopter story](https://joshua.hu/helicopter-story)
 * [POV: You land at Melbourne Airport](https://joshua.hu/pov-entering-melbourne-airport-total-failure-society)
 * [On being an illegal immigrant, hacking an unlimited Schengen visa, and becoming Polish](https://joshua.hu/i-was-an-illegal-immigrant-schengen-visa-overstay-poland)
