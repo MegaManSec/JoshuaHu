@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "4 Jsoup vulnerabilities"
+title: "4 jsoup vulnerabilities"
 tags: [security, vuln_research, web_platform]
-description: "An overview of 33 vulnerabilities in the cJSON JSON parsing library"
+description: "An overview of four vulnerabilities I reported in jsoup, the Java HTML parser and sanitizer: mutation-XSS sanitizer bypasses, output-charset byte smuggling, and a quadratic namespace blowup, and how each was triaged."
 ---
 
 ### Cleaner HTML-sanitizer bypass: mutation-XSS via MathML namespace confusion
