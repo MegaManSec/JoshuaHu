@@ -5,7 +5,7 @@ tags: [security, vuln_research, web_platform]
 description: "An overview of four vulnerabilities I reported in jsoup, the Java HTML parser and sanitizer: mutation-XSS sanitizer bypasses, output-charset byte smuggling, and a quadratic namespace blowup, and how each was triaged."
 ---
 
-### Cleaner HTML-sanitizer bypass: mutation-XSS via MathML namespace confusion
+## Cleaner HTML-sanitizer bypass: mutation-XSS via MathML namespace confusion
 
 Reported as:
 
@@ -31,7 +31,7 @@ This also falls under section 4.1.3 of the CVE CNA Operational Rules (https://ww
 The current Safelist API is based on element names rather than namespaces. Namespace-aware Safelists are a documented improvement plan in Cleaner & Safelist API revamp <https://github.com/jhy/jsoup/issues/2284>, but that does not make this non-default configuration a vulnerability in the existing Cleaner.
 ```
 
-### Cleaner mutation-XSS: <s> before SVG <style> defeats onerror sanitization
+## Cleaner mutation-XSS: `<s>` before SVG `<style>` defeats onerror sanitization
 
 Reported as:
 
@@ -64,7 +64,7 @@ For the reasons given in my response there, this is an application-defined, non-
 This report does reveal a separate HTML parser conformance issue in foreign-content breakout handling. I will consider that as an ordinary parser correctness improvement rather than a jsoup vulnerability: https://github.com/jhy/jsoup/issues/2562.
 ```
 
-### Cleaner XSS via output-charset byte smuggling in ISO-2022-JP/KR
+## Cleaner XSS via output-charset byte smuggling in ISO-2022-JP/KR
 
 Reported as:
 
@@ -103,7 +103,7 @@ The reported XSS is therefore introduced entirely by the application after jsoup
 ```
 
 
-### Quadratic blowup in namespace handling
+## Quadratic blowup in namespace handling
 
 Reported as:
 
