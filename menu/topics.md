@@ -114,6 +114,7 @@ The long ones: a 55-vulnerability Squid audit, supply-chain backdoors, libwebp
 fallout, and other incidents, audits, and denial-of-service research.
 
 * [33 Vulnerabilities in cJSON](https://joshua.hu/cjson-json-parser-cve-vulnerabilities)
+* [4 jsoup vulnerabilities](https://joshua.hu/4-jsoup-vulnerabilities)
 * [Hacking fun with zip-slips, tar-slips, symlinks, hardlinks, collisions, and more](https://joshua.hu/tarslip-zipslip-symlink-hardlink-generator)
 * [55 Vulnerabilities in Squid Caching Proxy and 35 0days](https://joshua.hu/squid-security-audit-35-0days-45-exploits)
 * [CVE-2023-4863: Fallout hits Facebook; probably much much more](https://joshua.hu/libwebp-fallout-facebook-image-compression-proxies)
