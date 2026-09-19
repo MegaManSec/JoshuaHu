@@ -254,9 +254,8 @@ Then, somebody from Okta messaged Bugcrowd, and Bugcrowd sent another message:
 
 A bunch of private communication happened, and then a video was requested. A video of what exactly, that's anybody's guess. Bugcrowd refused to actually state what they wanted in this video, and then changed their mind about wanting a video at all; they wanted a PoC instead.
 
-![Okta Fail 1](/files/okta1.png)
-
-![Okta Fail 2](/files/okta2.png)
+| ![Okta Fail 1](/files/okta1.png) | ![Okta Fail 2](/files/okta2.png) |
+|:--:|:--:|
 
 In the end, after that previous blog post made [first page on hackernews](https://news.ycombinator.com/item?id=45963350), Okta stepped in and awarded a bounty.
 
