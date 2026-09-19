@@ -227,7 +227,7 @@ I also noticed some other changes in a repository that he had created, which use
 | :--------------------------------------------------------: |
 |            *dvershinin trying to fix hallucinations*           |
 | ![dvershinin trying to fix hallucinations](/files/slop/12.png) |
-|                            :--:                            |
+| :--------------------------------------------------------: |
 |            *dvershinin trying to fix hallucinations*           |
 
 The three obvious notes from this commit message couldn't be better evidence of the problem:
