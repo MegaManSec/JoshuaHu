@@ -13,6 +13,10 @@ My former manager Cezary -- bless his soul, as just two weeks after being promot
 |:--:|
 | *Me, wearing a hat, talking with Cezary (whose legs are apparently doing the twister)* |
 
+| <img src="/files/silly/what-is-the-charge.png" alt="What is the charge? Being silly" width="400"> |
+|:--:|
+| *What is the charge? Being silly* |
+
 This silliness caught on, and ever since then, when I have the opportunity to snap a quick picture in a silly hat, I take it. This is despite the fact that generally speaking, I don't think I look very good in hats.
 
 My coworkers joined in on the fun in wearing hats too. The President of Opera liked it, too:
@@ -86,3 +90,7 @@ If somebody is not able to look past something "silly" to focus on what really m
 Or in other words, it seems to me that those who cannot see beyond "silly appearances", and who confuse the form of an expression with the substance of the thought behind it, lack the capacity to judge an idea independently of convention. Their opinions, consequently, may say more about their conditioning than about the thing they presume to judge.
 
 Cezary never really cared about the hats. What bothered him was that somebody had treated the rules about what an office looks like as optional; the people who started handing me their own hats had worked out the same thing, just from the other side. The hat is stupid on purpose. What somebody does when they see it is the actual test.
+
+| <img src="/files/silly/being-weird-is-the-whole-point.jpg" alt="A stuffed gorilla, captioned: being weird is the whole point" width="400"> |
+|:--:|
+| *Being weird is the whole point* |
