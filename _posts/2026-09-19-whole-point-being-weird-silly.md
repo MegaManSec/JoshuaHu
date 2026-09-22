@@ -15,9 +15,11 @@ A different hat every day; of different absurdness. So that's what I did, and he
 |:--:|
 | *Me, wearing a hat, talking with Cezary (whose legs are apparently doing the twister)* |
 
-| <img src="/files/silly/what-is-the-charge.png" alt="What is the charge? Being silly" width="400"> |
-|:--:|
-| *What is the charge? Being silly* |
+<table>
+  <tr>
+    <td align="center"><img src="/files/silly/what-is-the-charge.png" alt="What is the charge? Being silly" width="400"></td>
+  </tr>
+</table>
 
 This silliness caught on, and ever since then, when I have the opportunity to snap a quick picture in a silly hat, I take it. This is despite the fact that generally speaking, I don't think I look very good in hats.
 
@@ -93,6 +95,66 @@ Or in other words, it seems to me that those who cannot see beyond "silly appear
 
 Cezary never really cared about the hats. What bothered him was that somebody had treated the rules about what an office looks like as optional; the people who started handing me their own hats had worked out the same thing, just from the other side. The hat is stupid on purpose. What somebody does when they see it is the actual test.
 
-| <img src="/files/silly/being-weird-is-the-whole-point.jpg" alt="A stuffed gorilla, captioned: being weird is the whole point" width="400"> |
-|:--:|
-| *Being weird is the whole point* |
+<table>
+  <tr>
+    <td align="center"><img src="/files/silly/being-weird-is-the-whole-point.jpg" alt="A stuffed gorilla, captioned: being weird is the whole point" width="400"></td>
+  </tr>
+</table>
+
+---
+
+<table>
+  <tr>
+    <td align="center"><img src="/files/silly/market-skullcap.jpg" alt="An embroidered skullcap at a souvenir market" width="380"></td>
+    <td align="center"><img src="/files/silly/polska-horns.jpg" alt="A Polish horned hat, in the supermarket" width="380"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center"><img src="/files/silly/tunezja-opera.jpg" alt="A 'TUNEZJA' straw hat at Opera" width="380"></td>
+    <td align="center"><img src="/files/silly/u-mnie-dziala.jpg" alt="A helicopter hat, a whiteboard, and 'it works on my machine'" width="380"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center"><img src="/files/silly/sheriff.jpg" alt="A sheriff's hat in a souvenir shop" width="380"></td>
+    <td align="center"><img src="/files/silly/peaked-cap.jpg" alt="A peaked cap, in appropriate company" width="380"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center"><img src="/files/silly/goralski.jpg" alt="A highlander's felt hat" width="380"></td>
+    <td align="center"><img src="/files/silly/leather-outback.jpg" alt="An old leather hat" width="380"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center"><img src="/files/silly/rainbow-bucket.jpg" alt="A rainbow bucket hat" width="380"></td>
+    <td align="center"><img src="/files/silly/animal-cap.jpg" alt="A children's animal cap in the mountains" width="380"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center"><img src="/files/silly/pomelo.jpg" alt="A pomelo skin" width="380"></td>
+    <td align="center"><img src="/files/silly/helmet-museum.jpg" alt="A helmet, in an aircraft museum" width="380"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center"><img src="/files/silly/hard-hat.jpg" alt="A hard hat in a plant corridor" width="380"></td>
+    <td align="center"><img src="/files/silly/smiley-cap.jpg" alt="A worn cap with a smiling figure on it" width="380"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center"><img src="/files/silly/conical-hat.jpg" alt="A conical straw hat, somewhere tropical" width="380"></td>
+    <td align="center"><img src="/files/silly/lab-ass.jpg" alt="A bush hat, under a door marked LAB. ASS." width="380"></td>
+  </tr>
+</table>
