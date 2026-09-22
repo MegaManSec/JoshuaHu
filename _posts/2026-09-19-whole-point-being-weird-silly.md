@@ -144,3 +144,17 @@ Cezary never really cared about the hats. What bothered him was that somebody ha
     <td align="center"><img src="/files/silly/helmet-museum.jpg" alt="A helmet, in an aircraft museum" width="380"></td>
   </tr>
 </table>
+
+<table>
+  <tr>
+    <td align="center"><img src="/files/silly/hard-hat.jpg" alt="A hard hat in a plant corridor" width="380"></td>
+    <td align="center"><img src="/files/silly/smiley-cap.jpg" alt="A worn cap with a smiling figure on it" width="380"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center"><img src="/files/silly/conical-hat.jpg" alt="A conical straw hat, somewhere tropical" width="380"></td>
+    <td align="center"><img src="/files/silly/lab-ass.jpg" alt="A bush hat, under a door marked LAB. ASS." width="380"></td>
+  </tr>
+</table>
