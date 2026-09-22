@@ -325,16 +325,40 @@ I like the following brands, and general things.
 - Lord of the Flies
 - Brave New World
 - Fahrenheit 451
+- I have No Mouth and I Must Scream
 - Cosmopolis
 
 #### Movies
 
 - Enter the Void
 - Donnie Darko
+- Nightcrawler
+- Life of Pi
+- End of Watch
+- Jarhead
+- Invasion of the Body Snatchers
+- Blue Ruin
+- The Double
+- 28 Days Later
+- The Rover
+- The Divide
+- Brothers
 - Moon
 - Solaris
+- Close Up
+- Dreams
+- Beyond the Black Rainbow
+- Enemy
+- Pi
 - The Game
-- 12 Monkeys
+- Good Time
+- King of Comedy
+- Fantastic Planet
+- Funny Games
+- Cube
+- 12 Monkeys (and of course La Jetée)
+- Primer
+- Yi Yi
 - 2001
 - One Flew Over the Cuckoo's Nest
 - Falling Down
@@ -343,13 +367,20 @@ I like the following brands, and general things.
 - Training Day
 - Enemy
 - City of God
+- Grave of the Fireflies
+- Paprika
 - The City of Lost Children
 - Whiplash
 - Spirited Away
 - Metropolis (1927, and 2001)
 - Neo Tokyo
+- Memories (1995)
+- The Lobster
+- The Congress
 - Mon Oncle
+- Taipei Story
 - The Dark Knight Rises
+- The Fall
 - The Signal
 - Sunshine
 - Logan's Run
@@ -371,11 +402,16 @@ I like the following brands, and general things.
 - Jericho
 - The X Files
 - Courage the Cowardly Dog
+- Rake
+- Mr Inbetween
+- The Chaser's War on Everything
 - The Simpsons
 - Night Head Genesis
 - Cowboy Bebop
+- Beserk
 - Johnny Bravo
 - House M.D.
+- Yugioh
 - The Twilight Zone
 - Law and Order (SVU, and Criminal Intent)
 
