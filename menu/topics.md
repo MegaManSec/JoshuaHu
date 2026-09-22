@@ -182,8 +182,8 @@ promotional bus tours, and cross-cultural essays.
 Travel, immigration adventures, workplace culture, and the other things that
 don't fit anywhere else.
 
-* [Being silly is the whole point](https://joshua.hu/whole-point-being-fucking-weird-silly)
-* [The sad, smelly, tasteless life of an influencer](https://joshua.hu/natural-life)
+* [Being silly is the whole point](https://joshua.hu/whole-point-being-weird-silly)
+* [A natural life](https://joshua.hu/natural-life)
 * [On self-imposed constraints and shame](https://joshua.hu/self-imposed-constraints)
 * [A helicopter story](https://joshua.hu/helicopter-story)
 * [POV: You land at Melbourne Airport](https://joshua.hu/pov-entering-melbourne-airport-total-failure-society)

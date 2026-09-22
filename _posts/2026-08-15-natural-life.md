@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The sad, smelly, tasteless life of an influencer"
+title: "A natural life"
 tags: [essays]
 description: "A short list of everything the all-natural influencer lifestyler removes from their life."
 ---
