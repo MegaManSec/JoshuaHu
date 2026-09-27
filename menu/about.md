@@ -365,6 +365,7 @@ I like the following brands, and general things.
 - Brazil
 - Blade Runner
 - Training Day
+- The Hunter
 - Enemy
 - City of God
 - Grave of the Fireflies
