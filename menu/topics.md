@@ -15,6 +15,7 @@ Critiques of LLM-generated code and culture, alongside hands-on evaluations of
 AI-powered security tooling: what these tools actually find, and the messes
 they leave behind.
 
+* [Lessons from using sanitizers as an oracle for LLM vulnerability triage](https://joshua.hu/lessons-using-sanitizers-oracle-llm-vulnerability-triage)
 * [Design taste in the age of LLMs: visualizing CVE data](https://joshua.hu/design-taste-visualizing-cve-data-llms)
 * [LLMs are destroying art: the art of code, literature, and culture](https://joshua.hu/code-is-art-llm-people-losers)
 * [wtf is NS_ERROR_INVALID_CONTENT_ENCODING? investigating shared dictionaries and ChatGPT breakage in Firefox](https://joshua.hu/chatgpt-fail-loading-firefox)
