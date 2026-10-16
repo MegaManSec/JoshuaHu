@@ -10,16 +10,16 @@ _Generated: {{ site.time | date_to_rfc822 }}_
 
 ## About
 
-- [About Me](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/menu/about.md): [Joshua Rogers — security researcher, hacker, writer](https://joshua.hu/about)
-- [Projects](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/menu/projects.md): [Portfolio of security tools and research projects](https://joshua.hu/projects)
-- [Topics](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/menu/topics.md): [Posts organized by subject](https://joshua.hu/topics)
-- [Contact](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/menu/contact.md): [Get in touch](https://joshua.hu/contact)
+- [About Me](https://joshua.hu/about.md): [Joshua Rogers — security researcher, hacker, writer](https://joshua.hu/about)
+- [Projects](https://joshua.hu/projects.md): [Portfolio of security tools and research projects](https://joshua.hu/projects)
+- [Topics](https://joshua.hu/topics.md): [Posts organized by subject](https://joshua.hu/topics)
+- [Contact](https://joshua.hu/contact.md): [Get in touch](https://joshua.hu/contact)
 
 ## Posts
 
 {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}{% for year in posts_by_year %}### {{ year.name }}
 
-{% for post in year.items %}- [{{ post.title }}](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/{{ post.path }}): [{{ post.description }}](https://joshua.hu{{ post.url }})
+{% for post in year.items %}- [{{ post.title }}](https://joshua.hu{{ post.markdown_url }}): [{{ post.description }}](https://joshua.hu{{ post.url }})
 {% endfor %}
 {% endfor %}
 
@@ -31,5 +31,5 @@ The raw Markdown sources linked above are provided for convenient machine consum
 
 ### Menu Pages
 
-{% assign menu_pages = site.pages | where_exp: "p", "p.path contains 'menu/'" %}{% for page in menu_pages %}- [{{ page.title }}](https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/{{ page.path }}): [{{ page.description }}](https://joshua.hu{{ page.url }})
+{% assign menu_pages = site.pages | where_exp: "p", "p.path contains 'menu/'" %}{% for page in menu_pages %}- [{{ page.title }}](https://joshua.hu{{ page.markdown_url }}): [{{ page.description }}](https://joshua.hu{{ page.url }})
 {% endfor %}
