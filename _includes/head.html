@@ -22,6 +22,9 @@
   <!-- Use RSS-2.0 -->
 
   <link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="{{ site.title }}"/>
+  {% if page.markdown_url %}
+    <link rel="alternate" type="text/markdown" href="{{ page.markdown_url | absolute_url }}" />
+  {% endif %}
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet" href="/assets/css/syntax.css">

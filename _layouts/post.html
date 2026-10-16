@@ -46,7 +46,7 @@ layout: default
   {% if page.image contains "/" %}
     <img src="{{ page.image }}" alt="{{ page.title | escape }}">
   {% else %}
-    <img src="{{ site.github.url }}/assets/img/{{ page.image }}" alt="{{ page.title | escape }}">
+    <img src="{{ site.url }}/assets/img/{{ page.image }}" alt="{{ page.title | escape }}">
   {% endif %}
 {% endif %}
 <article>
