@@ -18,7 +18,7 @@ Usage: automated indexing, retrieval, and summarization are welcome with attribu
 Title: {{ post.title }}
 Type: post
 URL: {{ site.url }}{{ post.url }}
-Source: https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/{{ post.path }}
+Source: {{ site.url }}{{ post.markdown_url }}
 Description: {{ post.description }}
 Date: {{ post.date | date_to_rfc822 }}
 Categories: {% for tag in post.tags %}{{ tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}
@@ -33,7 +33,7 @@ Categories: {% for tag in post.tags %}{{ tag }}{% unless forloop.last %}, {% end
 Title: {{ page.title | default: page.name }}
 Type: page
 URL: {{ site.url }}{{ page.url }}
-Source: https://raw.githubusercontent.com/megamansec/joshuahu/refs/heads/gh-pages/{{ page.path }}
+Source: {{ site.url }}{{ page.markdown_url }}
 Description: {{ page.description }}
 
 {{ page.content | strip_html | strip }}
