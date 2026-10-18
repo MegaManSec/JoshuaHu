@@ -26,6 +26,9 @@ jobs:
           ruby-version: "3.2"
           bundler-cache: true
 
+      - name: Generate social cards
+        run: python3 .github/social-card/generate.py --posts
+
       - name: Build site
         run: bundle exec jekyll build
         env:
