@@ -132,6 +132,7 @@ fallout, and other incidents, audits, and denial-of-service research.
 * [Attacking a temperamental ten-year-old Jenkins server](https://joshua.hu/attacking-a-ten-year-old-jenkins-server)
 * [My 2025 Bug Bounty Stories](https://joshua.hu/2025-bug-bounty-stories-fail)
 * [Some Thoughts on "Fixing Security Issues"](https://joshua.hu/Thoughts-on-Fixing-security-issues)
+* [RCE (kind of) in Transmission BitTorrent's daemon](https://joshua.hu/transmission-cors-rpc-csrf-rce-drive-by-exploit)
 
 ## Auth, accounts, and credential abuse
 
