@@ -61,13 +61,14 @@
   {% seo title=false %}
   {% comment %}
     jekyll-seo-tag emits og:image/twitter:image from page.image (defaulted
-    site-wide to the social card in _config.yml). Supplement the default
-    card's dimensions and alt text here; these og:image:* structured
-    properties must come after the og:image tag above.
+    site-wide to the social card in _config.yml, or a per-post card from
+    _plugins/social_card.rb). Supplement the generated cards' dimensions and
+    alt text here; these og:image:* structured properties must come after
+    the og:image tag above.
   {% endcomment %}
-  {% if page.image == "/assets/img/social-card.png" %}
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+  {% if page.image == "/assets/img/social-card.png" or page.image contains "/assets/img/social/" %}
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
     {% if page.path == "index.html" %}
       <meta property="og:image:alt" content="{{ site.title | escape }}" />
       <meta name="twitter:image:alt" content="{{ site.title | escape }}" />

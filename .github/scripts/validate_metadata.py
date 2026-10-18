@@ -5,7 +5,7 @@ Complements validate_posts.py (which checks source frontmatter): this script
 checks what actually ships -- Open Graph and Twitter tags, JSON-LD, canonical
 URLs, image existence and dimensions, and cross-page uniqueness.
 
-Run after `bundle exec jekyll build`:
+Run after generating the post cards and `bundle exec jekyll build`:
 
     python3 .github/scripts/validate_metadata.py [path/to/_site]
 
@@ -26,7 +26,8 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SITE_URL = "https://joshua.hu"
 SOCIAL_CARD = "/assets/img/social-card.png"
-SOCIAL_CARD_DIMS = (1200, 630)
+POST_CARD_DIR = "/assets/img/social/"
+SOCIAL_CARD_DIMS = (2400, 1260)
 # Directories in _site that contain artifacts, not pages.
 SKIP_DIRS = {"files", "assets", "vendor"}
 # Pages that must carry a Person JSON-LD entity.
@@ -130,7 +131,7 @@ def check_page(page: Path, site_dir: Path) -> tuple[list[str], Head]:
             errors.append(f"og:image points at a missing file: {img_url}")
         else:
             dims = png_dims(local) if local.suffix == ".png" else None
-            if img_url.endswith(SOCIAL_CARD) and dims != SOCIAL_CARD_DIMS:
+            if (img_url.endswith(SOCIAL_CARD) or POST_CARD_DIR in img_url) and dims != SOCIAL_CARD_DIMS:
                 errors.append(f"social card is {dims}, expected {SOCIAL_CARD_DIMS}")
             declared_w = (head.meta.get("og:image:width") or [None])[0]
             declared_h = (head.meta.get("og:image:height") or [None])[0]
@@ -159,6 +160,8 @@ def check_page(page: Path, site_dir: Path) -> tuple[list[str], Head]:
             errors.append("article page is missing `article:author`")
         if "BlogPosting" not in ld_types:
             errors.append("article page is missing BlogPosting JSON-LD")
+        if og_images and og_images[0].endswith(SOCIAL_CARD):
+            errors.append("article uses the site-wide social card (run .github/social-card/generate.py --posts)")
 
     rel = page.relative_to(site_dir).as_posix()
     if rel in PERSON_PAGES and "Person" not in ld_types:
