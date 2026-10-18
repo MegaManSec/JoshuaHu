@@ -50,9 +50,11 @@ include: [llms.txt, llms-full.txt]
 
 # Default social-sharing image for every page/post. jekyll-seo-tag picks it up
 # (og:image, twitter:image, twitter:card=summary_large_image, JSON-LD image);
-# posts can override it with their own `image:` front matter. The post layout
-# and head.html special-case this exact path -- keep them in sync if renamed.
-# Regenerate the card with: python3 .github/social-card/generate.py
+# posts can override it with their own `image:` front matter. Other posts get
+# their generated per-post card from assets/img/social/ (_plugins/social_card.rb)
+# when it exists. The post layout, head.html, and the plugin special-case these
+# paths -- keep them in sync if renamed.
+# Regenerate the cards with: python3 .github/social-card/generate.py [--posts]
 defaults:
   - scope:
       path: ""

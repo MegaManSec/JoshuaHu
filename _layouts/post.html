@@ -39,16 +39,17 @@ layout: default
   {{ page.title }}
 </h1>
 {% comment %}
-  page.image defaults to the site-wide social card (_config.yml defaults),
-  which is for link previews only -- don't render it in the post body.
+  page.image defaults to the site-wide social card (_config.yml defaults) or
+  a per-post card (_plugins/social_card.rb), which are for link previews
+  only -- don't render them in the post body.
 {% endcomment %}
-{% if page.image and page.image != "/assets/img/social-card.png" %}
+{% unless page.image == nil or page.image == "/assets/img/social-card.png" or page.image contains "/assets/img/social/" %}
   {% if page.image contains "/" %}
     <img src="{{ page.image }}" alt="{{ page.title | escape }}">
   {% else %}
     <img src="{{ site.url }}/assets/img/{{ page.image }}" alt="{{ page.title | escape }}">
   {% endif %}
-{% endif %}
+{% endunless %}
 <article>
   {% include anchor_headings.html html=content anchorBody="#" %}
 </article>
