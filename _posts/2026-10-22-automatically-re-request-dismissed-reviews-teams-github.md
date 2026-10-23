@@ -2,6 +2,7 @@
 layout: post
 title: "Automatically re-requesting a team and user review on GitHub review dismissal"
 tags: [programming, appsec, security]
+render_with_liquid: false
 description: "When GitHub dismisses a stale approval after a push, nobody is re-requested: not the reviewer, and not the team they reviewed on behalf of. A GitHub Actions workflow that automatically re-requests both."
 ---
 
@@ -13,7 +14,7 @@ The list of "Reviewers" is now only MegaManSec - regardless of whether the group
 
 The PR author changes something in the PR (or just rebases or merges main into the branch).
 
-If you have GitHub's "Dismiss stale pull request approvals when new commits are pushed" setting enabled, the review from MegaManSec (that's me!!1!) gets dismissed - but not re-requested, and other prodsec users won't have the opportunity to review it (or see it, if they look for "requested review" for their team).
+If you have GitHub's "Dismiss stale pull request approvals when new commits are pushed" setting enabled, the review from MegaManSec (that's me!!1!) gets dismissed - but not re-requested. The prodsec team is still missing from "Reviewers", so the PR doesn't show up in prodsec's review requests either. Other prodsec members can still review it, but nothing tells them that it's waiting on them.
 
 The solution? If a review is dismissed and a change is made, automatically re-request a review from both the person, _and_ their team which initially instigated the review (if applicable).
 
