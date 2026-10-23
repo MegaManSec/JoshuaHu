@@ -149,6 +149,7 @@ persistence, credential stuffing, and one very broken bank PIN.
 Smaller tools and practical notes: bash oddities, decompiler abuse, crawlers,
 and development-environment setups that actually work.
 
+* [Automatically re-requesting a team and user review on GitHub review dismissal](https://joshua.hu/automatically-re-request-dismissed-reviews-teams-github)
 * [CCBot: Chrome Checker Bot for Chrome Security Releases](https://joshua.hu/ccbot-chrome-checker-bot-googlechromereleases-chromium-updates)
 * [body: A bash script to get the middle of a file, instead of head \| tail](https://joshua.hu/body-head-tail-bash-script-middle-of-file)
 * [ipgrep: grepping for ip addresses](https://joshua.hu/ipgrep-grep-for-ip-address-bash-freebsd-macos-linux)
