@@ -352,6 +352,7 @@ I like the following brands, and general things.
 - Pi
 - The Game
 - Millennium Mambo
+- Chungking Express
 - Good Time
 - King of Comedy
 - Fantastic Planet
