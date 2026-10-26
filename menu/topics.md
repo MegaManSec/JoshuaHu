@@ -114,6 +114,7 @@ Kubernetes and Vault.
 The long ones: a 55-vulnerability Squid audit, supply-chain backdoors, libwebp
 fallout, and other incidents, audits, and denial-of-service research.
 
+* [Two parse5 bugs: text turning into HTML, and a two-character crash](https://joshua.hu/parse5-rewriting-stream-xss-surrogate-crash)
 * [33 Vulnerabilities in cJSON](https://joshua.hu/cjson-json-parser-cve-vulnerabilities)
 * [4 jsoup vulnerabilities](https://joshua.hu/4-jsoup-vulnerabilities)
 * [HtmlSanitizer bypass via a second body tag](https://joshua.hu/htmlsanitizer-sanitizedom-body-html-attribute-bypass)
