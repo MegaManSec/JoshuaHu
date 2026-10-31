@@ -34,6 +34,8 @@ This issue's [original report](https://github.com/npm/cli/issues/7211) is pretty
 
 Anyways, fixing it in npm counted as a breaking change, so it waited for npm 11, which [fixed it](https://github.com/npm/pacote/pull/407) in December 2024. npm 12 went further: it won't fetch git dependencies at all unless you set `allow-git` (default off), so the command above just fails with `EALLOWGIT`.
 
+Force an older npm, though, and it's back: `nvm install 22` (Node 22 still ships npm 10.9.9), or `corepack npm@10.9.9 pack ...`.
+
 ## `yarnPath`
 
 Yarn lets a repository pin its own copy of Yarn, in `.yarnrc.yml`:
