@@ -75,14 +75,24 @@ article h6 .anchor-link::after {
 
 .conditional-toc ul,
 .mobile-toc ul {
-  list-style: none;
+  list-style-type: circle;
   margin: 0;
-  padding-left: 0.75rem;
+  padding-left: 1rem;
 }
 
-.conditional-toc > ul,
-.mobile-toc nav > ul {
-  padding-left: 0;
+.conditional-toc ul ul,
+.mobile-toc ul ul {
+  list-style-type: disc;
+}
+
+.conditional-toc ul ul ul,
+.mobile-toc ul ul ul {
+  list-style-type: square;
+}
+
+.conditional-toc ul ul ul ul,
+.mobile-toc ul ul ul ul {
+  list-style-type: circle;
 }
 
 .conditional-toc li,
