@@ -141,6 +141,7 @@ fallout, and other incidents, audits, and denial-of-service research.
 How authentication breaks in practice: hardware keys and 2FA, session
 persistence, credential stuffing, and one very broken bank PIN.
 
+* [Security doesn't (always) have to be... so fucking annoying](https://joshua.hu/security-useless-changes-theatre)
 * [The End of Yubikeys as 2-Factor-Authentication? Google Breaks 2FA with Yubikeys in Favor of Passkeys](https://joshua.hu/enrolling-hardware-keys-2fa-google-workspace)
 * [On the Google Account Persistence Exploit](https://joshua.hu/on-google-account-persistence-exploit-malware-session-api-token-theft)
 * [Credential Stuffing Done Right: Some Tips](https://joshua.hu/credential-stuffing-done-right)
