@@ -77,7 +77,7 @@ article {
   box-sizing: border-box; /* Considers padding and borders within the width */
 }
 
-before-sidebar {
+.before-sidebar {
   display: none;
   visibility: hidden;
 }
@@ -85,6 +85,18 @@ before-sidebar {
 .sidebar {
   display: none;
   visibility: hidden;
+}
+
+.toc-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .actions {
@@ -203,6 +215,11 @@ before-sidebar {
 
   .tooltip-left:hover {
     color: $light-gray-color;
+  }
+
+  #toggle-toc:focus-visible + .actions .tooltip-left {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
   }
 
   .conditional-toc {

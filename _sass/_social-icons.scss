@@ -6,6 +6,17 @@
   padding-right: 10px;
 }
 
+.icon {
+  display: inline-block;
+  vertical-align: -0.125em;
+  overflow: visible;
+}
+
+.icon-lg {
+  font-size: 1.25em;
+  vertical-align: -0.2em;
+}
+
 @mixin social-media-icon($color, $transition){
   -webkit-transition: $transition;
   -o-transition: $transition;
@@ -17,38 +28,35 @@
   }
 }
 
-.fa-envelope {
+.icon-envelope {
   padding: 5px;
   @include social-media-icon($envelope-color, $icon-transition-time);
 }
 
-.fa-x-twitter {
+.icon-x-twitter {
   padding: 5px;
   @include social-media-icon($x-twitter-color, $icon-transition-time);
 }
 
-.fa-instagram {
+.icon-instagram {
   padding: 5px;
   @include social-media-icon($instagram-color, $icon-transition-time);
 }
 
-.fa-github {
+.icon-github {
   padding: 5px;
   @include social-media-icon($github-color, $icon-transition-time);
 }
 
-.fa-linkedin {
+.icon-linkedin {
   padding: 5px;
   @include social-media-icon($linkedin-color, $icon-transition-time);
 }
 
-.fa-hackernews {
-  padding-right: 5px;
-  padding-left: 5px;
+.icon-hackernews {
+  padding: 5px;
   width: 0.9rem;
   height: 0.9rem;
-  margin-bottom: -0.1rem;
-  content: url("/files/y18.svg");
   filter: grayscale(100%);
   transition: filter $icon-transition-time;
 
@@ -57,27 +65,27 @@
   }
 }
 
-.fa-facebook {
+.icon-facebook {
   padding: 5px;
   @include social-media-icon($facebook-color, $icon-transition-time);
 }
 
-.fa-pinterest {
+.icon-pinterest {
   padding: 5px;
   @include social-media-icon($pinterest-color, $icon-transition-time);
 }
 
-.fa-medium {
+.icon-medium {
   padding: 5px;
   @include social-media-icon($medium-color, $icon-transition-time);
 }
 
-.fa-codepen {
+.icon-codepen {
   padding: 5px;
   @include social-media-icon($codepen-color, $icon-transition-time);
 }
 
-.fa-rss-square {
+.icon-rss-square {
   padding: 5px;
   @include social-media-icon($rss-color, $icon-transition-time);
 }

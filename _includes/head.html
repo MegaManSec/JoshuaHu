@@ -13,7 +13,6 @@
   <link rel="preload" href="/assets/fonts/va9c4lja2NVIDdIAAoMR5MfuElaRB0zJt08.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMlrTA.woff2" as="font" type="font/woff2" crossorigin>
 
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="stylesheet" href="/assets/css/google-fonts.css">
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="preload" href="/assets/css/syntax.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -26,10 +25,8 @@
   {% if page.markdown_url %}
     <link rel="alternate" type="text/markdown" href="{{ page.markdown_url | absolute_url }}" />
   {% endif %}
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet" href="/assets/css/syntax.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </noscript>
   {% if page.path contains "_posts" %}
     <meta property="article:author" content="https://joshua.hu/about" />
