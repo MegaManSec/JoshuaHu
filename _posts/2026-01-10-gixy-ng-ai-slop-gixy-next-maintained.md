@@ -215,7 +215,7 @@ In the above screenshot, dvershinin used CoPilot to "author" some AI slop code, 
 
 This was in a repository related to one of dvershinin's paid offerings. I suppose his paid offerings are about the same quality as his gixy-ng slop, too.
 
-| ![dvershinin's conversation with copilot](/files/slop/10.png) |
+| ![dvershinin's conversation with copilot](/files/slop/10.jpg) |
 | :-------------------------------------------------------: |
 |            *dvershinin's conversation with copilot*           |
 
