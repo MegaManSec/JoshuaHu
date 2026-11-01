@@ -17,7 +17,7 @@ layout: default
       <input type="checkbox" id="toggle-toc" class="toc-toggle" aria-label="Hide table of contents">
       <script>try{if(localStorage.getItem('toc-hidden')==='1')document.getElementById('toggle-toc').checked=true}catch(e){}</script>
       <div class="actions">
-        <a href="#" class="toc-top" aria-label="Back to top">{% include icon.html name="chevron-up" %}Top</a>
+        <a href="#" class="toc-top">{% include icon.html name="chevron-up" %}Top</a>
         <label for="toggle-toc" class="toc-hide">{% include icon.html name="bars" %}<span class="toc-when-shown">Hide</span><span class="toc-when-hidden">Show</span></label>
       </div>
       <nav class="conditional-toc" aria-label="Table of contents">
