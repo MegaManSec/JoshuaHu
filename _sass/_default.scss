@@ -31,8 +31,9 @@
 
 .header {
   padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
   margin-bottom: 4rem;
+  border-bottom: 1px solid $extra-light-gray-color;
   font-family: $sans-serif-font-family;
 }
 
@@ -40,7 +41,7 @@ header::after {
   content: "";
   display: block;
   clear: both;
-};
+}
 
 .header a:hover {
   color:black;
