@@ -29,32 +29,32 @@
 }
 
 .icon-envelope {
-  padding: 5px;
+  padding: 5px 3px;
   @include social-media-icon($envelope-color, $icon-transition-time);
 }
 
 .icon-x-twitter {
-  padding: 5px;
+  padding: 5px 3px;
   @include social-media-icon($x-twitter-color, $icon-transition-time);
 }
 
 .icon-instagram {
-  padding: 5px;
+  padding: 5px 3px;
   @include social-media-icon($instagram-color, $icon-transition-time);
 }
 
 .icon-github {
-  padding: 5px;
+  padding: 5px 3px;
   @include social-media-icon($github-color, $icon-transition-time);
 }
 
 .icon-linkedin {
-  padding: 5px;
+  padding: 5px 3px;
   @include social-media-icon($linkedin-color, $icon-transition-time);
 }
 
 .icon-hackernews {
-  padding: 5px;
+  padding: 5px 3px;
   width: 0.9rem;
   height: 0.9rem;
   filter: grayscale(100%);
@@ -66,26 +66,26 @@
 }
 
 .icon-facebook {
-  padding: 5px;
+  padding: 5px 3px;
   @include social-media-icon($facebook-color, $icon-transition-time);
 }
 
 .icon-pinterest {
-  padding: 5px;
+  padding: 5px 3px;
   @include social-media-icon($pinterest-color, $icon-transition-time);
 }
 
 .icon-medium {
-  padding: 5px;
+  padding: 5px 3px;
   @include social-media-icon($medium-color, $icon-transition-time);
 }
 
 .icon-codepen {
-  padding: 5px;
+  padding: 5px 3px;
   @include social-media-icon($codepen-color, $icon-transition-time);
 }
 
 .icon-rss-square {
-  padding: 5px;
+  padding: 5px 3px;
   @include social-media-icon($rss-color, $icon-transition-time);
 }

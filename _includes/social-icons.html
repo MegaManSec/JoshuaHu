@@ -1,18 +1,10 @@
-{% for item in site.data.settings.social %}
-  {% assign first_char = item.link | slice: 0 %}
-  {% assign label = item.label | default: item.icon %}
-
-  {% if first_char != 'h' %}
-    <a href="{{ site.baseurl }}{{ item.link }}"
-       aria-label="{{ label }}">
-      {% include icon.html name=item.icon %}
-    </a>
-  {% else %}
-    <a href="{{ item.link }}"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="{{ label }}">
-      {% include icon.html name=item.icon %}
-    </a>
-  {% endif %}
-{% endfor %}
+{%- for item in site.data.settings.social -%}
+  {%- assign first_char = item.link | slice: 0 -%}
+  {%- assign label = item.label | default: item.icon -%}
+  {%- capture svg -%}{% include icon.html name=item.icon %}{%- endcapture -%}
+  {%- if first_char != 'h' -%}
+    <a href="{{ site.baseurl }}{{ item.link }}" aria-label="{{ label }}">{{ svg | strip }}</a>
+  {%- else -%}
+    <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer" aria-label="{{ label }}">{{ svg | strip }}</a>
+  {%- endif -%}
+{%- endfor -%}
