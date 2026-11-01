@@ -2,31 +2,23 @@
 layout: default
 ---
 
+{% assign toc_h_max = 6 %}
+{% if page.toc_depth %}
+  {% assign toc_h_max = page.toc_depth | plus: 1 %}
+{% endif %}
 {% capture toc_content %}
-  {% include toc.html html=content sanitize=true %}
+  {% include toc.html html=content sanitize=true h_max=toc_h_max %}
 {% endcapture %}
+{% assign toc_items = toc_content | split: '<li' | size | minus: 1 %}
 
 {% if toc_content and toc_content.size > 20 %}
   <div class="before-sidebar">
     <div class="sidebar">
       <input type="checkbox" id="toggle-toc" class="toc-toggle" aria-label="Hide table of contents">
+      <script>try{if(localStorage.getItem('toc-hidden')==='1')document.getElementById('toggle-toc').checked=true}catch(e){}</script>
       <div class="actions">
-        <ul class="icon-list">
-          <li class="up-arrow">
-            <a href="#" class="tooltip" aria-label="Back to top">
-              {% include icon.html name="chevron-up" class="icon-lg" %}
-              <span class="tooltiptext">Back To Top</span>
-            </a>
-          </li>
-          <li class="sidebar-spacer" style="margin: 0 50px;"></li>
-          <li class="bars">
-            <label for="toggle-toc" class="tooltip-left">
-              {% include icon.html name="bars" class="icon-lg" %}
-              <span class="tooltiptext-left">Hide ToC</span>
-              <span class="tooltiptext-left-checked">Show ToC</span>
-            </label>
-          </li>
-        </ul>
+        <a href="#" class="toc-top" aria-label="Back to top">{% include icon.html name="chevron-up" %}Top</a>
+        <label for="toggle-toc" class="toc-hide">{% include icon.html name="bars" %}<span class="toc-when-shown">Hide</span><span class="toc-when-hidden">Show</span></label>
       </div>
       <nav class="conditional-toc" aria-label="Table of contents">
         {{ toc_content }}
@@ -50,6 +42,14 @@ layout: default
     <img src="{{ site.url }}/assets/img/{{ page.image }}" alt="{{ page.title | escape }}">
   {% endif %}
 {% endunless %}
+{% if toc_items >= 3 %}
+  <details class="mobile-toc">
+    <summary>Contents</summary>
+    <nav aria-label="Table of contents">
+      {{ toc_content }}
+    </nav>
+  </details>
+{% endif %}
 <article>
   {% include anchor_headings.html html=content anchorBody="#" %}
 </article>
@@ -61,4 +61,45 @@ layout: default
 {% endif %}
 {% if site.data.settings.disqus.comments %}
   {% include disqus.html %}
+{% endif %}
+{% if toc_content and toc_content.size > 20 %}
+<script>
+(function () {
+  var toggle = document.getElementById('toggle-toc');
+  var sidebar = document.querySelector('.sidebar');
+  var toc = document.querySelector('.conditional-toc');
+  var bar = document.querySelector('.actions');
+  if (!toggle || !sidebar || !toc || !bar) return;
+  toggle.addEventListener('change', function () {
+    try { localStorage.setItem('toc-hidden', toggle.checked ? '1' : '0'); } catch (e) {}
+  });
+  var items = [];
+  toc.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    var heading = document.getElementById(decodeURIComponent(link.getAttribute('href').slice(1)));
+    if (heading) items.push({ link: link, heading: heading });
+  });
+  if (!items.length) return;
+  var current = null, pending = false;
+  function update() {
+    pending = false;
+    if (sidebar.offsetParent === null) return;
+    var active = null;
+    for (var i = 0; i < items.length && items[i].heading.getBoundingClientRect().top <= 120; i++) active = items[i];
+    if (active === current) return;
+    if (current) current.link.removeAttribute('aria-current');
+    current = active;
+    if (!current) return;
+    current.link.setAttribute('aria-current', 'true');
+    var box = sidebar.getBoundingClientRect(), row = current.link.getBoundingClientRect(), top = box.top + bar.offsetHeight;
+    if (row.top < top) sidebar.scrollTop -= top - row.top + 8;
+    else if (row.bottom > box.bottom) sidebar.scrollTop += row.bottom - box.bottom + 8;
+  }
+  function schedule() {
+    if (!pending) { pending = true; requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule);
+  update();
+})();
+</script>
 {% endif %}
