@@ -42,7 +42,7 @@ A list of each package ever can be found by searching each category. For example
 
 If, for example, we wanted to find the `.deb` packages for `tmux(1)` that were available on September 3, 2017, we can navigate to [https://snapshot.debian.org/archive/debian/20170903T215859Z/pool/main/t/tmux/](https://snapshot.debian.org/archive/debian/20170903T215859Z/pool/main/t/tmux/) and see the various versions that were available at the time. https://snapshot.debian.org/archive/debian/20240901T024950Z/pool/main/t/tmux/ would show what is available today (September 26, 2024).
 
-We can also do a reverse-lookup, based on the package. Looking up `tmux` at [https://snapshot.debian.org/binary/tmux/](https://snapshot.debian.org/binary/tmux/), we can then find all of the versions ever published: from `3.5~git20240823-2`, all the way to `0.8-4`. Then, on [https://snapshot.debian.org/binary/tmux/0.8-4/](https://snapshot.debian.org/binary/tmux/0.8-4/), we can find all of the `.deb` files for this version (for SPARC, powerpc, amd64, i386, and so on).
+We can also do a reverse-lookup, based on the package. Looking up `tmux` at [https://snapshot.debian.org/binary/tmux/](https://snapshot.debian.org/binary/tmux/), we can then find all of the versions ever published: from `3.5~git20240823-2`, all the way to `0.8-4`. Then, on [https://snapshot.debian.org/package/tmux/0.8-4/](https://snapshot.debian.org/package/tmux/0.8-4/), we can find all of the `.deb` files for this version (for SPARC, powerpc, amd64, i386, and so on).
 
 With this information, we can create a script which will download each of the Debian packages. Hopefully.
 

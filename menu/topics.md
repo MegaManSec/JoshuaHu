@@ -56,7 +56,7 @@ and making Firefox behave.
 * [Slack login is broken with noscript](https://joshua.hu/slack-is-broken-with-noscript)
 * [Making Firefox's right-click not suck with about:config](https://joshua.hu/firefox-making-right-click-not-suck)
 * [Making Firefox's right-click not suck, even more, with userChrome.css](https://joshua.hu/firefox-making-right-click-not-suck-even-more-with-userchrome)
-* [Always 'Copy Clean Link' when possible on Firefox, with userChrome.css](https://joshua.hu/2026-03-17-firefox-always-copy-clean-link-url-userchrome-css)
+* [Always 'Copy Clean Link' when possible on Firefox, with userChrome.css](https://joshua.hu/firefox-always-copy-clean-link-url-userchrome-css)
 
 ## FreeBSD, Macs, and hardened networking
 

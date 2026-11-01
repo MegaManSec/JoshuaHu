@@ -43,14 +43,14 @@ I decided to write this bot in PHP since it had in-built XML parsing, and MySQL 
 
 **Step 1: Retrieve Latest Listings**
 
-eBay provides various APIs for retrieving data from its website. In order to retrieve the "latest listings", I used the "findItemsAdvanced" API, which spews out some basic information about the most recently listed items ([example in JSON](https://developer.ebay.com/devzone/finding/callref/Samples/findItemsAdvanced_basic_out_json.txt)).
+eBay provides various APIs for retrieving data from its website. In order to retrieve the "latest listings", I used the "findItemsAdvanced" API, which spews out some basic information about the most recently listed items ([example in JSON](https://web.archive.org/web/20220521125451/https://developer.ebay.com/devzone/finding/CallRef/Samples/findItemsAdvanced_basic_out_json.txt)).
 Most of that information was useless to me, so I solely used this API to grab the unique listing item (_itemId_).
 Enumerating each of the _itemid_ values, the local database was queried to check whether there were any new listings.
 
 **Step 2: Retrieve Information About Latest Listings**
 
 If there are any new listings that had not been added to the database, the next step was to retrieve all the information about that listing, and decide what to do with the data.
-eBay provides another API to retrieve detailed information about listings, called [GetSingleItem](https://developer.ebay.com/devzone/shopping/docs/CallRef/GetSingleItem.html#detailControls).  They also provide an API to retrieve information about the shipping details of an item (some listers would inflate shipping costs, making their listing appear cheaper in the "original price") named [GetShippingCosts](https://developer.ebay.com/devzone/shopping/docs/CallRef/GetShippingCosts.html).
+eBay provides another API to retrieve detailed information about listings, called [GetSingleItem](https://web.archive.org/web/20220516213720/https://developer.ebay.com/Devzone/shopping/docs/CallRef/GetSingleItem.html#detailControls).  They also provide an API to retrieve information about the shipping details of an item (some listers would inflate shipping costs, making their listing appear cheaper in the "original price") named [GetShippingCosts](https://web.archive.org/web/20220518004402/https://developer.ebay.com/DevZone/shopping/docs/CallRef/GetShippingCosts.html).
 By using these two APIs, the following information was collected:
 
 |Field| Type   | Note                                  |

@@ -82,7 +82,7 @@ $ chmod 1777 /tmp
 
 ---
 
-This Macbook uses a Broadcom [BCM43602](https://www.broadcom.com/products/wireless/wireless-lan-infrastructure/bcm4360) chip for WiFi. Although the chip is supported on Linux, it will never be officially supported by FreeBSD due to licensing and technical reasons (a proprietary, closed-source driver is necessary). But, it is still possible to use it on a FreeBSD system.
+This Macbook uses a Broadcom [BCM43602](https://web.archive.org/web/20240910104837/https://www.broadcom.com/products/wireless/wireless-lan-infrastructure/bcm4360) chip for WiFi. Although the chip is supported on Linux, it will never be officially supported by FreeBSD due to licensing and technical reasons (a proprietary, closed-source driver is necessary). But, it is still possible to use it on a FreeBSD system.
 
 [Wifibox(8)](https://www.freshports.org/net/wifibox/) is an extremely helpful project that spins up a very-low-resource Alpine Linux VM using FreeBSD's [bhyve (BSD hypervisor)](https://wiki.freebsd.org/bhyve), and passes through the system's wireless card from the FreeBSD machine into the guest, essentially using the Linux VM as a wifi driver. That's how we'll be using wifi on this system.
 
@@ -139,11 +139,11 @@ $ pkg add wifibox-core-0.13.0.pkg
 
 If you do not have access to another FreeBSD machine, you can download these files manually from here -- **Note**: they may be outdated by the time you're reading this.
 
-- [grub2-bhyve-0.40_11.pkg](http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/grub2-bhyve-0.40_11.pkg)
-- [socat-1.8.0.1.pkg](http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/socat-1.8.0.1.pkg)
-- [wifibox-1.4.2.pkg](http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/wifibox-1.4.2.pkg)
-- [wifibox-alpine-20240506.pkg](http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/wifibox-alpine-20240506.pkg)
-- [wifibox-core-0.13.0.pkg](http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/wifibox-core-0.13.0.pkg)
+- [grub2-bhyve-0.40_11.pkg](https://web.archive.org/web/20241202114637/http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/grub2-bhyve-0.40_11.pkg)
+- [socat-1.8.0.1.pkg](https://web.archive.org/web/20241127152313/http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/socat-1.8.0.1.pkg)
+- [wifibox-1.4.2.pkg](https://www.freshports.org/net/wifibox/)
+- [wifibox-alpine-20240506.pkg](https://web.archive.org/web/20240927102109/http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/wifibox-alpine-20240506.pkg)
+- [wifibox-core-0.13.0.pkg](https://www.freshports.org/net/wifibox-core/)
 
 The only problem with this method is that the default _RECOVERY_ option for `wifibox` is `RECOVER_RESTART_VMM`. This means that on suspend, no action is taken; and on resume, the guest is stopped, `vmm(4)` is unloaded and loaded, and then the guest is started again. On this Macbook, this is not possible, as `vmm` causes a full system hang upon resume if it is still loaded upon suspend. I have a patch for this (details below), but it has not yet landed in the FreeBSD source as of writing this.
 
@@ -225,11 +225,11 @@ The files will be sitting in `/tmp/All/`.
 
 Or manually:
 
-- [gtar-1.35_1.pkg](http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/gtar-1.35_1.pkg)
-- [patchelf-0.14.3_1.pkg](http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/patchelf-0.14.3_1.pkg)
-- [squashfs-tools-ng-1.3.1.pkg](http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/squashfs-tools-ng-1.3.1.pkg)
-- [socat-1.8.0.1.pkg](http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/socat-1.8.0.1.pkg)
-- [grub2-bhyve-0.40_11.pkg](http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/grub2-bhyve-0.40_11.pkg)
+- [gtar-1.35_1.pkg](https://web.archive.org/web/20240926191808/http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/gtar-1.35_1.pkg)
+- [patchelf-0.14.3_1.pkg](https://web.archive.org/web/20240927104806/http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/patchelf-0.14.3_1.pkg)
+- [squashfs-tools-ng-1.3.1.pkg](https://www.freshports.org/filesystems/squashfs-tools-ng/)
+- [socat-1.8.0.1.pkg](https://web.archive.org/web/20241127152313/http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/socat-1.8.0.1.pkg)
+- [grub2-bhyve-0.40_11.pkg](https://web.archive.org/web/20241202114637/http://pkg.freebsd.org/FreeBSD:13:amd64/latest/All/grub2-bhyve-0.40_11.pkg)
 
 Next, we need to download the packages that build the Alpine Linux VM. If you're using a different FreeBSD machine to do this, you can just clone [https://github.com/pgj/freebsd-wifibox-port.git](https://github.com/pgj/freebsd-wifibox-port.git), run `make -C freebsd-wifibox-port/net/wifibox-alpine`, and then find the packages in `/usr/ports/distfiles/wifibox-alpine/`. If you're not using FreeBSD yet, you need to download the files manually. This is super annoying, so I'm just going to link each of the packages for the time being:
 
@@ -402,7 +402,7 @@ lease {
 }                                     
 ```
 
-The guest VM acquires a lease from the connected-to wifi network, and then leases the FreeBSD host 10.0.0.1. If you want the lease to use a different address, or port-foward _to_ the FreeBSD host, have a read [of this blog](https://xyinn.org/md/freebsd/wifibox) for some more information about that. Although the network topology is really basic, the tl;dr is that..
+The guest VM acquires a lease from the connected-to wifi network, and then leases the FreeBSD host 10.0.0.1. If you want the lease to use a different address, or port-foward _to_ the FreeBSD host, have a read [of this blog](https://web.archive.org/web/20241124061633/https://xyinn.org/md/freebsd/wifibox) for some more information about that. Although the network topology is really basic, the tl;dr is that..
 
 ```
 **NOTE**: If you have something running on those addresses (like I have wireguard on **10.0.0.1**), you'll 
@@ -522,7 +522,7 @@ $ pkg install xorg drm-kmod xf86-video-intel
 
 ---
 
-**Note**: The older `xf86-video-intel` package is used because the GPU on this Macbook is fairly outdated, and significant screen tearing occurs with kernel modesetting ([DRM](https://wiki.ubuntu.com/X/Glossary#What_is_.22DRI.22.3F__What_is_.22DRM.22.3F_.22DDX.22.3F)). **If and only if** you want to try your luck _without_ the `xf86-video-intel` package and instead use [DDX](https://wiki.ubuntu.com/X/Glossary#What_is_.22DRI.22.3F__What_is_.22DRM.22.3F_.22DDX.22.3F), you need to manually load the kernel module and/or set it to be loaded automatically:
+**Note**: The older `xf86-video-intel` package is used because the GPU on this Macbook is fairly outdated, and significant screen tearing occurs with kernel modesetting ([DRM](https://web.archive.org/web/20240927033058/https://wiki.ubuntu.com/X/Glossary#What_is_.22DRI.22.3F__What_is_.22DRM.22.3F_.22DDX.22.3F)). **If and only if** you want to try your luck _without_ the `xf86-video-intel` package and instead use [DDX](https://web.archive.org/web/20240927033058/https://wiki.ubuntu.com/X/Glossary#What_is_.22DRI.22.3F__What_is_.22DRM.22.3F_.22DDX.22.3F), you need to manually load the kernel module and/or set it to be loaded automatically:
 
 ```bash
 $ kldload /boot/modules/i915kms.ko
@@ -1048,7 +1048,7 @@ vainfo: Supported profile and entrypoints
 
 ---
 
-For Firefox, we need to specifically enable hardware acceleration. This is as simple as visiting [about:config](about:config) and setting the `gfx.webrender.all` configuration to `true`. I have read elsewhere how various other flags need to be changed, [like some 'media...' flags](https://forums.freebsd.org/threads/dedicated-gpu-runs-hot-for-absolutely-no-reason.90315/post-623703) as well as [browser.tabs.remote.autostart and the setting of the environmental value MOZ_X11_EGL=1](https://www.reddit.com/r/freebsd/comments/igq5xd/comment/g2vbzpc/). Even the official Github repository mentions some of these [flags and variables](https://github.com/elFarto/nvidia-vaapi-driver). But, as far as I can tell, and with all benchmarks tested, this is not the case. Unless I'm missing something quite serious, it is not necessary to set any flag other than `gfx.webrender.all`, and no environmental values are necessary.
+For Firefox, we need to specifically enable hardware acceleration. This is as simple as visiting `about:config` and setting the `gfx.webrender.all` configuration to `true`. I have read elsewhere how various other flags need to be changed, [like some 'media...' flags](https://forums.freebsd.org/threads/dedicated-gpu-runs-hot-for-absolutely-no-reason.90315/post-623703) as well as [browser.tabs.remote.autostart and the setting of the environmental value MOZ_X11_EGL=1](https://www.reddit.com/r/freebsd/comments/igq5xd/comment/g2vbzpc/). Even the official Github repository mentions some of these [flags and variables](https://github.com/elFarto/nvidia-vaapi-driver). But, as far as I can tell, and with all benchmarks tested, this is not the case. Unless I'm missing something quite serious, it is not necessary to set any flag other than `gfx.webrender.all`, and no environmental values are necessary.
 
 
 There is a [long-standing bug](https://forums.freebsd.org/threads/sleep-resume-caveats-and-gotchas.90831/post-638290) in X on FreeBSD, where hardware acceleration will cease to work if the virtual terminal is switched more than once. Since we boot into v0 and the X session occupies v8, any changes from the X session will make acceleration stop working until a reboot.
