@@ -7,6 +7,8 @@ description: "OLX hides the email address I typed one second earlier from... me.
 
 It just doesn't have to be like this. It just doesn't.
 
+This is probably a weird thing for somebody who works in security to say, but I care about the experience of the people using a product more than anything else -- yes, even more than security. As I wrote on my [services](/services) page: if you have the best system in the world but it makes customers want to kill themselves while using it, then you don't have the best system in the world. Security that makes people miserable, while doing nothing to attackers, is the antithesis of everything I care about.
+
 I forgot my OLX password, used the reset form, and it said it'd send me a code. I filled it in:
 
 | <img src="/files/security-theatre/olx-forgot-password.png" alt="OLX's forgot password form, with my email typed into the email field" width="500"> |
@@ -27,7 +29,7 @@ The masked version is literally generated from what I _just_ typed, so it can't 
 
 It makes me miserable thinking about the developers, or god forbid the security team, seeing this flow, and thinking, "oh yeah, we've really secured the machine! checkmarks checked, let's celebrate."
 
-In reality, what it _does_ do, however, is make it impossible to know whether I made a typo. Did I type `joshua.hu` or `jsohua.hu`? `olx@` or `olz@`? Who knows; OLX doesn't even show the TLD. So when the email doesn't arrive, I get to play a really fun guessing game: did I mistype my email address? Is it in spam? Is OLX's email just slow? Did OLX not send anything at all, because there's no account with that email address? Who knows!
+What it _does_ do, however, is make it impossible to know whether I made a typo. Did I type `joshua.hu` or `jsohua.hu`? `olx@` or `olz@`? Who knows; OLX doesn't even show the TLD. So when the email doesn't arrive, I get to play a really fun guessing game: did I mistype my email address? Is it in spam? Is OLX's email just slow? Did OLX not send anything at all, because there's no account with that email address? Who knows!
 
 Also, the form asked me where to send the _code_, and then this page says it sent a _link_. Yes, this is me being overly pedantic, but consistency in UX matters.
 
@@ -59,7 +61,7 @@ Forcing a password change every 90 days.
 
 ---
 
-Bank (and really, seemingly only banks?) logins with "_enter the 2nd, 5th, and 9th character of your password_". Lol what? Does this imply they aren't just storing a hash of the whole password? Doesn't it also reduce the search-space for a (real) brute-force attack (not that it's really relevant in the real world, but whatever). Meanwhile, the thing that stole your whole password ... has access to those specific characters too.
+Bank (and really, seemingly only banks?) logins with "_enter the 2nd, 5th, and 9th character of your password_". Lol what? Does this imply they aren't just storing a hash of the whole password? Doesn't it also reduce the search-space for a (real) brute-force attack (not that it's really relevant in the real world, but whatever)? Meanwhile, the thing that stole your whole password ... has access to those specific characters too.
 
 ---
 
@@ -75,7 +77,7 @@ Disabling right-click and text selection, "to protect our content". The content 
 
 ---
 
-This one isn't a real security boundary (and GitHub doesn't pretend it is), but it's too good to leave out: GitHub Actions masks secrets in logs by replacing their value anywhere it appears. If a secret's value happens to be `production`, every "production" in every log line becomes `***`. Meanwhile, `echo "$SECRET" | base64` prints the secret just fine.
+This one isn't a real security boundary (and GitHub doesn't pretend it is), but it's too good to leave out: GitHub Actions masks secrets in logs by replacing their value anywhere it appears. If a secret's value happens to be `production`, every "production" in every log line becomes `***`. Meanwhile, `echo "$SECRET" | base64` prints the secret just fine: GitHub masks the base64 too, but `echo` adds a newline, which changes the encoding of any secret whose length isn't a multiple of three (`production` included).
 
 ---
 
@@ -91,7 +93,7 @@ Locking an account after three failed login attempts. Now anybody who knows my e
 
 ---
 
-Blocking logins from "unusual locations". I'm in a hotel abroad, trying to log in, and I'm blocked because I'm not in my usual country. The attacker, meanwhile, is using a residential proxy in my home city, and walks straight in. I've written a whole series about this type of thing: a [travel insurer that blocked all of Asia](/losing-sight-vision-mission-of-your-role) while its customer sat in a hospital in Asia trying to make a claim, an [airline app that refused to work](/losing-sight-vision-mission-of-your-role-part-2) without a 200MB update over 15 minutes of airport WiFi, and Cloudflare's bot protection blocking [a paid website's own API and support form](/losing-sight-vision-mission-of-your-role-part-3), and [report-uri.com's own report endpoint](/losing-sight-vision-mission-of-your-role-part-3-5).
+Blocking logins from "unusual locations". I'm in a hotel abroad, trying to log in, and I'm blocked because I'm not in my usual country. The attacker, meanwhile, is using a residential proxy in my home city, and walks straight in. I've written a whole series about users getting locked out, by location and otherwise: a [travel insurer that blocked all of Asia](/losing-sight-vision-mission-of-your-role) while its customer sat in a hospital in Asia trying to make a claim, an [airline app that refused to work](/losing-sight-vision-mission-of-your-role-part-2) without a 200MB update over 15 minutes of airport WiFi, and Cloudflare's bot protection blocking [a paid website's own API and support form](/losing-sight-vision-mission-of-your-role-part-3), and even [report-uri.com's own report endpoint](/losing-sight-vision-mission-of-your-role-part-3-5).
 
 ---
 
@@ -99,7 +101,7 @@ Web Application Firewalls in front of the "report a security vulnerability" form
 
 ---
 
-Corporate TLS interception: a "next-generation" proxy that man-in-the-middles every HTTPS connection, so it can inspect the traffic for threats. Immediately, `npm`, `pip`, and `git` all break, because none of them trust the company's root certificate. Within a week, every developer has `NODE_TLS_REJECT_UNAUTHORIZED=0` in their shell profile, `trusted-host` in their `pip.conf`, `http.sslVerify=false` in their `.gitconfig`, and `-k` on every `curl`. Congratulations: the security product has disabled certificate verification for the entire company -- and those settings follow the laptops home, to the café WiFi.
+Corporate TLS interception: a "next-generation" proxy that man-in-the-middles every HTTPS connection, so it can inspect the traffic for threats. Immediately, `npm` and `git` both break, because neither trusts the company's root certificate. Within a week, every developer has `NODE_TLS_REJECT_UNAUTHORIZED=0` in their shell profile, `http.sslVerify=false` in their `.gitconfig`, and `-k` on every `curl`. Congratulations: the security product has disabled certificate verification for the entire company -- and those settings follow the laptops home, to the café WiFi.
 
 ---
 
