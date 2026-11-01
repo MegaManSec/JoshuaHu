@@ -23,7 +23,7 @@ Note: there are a couple of hidden menu items that didn't show up in my previous
 
 Below are instructions for hiding all of the menu items that I find useless.
 
-First, we navigate to [about:profiles](about:profiles), and find the "*Root Directory*" of the profile currently in use (the top-most one also specified by "_This is the profile in use_"). Mine is `/Users/jrogers/Library/Application Support/Firefox/Profiles/escb03o9.default-release`. In that directory, we need to create a new directory `chrome/`, and in _that_ directory, create a file called `userChrome.css`. Put the following in that file:
+First, we navigate to `about:profiles`, and find the "*Root Directory*" of the profile currently in use (the top-most one also specified by "_This is the profile in use_"). Mine is `/Users/jrogers/Library/Application Support/Firefox/Profiles/escb03o9.default-release`. In that directory, we need to create a new directory `chrome/`, and in _that_ directory, create a file called `userChrome.css`. Put the following in that file:
 
 ```css
 /* To default to always cleaning links by default if possible, see also:
@@ -107,7 +107,7 @@ Next, we open `about:config`, and then set `toolkit.legacyUserProfileCustomizati
 
 # Finding the IDs
 
-Finding the IDs for the CSS selectors was not an easy task. There is no documentation for the IDs, viewing [view-source:chrome://browser/content/browser.xhtml](view-source:chrome://browser/content/browser.xhtml) gives you a list of IDs but does not make it obvious which one corresponds to which menu item, so you have to use some weird inspection method to view the source code of the context menu. I will list the instructions below.
+Finding the IDs for the CSS selectors was not an easy task. There is no documentation for the IDs, viewing `view-source:chrome://browser/content/browser.xhtml` gives you a list of IDs but does not make it obvious which one corresponds to which menu item, so you have to use some weird inspection method to view the source code of the context menu. I will list the instructions below.
 
 1. First things first, open the DevTools/Inspector on any page.
 2. Click the "..." in the top-right of the DevTools, select Settings, and then at the bottom right of that page, there should be "Enable remote debugging" and "Enable browser chrome and add-on debugging toolboxes". Tick those.

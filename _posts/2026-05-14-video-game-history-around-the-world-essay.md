@@ -47,7 +47,7 @@ DMA Design. (2001). Grand Theft Auto III [Video game]. New York: Rockstar Games,
 
 Donovan, A. (2015). Globalization: The UK Games Industry from the Mid-1990s to the Present Day. In Iwatani, T., & Wolf, M (Eds.), Video Games Around The World. (pp. 579-590). MIT Press.
 
-jhayward1283. (2014). Rad racer Indian version. Retrieved from [http://nintendoage.com/forum/messageview.cfm?catid=5&threadid=139340](http://nintendoage.com/forum/messageview.cfm?catid=5&threadid=139340)
+jhayward1283. (2014). Rad racer Indian version. Retrieved from [http://nintendoage.com/forum/messageview.cfm?catid=5&threadid=139340](https://web.archive.org/web/20191025005528/http://nintendoage.com/forum/messageview.cfm?catid=5&threadid=139340)
 
 Jones, D. (2010). A Rare Glimpse. Retro Gamer, (84), pp. 34-5.
 
@@ -55,7 +55,7 @@ Mukherjee, S. (2015). INDIA. In Wolf, M. J. & Iwatani, T (Eds.), Video Games Aro
 
 Navarro-Remesal, V. (2017). Museums of Failure: Fans as Curators of "Bad", Unreleased, and "Flopped" Videogames. In Swalwell, M., Stuckey, H., & Ndalianis, A (Eds.), Fans and Videogames: Histories, Fandom, Archives (pp. 128-145). Taylor & Francis.
 
-Niccol, B. (2017). DiGRA Conference. Forgotten, failed, or overlooked? Towards a critical understanding of 'minor' game histories. (pp. 1-3). Retrieved from [http://digra2017.com/static/Extended%20Abstracts/76_DIGRA2017_EA_Nicoll_Forgotten_Games.pdf](http://digra2017.com/static/Extended%20Abstracts/76_DIGRA2017_EA_Nicoll_Forgotten_Games.pdf).
+Niccol, B. (2017). DiGRA Conference. Forgotten, failed, or overlooked? Towards a critical understanding of 'minor' game histories. (pp. 1-3). Retrieved from [http://digra2017.com/static/Extended%20Abstracts/76_DIGRA2017_EA_Nicoll_Forgotten_Games.pdf](https://web.archive.org/web/20230324100457/https://digra2017.com/static/Extended%20Abstracts/76_DIGRA2017_EA_Nicoll_Forgotten_Games.pdf).
 
 Nintendo Entertainment System hardware clone. (n.d.). In Wikipedia. Retrieved October 24, 2017, from [https://en.wikipedia.org/wiki/Nintendo_Entertainment_System_hardware_clone](https://en.wikipedia.org/wiki/Nintendo_Entertainment_System_hardware_clone)
 
@@ -69,4 +69,4 @@ Stuckey, H., Swalwell, M., Ndalianas,. A., & De Vries, D. (2013). IE' 13. Rememb
 
 Webber, N. (2017). Eve Online's War Correspondents: Player Journalism as History. In Swalwell, M., Stuckey, H., & Ndalianis, A (Eds.), Fans and Videogames: Histories, Fandom, Archives (pp. 93-110). Taylor & Francis.
 
-Willis82. (2011). Gradius. Retrieved from [http://nintendoage.com/forum/messageview.cfm?catid=29&threadid=55437](http://nintendoage.com/forum/messageview.cfm?catid=29&threadid=55437)
+Willis82. (2011). Gradius. Retrieved from [http://nintendoage.com/forum/messageview.cfm?catid=29&threadid=55437](https://web.archive.org/web/20191025143234/http://nintendoage.com/forum/messageview.cfm?catid=29&threadid=55437)
