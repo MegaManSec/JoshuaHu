@@ -67,28 +67,64 @@ article h6 .anchor-link::after {
   content: "######";
 }
 
-.sidebar > .conditional-toc > ul {
-  padding-left: 1rem;
+.conditional-toc,
+.mobile-toc {
+  font-family: $sans-serif-font-family;
+  line-height: 1.45;
 }
 
-.sidebar ul li ul {
-  padding-left: 1.5rem;
+.conditional-toc ul,
+.mobile-toc ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0.75rem;
 }
 
-.sidebar ul li {
-  list-style-type: circle;
+.conditional-toc > ul,
+.mobile-toc nav > ul {
+  padding-left: 0;
 }
 
-.sidebar ul ul li {
-  list-style-type: disc;
+.conditional-toc li,
+.mobile-toc li {
+  margin: 2px 0;
 }
 
-.sidebar ul ul li li {
-  list-style-type: square;
+.conditional-toc a,
+.mobile-toc a {
+  color: $dark-gray-color;
+  text-decoration: none;
 }
 
-.sidebar ul ul li li ul li {
-  list-style-type: circle;
+.conditional-toc a:hover,
+.mobile-toc a:hover {
+  color: $link-color;
+  text-decoration: underline;
+}
+
+.conditional-toc {
+  padding: 0.25rem 0.75rem 0.5rem;
+}
+
+.mobile-toc {
+  margin: 1rem 0 1.5rem;
+  font-size: 14px;
+}
+
+.mobile-toc summary {
+  cursor: pointer;
+  color: $body-color;
+  font-weight: bold;
+}
+
+.mobile-toc nav {
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .mobile-toc {
+    display: none;
+  }
 }
 
 p > code.language-plaintext.highlighter-rouge {
@@ -137,158 +173,79 @@ article {
 
 .actions {
   display: none;
-  visibility: hidden;
 }
 
 @media (min-width: 1024px) {
-  .sidebar {
-    visibility: visible;
-    display: inline-block;
-    background-color: #F4F5FB;
-    border: 1px solid #D7DFE3;
-    box-sizing: border-box;
-    max-width: 90%;
-    overflow-y: auto;
-    max-height: 90vh;
-    margin-top: 0;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
- }
-
   .before-sidebar {
     visibility: visible;
     display: block;
-    justify-content: flex-end;
     position: fixed;
-    right: 1rem;
-    top: 50%;
-    padding-right: 0.5rem;
-    line-height: calc(0.25rem + 0.6vw);
-    transform: translateY(-50%) scale(1);
-    margin-left: 2rem;
-    word-wrap: break-word;
-    width: 22%;
-    font-size: calc(0.5rem + 0.2vw);
+    top: 2rem;
+    left: calc(50% + min(25%, 375px) + 1.5rem);
+    width: min(18rem, calc(50% - min(25%, 375px) - 2.5rem));
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .sidebar {
+    visibility: visible;
+    display: block;
+    box-sizing: border-box;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background-color: #F4F5FB;
+    border: 1px solid #D7DFE3;
   }
 
   .actions {
-    visibility: visible;
-    display: block;
-    background-color: #F4F5FB;
-    border: 1px solid #D7DFE3;
-    box-sizing: border-box;
-    padding: 0.1rem;
-  }
-
-  .actions > ul > li {
-    display: inline-block;
-  }
-
-  .icon-list {
     display: flex;
     justify-content: space-between;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    padding: 0.35rem 0.75rem;
+    background-color: #F4F5FB;
+    border-bottom: 1px solid #D7DFE3;
+    font-family: $sans-serif-font-family;
+    font-size: 12px;
   }
 
-  .up-arrow .tooltip {
-    padding-left: 1rem;
-  }
-
-  .bars .tooltip-left {
-    padding-right: 1rem;
-    display: flex;
+  .actions a,
+  .actions label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: $body-color;
+    text-decoration: none;
     cursor: pointer;
   }
 
-  .icon-list li {
-    margin: 0;
+  .actions a:hover,
+  .actions label:hover {
+    color: $link-color;
   }
 
-  .tooltip {
-    position: relative;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .tooltip-left {
-    position: relative;
-  }
-
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: max-content;
-    position: absolute;
-    z-index: 1;
-    left: 50%;
-    transition: opacity 1s;
-    padding-left: 100%;
-    opacity: 0;
-  }
-
-  .tooltip-left .tooltiptext-left {
-    visibility: hidden;
-    width: max-content;
-    padding-right: 100%;
-    position: absolute;
-    z-index: 1;
-    right: 100%;
-    opacity: 0;
-    transition: opacity 1s;
-  }
-
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .tooltip-left:hover .tooltiptext-left {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .tooltip-left:hover {
-    color: $light-gray-color;
-  }
-
-  #toggle-toc:focus-visible + .actions .tooltip-left {
+  #toggle-toc:focus-visible ~ .actions .toc-hide {
     outline: 2px solid currentColor;
     outline-offset: 2px;
   }
 
-  .conditional-toc {
-    transition: opacity 1s ease;
+  .toc-when-hidden,
+  #toggle-toc:checked ~ .actions .toc-when-shown {
+    display: none;
+  }
+
+  #toggle-toc:checked ~ .actions .toc-when-hidden {
+    display: inline;
   }
 
   #toggle-toc:checked ~ .conditional-toc {
-    overflow: hidden;
-    height: 0;
-    visibility: hidden;
-    opacity: 0;
-    display: inline-block;
+    display: none;
   }
 
-  .tooltip-left .tooltiptext-left-checked {
-    visibility: hidden;
-    width: max-content;
-    padding-right: 100%;
-    position: absolute;
-    z-index: 1;
-    right: 100%;
-    opacity: 0;
-    transition: opacity 1s;
-  }
-
-  #toggle-toc:checked + .actions .tooltip-left:hover .tooltiptext-left-checked {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  #toggle-toc:checked + .actions .tooltip-left .tooltiptext-left {
-    visibility: hidden;
-    opacity: 0;
+  .conditional-toc a[aria-current] {
+    color: #08C;
   }
 }
 
