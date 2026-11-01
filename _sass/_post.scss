@@ -23,7 +23,7 @@ article a {
 }
 
 .post-title {
-  font-weight: bold;
+  font-weight: normal;
 }
 
 article h1 a, 
@@ -124,7 +124,6 @@ article h6 .anchor-link::after {
 .mobile-toc summary {
   cursor: pointer;
   color: $body-color;
-  font-weight: bold;
 }
 
 .mobile-toc nav {
