@@ -5,14 +5,14 @@
   {% if first_char != 'h' %}
     <a href="{{ site.baseurl }}{{ item.link }}"
        aria-label="{{ label }}">
-      <i class="fa fa-{{ item.icon }}" aria-hidden="true"></i>
+      {% include icon.html name=item.icon %}
     </a>
   {% else %}
     <a href="{{ item.link }}"
        target="_blank"
        rel="noopener noreferrer"
        aria-label="{{ label }}">
-      <i class="fa-brands fa-{{ item.icon }}" aria-hidden="true"></i>
+      {% include icon.html name=item.icon %}
     </a>
   {% endif %}
 {% endfor %}

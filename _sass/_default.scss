@@ -6,6 +6,7 @@
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  max-width: 750px;
 }
 
 .content-container {
@@ -43,6 +44,12 @@ header::after {
 
 .header a:hover {
   color:black;
+}
+
+.header-title {
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-weight: bold;
 }
 
 .header-title a {
