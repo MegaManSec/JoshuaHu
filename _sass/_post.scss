@@ -35,6 +35,38 @@ article h6 a {
   float: right;
 }
 
+.anchor-link {
+  text-decoration: none;
+  border: 0;
+  margin-left: 0.5rem;
+  opacity: 1;
+  user-select: none;
+}
+
+article h1 .anchor-link::after {
+  content: "#";
+}
+
+article h2 .anchor-link::after {
+  content: "##";
+}
+
+article h3 .anchor-link::after {
+  content: "###";
+}
+
+article h4 .anchor-link::after {
+  content: "####";
+}
+
+article h5 .anchor-link::after {
+  content: "#####";
+}
+
+article h6 .anchor-link::after {
+  content: "######";
+}
+
 .sidebar > .conditional-toc > ul {
   padding-left: 1rem;
 }
@@ -85,6 +117,10 @@ article {
 .sidebar {
   display: none;
   visibility: hidden;
+}
+
+.conditional-toc {
+  display: block;
 }
 
 .toc-toggle {

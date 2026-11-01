@@ -49,12 +49,12 @@ header::after {
 .header-title {
   margin-top: 30px;
   margin-bottom: 0;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 7.8vw, 2rem);
   font-weight: bold;
 }
 
 .header-title a {
-  font-size: 2rem;
+  font-size: inherit;
   text-decoration: none;
   color: $body-color;
 }
@@ -69,7 +69,13 @@ header::after {
 
 .menu {
   padding-top: 0.5rem;
+  margin-top: 0.5rem;
   display: block;
+  font-weight: bold;
+}
+
+.menu a {
+  text-decoration: none;
 }
 
 .menu-content {
@@ -79,7 +85,12 @@ header::after {
 .menu-content a {
   color: $light-gray-color;
   font-size: 1rem;
-  padding-right: 10px;
+  padding: 1px;
+  margin-right: 14px;
+}
+
+.menu-content a:last-child {
+  margin-right: 0;
 }
 
 .social-icons {
@@ -92,6 +103,12 @@ header::after {
 }
 
 @media (max-width: $elements-responsive-width) {
+  .header {
+    margin-bottom: 2rem;
+  }
+  .menu-content a {
+    margin-right: 6px;
+  }
   .social-icons {
     float: left;
     padding-top: 0px;
