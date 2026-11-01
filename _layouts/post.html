@@ -9,19 +9,19 @@ layout: default
 {% if toc_content and toc_content.size > 20 %}
   <div class="before-sidebar">
     <div class="sidebar">
-      <input type="checkbox" id="toggle-toc" style="display:none;">
+      <input type="checkbox" id="toggle-toc" class="toc-toggle" aria-label="Hide table of contents">
       <div class="actions">
         <ul class="icon-list">
           <li class="up-arrow">
-            <a href="#" class="tooltip">
-              <i class="fas fa-chevron-up fa-lg" style="line-height:initial;"></i>
+            <a href="#" class="tooltip" aria-label="Back to top">
+              {% include icon.html name="chevron-up" class="icon-lg" %}
               <span class="tooltiptext">Back To Top</span>
             </a>
           </li>
           <li class="sidebar-spacer" style="margin: 0 50px;"></li>
           <li class="bars">
             <label for="toggle-toc" class="tooltip-left">
-              <i class="fas fa-bars fa-lg" style="line-height:initial;"></i>
+              {% include icon.html name="bars" class="icon-lg" %}
               <span class="tooltiptext-left">Hide ToC</span>
               <span class="tooltiptext-left-checked">Show ToC</span>
             </label>
