@@ -10,13 +10,9 @@ Lagrange is a minimalist Jekyll theme for running a personal blog or site for fr
 
 * Support for Jekyll's built-in Sass/SCSS preprocessor and data files for making customizing easier.
 
-* [Google Analytics](https://www.google.com/analytics/) support.
-
 * Commenting support powered by [Disqus](https://disqus.com/).
 
 * Optimized for search engines.
-
-* LaTeX support through [MathJax](https://www.mathjax.org/).
 
 ## Table of Contents
 
@@ -38,12 +34,10 @@ Lagrange is a minimalist Jekyll theme for running a personal blog or site for fr
 4. [Features](#features)
    1. [Design Considerations](#design-considerations)
    2. [Disqus](#disqus)
-   3. [Google Analytics](#google-analytics)
-   4. [RSS Feeds](#rss-feeds)
-   5. [Social Media Icons](#social-media-icons)
-   6. [MathJax](#mathjax)
-   7. [Syntax Highlighting](#syntax-highlighting)
-   8. [Markdown](#markdown)
+   3. [RSS Feeds](#rss-feeds)
+   4. [Social Media Icons](#social-media-icons)
+   5. [Syntax Highlighting](#syntax-highlighting)
+   6. [Markdown](#markdown)
 5. [Everything Else](#everything-else)
 6. [Contributing](#Contributing)
 7. [Questions?](#questions)
@@ -115,7 +109,7 @@ To change site build settings, edit the `_config.yml` file found in the root of 
 
 If you are hosting your site on GitHub Pages, then committing a change to the `_config.yml` file will force a rebuild of your site with Jekyll. Any changes made should be viewable soon after. If you are hosting your site locally, then you must run `jekyll serve` again for the changes to take place.
 
-In the `settings.yml` file found in the `_data` folder, you will be able to customize your site settings, such as setting Disqus comments, Google Analytics, what shows up in your menu, and social media information.
+In the `settings.yml` file found in the `_data` folder, you will be able to customize your site settings, such as setting Disqus comments, what shows up in your menu, and social media information.
 
 ### Adding Menu Pages
 
@@ -171,10 +165,6 @@ Lagrange was designed to be a minimalist theme in order for the focus to remain 
 
 Lagrange supports comments at the end of posts through [Disqus](https://disqus.com/). In order to activate Disqus commenting, set `disqus.comments` to true in the `_data/settings.yml` file. If you do not have a Disqus account already, you will have to set one up, and create a profile for your website. You will be given a `disqus_shortname` that will be used to generate the appropriate comments sections for your site. More information on [how to set up Disqus](http://www.perfectlyrandom.org/2014/06/29/adding-disqus-to-your-jekyll-powered-github-pages/).
 
-### Google Analytics
-
-It is possible to track your site statistics through [Google Analytics](https://www.google.com/analytics/). Similar to Disqus, you will have to create an account for Google Analytics, and enter the correct Google ID for your site under `google-ID` in the `settings.yml` file. More information on [how to set up Google Analytics](https://michaelsoolee.com/google-analytics-jekyll/). Note: If you are not using Google Analytics, please change `google-ID` to an empty string.
-
 ### RSS Feeds
 
 Atom is supported by default through [jekyll-feed](https://github.com/jekyll/jekyll-feed). With jekyll-feed, you can set configuration variables such as 'title', 'description', and 'author', in the `_config.yml` file.
@@ -192,10 +182,6 @@ To use RSS 2.0, ensure the following is done:
 ### Social Media Icons
 
 All social media icons are courtesy of [Font Awesome](http://fontawesome.io/). You can change which icons appear, as well as the account that they link to, in the `settings.yml` file in the `_data` folder.
-
-### MathJax
-
-Lagrange comes out of the box with [MathJax](https://www.mathjax.org/), which allows you to display mathematical equations in your posts through the use of [LaTeX](http://www.andy-roberts.net/writing/latex/mathematics_1).
 
 ### Syntax Highlighting
 
