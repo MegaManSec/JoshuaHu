@@ -25,13 +25,13 @@ The original goal of this project was quite simple: I wanted to create visual re
 
 ---
 
-![Dall E: _"Snakes connecting multiple servers together as if they were highly connected."_](/files/Snakes.png)
+![Dall E: _"Snakes connecting multiple servers together as if they were highly connected."_](/files/Snakes.jpg)
 
 _"Snakes connecting multiple servers together as if they were highly connected"_
 
 ---
 
-![Dall E: _"Retro Super Mario jumping over computer server racks."_](/files/Mario.png)
+![Dall E: _"Retro Super Mario jumping over computer server racks."_](/files/Mario.jpg)
 
 _"Retro Super Mario jumping over computer server racks."_
 
@@ -42,6 +42,10 @@ I thought about using cosmopolitan libc to build some type of binary which would
 ---
 
 As stated, the original output that I was interested in was visualizations. [Just under 10 years ago](https://lwn.net/Articles/625988/), I was working with the well-known open source graph visualization tool [graphviz](https://graphviz.org/) (_mostly experimenting with afl-fuzz which had just been released_), and I have seen how BloodHound is able to visualize trust relationships between endpoints in MS Active Directory networks, so I knew it wouldn't be too difficult to create something: all I needed to do was to actually build the script.
+
+![BloodHound showing the shortest paths to Domain Admins in a test Active Directory domain](/files/AD.jpg)
+
+_BloodHound mapping the shortest paths to Domain Admins in an Active Directory test lab._
 
 ---
 

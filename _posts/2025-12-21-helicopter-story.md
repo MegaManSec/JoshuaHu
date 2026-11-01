@@ -95,7 +95,7 @@ At this stage, we still thought this was an airport -- like, a normal-ish airpor
 
 Eventually, a man opened a door, came outside, and lit up a cigarette, right in front of the "no smoking" sign. For a few seconds, he said nothing, before asking, "who are you? what are you doing here?"
 
-| ![Flixbus to Vienna](/files/slov/IMG_6822.PNG) |
+| ![Flixbus to Vienna](/files/slov/IMG_6822.jpg) |
 |:--:|
 | *Unpictured: man smoking in front of this sign* |
 

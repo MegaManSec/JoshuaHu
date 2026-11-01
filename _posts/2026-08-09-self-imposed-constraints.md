@@ -37,7 +37,7 @@ Person A: I ran a marathon wearing shoes, too.
 
 If a tree falls in a forest and no one is around to hear it, does it make a sound?
 
-| ![It's illegal to cross a double-line.](/files/lol-car.png) |
+| ![It's illegal to cross a double-line.](/files/lol-car.jpg) |
 | :---------------------------------------------------------: |
 |           *It's illegal to cross a double line.*             |
 

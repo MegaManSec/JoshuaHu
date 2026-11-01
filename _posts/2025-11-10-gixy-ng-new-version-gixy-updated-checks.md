@@ -79,13 +79,13 @@ These patches were clearly modelled on the changes that I had submitted, and pro
 
 Can you spot the difference below? Hint: there is none.
 
-| ![](/files/my_patch.png) | ![](/files/copilot_patch.png) |
+| ![Diff from my PR #36 adding PCRE extension handling to sre_parse.py](/files/my_patch.png) | ![Diff from Copilot's PR #74 with the same PCRE handling change](/files/copilot_patch.png) |
 | :--: | :--: |
 | *My Patch* | *CoPilot's Patch* |
 
 This is _extremely_ annoying. Those PRs by the bots produced low-quality code which had bugs, didn't work, and even just failed to even apply in some cases. Some of them referenced my PRs, taking most of my code, but introducing mistakes by changing some things and not really solving any of the problems I had opened the PRs to actually solve. For example, I discovered that there was a major difference in the handling of configurations when they were read from a single file (nginx's `nginx -T` dumps the full configuration into a single file) versus when it was read from a filesystem across multiple files; with the former not allowing plugins to correctly search for vulnerable configurations. I only discovered this while investigating why the `add_header` plugin was reporting different results depending on whether an nginx-dump was used versus a real configuration that existed on the filesystem, but the bug affected every plugin. My patch fixed the issue in the engine, while Copilot's "solution" was to ... only change the `add_header` plugin [here](https://web.archive.org/web/20260000000000*/https://github.com/dvershinin/gixy/pull/80/commits/215e61d92fb77a176e1970706feeb9b2f6041cd7), neglecting the fact that this was an engine issue that affected every and all plugins. The Copilot "test" that was created was also **wrong**, and misreported this original issue as fixed [here](https://web.archive.org/web/20260000000000*/https://github.com/dvershinin/gixy/issues/64#issuecomment-3362580762). Once the developer finally listened that their Copilot-generated patch didn't fix the problem, they happily .. used Copilot again, _clearly_ against my patch, and fixed the issue (the only difference between my patch and Copilot's, is my patch included another unrelated change, and Copilot made a massive comment block that I didn't bother with):
 
-| ![](/files/my_patch2.png) | ![](/files/copilot_patch2.png) |
+| ![Diff from my commit flattening nested includes in nginx dump mode](/files/my_patch2.png) | ![Diff from Copilot's commit with the same include-flattening change](/files/copilot_patch2.png) |
 | :--: | :--: |
 | *My Patch* | *CoPilot's Patch* |
 
