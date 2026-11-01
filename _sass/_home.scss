@@ -73,6 +73,7 @@
 }
 
 .posts-list a {
+  overflow-wrap: anywhere;
   text-decoration-line: underline;
   text-decoration-color: color-mix(in srgb, currentColor 25%, transparent);
   text-decoration-thickness: 1px;

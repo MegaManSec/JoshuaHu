@@ -1,8 +1,8 @@
 <div class="menu">
   <nav class="menu-content">
-    {% for item in site.data.settings.menu %}
+    {%- for item in site.data.settings.menu -%}
       <a href="/{{ item.url }}">{{ item.name }}</a>
-    {% endfor %}
+    {%- endfor %}
   </nav>
   <nav class="social-icons">
     {% include social-icons.html %}
