@@ -17,7 +17,7 @@ Anyway, here's the year in review, which is basically just me ranting.
 
 ## Opera Software SSH Key Authority RCE
 
-Using the AI-based SAST [ZeroPath](https://zeropat/h.com/?utm_source=joshua.hu), I discovered and reported a remote code execution vulnerability in a codebase open-sourced by Opera Software (my favorite ex ~~victim~~ employer), `ssh-key-authority`. This codebase is used for provisioning SSH keys to servers, and allows users to login to the service, upload their SSH public keys, with the service then copying those SSH public keys to the correct servers that the user "owns". The RCE allowed any user to provision their SSH keys to any server managed by `ssh-key-authority`, effectively allowing the takeover of any server that is installed with this service. Opera may or may not use this for their tens-of-thousands of servers (who knows!) My report included the reproducer:
+Using the AI-based SAST [ZeroPath](https://zeropath.com/?utm_source=joshua.hu), I discovered and reported a remote code execution vulnerability in a codebase open-sourced by Opera Software (my favorite ex ~~victim~~ employer), `ssh-key-authority`. This codebase is used for provisioning SSH keys to servers, and allows users to login to the service, upload their SSH public keys, with the service then copying those SSH public keys to the correct servers that the user "owns". The RCE allowed any user to provision their SSH keys to any server managed by `ssh-key-authority`, effectively allowing the takeover of any server that is installed with this service. Opera may or may not use this for their tens-of-thousands of servers (who knows!) My report included the reproducer:
 
 ```
 Repro:

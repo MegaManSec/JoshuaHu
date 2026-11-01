@@ -7,7 +7,7 @@ description: "Investigating and diagnosing ChatGPT's outage for Firefox users, r
 
 Today I learnt about the `NS_ERROR_INVALID_CONTENT_ENCODING` error (or "Content Encoding Error") in Firefox, which started popping up in my Network tab while trying to access ChatGPT. Indeed, while having access to ChatGPT has allowed me to keep up the charade that I actually know what I'm doing in (life\|work\|security\|etc), the service became completely inoperable in Firefox a few days ago. I couldn't find any analysis online, so I dug into it myself.
 
-If you're looking for a fix for Firefox, your best bet is to simply open [about:config](about:config) and setting `network.http.dictionaries.enable` to **false**.
+If you're looking for a fix for Firefox, your best bet is to simply open `about:config` and setting `network.http.dictionaries.enable` to **false**.
 
 If you're interested in the technical details, read on.
 
@@ -64,7 +64,7 @@ An astute reader may also notice that the `match` and `id` values in the `use-as
 
 For now, the solution is to disable HTTP compression dictionaries in Firefox:
 
-1. Open [about:config](about:config),
+1. Open `about:config`,
 2. Search for `network.http.dictionaries.enable`, and set it to `false`.
 
 That's even the quick fix that Mozilla went with, [here](https://github.com/mozilla-firefox/firefox/commit/c081f3f7d21922047379fe76320cfbc3abf7f2b3).

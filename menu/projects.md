@@ -27,7 +27,7 @@ I've worked on a range of different projects over the years. Some of the more in
 
 - [Fuzzing Pike with AFL++](https://joshua.hu/aflplusplus-fuzzing-scripting-languages-natively)
 
-- [Hacking with AI SASTs: An overview of 'AI Security Engineers' / 'LLM Security Scanners'](https://joshua.hu/llm-engineer-review-sast-security-ai-tools-pentesters) and the accompanying [conference talk](www.youtube.com/watch?v=ib7fLw2EUbw&t=26152s) at KazHackStan 2025.
+- [Hacking with AI SASTs: An overview of 'AI Security Engineers' / 'LLM Security Scanners'](https://joshua.hu/llm-engineer-review-sast-security-ai-tools-pentesters) and the accompanying [conference talk](https://www.youtube.com/watch?v=ib7fLw2EUbw&t=26152s) at KazHackStan 2025.
 
 - [Accurate Multi-Gas Emissions Equivalence Modelling of Greenhouse Gases](/files/VRS_Mathematics_Report.pdf)
 

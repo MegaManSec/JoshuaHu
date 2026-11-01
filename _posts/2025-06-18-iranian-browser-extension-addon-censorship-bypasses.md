@@ -64,7 +64,7 @@ I learnt that there are many methods which is used to bypass censorship in Iran:
 - Reality
 - VMess
 - ShadowTLS
-- Trojan (not the virus type, but [Trojan Proxies](https://www.anonymous-proxies.net/posts/what-is-trojan-proxy/))
+- Trojan (not the virus type, but [Trojan Proxies](https://web.archive.org/web/20250514200932/https://www.anonymous-proxies.net/posts/what-is-trojan-proxy/))
 
 Traditional methods of bypassing censorship, like OpenVPN, IKEv2, L2TP, SSTP, and so on, are blocked.
 
