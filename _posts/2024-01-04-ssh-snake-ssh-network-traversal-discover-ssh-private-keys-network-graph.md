@@ -25,13 +25,13 @@ The original goal of this project was quite simple: I wanted to create visual re
 
 ---
 
-![Dall E: _"Snakes connecting multiple servers together as if they were highly connected."_](/files/Snakes.png)
+![Dall E: _"Snakes connecting multiple servers together as if they were highly connected."_](/files/Snakes.jpg)
 
 _"Snakes connecting multiple servers together as if they were highly connected"_
 
 ---
 
-![Dall E: _"Retro Super Mario jumping over computer server racks."_](/files/Mario.png)
+![Dall E: _"Retro Super Mario jumping over computer server racks."_](/files/Mario.jpg)
 
 _"Retro Super Mario jumping over computer server racks."_
 
