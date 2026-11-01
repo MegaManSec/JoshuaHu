@@ -2,6 +2,10 @@
   Base
 */
 
+html {
+  border-top: 2px solid $dark-gray-color;
+}
+
 body {
   font-family: $serif-font-family;
   font-size: 14px;
