@@ -7,7 +7,7 @@ description: "OLX hides the email address I typed one second earlier from... me.
 
 It just doesn't have to be like this. It just doesn't.
 
-This is probably a weird thing for somebody who works in security to say, but I care about the experience of the people using a product more than anything else -- yes, even more than security. As I wrote on my [services](/services) page: if you have the best system in the world but it makes customers want to kill themselves while using it, then you don't have the best system in the world. Security that makes people miserable, while doing nothing to attackers, is the antithesis of everything I care about.
+I care about the experience of the people using a product more than anything else -- yes, even more than security. As I wrote [elsewhere](/services), if you have the best system in the world but it makes customers want to kill themselves while using it, then you don't have the best system in the world. Security that makes people miserable, while doing nothing to attackers, is the antithesis of everything I care about.
 
 I forgot my OLX password, used the reset form, and it said it'd send me a code. I filled it in:
 
@@ -25,9 +25,9 @@ and got this:
 
 How does this type of "security" get implemented?
 
-The masked version is literally generated from what I _just_ typed, so it can't reveal anything that I didn't already know (and if somebody is looking over my shoulder, well, they just watched me type it -- with a nice green checkmark next to it, confirming it's a valid email address).
+The masked version is literally generated from what I _just_ typed, so it can't reveal anything that I didn't already know (and if somebody is looking over my shoulder, well, they just watched me type it -- with a nice green checkmark next to it, confirming it's a valid email address, even! Thank you!)
 
-It makes me miserable thinking about the developers, or god forbid the security team, seeing this flow, and thinking, "oh yeah, we've really secured the machine! checkmarks checked, let's celebrate."
+It makes me miserable thinking about the developers, or god forbid the security team, seeing this flow, and thinking, "oh yeah, we've really secured the machine! checkboxes ticked, let's celebrate."
 
 What it _does_ do, however, is make it impossible to know whether I made a typo. Did I type `joshua.hu` or `jsohua.hu`? `olx@` or `olz@`? Who knows; OLX doesn't even show the TLD. So when the email doesn't arrive, I get to play a really fun guessing game: did I mistype my email address? Is it in spam? Is OLX's email just slow? Did OLX not send anything at all, because there's no account with that email address? Who knows!
 
