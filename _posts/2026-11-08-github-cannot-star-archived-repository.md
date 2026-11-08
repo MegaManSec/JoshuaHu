@@ -2,7 +2,7 @@
 layout: post
 title: "You can no longer star archived GitHub repositories"
 tags: [programming, security]
-description: "GitHub no longer lets you star, or un-star, an archived repository. I archive my finished repositories, so here's what I've set up instead: a ruleset that blocks pushes, with issues, PRs, and Actions disabled."
+description: "GitHub no longer lets you star, or un-star, an archived repository. I archive my finished repositories, so here's what I've set up instead: rulesets that block pushes to branches and tags, with issues, PRs, and Actions disabled."
 ---
 
 I like to archive my popular, but "finished" GitHub repositories, for two main reasons:
@@ -20,8 +20,10 @@ This also means you can no longer _un-star_ an archived repository. This was rep
 
 In order to achieve something similar (an archived but still public repository which will be useful for others), I've instead set up these repositories to:
 
-1. Disallow pushing to any branch (with a ruleset),
+1. Disallow pushing to any branch or tag (with rulesets),
 2. Disallow creating issues, PRs, discussions, etc.,
 3. Disable Actions.
+
+With just an SSH key, someone can push branches, push tags, and push to the repository's wiki. The wiki is its own git repository that rulesets don't cover, so turn it off. A branch or tag push is also what starts GitHub Actions, which run with the repository's secrets, hence disabling Actions. Everything else (issues, PRs, releases, settings, and the rulesets themselves) needs the website or an API token, not an SSH key.
 
 How annoying.
