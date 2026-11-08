@@ -98,3 +98,53 @@ jobs:
 ```
 
 Note: you might want to skip the GitHub App and just give the workflow's own `GITHUB_TOKEN` `permissions: pull-requests: write`. That's fine for re-requesting the reviewer, but `GITHUB_TOKEN` can't be granted any organization permissions, so it can neither see which team a review was on behalf of, nor request a review from a team. Instead, you need to create a GitHub App with the _Pull requests: Read and write_ and _Members: Read-only_ permissions, install it on the repository, and put its App ID in the `GH_APP_ID` variable and its private key in the `GH_APP_PRIVATE_KEY` secret.
+
+The app itself doesn't run anywhere or receive any events. On each run, `actions/create-github-app-token` uses the app's private key to get a token that only covers the current repository and the two permissions in its `permission-*` inputs, and revokes the token when the job finishes. To set it up:
+
+1. Create a new GitHub App in the organization's settings, under "Developer settings". Any name and homepage URL will do, but the re-requests show up as coming from the app, so pick a name people will recognize. Untick "Active" under "Webhook", since nothing needs to send it events.
+2. Give it the "Pull requests: Read and write" repository permission and the "Members: Read-only" organization permission. Members is the one that lets the token see teams and request them.
+3. Create the app, note its App ID, and generate a private key (this downloads a `.pem` file).
+4. Install the app on the organization, for just the repositories that will run the workflow.
+5. Add the App ID as a `GH_APP_ID` Actions variable, and the contents of the `.pem` file as a `GH_APP_PRIVATE_KEY` secret, in either the repository's or the organization's settings.
+
+If you only want to re-request the reviewer and not their team, you don't need the app at all. In that case, the workflow is just:
+
+```yaml
+name: Re-request dismissed reviews
+
+# Like pull_request, this event builds the PR merge ref, so it doesn't fire
+# on PRs with merge conflicts.
+on:
+  pull_request_review:
+    types: [dismissed]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  re-request:
+    # Skipped for fork PRs and Dependabot (read-only token on this event) and
+    # bot reviewers (can't be requested).
+    if: >-
+      github.event.pull_request.state == 'open' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.actor != 'dependabot[bot]' &&
+      github.event.review.user.type == 'User'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # Re-request the reviewer unless they are the sender (they dismissed it,
+      # or their push did).
+      - name: Re-request review
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REVIEWER: ${{ github.event.review.user.login }}
+          SENDER: ${{ github.event.sender.login }}
+        run: |
+          if [ "$SENDER" != "$REVIEWER" ]; then
+            echo "Requesting review from $REVIEWER"
+            gh api --method POST "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/requested_reviewers" \
+              -f "reviewers[]=$REVIEWER" --silent
+          fi
+```
