@@ -152,6 +152,7 @@ persistence, credential stuffing, and one very broken bank PIN.
 Smaller tools and practical notes: bash oddities, decompiler abuse, crawlers,
 and development-environment setups that actually work.
 
+* [You can no longer star archived GitHub repositories](https://joshua.hu/github-cannot-star-archived-repository)
 * [npm --ignore-scripts, yarn --version](https://joshua.hu/npm-ignore-scripts-prepare-git-dependency-yarnpath)
 * [Automatically re-requesting a team and user review on GitHub review dismissal](https://joshua.hu/automatically-re-request-dismissed-reviews-teams-github)
 * [CCBot: Chrome Checker Bot for Chrome Security Releases](https://joshua.hu/ccbot-chrome-checker-bot-googlechromereleases-chromium-updates)
