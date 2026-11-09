@@ -47,6 +47,7 @@ Debugging writeups from the web's plumbing: HTTP/2 breakage in intercepting
 proxies, TLS session key extraction, sandboxed iframes, broken feed caching,
 and making Firefox behave.
 
+* [What's going on with Taiwan's RDAP server?](https://joshua.hu/taiwan-rdap-servers)
 * [Debugging failures of HTTP/2 in Burp, mitmproxy, and browsers](https://joshua.hu/http2-burp-proxy-mitmproxy-nginx-failing-load-resources-chromium)
 * [Extracting TLS Session Keys in Burp Proxy a la SSLKEYLOGFILE](https://joshua.hu/extracting-tls-session-keys-burp-proxy-debugging)
 * [One-Way Sandboxed Iframes: Creating a Read-Only Iframe Sandbox That Can't Read Back](https://joshua.hu/rendering-sandboxing-arbitrary-html-content-iframe-interacting)
