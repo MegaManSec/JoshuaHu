@@ -7,11 +7,11 @@ description: "Setting up a JavaScript dev environment on MacOS in 2025? Here is 
 
 Apparently these days I'm back on MacOS. And with it, I had to set up a javascript development environment. Online resources seem to be outdated and overly complicated (why?), so I thought I would document the process of installation here. It's as simple as:
 
-```shell
-brew install nvm
-mkdir ~/.nvm
-nvm install --lts
-npm install -g yarn
+```console?prompt=$,#
+$ brew install nvm
+$ mkdir ~/.nvm
+$ nvm install --lts
+$ npm install -g yarn
 ```
 
 If a directory has a `.nvmrc` file, you can type `nvm install` to install the correct version, and `nvm use` to use it. To install the correct version of yarn, use `npm install -g yarn`. 
