@@ -688,7 +688,7 @@ According to the Linux documentation, [pci remove "does not involve any kind of 
 In [drivers/pci/remove.c](https://github.com/torvalds/linux/blob/6e4436539ae182dc86d57d13849862bcafaa4709/drivers/pci/remove.c#L117), `pci_stop_and_remove_bus_device` calls `pci_stop_bus_device` and `pci_remove_bus_device`.
 
 `pci_stop_bus_device` is as follows:
-```C
+```c
 	pci_pme_active(dev, false);
 
 	if (pci_dev_is_added(dev)) {
@@ -706,7 +706,7 @@ In [drivers/pci/remove.c](https://github.com/torvalds/linux/blob/6e4436539ae182d
 
 Anyways, [brcmf_pcie_remove()](https://github.com/torvalds/linux/blob/master/drivers/net/wireless/broadcom/brcm80211/brcmfmac/pcie.c#L2527) is eventually called when the PCI device is being removed, and the following important actions are taken (with some pseudocode added):
 
-```C
+```c
 	brcmf_pcie_write_reg32(devinfo, devinfo->reginfo->mailboxmask, 0);
 
 	free_irq(pdev->irq, devinfo);

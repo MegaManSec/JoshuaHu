@@ -26,7 +26,7 @@ FFFF00
 
 Effectively, for percentages 1-50, we need to add more green until fully saturated. Per percentage (1-50), we need to scale the progression of the green-ness by 1/50: `0xFF/50=5.1` so for every percentage of battery from 1 to 50, we add 5.1 of "green-ness".
 
-```C
+```c
 if(battery <= 50){
 	double green_ratio = battery/50.0; // Ratio of battery out of 50
 	int green = 0x0000FF; // A full color in the RGB model, shift 8 to move it to G.
@@ -41,7 +41,7 @@ There's some truncation that happens related to the green-ness (can't add the .1
 
 For 51-100%, the formula is pretty much the same, but given yellow (FFFF00), we slowly _decrease_ red. i.e:
 
-```C
+```c
 if(battery > 50) {
 	double red_ratio = (battery-50.0)/50;
 	int red = 0x0000FF; // A full color in the RGB model, shift 16 to move it to R.

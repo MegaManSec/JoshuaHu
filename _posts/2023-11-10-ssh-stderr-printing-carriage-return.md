@@ -27,7 +27,7 @@ ssh: Could not resolve hostname notreal: Name or service not known\r$
 ```
 
 ssh's source code explicitly sets the clrf:
-```C
+```c
         } else if (log_on_stderr) {
                 snprintf(msgbuf, sizeof msgbuf, "%s%s%.*s\r\n",
                     (log_on_stderr > 1) ? progname : "",

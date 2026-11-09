@@ -20,7 +20,7 @@ We create four different programs.
 
 ## memfd_create(2)
 
-```C
+```c
 #include <stdlib.h>
 #include <string.h>
 #include <sys/mman.h>
@@ -61,7 +61,7 @@ int main() {
 
 As it turns out, you cannot call `fileno(3)` on a FILE which has been returned using `fmemopen(3)`. From the manpage: `There is no file descriptor associated with the file stream returned by this function (i.e., fileno(3) will return an error if called on the returned stream).`  Therefore, we proceed slightly differently.
 
-```C
+```c
 ...
 static int myRead(void *f, char *buf, int len) {
     return(fread(buf, 1, len, (FILE *) f));
@@ -90,7 +90,7 @@ int main() {
 
 ## stdin
 
-```C
+```c
 int main() {
 
   __AFL_INIT();
@@ -113,7 +113,7 @@ int main() {
 ## /dev/shm/file
 
 
-```C
+```c
 int main(int argc, char** argv) {
 
   __AFL_INIT();
@@ -151,7 +151,7 @@ Why is `fmemopen(3)` so much faster than the others? Well if we use `strace(1)` 
 ## memfd_create(2)
 
 
-```C
+```c
 memfd_create("xml_memory", 0)           = 3
 write(3, "<root><element>Content</element>"..., 39) = 39
 lseek(3, 0, SEEK_SET)                   = 0
@@ -162,20 +162,20 @@ close(3)                                = 0
 
 ## fmemopen(3)
 
-```C
+```c
 
 ```
 
 ## stdin
 
-```C
+```c
 read(0, "<root><element>Content</element>"..., 4000) = 40
 read(0, "", 4000)                       = 0
 ```
 
 ## /dev/shm/file
 
-```C
+```c
 newfstatat(AT_FDCWD, "/dev/shm/file", {st_mode=S_IFREG|0664, st_size=39, ...}, 0) = 0
 newfstatat(AT_FDCWD, "/dev/shm/file", {st_mode=S_IFREG|0664, st_size=39, ...}, 0) = 0
 newfstatat(AT_FDCWD, "/dev/shm/file", {st_mode=S_IFREG|0664, st_size=39, ...}, 0) = 0
