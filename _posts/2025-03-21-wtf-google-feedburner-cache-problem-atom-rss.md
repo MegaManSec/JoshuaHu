@@ -9,7 +9,7 @@ In a [previous post](/google-feedburner-broken-caching-if-modified-since), I out
 
 Of course, who knows whether this change was a direct consequence of me contacting their support -- Google doesn't reply to support emails of course (yay, asymmetric communication) -- but the change is evident nonetheless. The response when attempting to retrieve the rss feed for [the Google Chrome Releases blog](https://chromereleases.googleblog.com/) is a simple 302 redirect to the Atom feed:
 
-```console?prompt=$,#
+```console?prompt=$,#&output=http
 $ hcurl 'https://www.blogger.com/feeds/8982037438137564684/posts/default'
 HTTP/2 302
 location: http://feeds.feedburner.com/GoogleChromeReleases
