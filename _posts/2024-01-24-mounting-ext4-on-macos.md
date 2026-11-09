@@ -9,7 +9,7 @@ description: "A quick guide on reading ext4 drives on macOS. Learn how to instal
 
 Today I will.. mount an ext4 drive on MacOS.
 
-```bash
+```console?prompt=$,#
 $ brew install --cask macfuse
 ==> Downloading https://formulae.brew.sh/api/cask.jws.json
 #=#=-  #       #                                                                                                                                                                                                                                               #=O#-     #        #                                                                                                                                                                                                                                           -#O=- #      #          #                                                                                                                                                                                                                                      -=O#-   #        #           #                                                                                                                                                                                                                                 -=O=-#      #        #            #                                                                                                         ######################################################################################################################################################################################################################################################### 100.0%
@@ -24,7 +24,7 @@ Error: ext4fuse: Unsatisfied requirements failed this build.
 
 Hmm.. Yes brew, you're right. I'm not using Linux. So why can I even try to install this brew? Weird. Anyways, this works:
 
-```bash
+```console?prompt=$,#
 $ brew install pkg-config
 $ git clone https://github.com/gerard/ext4fuse.git && cd "$(basename "$_" .git)"
 $ make
@@ -49,7 +49,7 @@ Oops! ext4fuse requires a kernel module to operate, and you need to shutdown you
 
 Booting again, we try again:
 
-```bash
+```console?prompt=$,#
 $ diskutil list # Might have changed disk number
 $ sudo ./ext4fuse /dev/disk4 ~/ext4_mount -o allow_other
 ```

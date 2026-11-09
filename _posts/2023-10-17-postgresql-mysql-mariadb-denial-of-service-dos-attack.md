@@ -55,7 +55,7 @@ if __name__ == "__main__":
 ```
 
 and then tested whether I could connect:
-```bash
+```console?prompt=$,#
 # python3 py.py  &
 [1] 1611
 # psql -U user -ww -h 127.0.0.1 -d database
@@ -68,7 +68,7 @@ So despite not having any authentication data for the server, we can still DoS i
 ---
 
 How much data does this consume in total?
-```
+```console?prompt=$,#
 # tcpdump -i any -s 0 -w captured_traffic.pcap 'port 5432'
 tcpdump: listening on any, link-type LINUX_SLL (Linux cooked), capture size 262144 bytes
 ^C700 packets captured
@@ -92,14 +92,14 @@ In some cases, there can be either a (legitimate or not) reason to have an SQL s
 We could raise the _max_connections_ limit, but then an attacker can just open more connections. We could use stateful firewalling like Linux's iptables to rate-limit connections, but then an attacker could perform a spoofed syn-flood from a single server [which could overflow the conntrack table](https://blog.cloudflare.com/conntrack-tales-one-thousand-and-one-flows/). Some middleware like pgbouncer or pgpool could also be effective, but then who knows whether we would just exhaust the [connection limit for those softwares](https://www.pgbouncer.org/config.html#max_client_conn).
 
 One might be able to hack away at the source of MySQL/MariaDB or PostgresSQL and not count unauthenticated requests in the _max_connections_ count, but then we might just be able to exhaust the open file descriptor limits. On my system, MariaDB has both soft and hard limits of 32768 ([which is configurable](https://dev.mysql.com/doc/refman/8.0/en/mysqld-safe.html#option_mysqld_safe_open-files-limit)). :
-```
+```console?prompt=$,#
 # sudo systemctl show mariadb | grep LimitNOFILE
 LimitNOFILE=32768
 LimitNOFILESoft=32768
 ```
 
 On my system with PostgresSQL, the soft and hard limits are 1024 and 4096 respectively via ulimit. In reality, this limit is 1000 by default, as [the postgres daemon has an option](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-FILES-PER-PROCESS) to ensure the soft limit won't be reached.
-```
+```console?prompt=$,#
 # cat /proc/$(ps ax | grep '/[p]ostgres' | awk '{print $1}')/limits | grep 'Max open files'
 Max open files            1024                 4096                 files
 # grep -nrI 'max_files_per_process' /etc/postgresql

@@ -49,7 +49,7 @@ HTTP/2 protocol error: Invalid ConnectionInputs.RECV_HEADERS in state Connection
 
 Great! Something is wrong, but we're still not sure certain _what_. So, let's see what's really happening over the wire with Wireshark. Since all HTTP/2 traffic is encrypted, we use:
 
-```
+```bash
 SSLKEYLOGFILE=/tmp/keys mitmproxy  --set proxy_debug=true
 ```
 

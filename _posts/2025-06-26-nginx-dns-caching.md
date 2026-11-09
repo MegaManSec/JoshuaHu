@@ -13,7 +13,7 @@ The problem is quite simple: if `proxy_pass` points towards an upstream server d
 
 The followng nginx configuration is vulnerable to this problem:
 
-```
+```nginx
 server {
     location / {
         proxy_pass https://myapp-prod-a1b2c3d4e5f.us-east-1.elb.amazonaws.com;
@@ -32,14 +32,14 @@ When nginx starts, it resolves `myapp-prod-a1b2c3d4e5f.us-east-1.elb.amazonaws.c
 
 An older [blog post](https://web.archive.org/web/20250617053714/https://www.f5.com/company/blog/nginx/dns-service-discovery-nginx-plus) from the nginx team outlines the different ways DNS resolution happens in nginx. The following two configurations do not perform any re-resolution:
 
-```
+```nginx
 server {
     location / {
         proxy_pass http://backends.example.com:8080;
     }
 }
 ```
-```
+```nginx
 upstream backends {
     least_conn;
     server backends.example.com:8080 max_fails=3;
@@ -54,7 +54,7 @@ server {
 
 DNS resolution in the above two examples only occur at nginx's startup (and uses the default DNS resolver, e.g. `/etc/resolv.conf` or `getaddrinfo()`). The blog post goes on to give the following configuration example:
 
-```
+```nginx
 resolver 10.0.0.2 valid=10s;
 server {
     location / {
@@ -78,7 +78,7 @@ The downside to all of this is that we cannot use the `upstream` module while be
 
 The original config example in this post can be changed to the following, ensuring that TTL values are respected:
 
-```
+```nginx
 resolver 8.8.8.8;
 server {
     location / {
@@ -118,7 +118,7 @@ Indeed, the [documentation](https://nginx.org/en/docs/http/ngx_http_upstream_mod
 
 As such, a configuration such as the following should monitor for changes in the IP address of the upstream host, on-the-fly:
 
-```
+```nginx
 resolver 8.8.8.8;
 upstream backends {
     server backends.example.com:8080 resolve;

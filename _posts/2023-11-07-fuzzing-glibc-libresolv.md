@@ -119,7 +119,7 @@ Therefore, if we print, say, `\x321 ` into a value for _sortlist_, this will loo
 ### Reachable assertion in resolv_conf.c:570: update_from_conf: Assertion `resolv_conf_matches (resp, conf)' failed.
 
 Another less interesting issue was an assert in the _search_ directive. The technical details are boring, but I'm surprised nobody has noticed this before:
-```
+```console?prompt=$,#
 echo "search example.org example.com example.net corp.corp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.examcorp.exam" >> /etc/resolv.conf
 # ping example.com
 ping: resolv_conf.c:570: update_from_conf: Assertion `resolv_conf_matches (resp, conf)' failed.
