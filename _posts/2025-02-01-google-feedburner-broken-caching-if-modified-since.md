@@ -26,7 +26,7 @@ I noticed this while updating my Chromium Checker Bot ([CCBot](https://github.co
 
 While using CCBot, it was noticed that the RSS feed could serve old results for up-to 24 hours. I am not sure whether this is a caching issue on their side, but this delay ended up being unacceptable. No stale feed was noticed in the Atom feed (in the end, I updated the script to use both and combine the results.) The RSS feed supports both the `If-Modified-Since` and `If-None-Match` headers:
 
-```console?prompt=$,#
+```console?prompt=$,#&output=http
 $ hcurl -H "if-modified-since: Mon, 20 Jan 2035 10:39:12 GMT"  "https://www.blogger.com/feeds/8982037438137564684/posts/default"
 HTTP/2 304 
 sunset: Mon, 30 Sep 2024 23:59:59 GMT
@@ -44,7 +44,7 @@ Since no modifications have happened since 2035 ([the future](https://www.youtub
 
 So, this is considered the outdated way of retrieving the RSS feed. What about the Atom feed, then?
 
-```console?prompt=$,#
+```console?prompt=$,#&output=http
 $ hcurl -H "if-modified-since: Mon, 20 Jan 2035 10:39:12 GMT"  "https://feeds.feedburner.com/GoogleChromeReleases"
 HTTP/2 200 
 content-type: text/xml; charset=utf-8

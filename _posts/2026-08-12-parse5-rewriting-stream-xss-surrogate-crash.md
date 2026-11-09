@@ -50,9 +50,9 @@ An application accepting arbitrary script elements already has a problem, but th
 
 Here's a local HTTP example. The attacker controls the `html` field in a JSON request. The server applies a simple tag allowlist: it permits only `<p>`, removes its attributes, and writes text through `emitText()`.
 
-```sh
-npm install parse5-html-rewriting-stream@8.0.1
-node --input-type=module <<'EOF'
+```console?prompt=$,#&output=javascript
+$ npm install parse5-html-rewriting-stream@8.0.1
+$ node --input-type=module <<'EOF'
 import { RewritingStream } from 'parse5-html-rewriting-stream';
 import { createServer } from 'node:http';
 
@@ -133,9 +133,9 @@ For `0xDC00, 0xDC00`, the calculation produces `0x110000`. That's one above the 
 
 This PoC accepts HTML from an HTTP request body. The attacker sends JSON containing `\udc00\udc00`; `JSON.parse()` turns those escapes into two low-surrogate code units before the server calls parse5. The handler catches the exception so the demonstration can print it and exit cleanly:
 
-```sh
-npm install parse5@8.0.1
-node --input-type=module <<'EOF'
+```console?prompt=$,#&output=javascript
+$ npm install parse5@8.0.1
+$ node --input-type=module <<'EOF'
 import { createServer } from 'node:http';
 import { parse } from 'parse5';
 

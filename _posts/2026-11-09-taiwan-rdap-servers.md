@@ -9,7 +9,7 @@ RDAP is basically WHOIS, but machine-readable, with a lookup returning JSON, all
 
 For example, this is the redirect for `twnic.tw`:
 
-```console?prompt=$,#
+```console?prompt=$,#&output=http
 $ hcurl 'https://rdap.org/domain/twnic.tw'
 HTTP/2 302
 date: Mon, 09 Nov 2026 20:07:56 GMT
@@ -69,7 +69,7 @@ While using [NXDOMAIN'd](https://github.com/MegaManSec/NXDOMAINd) (see [this pos
 
 I saw:
 
-```console?prompt=$,#
+```console?prompt=$,#&output=http
 $ hcurl 'https://rdap.org/domain/doesntexist.tw'
 HTTP/2 302
 location: https://ccrdap.twnic.tw/tw/domain/doesntexist.tw
@@ -86,7 +86,7 @@ HTTP/2 404
 
 The 302 only tells us that `.tw` has an RDAP server, but doesn't say whether a particular name is registered. For a suffix with no RDAP service listed, `rdap.org` itself returns 404. For example, `.exist` has no route:
 
-```console?prompt=$,#
+```console?prompt=$,#&output=http
 $ hcurl 'https://rdap.org/domain/doesnt.exist'
 HTTP/2 404
 date: Mon, 09 Nov 2026 20:12:20 GMT
@@ -95,7 +95,7 @@ content-type: application/rdap+json
 
 An unregistered `.com` name still gets redirected because `.com` has an RDAP server:
 
-```console?prompt=$,#
+```console?prompt=$,#&output=http
 $ hcurl 'https://rdap.org/domain/dascascsa333ewafecsdc.com'
 HTTP/2 302
 location: https://rdap.verisign.com/com/v1/domain/dascascsa333ewafecsdc.com

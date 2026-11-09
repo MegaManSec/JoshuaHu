@@ -4,8 +4,10 @@
 Deterministic, low-false-positive rules (stdlib only, no pip):
 
   1. A fenced block whose language is the Rouge console lexer or one of its
-     aliases (console, terminal, shell_session, shell-session) must be written
-     exactly as `console?prompt=$,#`.
+     aliases (console, terminal, shell_session, shell-session) must start with
+     `console?prompt=$,#`. It may be `&`-extended with extra Rouge options, e.g.
+     `console?prompt=$,#&output=javascript` to highlight non-prompt lines as a
+     language instead of dimming them.
 
   2. A block tagged bash/shell/sh/zsh, or left unlabelled, that contains an
      interactive prompt line (a line starting with `$ ` or a `user@host...$ `
@@ -69,9 +71,10 @@ def check_post(post: Path) -> list[tuple[int, str]]:
         if b["exempt"]:
             continue
         if b["lang"] in CONSOLE_ALIASES:
-            if b["info"] != CANONICAL:
+            if b["info"] != CANONICAL and not b["info"].startswith(CANONICAL + "&"):
                 errors.append((b["line"],
-                    f"console block must be written `{CANONICAL}` (found `{b['info']}`)"))
+                    f"console block must start `{CANONICAL}` (optionally `&`-extended, "
+                    f"e.g. `&output=javascript`) (found `{b['info']}`)"))
             continue
         if b["lang"] in SHELL_LANGS and not any(l.lstrip().startswith("#!") for l in b["body"]):
             if any(USER_PROMPT.match(l) for l in b["body"]):

@@ -1375,10 +1375,10 @@ exit 0
 
 I then made sure it was executable and owned by root:wheel, and added it as a cronjob to be run as root.
 
-```bash
-chown root:wheel /usr/local/bin/asmcfan
-chmod +x /usr/local/bin/asmcfan
-echo '*      *       *       *       *       root    /usr/local/bin/asmcfan >/dev/null' >> /etc/crontab
+```console?prompt=$,#
+$ chown root:wheel /usr/local/bin/asmcfan
+$ chmod +x /usr/local/bin/asmcfan
+$ echo '*      *       *       *       *       root    /usr/local/bin/asmcfan >/dev/null' >> /etc/crontab
 ```
 
 ## Bluetooth

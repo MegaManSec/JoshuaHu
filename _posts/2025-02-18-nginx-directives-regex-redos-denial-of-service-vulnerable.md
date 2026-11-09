@@ -35,7 +35,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaa....
 
 But how bad can it really be, and does nginx somehow defend again this? Let's test:
 
-```console?prompt=$,#
+```console?prompt=$,#&output=http
 # curl -i https://localhost/aaaaaaaaaaaaaaaaaaaaaab
 HTTP/2 500
 server: nginx

@@ -36,12 +36,12 @@ Alright, bug found, bug explained, time to report it to GitHub's support so they
 
 Providing a link to an example commit where the UI shows a different committer and author despite a single address used, I provided the simple reproduction steps of:
 
-```bash
-git config user.email Test@joshua.hu
-echo 'a' >> README.md
-git add README.md
-git commit -a -m 'test'
-git push origin main
+```console?prompt=$,#
+$ git config user.email Test@joshua.hu
+$ echo 'a' >> README.md
+$ git add README.md
+$ git commit -a -m 'test'
+$ git push origin main
 ```
 
 The response?

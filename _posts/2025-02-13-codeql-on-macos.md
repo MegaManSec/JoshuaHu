@@ -7,17 +7,17 @@ description: "A step-by-step guide to setting up CodeQL on MacOS. Learn to insta
 
 Continuing the MacOS trend, I wanted to document the steps I took to getting CodeQL setup on my system.
 
-```shell
-brew install --cask codeql
-softwareupdate --install-rosetta --agree-to-license
+```console?prompt=$,#
+$ brew install --cask codeql
+$ softwareupdate --install-rosetta --agree-to-license
 ```
 
 From here, we have a few options.
 
-```shell
-mkdir ~/work/
-cd ~/work/
-git clone --recursive https://github.com/github/codeql.git
+```console?prompt=$,#
+$ mkdir ~/work/
+$ cd ~/work/
+$ git clone --recursive https://github.com/github/codeql.git
 ```
 
 The CodeQL repository comes with some pre-defined queries. They exist in `[language]/ql/src/[directories]` (`.ql` files). Alternatively, "packs" (`.qls` files) are also available in `[language]/ql/src/codeql-suites/` which will run multiple queries based on the list used.
@@ -77,9 +77,9 @@ codeql-scan-custom() {
 
 These may also be useful (for myself):
 
-```shell
-git clone https://github.com/GitHubSecurityLab/CodeQL-Community-Packs.git
-codeql database analyze /tmp/cql/"$(basename "$PWD")" --download githubsecuritylab/codeql-javascript-queries ~/work/CodeQL-Community-Packs/javascript/src/suites/* --format=sarifv2.1.0  --output=/tmp/cql/"scan-$(basename "$PWD")-$(date +%s).sarif"
+```console?prompt=$,#
+$ git clone https://github.com/GitHubSecurityLab/CodeQL-Community-Packs.git
+$ codeql database analyze /tmp/cql/"$(basename "$PWD")" --download githubsecuritylab/codeql-javascript-queries ~/work/CodeQL-Community-Packs/javascript/src/suites/* --format=sarifv2.1.0  --output=/tmp/cql/"scan-$(basename "$PWD")-$(date +%s).sarif"
 ```
 
 ```shell
