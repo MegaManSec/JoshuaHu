@@ -123,7 +123,7 @@ When it comes to suspend/resume however, things start to go awry. I have observe
 
 After some debugging, I discovered that I can freeze the system on-demand by: starting/stopping wifibox, and then attempting to read from the pci device, for example by using `pciconf -lvc`. Wifibox, by default, clears the pci forcefully-set driver using `devctl clear driver -f ppt0`. After wifibox is finished shutting down, manually running `pciconf -lc pci0:3:0:0` will list the device as with no capabilities (note: I removed the `clear driver` invocation from the wifibox shutdown script and have manually run it to demonstrate the output):
 
-```
+```console?prompt=$,#
 Stopping wifibox...
 tap0: link state changed to DOWN
 wifibox0: link state changed to DOWN
@@ -205,7 +205,7 @@ So I took a different approach. As it turns out, it _is_ possible to reset `pci3
 
 The output of running this can be seen below. Note that I have added some debugging messages into FreeBSD's pci kernel module:
 
-```
+```console?prompt=$,#
 $ service wifibox onestop
 Stopping wifibox....pcib4: Josh: pcib_release_resource
 ...OK
@@ -437,7 +437,7 @@ As it turns out, yes: by removing the pci device from the VM, "everything works 
 
 First we start wifibox. No surprises or changes from the other invocations:
 
-```
+```console?prompt=$,#
 $ service wifibox onestart
 bridge0: bpf attached
 bridge0: Ethernet address: 58:9c:fc:10:ff:c9
@@ -536,7 +536,7 @@ ppt0: using IRQ 45 for MSI
 
 Then we connect to the VM and "remove" the device:
 
-```
+```console?prompt=$,#
 $ wifibox console
 Connecting, type "~." to leave the session...
 Connected
@@ -562,7 +562,7 @@ As we see here, as soon as we "remove" the device, those msi lines which were mi
 
 Then we stop wifibox and unload vmm (and if_bridge):
 
-```
+```console?prompt=$,#
 $ sudo service wifibox onestop
 Stopping wifibox....pci0:3:0:0: Transition from D0 to D3
 pci3: set ACPI power state D3 on \_SB_.PCI0.RP03.ARPT
@@ -598,7 +598,7 @@ ppt0@pci0:3:0:0:	class=0x028000 rev=0x01 hdr=0x00 vendor=0x14e4 device=0x43ba su
 
 Suspending the machine from here works, as does resuming. This is the output when starting after a suspension/resume, as well as another echo (this time with some extra debugging):
 
-```
+```console?prompt=$,#
 $ service wifibox onestart
 user@evilco:~$ ppt0 mem 0xa0800000-0xa0807fff,0xa0400000-0xa07fffff at device 0.0 on pci3
 ppt0: attached
@@ -720,7 +720,7 @@ Which of these is necessary for the device to work after the system is shut down
 
 My solution here is to not debug further: it's to simply ensure that the device is removed before a shutdown. The patch for this extremely annoying bug is therefore:
 
-```
+```diff
 diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/pcie.c b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/pcie.c
 index ce482a3877e90a..865a2f25c8feb7 100644
 --- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/pcie.c

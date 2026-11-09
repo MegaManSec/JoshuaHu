@@ -60,7 +60,7 @@ A DNS response of NXDOMAIN does not _always_ mean a domain is unregistered! Who 
 
 The registry for `.co.za` does not offer RDAP, and as such, `rdap.org` will return a 404, resulting in a fallback to DoH in the extension. Let's take this domain for example:
 
-```
+```console?prompt=$,#
 $ dig softmar.co.za
 [..]
 ;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 53353
@@ -68,7 +68,7 @@ $ dig softmar.co.za
 
 We get `NXDOMAIN` as the status. So that means it's unregistered, right? Well, not so fast!
 
-```
+```console?prompt=$,#
 $ whois -h whois.registry.net.za softmar.co.za
 Domain Name: softmar.co.za
 Registry Domain ID: 3w2dd_DOMAIN-CO.ZA
@@ -93,7 +93,7 @@ Name Server: ns2.markmonitor.com
 
 It's certainly registered! So what's going on here? The key is in the fact the domain status is in `serverHold`. Let's try asking the authorative server for an SOA record:
 
-```
+```console?prompt=$,#
 $ dig +norec @ns1.markmonitor.com SOA softmar.co.za
 
 ; <<>> DiG 9.10.6 <<>> +norec @ns1.markmonitor.com SOA softmar.co.za

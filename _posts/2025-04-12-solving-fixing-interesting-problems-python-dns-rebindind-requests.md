@@ -25,7 +25,7 @@ requests.get(hostname)
 
 then the application is not fully protected, because the first resolution of the ip addresses of the hostname may not result in the same ip address as when `requests` sends the actual request. The first resolution can say "these results are valid only for 0-seconds", so when `requests` attempts to connect to the host, it re-resolves the ip address, which may change. This is easily seen with the useful `1u.ms` service, which makes rebinding attacks easy:
 
-```shell
+```console?prompt=$,#
 $ dig +short @1.1.1.1 make-1.2.3.4-rebind-169.254-169.254-rr.1u.ms
 1.2.3.4
 $ dig +short @1.1.1.1 make-1.2.3.4-rebind-169.254-169.254-rr.1u.ms
@@ -113,7 +113,7 @@ The idea behind this code is:
 
 This is equivalent to:
 
-```shell
+```console?prompt=$,#
 $ dig +short example.com
 23.215.0.138
 $ curl --resolve example.com:443:23.215.0.138 https://example.com

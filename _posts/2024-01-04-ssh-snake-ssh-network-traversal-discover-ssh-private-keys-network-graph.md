@@ -114,7 +114,7 @@ The rest of this blog pertains to the technical details of how SSH-Snake works. 
 
 The basis for how the SSH-Snake script replicates itself from server-to-server without uploading any files is the observation that a bash script can be passed to itself via stdin and positional parameters/arguments. Consider the following one-liner:
 
-```bash
+```console?prompt=$,#
 $ echo 'echo "$2"; echo "$1" | bash -s "$1" $(($2+1))' | bash -s 'echo "$2"; echo "$1" | bash -s "$1" $(($2+1))' $(($2+1))
 1
 2
@@ -141,7 +141,7 @@ As we can see, the one-liner is being executed over and over, each in another su
 
 It's also important to know that Bash's `-s` flag is used to specify positional arguments. Take for example:
 
-```bash
+```console?prompt=$,#
 $ echo 'echo $1 $2 $3' | bash -s a b c
 a b c
 ```
@@ -157,7 +157,7 @@ echo "$1" | bash -s "$1" $(($2+1))
 
 and execute it as such:
 
-```bash
+```console?prompt=$,#
 $ bash base.sh "$(<base.sh)"
 ```
 
@@ -198,7 +198,7 @@ This just keeps going on and on, until infinite (or until bash borks). The only 
 
 The previous section was a bit long-winded, I know. At least for me, it was difficult to grok how this actually worked. But what does it have to do with SSH and SSH-Snake? Well, it works via SSH, too:
 
-```bash
+```console?prompt=$,#
 $ echo 'echo 1: $1, 2: $2' | ssh user@host bash -s a b
 1: a, 2: b
 ```
@@ -212,7 +212,7 @@ ssh root@localhost "echo '$1' | base64 -d | bash -s -- '$1'"
 
 If we execute this file as follows:
 
-```bash
+```console?prompt=$,#
 $ bash t.sh "$(base64 -w0 < "t.sh")"
 
 127.0.0.1 46384 127.0.0.1 22
@@ -623,7 +623,7 @@ Difficult stuff, but definitely worth it!
 However, ssh also includes an option to hash the hostname for privacy reasons -- and this is the default on many distributions. Instead of the above line revealing `server.com`, `known_hosts` may instead contain `|1|+iwCSCtqbUdZJgeteQqYgQ0hWG8=|a3AyqEIKC7R4uDQsAv8zI1yIGpU= ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIClRF2LjL1EJNfEYAKpr9rENgZVFlH7jtEPla0x3hakB` -- the first part of that is the hashed version of `server.com`.
 
 As it turns out, we can effectively brute-force the hash using a pre-image attack. In fact, `ssh-keygen(1)` even supports this deliberately:
-```bash
+```console?prompt=$,#
 $ ssh-keygen -F 192.168.1.1
 # Host 192.168.1.1 found: line 58 
 |1|96KUSpeaZrkYrbQhhjFLF/jJ15w=|xMX7qNROy8SwPZK1zEjrlEeYU24= ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIClRF2LjL1EJNfEYAKpr9rENgZVFlH7jtEPla0x3hakB
@@ -1139,7 +1139,7 @@ echo "$THIS_SCRIPT" | bash
 
 when executed:
 
-```bash
+```console?prompt=$,#
 $ bash p.sh
 Pretending to remove_functions: ZWNobyAiUHJldGVuZGluZyB0byByZW1vdmVfZnVuY3Rpb25zOiAkKGVjaG8gIiRUSElTX1NDUklQVCIgfCBiYXNlNjQgLXcwKSIK
 $ echo 'ZWNobyAiUHJldGVuZGluZyB0byByZW1vdmVfZnVuY3Rpb25zOiAkKGVjaG8gIiRUSElTX1NDUklQVCIgfCBiYXNlNjQgLXcwKSIK' | base64 -d
@@ -1186,7 +1186,7 @@ Well.... sort of. Remember how I said using a here-document in bash may create a
 
 If you __really really really__ need to avoid writing anything to a file even on the system you're executing `Snake.sh` on, you can pre-remove all of the unnecessary white-spaces and comments, and you'll be below that 65535-byte limit:
 
-```bash
+```console?prompt=$,#
 $ cat Snake.sh | sed -e 's/^[ \t]*//' -e 's/^#.*$//' -e 's/[[:space:]]#.*//' -e '/^[[:space:]]*$/d' | wc -c
 45846
 ```

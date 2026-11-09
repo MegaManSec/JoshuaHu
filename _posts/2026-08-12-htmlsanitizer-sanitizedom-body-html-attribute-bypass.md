@@ -54,7 +54,7 @@ IHtmlDocument dom = s.SanitizeDom("<body onload=alert(1)><p>hi</p>");
 Console.WriteLine(dom.ToHtml());
 ```
 
-```
+```html
 <!DOCTYPE html><html><head></head><body onload="alert(1)"><p>hi</p></body></html>
 ```
 

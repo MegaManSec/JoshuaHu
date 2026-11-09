@@ -1,0 +1,25 @@
+name: Validate code fences
+
+# Enforces the code-fence conventions in _posts/: interactive shell sessions
+# use `console?prompt=$,#`, console/terminal blocks are written that way too.
+# Runs on every push/PR (no path filter) so it always reports and needs no
+# no-op twin for branch protection. Stdlib only, no bundle/build needed.
+
+on:
+  push:
+    branches: [gh-pages]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Code-fence conventions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Validate code-fence languages
+        run: python3 .github/scripts/validate_fences.py

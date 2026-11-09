@@ -284,7 +284,7 @@ We have multiple problems to solve:
 
 The deb file format consists of three compressed data structures, across three sections: "_package section_", "_control section_", and "_data section_". The package and control sections begin with fixed-length metadata: 132-bytes in total. Each section of the metadata use pre-defined lengths. So, we can parse: `file identifier` and `file size in bytes`, by specifically retrieving bytes `73-88` and `121-130` respectively. For example:
 
-```bash
+```console?prompt=$,#
 $ head -c132 tmux_0.8-4_sparc.deb  | dd bs=1 skip=72 count=16 2>/dev/null |sed -n l
 control.tar.gz  $
 head -c132 tmux_0.8-4_sparc.deb  | dd bs=1 skip=120 count=10 2>/dev/null |sed -n l
@@ -293,7 +293,7 @@ head -c132 tmux_0.8-4_sparc.deb  | dd bs=1 skip=120 count=10 2>/dev/null |sed -n
 
 We can confirm:
 
-```bash
+```console?prompt=$,#
 $ ar x tmux_0.8-4_sparc.deb 
 $ wc -c control.tar.gz 
     1163 control.tar.gz
@@ -510,7 +510,7 @@ So, basically, things look like this:
 
 There seems to be a hole in the above, though. It's impossible to connect directly to Apache with IPv4 (e.g. on port 80) because of the PREROUTING rule. But the IPv6 `ipv6addr_apache` address is sitting wide open on port 80, meaning we can directly interact with Apache -- which means our `Connection: keep-alive` will be honored, and we can bypass any network-based ratelimiting, as we can simply use a single connection to request multiple files:
 
-```
+```console?prompt=$,#
 $ curl -6 'snapshot.debian.org' -I 2>/dev/null|grep -i Via
 Via: 1.1 varnish (Varnish/6.5)
 $ curl -6 'https://snapshot.debian.org/' -I 2>/dev/null|grep -i Via
@@ -540,7 +540,7 @@ So, now we're directly communicating with the Apache server with no caching (and
 
 Why would we want to do this -- especially to skip Varnish cache? Well, there was extreme rate-limiting on snapshot.debian.org that applied to all connections -- having to open a new connection for every `.deb` file downloaded, we would quickly reach this limit. Let's test whether this actually works:
 
-```
+```console?prompt=$,#
 $ curl -H 'Connection: keep-alive' -H 'Host: snapshot.debian.org' -v 'http://[2001:630:206:4000:1a1a:0:c13e:ca1a]/archive/debian/20090518T042230Z/pool/main/t/tmux/tmux_0.8-4_amd64.deb' -o 1.deb 'http://[2001:630:206:4000:1a1a:0:c13e:ca1a]/archive/debian/20090518T042230Z/pool/main/t/tmux/tmux_0.8-4_amd64.deb' -o 2.deb
 *   Trying 2001:630:206:4000:1a1a:0:c13e:ca1a:80...
 [..]
@@ -566,7 +566,7 @@ So, our script will be connecting to `http://[2001:630:206:4000:1a1a:0:c13e:ca1a
 
 Also, apparently since some time ago, the snapshot website redirects users to blobs at snapshot.debian.org when downloading some of the `.deb` files:
 
-```bash
+```console?prompt=$,#
 $ curl -I -H 'Range: bytes=0-131' -H 'Connection: keep-alive' -H 'Host: snapshot.debian.org' 'http://[2001:630:206:4000:1a1a:0:c13e:ca1a]/archive/debian/20090518T042230Z/pool/main/t/tmux/tmux_0.8-4_amd64.deb'
 HTTP/1.1 302 FOUND
 [..]
@@ -595,7 +595,7 @@ In reality, much of the code discussed is not exactly the same as what I wrote. 
 
 One of the scripts which I call `fetcher`, ingests a list of URLs (in JSON) via HTTP using Flask:
 
-```
+```console?prompt=$,#
 $ curl localhost:8080 \
 	-H 'Content-Type: application/json' \
 	--data \

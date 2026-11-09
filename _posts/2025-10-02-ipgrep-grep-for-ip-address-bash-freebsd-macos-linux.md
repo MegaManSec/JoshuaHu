@@ -15,7 +15,7 @@ I always prefer Extended Regular Expressions ([EXE](https://en.wikibooks.org/wik
 
 My bashrc contains, then:
 
-```
+```bash
 alias ipgrep='grep -E "\b((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\b"'
 ```
 

@@ -69,7 +69,7 @@ I was looking for some type of tool that I can do to take periodic snapshots of 
 
 Searching more, I discovered [Nick Urbanik's "LDAP diff"](https://nicku.org/software/), which compares two LDIF entries and creates a new file which identifies that changes made and the original LDIF which was used/executed by the administrator. An example of how _that_ works is:
 
-```bash
+```console?prompt=$,#
 $ ldapsearch -o ldif-wrap=no -x -LLL -H ldaps://ldap.local -b dc=rabbit,dc=com '(&(|(objectClass=inetOrgPerson)(objectClass=groupOfNames)))' '*' '+' > ldap.new
 $ sleep 360
 $ mv ldap.new ldap.old

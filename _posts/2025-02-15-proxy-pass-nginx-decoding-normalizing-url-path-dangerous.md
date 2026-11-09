@@ -88,7 +88,7 @@ This is where it gets interesting. nginx's `proxy_pass` directive _will_ perform
 
 Consider the following configuration:
 
-```
+```nginx
 location /1/ {
   proxy_pass http://127.0.0.1:8080/;
 }
@@ -118,7 +118,7 @@ The above vulnerable configuration about _is_ documented in [proxy_pass](https:/
 
 So, if a path is attached to the value of `proxy_pass`, this decoding-and-normalizing occurs. Therefore, for a safe configuration, we need to use:
 
-```
+```nginx
 location /1/ {
   proxy_pass http://127.0.0.1:8080;
 }
@@ -134,7 +134,7 @@ But, what about the consumption of `/1/`? We don't want the backend to see the `
 
 An **incorrect** solution would be the following:
 
-```
+```nginx
 location /1/ {
   rewrite ^/1(/.*) $1 break;
   proxy_pass http://127.0.0.1:8080;
@@ -152,7 +152,7 @@ This is incorrect when rewrite rules are used, because when rewrite rules are us
 
 The solution then, is this:
 
-```
+```nginx
 location /1/ {
   rewrite ^ $request_uri;
   rewrite ^/1(/.*) $1 break;
@@ -208,7 +208,7 @@ Exhausting, no?
 
 A more advanced configuration may look like this, too:
 
-```
+```nginx
 location /1/ {
   rewrite ^ $request_uri;
   rewrite ^/1(/.*) /special/location$1/folder/ break;

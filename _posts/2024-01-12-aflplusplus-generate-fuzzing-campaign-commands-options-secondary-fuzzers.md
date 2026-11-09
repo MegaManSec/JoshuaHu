@@ -35,7 +35,7 @@ The script is slightly dumb in that it is possible for a fuzzing campaign to hav
 
 Usage is simple: call the python script like `./generate.py -n N --fuzz-out <dir> --corpus <dir> --fuzz-loc <loc> --san-fuzz-loc <loc> --cmp-fuzz-loc <loc>`. An example is as follows:
 
-```bash
+```console?prompt=$,#
 $ python3 generate.py -n 32 --fuzz-out "/dev/shm/fuzz" --corpus "/dev/shm/corpus" --fuzz-loc ~/fuzz.bin --san-fuzz-loc ~/fuzz.san.bin --cmp-fuzz-loc ~/fuzz/cmplog.bin
 
 AFL_AUTORESUME=1 AFL_DISABLE_TRIM=1 afl-fuzz -Z -a binary -a binary -p fast -i /dev/shm/corpus -o /dev/shm/fuzz -S main1 -l 2 /home/user/fuzz.cmplog.bin
@@ -73,7 +73,7 @@ AFL_FINAL_SYNC=1 AFL_AUTORESUME=1 afl-fuzz -P explore -a binary -p lin -i /dev/s
 ```
 To make life easier, I also have a bash script which takes each of these lines, and starts a new `screen(1)` with each of the lines:
 
-```bash
+```console?prompt=$,#
 $ python3 generate.py -n 32 --fuzz-out "/dev/shm/fuzz" --corpus "/dev/shm/corpus" --fuzz-loc ~/fuzz.bin --san-fuzz-loc ~/fuzz.san.bin --cmp-fuzz-loc ~/fuzz.cmplog.bin  | ./run.sh
 
 screen -dmS screen_main bash -c AFL_FINAL_SYNC=1 AFL_AUTORESUME=1 AFL_DISABLE_TRIM=1 AFL_KEEP_TIMEOUTS=1 afl-fuzz -a binary -p lin -i /dev/shm/corpus -o /dev/shm/fuzz -M main /Users/opera_user/fuzz.bin; exec bash
@@ -83,7 +83,7 @@ screen -dmS screen_main2 bash -c AFL_AUTORESUME=1 AFL_DISABLE_TRIM=1 afl-fuzz -P
 ```
 
 You can therefore just run
-```bash
+```console?prompt=$,#
 $ python3 generate.py -n 32 --fuzz-out "/dev/shm/fuzz" --corpus "/dev/shm/corpus" --fuzz-loc ~/fuzz.bin --san-fuzz-loc ~/fuzz.san.bin --cmp-fuzz-loc ~/fuzz.cmplog.bin  | ./run.sh | bash
 ```
 to execute everything.

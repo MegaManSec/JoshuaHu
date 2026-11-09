@@ -36,7 +36,7 @@ The `nts` at the end of each of those lines ensures that the time from each of t
 ---
 
 We restart chrony and confirm the servers are being communicated to:
-```
+```console?prompt=$,#
 $ service chronyd onerestart
 Stopping chronyd.
 Waiting for PIDS: 34158 34395
@@ -53,7 +53,7 @@ MS Name/IP address         Stratum Poll Reach LastRx Last sample
 ---
 
 Finally, we need to disable the main `ntp(8)` daemon from starting on boot, and enable `chrony(8)` to start, too:
-```
+```console?prompt=$,#
 $ sysrc ntpdate_enable="NO"
 ntpdate_enable: YES -> NO
 $ sysrc ntpd_enable="NO"

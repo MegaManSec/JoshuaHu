@@ -9,7 +9,7 @@ In a [previous post](/google-feedburner-broken-caching-if-modified-since), I out
 
 Of course, who knows whether this change was a direct consequence of me contacting their support -- Google doesn't reply to support emails of course (yay, asymmetric communication) -- but the change is evident nonetheless. The response when attempting to retrieve the rss feed for [the Google Chrome Releases blog](https://chromereleases.googleblog.com/) is a simple 302 redirect to the Atom feed:
 
-```shell
+```console?prompt=$,#
 $ hcurl 'https://www.blogger.com/feeds/8982037438137564684/posts/default'
 HTTP/2 302
 location: http://feeds.feedburner.com/GoogleChromeReleases
@@ -17,7 +17,7 @@ location: http://feeds.feedburner.com/GoogleChromeReleases
 
 The Chrome Releases blog source code still has in its source:
 
-```
+```html
 <link rel="alternate" type="application/atom+xml" title="Chrome Releases - Atom" href="https://chromereleases.googleblog.com/feeds/posts/default" />
 <link rel="alternate" type="application/rss+xml" title="Chrome Releases - RSS" href="https://chromereleases.googleblog.com/feeds/posts/default?alt=rss" />
 <link rel="service.post" type="application/atom+xml" title="Chrome Releases - Atom" href="https://www.blogger.com/feeds/8982037438137564684/posts/default" />
@@ -29,7 +29,7 @@ Alright; so the Atom feed -- which doesn't respect any attempts at client cachin
 
 But the results of the feed? Well..
 
-```shell
+```console?prompt=$,#
 $ date
 Sun Feb 23 22:33:37 AEDT 2025
 $ curl --silent "https://feeds.feedburner.com/GoogleChromeReleases" | grep -o '2025-02-..' | sort -n | head -n5

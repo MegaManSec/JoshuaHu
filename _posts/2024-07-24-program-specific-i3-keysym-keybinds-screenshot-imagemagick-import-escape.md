@@ -39,7 +39,7 @@ mode "screenshot" {
 
 and the `screenshot.sh` looks like:
 
-```
+```bash
 #!/bin/sh
 
 DATE=`date +%Y-%m-%d:%H:%M:%S`

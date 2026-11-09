@@ -25,7 +25,7 @@ The server can handle multiple expressions in a single request, but Gixy-Next co
 
 An example request to the API can be seen below:
 
-```
+```json
 {
   "1": {"pattern": "^(a+)+$", "modifier": ""},
   "2": {"pattern": "^[a-z]+$^[a-z]+$^[a-z]+$^[a-z]+$^[a-z]+$ ( ..... over one 1000 characters ...... )", "modifier": "i"},
@@ -36,7 +36,7 @@ An example request to the API can be seen below:
 
 which should result in the response:
 
-```
+```json
 {
   "1": {
     "source": "^(a|a+)+$",
@@ -73,7 +73,7 @@ I have submitted a PR to Gixy-Next with the functionality to specify a URL to a 
 
 An example of using the integration is seen below:
 
-```shell
+```console?prompt=$,#
 # gixy --regex-redos-url http://localhost:3001/recheck
 
 ==================== Results ===================

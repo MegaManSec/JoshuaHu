@@ -7,7 +7,7 @@ description: "The 'return' directive in Nginx bypasses 'allow' and 'deny' rules 
 
 Another popular configuration I've found in nginx configurations is as follows:
 
-```
+```nginx
 location /a_folder/ {
   allow 127.0.0.1;
   deny all;
@@ -21,7 +21,7 @@ In the above example, first the `return` is evaluated in the rewrite stage, and 
 
 In order to do what is intended, the correct configuration is:
 
-```
+```nginx
 location /a_folder/ {
   allow 127.0.0.1;
   deny all;

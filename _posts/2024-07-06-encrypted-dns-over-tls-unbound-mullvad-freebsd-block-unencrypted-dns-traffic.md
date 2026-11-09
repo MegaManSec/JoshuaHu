@@ -16,7 +16,7 @@ Previously, I used [dnscrypt-proxy](https://github.com/DNSCrypt/dnscrypt-proxy) 
 ---
 
 Firstly, we install unbound using either `pkg(8)` or from the ports tree. We enable the unbound daemon on boot:
-```
+```console?prompt=$,#
 $ sudo sysrc unbound_enable="YES"
 unbound_enable: NO -> YES
 ```
@@ -86,7 +86,7 @@ becomes
 
 First checking the config, we restart unbound, and confirm the resolver is now working:
 
-```
+```console?prompt=$,#
 $ unbound-checkconf 
 unbound-checkconf: no errors in /usr/local/etc/unbound/unbound.conf
 $ service unbound restart
@@ -115,7 +115,7 @@ nist.gov. (A)
 ```
 
 We can also confirm that the query is being sent to Mullvad over DoT:
-```
+```console?prompt=$,#
 $ sudo tcpdump -n -i wifibox0 'port 53 or port 853' 
 tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
 listening on wifibox0, link-type EN10MB (Ethernet), capture size 262144 bytes
@@ -197,7 +197,7 @@ For brevity, I won't go into details for each of the of each configuration chang
 Next, we block all outgoing connections on port 53 using `firewall(8)`/`ipfw(8)`. This configuration assumes that no other firewall/ipfw rules have been used.
 
 Creating a file `/usr/local/etc/ipfw.rules`, we add:
-```
+```bash
 #!/bin/sh
 ipfw -q flush
 ipfw -q add allow ip from any to any via lo0
@@ -213,7 +213,7 @@ This configuration:
 3. allows all remaining connections.
 
 We enable the firewall at boot, and then start it:
-```
+```console?prompt=$,#
 $ sysrc firewall_enable="YES"
 firewall_enable: NO -> YES
 $ sysrc firewall_script="/usr/local/etc/ipfw.rules"
@@ -223,7 +223,7 @@ Firewall rules loaded.
 ```
 
 Finally, we check whether everything works: 
-```
+```console?prompt=$,#
 $ drill -Q @127.0.0.1 google.com
 216.58.214.14
 $ drill -Q @8.8.8.8 google.com

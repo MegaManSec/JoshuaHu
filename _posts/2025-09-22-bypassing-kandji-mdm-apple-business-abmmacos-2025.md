@@ -66,7 +66,7 @@ You need to make sure that your laptop will not connect to the internet on reboo
 
 You need to shut down the system now, and hold down the power button to enter recovery mode, and then enter your credentials. In recovery mode, open the terminal (top left; under "Utilities"), and type the following commands:
 
-```
+```bash
 csrutil disable
 
 diskutil apfs list # Find your SSD / HDD, in the format of diskXsY
@@ -113,7 +113,7 @@ If you did not need to follow the instructions for bypassing Apple Business Mana
 
 Reboot into the normal system, and then open the terminal again, running the following commands (as root):
 
-```
+```bash
 cd /var/db/ConfigurationProfiles
 rm -rf *
 mkdir Settings
@@ -147,7 +147,7 @@ systemextensionsctl uninstall P3FGV63VK7 io.kandji.KandjiAgent.ESF-Extension
 Do the same thing for Zscaler.
 
 Next, get the process IDs of running Kandji:
-```
+```bash
 ps ax -o pid,command | grep -i kandji # find Kandji running
 kill -11 pid pid
 ```
@@ -161,14 +161,14 @@ profiles -d
 
 Find the directory for the Kandji ESF extension:
 
-```
+```bash
 cd /Library/SystemExtensions/EndpointSecurity/
 ls */
 ```
 
 Remove it:
 
-```
+```bash
 rm -rf /Library/SystemExtensions/83EDEB4F-FCDB-4D19-AC4E-3878CDA2C860/io.kandji.KandjiAgent.ESF-Extension.systemextension/Contents/
 ```
 
@@ -176,13 +176,13 @@ Do the same for the Zscaler extension.
 
 Now, remove everything else from Kandji:
 
-```
+```bash
 rm -rf /Applications/Utilities/Kandji\ Extension\ Manager.app/ /Library/Application\ Support/Kandji/  /Library/Kandji/
 ```
 
 Also remove the LaunchAgents:
 
-```
+```bash
 cd /Library/LaunchAgents/
 ls ./
 rm -rf io.kandji.*
@@ -190,7 +190,7 @@ rm -rf io.kandji.*
 
 Also remove the LaunchDaemons:
 
-```
+```bash
 cd /Library/LaunchDaemons/
 ls ./
 rm -rf io.kandji.*
@@ -214,7 +214,7 @@ On the next startup, the system may act strangely for a bit (changed background,
 
 These MDM tools are often accompanied by some ridiculous password policy, which can be identified by running `pwpolicy getaccountpolicies`. For example:
 
-```
+```console?prompt=$,#
 $ pwpolicy getaccountpolicies
 Getting global account policies
 [..]

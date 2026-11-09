@@ -10,7 +10,7 @@ Hurrah! Another website that is completely broken when disabling Javascript: thi
 I have JavaScript disabled in my browser, and that always comes with interesting side effects. Most recently, I've discovered that except for the homepage, Slack's website is completely inoperable; not that it won't load, but that it forcibly redirects you to another website. Let's take a look.
 
 When visiting the homepage of slack.com, the HTML source code contains the following:
-```
+```html
 <noscript><meta http-equiv="refresh" content="0; URL=&quot;\/?nojsmode=1&quot;"></noscript>
 ```
 

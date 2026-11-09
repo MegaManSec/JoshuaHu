@@ -15,7 +15,7 @@ ssh -oHostkeyAlgorithms=+ssh-notrealrsa user@host 2>&1
 
 If you guessed `command-line line 0: Bad key types '+ssh-notrealrsa'.` you'd be nearly right. In reality:
 
-```bash
+```console?prompt=$,#
 $ ssh -oHostkeyAlgorithms=+ssh-notrealrsa user@host 2>&1 | sed -n l
 command-line line 0: Bad key types '+ssh-notrealrsa'.\r$
 ```

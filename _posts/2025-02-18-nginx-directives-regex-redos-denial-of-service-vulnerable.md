@@ -35,7 +35,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaa....
 
 But how bad can it really be, and does nginx somehow defend again this? Let's test:
 
-```shell
+```console?prompt=$,#
 # curl -i https://localhost/aaaaaaaaaaaaaaaaaaaaaab
 HTTP/2 500
 server: nginx
@@ -54,7 +54,7 @@ pcre2_match() failed: -47 on "/aaaaaaaaaaaaaaaaaaaaaab" using /^(a|aa|aaa|aaaa)+
 
 Not the most useful error message, but checking the source code we work out that return code -47 corresponds to [PCRE2_ERROR_MATCHLIMIT](https://github.com/PCRE2Project/pcre2/blob/master/src/pcre2.h.in#L410). This error "limits the amount of backtracking that can take place". Great, so the library limits the amount of backtracking. But just how much does it defend against ReDoS in this case?
 
-```
+```console?prompt=$,#
 # ab -n 1000 -c 50 https://localhost/aaaaaaaaaaaaaaaaaaaaaab &>/dev/null &
 # time curl https://localhost/ >/dev/null
 real    9.978s

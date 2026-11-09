@@ -29,7 +29,7 @@ Why a VLAN sub-interface at all? In many deployments the management network is d
 
 So, how do we work out which address to use? Luckily IPMI helps: on the host OS we can query the BMC to learn its subnet and settings. (note: the LAN channel isn't always 1; but you can probe channels starting from 0 up to, like, 10, and then query the LAN settings.) For example:
 
-```
+```console?prompt=$,#
 $ ipmitool channel info 1
 Channel 0x1 info:
  Channel Medium Type     : 802.3 LAN
@@ -76,7 +76,7 @@ Cipher Suite Priv Max   : aaaaaaaaaaaaaaa
 
 And then we simply ... create an interface on our Linux system (the host OS) on that subnet. We can do this either for untagged, or tagged management VLANs:
 
-```
+```console?prompt=$,#
 # Untagged mgmt network on the shared port
 $ ip addr add 192.168.10.42/24 dev eth69
 $ ip link set eth69 up
@@ -84,7 +84,7 @@ $ ip link set eth69 up
 
 or
 
-```
+```console?prompt=$,#
 # If the mgmt network is VLAN 100 on the shared port
 $ ip link add link eth69 name eth69.100 type vlan id 100
 $ ip addr add 192.168.10.42/24 dev eth69.100

@@ -71,7 +71,7 @@ We can see that when a host is resolved, the resolution undergoes some checks to
 
 The above code is flawed because it doesn't account for hostnames that have multiple IPv4 addresses. If a hostname resolves to multiple addresses, we want to try all of the addresses. So what can we do? The easy thing to do would be to turn `resolved_hosts["$ssh_host"]` into an multi-dimentional array: `resolved_hosts["$ssh_host"][0]`, `resolved_hosts["$ssh_host"][1]`, and so on. But that's not possible:
 
-```bash
+```console?prompt=$,#
 $ declare -A test
 $ test["user"]=("1" "2")
 -bash: test["user"]: cannot assign list to array member
@@ -81,7 +81,7 @@ $ test["user"][0]=1
 
 So what can we do to save multiple hostnames in this variable? Well, I decided that since the values of each host are well-defined, we can take advantage of the default Internal Field Separator (IFS) in Bash (a space) and build a string for each host with the collection of resolved IPv4 address, and loop over them with the space as the separator. The basic example of this is:
 
-```bash
+```console?prompt=$,#
 $ declare -A test
 test["user"]="1 2 3 4"
 for val in ${test["user"]}; do

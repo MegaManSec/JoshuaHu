@@ -14,7 +14,7 @@ Some of these issues are documented in [https://mywiki.wooledge.org/BashFAQ/061]
 ---
 ### bash writes files to the disk for larger here-document operations:
 How much can you get away with while having zero disk space? Surprisingly a lot. Most of the operations in bash happen in memory or read-only. In some cases however, here-documents will use disk space. 
-```bash
+```console?prompt=$,#
 $ sudo mount -t tmpfs -o size=1M none "/dev/shm/empty"
 $ dd if=/dev/zero of=/dev/shm/empty/1 bs=1
 $ TMPDIR=/dev/shm/empty/ cat <<< "$(perl -e "print 'X' x 65536")"
@@ -51,7 +51,7 @@ un='$anything'
 ```
 
 This results is the error `line 4: my_array: bad array subscript`. Basically, _\$un_ gets expanded to _\$anything_ which gets expanded to nothing, thus making the script effectively run `[[ -v my_array[] ]]` which is invalid. We can see it when using bash's -x flag:
-```bash
+```console?prompt=$,#
 $ bash -x t.sh  # Bash 4.3
 + declare -A my_array
 + un='$anything'
@@ -61,7 +61,7 @@ t.sh: line 5: my_array: bad array subscript
 
 ---
 ### bash > 4 expands AND executes in-variable array keys:
-```bash
+```console?prompt=$,#
 $ declare -A my_array
 $ un='$(huh)'
 $ [[ -v my_array["$un"] ]] && return 1
@@ -73,7 +73,7 @@ Arbitrary command execution if our variable(!) is `$(..)` the command will be ex
 
 ---
 ### bash 4.2.46's test does not support the -v flag
-```bash
+```console?prompt=$,#
 $ declare -A my_array
 $ my_array["key"]=1
 $ [[ -v 'my_array["key"]' ]] && echo exists
@@ -91,7 +91,7 @@ So how can we test whether a key in the assoc array exists over multiple version
 
 ---
 ### ssh-keygen <= 6.6.1 can only display MD5 fingerprint hashes:
-```bash
+```console?prompt=$,#
 $ ssh-keygen -E md5 -lf .ssh/authorized_keys
 unknown option -- E
 usage: ssh-keygen [options]
@@ -100,14 +100,14 @@ Because why would anybody ever need anything other than MD5?!
 
 ---
 ### ssh <= 6.6.1 does not allowing appending to HostbasedKeyTypes or KexAlgorithms:
-```bash
+```console?prompt=$,#
 $ ssh -oHostkeyAlgorithms=+ssh-rsa -oKexAlgorithms=+diffie-hellman-group1-sha1 host
 command-line line 0: Bad protocol 2 host key algorithms '+ssh-rsa'.
 ```
 
 ---
 ### ssh-keygen <= 6.6.1 does not differentiate between invalid passphrase and invalid format:
-```bash
+```console?prompt=$,#
 $ ssh-keygen
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/sdev/.ssh/id_rsa):
@@ -139,14 +139,14 @@ Newer versions print "incorrect passphrase supplied to decrypt private key" and 
 
 ---
 ### ssh-keygen <= 6.6.1 cannot convert unprotected ssh private keys into their respective public key hashes:
-```bash
+```console?prompt=$,#
 $ rm .ssh/id_rsa.pub ; ssh-keygen -lf .ssh/id_rsa
 key_read: uudecode PRIVATE KEY----- failed
 key_read: uudecode PRIVATE KEY----- failed
 .ssh/id_rsa is not a public key file.
 ```
 
-```bash
+```console?prompt=$,#
 $ rm .ssh/id_rsa.pub ; ssh-keygen -lf .ssh/id_rsa
 .ssh/id_rsa is not a public key file.
 ```
@@ -155,7 +155,7 @@ The first one is for a PKCS#1 key file (BEGIN RSA PRIVATE KEY), while the second
 
 ---
 ### ssh-keygen <= 6.6.1 cannot convert a private key to a public key if the permissions are too public and a passphrase is not provided (even if the key doesn't have a passphrase):
-```bash
+```console?prompt=$,#
 $ chmod 777 .ssh/id_rsa
 $ ssh-keygen -y -f .ssh/id_rsa
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -172,7 +172,7 @@ I couldn't imagine why it asks for a passphrase at all.
 
 ---
 ###  ssh-keygen > 6.6.1 CAN convert unprotected ssh private keys into their respective public key hash even if they are too public:
-```bash
+```console?prompt=$,#
 $ chmod 777 .ssh/id_rsa
 $ ssh-keygen -E md5 -lf .ssh/id_rsa
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -189,21 +189,21 @@ The hash is printed to stdout and the rest to stderr. The return code is 0.
 ---
 ### ssh-keygen <= 6.6.1 AND > 6.6.1 CAN convert an unprotected private key into a private key and then convert the public key into a hash:
 
-```bash
+```console?prompt=$,#
 $ ssh-keygen -lf /dev/stdin <<<$(ssh-keygen -yf .ssh/id_rsa)
 8192 MD5:a7:60:50:03:8b:84:28:02:91:d4:f7:63:91:8b:c4:d2 no comment (RSA)
 ```
 
 But if you need to do that fileless, you have to:
 
-```bash
+```console?prompt=$,#
 $ ssh-keygen -lf <( (cat .ssh/id_rsa))
 8192 MD5:a7:60:50:03:8b:84:28:02:91:d4:f7:63:91:8b:c4:d2 no comment (RSA)
 ```
 
 However, unfortunately, that's also not possible for all versions of ssh-keygen:
 
-```bash
+```console?prompt=$,#
 $ ssh-keygen -lf <( (cat .ssh/id_rsa))
 /dev/fd/63 is not a public key file
 ```

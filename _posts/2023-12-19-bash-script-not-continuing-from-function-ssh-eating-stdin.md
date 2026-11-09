@@ -22,13 +22,13 @@ echo after
 
 Assuming the key exists and `true` will indeed run on the foreign server, what will the output be when running this script? As it turns out, it depends on how you run it:
 
-```bash
+```console?prompt=$,#
 $ bash ./test.sh
 before
 after
 ```
 
-```bash
+```console?prompt=$,#
 $ cat ./test.sh | bash
 before
 ```
