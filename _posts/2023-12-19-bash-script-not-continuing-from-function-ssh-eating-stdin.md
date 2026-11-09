@@ -37,8 +37,8 @@ Huh? Why isn't bash executing the second `echo`?
 
 In fact, it seems that the script just completely finishes after the `fun()` function returns. We see this when running the script in :
 
-```bash
-cat test.sh | bash -x
+```console?prompt=$,#
+$ cat test.sh | bash -x
 + echo before
 before
 + fun

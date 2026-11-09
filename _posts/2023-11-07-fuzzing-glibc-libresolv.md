@@ -10,9 +10,9 @@ Looking back at the issue I [had with libresolv nearly 10 years ago](https://jos
 Most of the processing of `res_init()` happens when `/etc/resolv.conf` is parsed, so we're just going to make a program that creates `/etc/resolv.conf` and fills it with data and calls `res_init()`.
 
 No need to trash our harddrive, so let's use a ram disk:
-```bash
-mkdir -p /tmp/fuzz
-mount -t tmpfs -o size=100M tmpfs /tmp/fuzz
+```console?prompt=$,#
+$ mkdir -p /tmp/fuzz
+$ mount -t tmpfs -o size=100M tmpfs /tmp/fuzz
 ```
 
 We're going to `chroot` into `/tmp/fuzz/*` in order to not destroy anything on our server, too,

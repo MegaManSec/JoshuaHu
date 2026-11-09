@@ -9,8 +9,8 @@ We learn new things every day. Today it's about ssh. And this time it's not even
 
 What would you expect this command to return?
 
-```bash
-ssh -oHostkeyAlgorithms=+ssh-notrealrsa user@host 2>&1
+```console?prompt=$,#
+$ ssh -oHostkeyAlgorithms=+ssh-notrealrsa user@host 2>&1
 ```
 
 If you guessed `command-line line 0: Bad key types '+ssh-notrealrsa'.` you'd be nearly right. In reality:
@@ -21,8 +21,8 @@ command-line line 0: Bad key types '+ssh-notrealrsa'.\r$
 ```
 
 As it turns out, each line that is printed to stderr is separated by a carriage return/line feed (CRLF) pair:
-```bash
-ssh noidea@notreal 2>&1 | sed -n l
+```console?prompt=$,#
+$ ssh noidea@notreal 2>&1 | sed -n l
 ssh: Could not resolve hostname notreal: Name or service not known\r$
 ```
 

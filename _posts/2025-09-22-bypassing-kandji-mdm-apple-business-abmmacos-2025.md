@@ -66,35 +66,35 @@ You need to make sure that your laptop will not connect to the internet on reboo
 
 You need to shut down the system now, and hold down the power button to enter recovery mode, and then enter your credentials. In recovery mode, open the terminal (top left; under "Utilities"), and type the following commands:
 
-```bash
-csrutil disable
+```console?prompt=$,#
+$ csrutil disable
 
-diskutil apfs list # Find your SSD / HDD, in the format of diskXsY
-diskutil apfs unlockVolume diskXsY -passphrase "YOUR_FILEVAULT_PASSWORD" # Type your password
+$ diskutil apfs list # Find your SSD / HDD, in the format of diskXsY
+$ diskutil apfs unlockVolume diskXsY -passphrase "YOUR_FILEVAULT_PASSWORD" # Type your password
 
-cd "/Volumes/Macintosh HD - Data/var/db/ConfigurationProfiles/Settings"
+$ cd "/Volumes/Macintosh HD - Data/var/db/ConfigurationProfiles/Settings"
 
-rm -rf ./.*
-rm -rf ./*
+$ rm -rf ./.*
+$ rm -rf ./*
 
-touch .cloudConfigProfileInstalled
-touch .cloudConfigRecordNotFound
-touch .profilesAreInstalled
+$ touch .cloudConfigProfileInstalled
+$ touch .cloudConfigRecordNotFound
+$ touch .profilesAreInstalled
 
-cd "/Volumes/Macintosh HD - Data/var/db/ConfigurationProfiles/Store"
+$ cd "/Volumes/Macintosh HD - Data/var/db/ConfigurationProfiles/Store"
 
-rm -rf ./.*
-rm -rf /*
+$ rm -rf ./.*
+$ rm -rf /*
 
-touch "/Volumes/Macintosh HD - Data/var/db/.AppleSetupDone"
+$ touch "/Volumes/Macintosh HD - Data/var/db/.AppleSetupDone"
 
-echo "0.0.0.0 deviceenrollment.apple.com" >> "/Volumes/Macintosh HD - Data/etc/hosts"
-echo "0.0.0.0 mdmenrollment.apple.com"   >> "/Volumes/Macintosh HD - Data/etc/hosts"
-echo "0.0.0.0 iprofiles.apple.com"       >> "/Volumes/Macintosh HD - Data/etc/hosts"
+$ echo "0.0.0.0 deviceenrollment.apple.com" >> "/Volumes/Macintosh HD - Data/etc/hosts"
+$ echo "0.0.0.0 mdmenrollment.apple.com"   >> "/Volumes/Macintosh HD - Data/etc/hosts"
+$ echo "0.0.0.0 iprofiles.apple.com"       >> "/Volumes/Macintosh HD - Data/etc/hosts"
 
-diskutil apfs updatePreboot diskXsY
+$ diskutil apfs updatePreboot diskXsY
 
-reboot
+$ reboot
 ```
 
 This disables Apple's SIP, and temporarily removes the MDM profiles downloaded from Apple's servers. It also edits the `/etc/hosts` file on your live system, blocking the downloading of MDM profiles in the future.  Once that's done, reboot into the normal system again.
@@ -113,11 +113,11 @@ If you did not need to follow the instructions for bypassing Apple Business Mana
 
 Reboot into the normal system, and then open the terminal again, running the following commands (as root):
 
-```bash
-cd /var/db/ConfigurationProfiles
-rm -rf *
-mkdir Settings
-touch Settings/.profilesAreInstalled
+```console?prompt=$,#
+$ cd /var/db/ConfigurationProfiles
+$ rm -rf *
+$ mkdir Settings
+$ touch Settings/.profilesAreInstalled
 ```
 
 Now let's continue.
@@ -161,9 +161,9 @@ profiles -d
 
 Find the directory for the Kandji ESF extension:
 
-```bash
-cd /Library/SystemExtensions/EndpointSecurity/
-ls */
+```console?prompt=$,#
+$ cd /Library/SystemExtensions/EndpointSecurity/
+$ ls */
 ```
 
 Remove it:
@@ -182,18 +182,18 @@ rm -rf /Applications/Utilities/Kandji\ Extension\ Manager.app/ /Library/Applicat
 
 Also remove the LaunchAgents:
 
-```bash
-cd /Library/LaunchAgents/
-ls ./
-rm -rf io.kandji.*
+```console?prompt=$,#
+$ cd /Library/LaunchAgents/
+$ ls ./
+$ rm -rf io.kandji.*
 ```
 
 Also remove the LaunchDaemons:
 
-```bash
-cd /Library/LaunchDaemons/
-ls ./
-rm -rf io.kandji.*
+```console?prompt=$,#
+$ cd /Library/LaunchDaemons/
+$ ls ./
+$ rm -rf io.kandji.*
 ```
 
 If you find any references to Zscaler, you can do this too -- but if you need to use Zscaler's _application_ (as a proxy/VPN), then don't delete that.

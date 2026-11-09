@@ -165,8 +165,8 @@ app.get('/network_health', async (req, res) => {$
 
 This can be exploited because the hidden character is treated as a variable and it is executed. Therefore, the following will cause code execution:
 
-```sh
-curl localhost:8080/network_health?%E3%85%A4=echo%20123%20%3E%20%2Ftmp%2Flol
+```console?prompt=$,#
+$ curl localhost:8080/network_health?%E3%85%A4=echo%20123%20%3E%20%2Ftmp%2Flol
 ```
 
 I reported this to GitHub, with examples of the characters, examples of where it could actually be exploited, and even linked to a repository where it showed that no warning was being displayed (i.e. the above code).

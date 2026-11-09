@@ -566,7 +566,7 @@ So, our script will be connecting to `http://[2001:630:206:4000:1a1a:0:c13e:ca1a
 
 Also, apparently since some time ago, the snapshot website redirects users to blobs at snapshot.debian.org when downloading some of the `.deb` files:
 
-```console?prompt=$,#
+```console?prompt=$,#&output=http
 $ curl -I -H 'Range: bytes=0-131' -H 'Connection: keep-alive' -H 'Host: snapshot.debian.org' 'http://[2001:630:206:4000:1a1a:0:c13e:ca1a]/archive/debian/20090518T042230Z/pool/main/t/tmux/tmux_0.8-4_amd64.deb'
 HTTP/1.1 302 FOUND
 [..]

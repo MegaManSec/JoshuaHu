@@ -17,11 +17,11 @@ To start, we need to set up an NFS on on each of the systems we're going to be f
 We'll start with _fuzz_.
 
 1\. Install NFS server, create a directory (which we will be _exporting_), and set the permissions:
-```bash
-sudo apt install nfs-kernel-server
-sudo mkdir -p /mnt/fuzz/
-sudo chown -R nobody:nogroup /mnt/buzz
-sudo chmod -R 666 /mnt/fuzz
+```console?prompt=$,#
+$ sudo apt install nfs-kernel-server
+$ sudo mkdir -p /mnt/fuzz/
+$ sudo chown -R nobody:nogroup /mnt/buzz
+$ sudo chmod -R 666 /mnt/fuzz
 ```
 
 2\. Edit the NFS export configuration. In this configuration, we limit the access to _/mnt/fuzz_ to the addresses of the four systems:
