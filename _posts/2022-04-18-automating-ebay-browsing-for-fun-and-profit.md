@@ -100,7 +100,7 @@ If the result was 0, a bell was sent to the terminal, which would alert me to ta
 **Step 4: Check Old Listings**
 
 In order to check old listings, an SQL query was run which did something like the following:
-```SQL
+```sql
 SELECT endtime,listingid FROM sales WHERE UNIX_TIMESTAMP(NOW()) > endtime+60 AND active='T'
 ```
 This query would take all the listings which _should_ have already ended at least one minute ago, and which were still stored as 'active' in the database (i.e. they had not been seen as 'ended' already).

@@ -70,6 +70,11 @@ def check_post(post: Path) -> list[tuple[int, str]]:
     for b in iter_blocks(lines):
         if b["exempt"]:
             continue
+        raw_lang = b["info"].split("?")[0]
+        if raw_lang and raw_lang != raw_lang.lower():
+            errors.append((b["line"],
+                f"fence language must be lowercase: Rouge lexer names are case-sensitive, "
+                f"so `{raw_lang}` renders unhighlighted (use `{raw_lang.lower()}`)"))
         if b["lang"] in CONSOLE_ALIASES:
             if b["info"] != CANONICAL and not b["info"].startswith(CANONICAL + "&"):
                 errors.append((b["line"],

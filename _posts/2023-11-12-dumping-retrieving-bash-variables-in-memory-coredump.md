@@ -36,7 +36,7 @@ $ gdb bash ./core.1234537 -ex 'set pagination off' -ex 'set print pretty on'
 ```
 
 Taking a look at bash's source code, we first look at the obvious [variables.c](https://github.com/bminor/bash/blob/2bb3cbefdb8fd019765b1a9cc42ecf37ff22fec6/variables.c#L119C14-L119C30). On the stack are the "global_variables" and "shell_variables" variables which store the bash variables for the bash session:
-```C
+```c
 /* The list of shell variables that the user has created at the global
    scope, or that came from the environment. */
 VAR_CONTEXT *global_variables = (VAR_CONTEXT *)NULL;
@@ -46,7 +46,7 @@ VAR_CONTEXT *shell_variables = (VAR_CONTEXT *)NULL;
 ```
 
  The definition for VAR_CONTEXT is found in [variables.h](https://github.com/bminor/bash/blob/2bb3cbefdb8fd019765b1a9cc42ecf37ff22fec6/variables.h#L41):
- ```C
+ ```c
  typedef struct var_context {
   char *name;		/* empty or NULL means global context */
   int scope;		/* 0 means global context */
@@ -89,7 +89,7 @@ $1 = (VAR_CONTEXT *) 0x5652805cd150
 (gdb) 
 ```
 Taking a look again at the definition for _VAR_CONTEXT_, we see that _shell_variables_ is a double linked list, with the variables stored in a hash table of type _HASH_TABLE_. _HASH_TABLE_ is defined in [hashlib.h](https://github.com/bminor/bash/blob/2bb3cbefdb8fd019765b1a9cc42ecf37ff22fec6/hashlib.h#L46):
-```C
+```c
 typedef struct hash_table {
   BUCKET_CONTENTS **bucket_array;	/* Where the data is kept. */
   int nbuckets;			/* How many buckets does this table have. */
@@ -97,7 +97,7 @@ typedef struct hash_table {
 } HASH_TABLE;
 ```
 and _BUCKET_CONTENTS_ too:
-```C
+```c
 typedef struct bucket_contents {
   struct bucket_contents *next;	/* Link to next hashed key in this bucket. */
   char *key;			/* What we look up. */

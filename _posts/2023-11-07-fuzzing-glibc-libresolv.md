@@ -17,7 +17,7 @@ $ mount -t tmpfs -o size=100M tmpfs /tmp/fuzz
 
 We're going to `chroot` into `/tmp/fuzz/*` in order to not destroy anything on our server, too,
 
-```C
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -90,7 +90,7 @@ Compiling it with afl-fuzz, we find two unique issues within about 5 seconds.
 
 ### Infinite loop in sortlist handling
 The first issue is related to the _sortlist_ directive. _sortlist_ is an obsolete directive which allows for networks or subnets to be prefered if [multiple addresses are received from a dns query](https://docstore.mik.ua/orelly/networking_2ndEd/dns/ch06_01.htm#dns4-CHP-6-SECT-1.5.html). The C code for parsing this directive looks like:
-```C
+```c
 while (true)
   {
     while (*cp == ' ' || *cp == '\t')
