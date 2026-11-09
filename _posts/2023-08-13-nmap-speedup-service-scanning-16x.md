@@ -48,7 +48,7 @@ It is extremely noteworthy that when nmap sends a probe, it **deliberately waits
 totalwaitms 6000
 ```
 In reality, scanning a host for a service which is completely unidentifiable, will keep you waiting around 160-seconds:
-```
+```console?prompt=$,#
 # time nmap -sV localhost -p2223
 Starting Nmap 7.80 ( https://nmap.org ) at 2023-08-12 14:11 UTC
 Nmap scan report for localhost (127.0.0.1)
@@ -69,7 +69,7 @@ sys     0m0.065s
 ---
 
 The most obvious solution is to simply lower the _totalwaitms_ value to something more reasonable. This will sacrifice niche results such as of the mail servers which employ these anti-spam techniques, however this is a sacrifice I believe most are willing to make. _totalwaitms_ can be changed the nmap-service-probes file.
-```
+```console?prompt=$,#
 # grep 'totalwaitms' /usr/share/nmap/nmap-service-probes
 totalwaitms 6000
 totalwaitms 7500
@@ -87,7 +87,7 @@ tcpwrappedms 300
 
 After replacing these values with _totalwaitms 300_ and _tcpwrappedms 200_, it is expected that the scan will now take just a few seconds. However...
 
-```
+```console?prompt=$,#
 # time nmap -sV localhost -p2223
 [..]
 
@@ -102,7 +102,7 @@ As it turns out, probes which do not have a specifically defined _servicewaitms_
 I didn't want to change the values of _totalwaitms_ and _tcpwrappedms_ at all in the /usr/share/nmap/nmap-service-probes file, so I also edited the [parsing code](https://github.com/nmap/nmap/blob/master/service_scan.cc#L1358) such that these values in the nmap-service-probes file are completely ignored:
 
 I once again tried scanning, and..
-```
+```console?prompt=$,#
 # time nmap localhost -p9999 -sV
 [..]
 

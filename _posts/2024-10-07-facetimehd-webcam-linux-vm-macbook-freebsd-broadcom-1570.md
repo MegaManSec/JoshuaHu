@@ -40,7 +40,7 @@ In order to utilize the Linux driver, we obviously need to be running... Linux. 
 
 First we install the `bhyve-firmware` and `vm-bhyve` packages:
 
-```console
+```console?prompt=$,#
 $ pkg install bhyve-firmware vm-bhyve
 ```
 
@@ -64,7 +64,7 @@ vm_disable_host_checks="yes"
 
 We need to create a ZFS dataset in `zroot/vm`:
 
-```console
+```console?prompt=$,#
 $ zfs create zroot/vm
 ```
 
@@ -84,7 +84,7 @@ nat on wifibox0 from {192.168.8.0/24} to any -> (wifibox0)
 
 We can either reboot, or manually start the `vm` service and deal with the other related services and settings:
 
-```console
+```console?prompt=$,#
 $ service vm start
 $ sysctl net.inet.ip.forwarding=1
 $ service pf start
@@ -97,7 +97,7 @@ $ zfs mount zroot/vm
 
 Now we need to initalize the VM. `vm` will download the ISO provided in the link. You may want to use a newer version.
 
-```console
+```console?prompt=$,#
 $ vm init
 $ cp /usr/local/share/examples/vm-bhyve/* /zroot/vm/.templates/
 $ vm switch create -a 192.168.8.1/24 public
@@ -142,7 +142,7 @@ Some things to note:
 
 Next, we need to set the device for the PCI device to `ppt`:
 
-```console
+```console?prompt=$,#
 $ devctl set driver pci0:4:0:0 ppt
 ```
 
@@ -152,13 +152,13 @@ $ devctl set driver pci0:4:0:0 ppt
 
 With that done, we can now boot into the installer:
 
-```console
+```console?prompt=$,#
 $ vm install -f alpine alpine-standard-3.20.3-x86_64.iso
 ```
 
 You'll be greeted with a terminal. You should run the installer:
 
-```console
+```console?prompt=$,#
 $ setup-alpine
 ```
 
@@ -190,7 +190,7 @@ You can run `halt` once everything is done, and type `~.` to exit the [nmdm tty]
 
 Now start the VM, and use the console (or use SSH, if you set that up):
 
-```console
+```console?prompt=$,#
 $ vm start alpine
 $ vm console alpine
 ```
@@ -203,7 +203,7 @@ Test if the network is working using `ping`. Again, if it's not working, try dis
 
 If you decided to share a folder between the host and VM, you can mount it now:
 
-```console
+```console?prompt=$,#
 $ mount -t 9p -o trans=virtio share_name /mnt
 ```
 
@@ -213,7 +213,7 @@ $ mount -t 9p -o trans=virtio share_name /mnt
 
 First we include the community packages by editing `/etc/apk/repositories` and uncommenting the commented line. Then we install `doas`, and some packages used for building the `facetimehd` driver.
 
-```console
+```console?prompt=$,#
 $ vi /etc/apk/repositories # uncomment the community line
 $ apk update
 $ apk add doas build-base alpine-sdk linux-lts-dev linux-lts
@@ -229,7 +229,7 @@ $ echo 'permit persist :abuild' >> /etc/doas.conf
 
 Now we need to build some packages. This process might take awhile because we've set the VM to only have one VM and 256MB of memory; we could raise that by running `vm configure alpine` again, build the packages, then change it back, or we can just wait a bit for it all to finish.
 
-```console
+```console?prompt=$,#
 $ su packager
 $ cd
 $ abuild-keygen --append --install
@@ -237,7 +237,7 @@ $ abuild-keygen --append --install
 
 The following instructions are kind of hand-wavy and are not really the best way to go about things, but oh well; this post is mostly just so I remember what I've done.
 
-```console
+```console?prompt=$,#
 $ doas apk add socat libcap2 libjpeg-turbo musl pkgconf zlib v4l-utils-libs
 $ mkdir -p aports/facetimehd-firmware/
 $ cd aports/facetimehd-firmware/
@@ -260,7 +260,7 @@ $ abuild -r
 
 Now we need to install the packages we've just build.
 
-```console
+```console?prompt=$,#
 $ cd ~/packages/aports/x86_64/
 $ doas apk add *.apk
 ```
@@ -271,7 +271,7 @@ $ doas apk add *.apk
 
 Now load the `facetimehd` driver and confirm it working using `dmesg`:
 
-```console
+```console?prompt=$,#
 $ modprobe facetimehd
 $ dmesg
 ```
@@ -359,7 +359,7 @@ $ dmesg
 
 We can also use `v4l2-ctl` from the `v4l-utils-libs` package we installed to list information about the camera:
 
-```console
+```console?prompt=$,#
 localhost:~# v4l2-ctl --list-formats-ext
 ioctl: VIDIOC_ENUM_FMT
 	Type: Video Capture
@@ -468,7 +468,7 @@ You can lower the CPU usage by playing around with the `-s` and `-r` parameters.
 
 On the FreeBSD host, you must install and enable `webcamd` as well as `cuse`:
 
-```console
+```console?prompt=$,#
 $ pkg install webcamd
 $ sysrc webcamd_enable=YES
 $ echo 'cuse_load="YES"' >> /boot/loader.conf
@@ -476,7 +476,7 @@ $ echo 'cuse_load="YES"' >> /boot/loader.conf
 
 You can also just run:
 
-```console
+```console?prompt=$,#
 $ kldload cuse
 $ service webcamd onestart
 ```
@@ -487,7 +487,7 @@ $ service webcamd onestart
 
 Now we need to create a video4linux device:
 
-```console
+```console?prompt=$,#
 $ webcamd -c v4l2loopback
 ```
 
@@ -497,7 +497,7 @@ $ webcamd -c v4l2loopback
 
 Finally, we need to connect to the VM on port 8888 and simply pipe the data received into `ffmpeg`, which will write the data to `/dev/video` -- the device created by `webcamd`:
 
-```console
+```console?prompt=$,#
 $ nc -N -n --no-tcpopt 192.168.8.2 8888 | ffmpeg -hide_banner -r 25 -i pipe: -f v4l2 /dev/video0
 ```
 
@@ -507,7 +507,7 @@ $ nc -N -n --no-tcpopt 192.168.8.2 8888 | ffmpeg -hide_banner -r 25 -i pipe: -f 
 
 We can use the `pwcview` program to view the webcam (or any other way, like Firefox):
 
-```console
+```console?prompt=$,#
 $ pwcview -y -f 25
 ```
 
@@ -527,7 +527,7 @@ From [the wiki](https://github.com/patjak/facetimehd/wiki/Extracting-the-sensor-
 
 Instructions for manually performing those actions can be found on the wiki above. Alternatively, you can (from the VM):
 
-```console
+```console?prompt=$,#
 $ su packager
 $ mkdir ~/aports/facetimehd-calibration/
 $ cd ~/aports/facetimehd-calibration/
@@ -538,7 +538,7 @@ $ doas apk add ~/packages/aports/x86_64/facetimehd-calibration-1.0.0-r0.apk
 
 Reloading the `facetimehd` driver, the warning should no longer be displayed, and the colors of your webcam will be.. more correct:
 
-```console
+```console?prompt=$,#
 $ rmmod facetimehd
 $ modprobe facetimehd
 ```

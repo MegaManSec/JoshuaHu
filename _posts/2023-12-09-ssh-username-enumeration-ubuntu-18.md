@@ -8,12 +8,12 @@ description: "Walking through how OpenSSH behaves on Ubuntu 18, and how error ha
 Let's say you're like me, and you're indirectly conducting research into how different versions of the ssh client on Ubuntu produce warning/error messages when connecting to different versions of the ssh server.
 
 Like me, you come across a strange situation. When you attempt to ssh into a server, you get different responses depending on the username. For a username which does in fact correlate to a user on the remote server, you get prompted for a password:
-```
+```console?prompt=$,#
 $ ssh root@10.0.0.1
 root@10.0.0.1's password:
 ```
 But for a user that doesn't exist:
-```
+```console?prompt=$,#
 $ ssh invalid@10.0.0.1
 Connection closed by 10.0.0.1 port 22
 ```
@@ -32,7 +32,7 @@ As always, it's not so simple. Different versions of ssh (the client) report dif
 
 ### OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13, OpenSSL 1.0.1f 6 Jan 2014
 
-```
+```console?prompt=$,#
 $ ssh -q invalid@10.0.0.1
 $ ssh invalid@10.0.0.1
 Connection closed by 10.0.0.1
@@ -42,7 +42,7 @@ ssh's `-q` flag suppresses the error which indicates the username does not exist
 
 
 ### OpenSSH_7.2p2 Ubuntu-4ubuntu2.10, OpenSSL 1.0.2g 1 Mar 2018
-```
+```console?prompt=$,#
 $ ssh invalid@10.0.0.1
 Connection to 10.0.0.1 closed by remote host.
 Connection to 10.0.0.1 closed.
@@ -56,14 +56,14 @@ Connection to 172.17.64.169 closed by remote host.
 Connection to 172.17.64.169 closed.
 
 ### OpenSSH_7.6p1 Ubuntu-4ubuntu0.3, OpenSSL 1.0.2n  7 Dec 2017
-```
+```console?prompt=$,#
 $ ssh -q invalid@10.0.0.1
 $ ssh invalid@10.0.0.1
 Connection closed by 10.0.0.1 port 22
 ```
 
 ### OpenSSH_8.2p1 Ubuntu-4ubuntu0.9, OpenSSL 1.1.1f 31 Mar 2020
-```
+```console?prompt=$,#
 $ ssh -q invalid@10.0.0.1
 $ ssh invalid@10.0.0.1
 Connection closed by 10.0.0.1 port 22
@@ -71,7 +71,7 @@ Connection closed by 10.0.0.1 port 22
 The same as above.
 
 ### OpenSSH_8.4p1 Debian-5+deb11u2, OpenSSL 1.1.1w  11 Sep 2023
-```
+```console?prompt=$,#
 $ ssh invalid@10.0.0.1
 invalid@10.0.0.1: Permission denied (publickey).
 ````

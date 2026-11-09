@@ -63,7 +63,7 @@ Continue setting up the system as normal: install a text editor, set up [doas(1)
 
 I personally installed `sudo` instead, added the user to the wheel group, and allowed passwordless usage:
 
-```bash
+```console?prompt=$,#
 $ pkg install sudo
 $ pw groupmod wheel -m user
 ```
@@ -74,7 +74,7 @@ Note that nearly all of the commands outlined in this guide should be run as roo
 
 Finally, for whatever reason, my `/tmp` directory was messed up on install, and I had to run:
 
-```bash
+```console?prompt=$,#
 $ chmod 1777 /tmp
 ```
 
@@ -103,7 +103,7 @@ If you don't have a USB WiFi or Ethernet dongle, then we can install `wifibox` a
 
 On a _different_ FreeBSD system that _is_ connected to the internet, you can run the following command which will retrieve the pre-compiled pkg files for `wifibox`:
 
-```bash
+```console?prompt=$,#
 $ pkg fetch -o /tmp/ --dependencies wifibox 
 Updating FreeBSD repository catalogue...
 FreeBSD repository is up to date.
@@ -129,7 +129,7 @@ The `pkg` files will then be sitting in `/tmp/All/`. From here, you need to copy
 
 On the Macbook, you can then install the packages using:
 
-```bash
+```console?prompt=$,#
 $ pkg add grub2-bhyve-0.40_11.pkg
 $ pkg add socat-1.8.0.1.pkg
 $ pkg add wifibox-1.4.2.pkg
@@ -153,14 +153,14 @@ The only problem with this method is that the default _RECOVERY_ option for `wif
 
 When you finally get internet working here, my recommendation is to install `wifibox-core` and `wifibox-alpine` from the ports tree, and replace the pre-compiled package:
 
-```bash
+```console?prompt=$,#
 $ cd /usr/ports/net/wifibox-core/
 $ make config
 ```
 
 We need to enable the option `RECOVER_SUSPEND_VMM`. Next we install it, and remove the pre-compiled package:
 
-```bash
+```console?prompt=$,#
 $ make
 $ pkg remove wifibox-core
 $ make reinstall
@@ -168,7 +168,7 @@ $ make reinstall
 
 Then configure `wifibox-alpine`:
 
-```bash
+```console?prompt=$,#
 $ cd /usr/ports/net/wifibox-alpine/
 $ make config
 ```
@@ -184,7 +184,7 @@ KERN_LTS
 
 Now build and install:
 
-```bash
+```console?prompt=$,#
 $ make
 $ pkg remove wifibox-alpine
 $ make reinstall
@@ -199,7 +199,7 @@ This method is quite convoluted.
 First, we need to install the FreeBSD packages `grub2-bhyve`, `socat`, `gtar`, `patchelf`, and `squashfs-tools-ng` on the Macbook.
 Since we have no internet, we need to copy those files from somewhere else using a USB. The packages can either be downloaded using the `pkg` tool on another system already running FreeBSD (with internet):
 
-```bash
+```console?prompt=$,#
 $ pkg fetch -o /tmp/ gtar patchelf squashfs-tools-ng grub2-bhyve socat
 Updating FreeBSD repository catalogue...
 FreeBSD repository is up to date.
@@ -256,7 +256,7 @@ Next, we need to download the packages that build the Alpine Linux VM. If you're
 
 We then need to download the appropriate `freebsd-wifibox` script and code. We find the file to download easily:
 
-```bash
+```console?prompt=$,#
 $ grep GH_TAGNAME freebsd-wifibox-port/net/wifibox-core/Makefile | awk '{print "https://codeload.github.com/pgj/freebsd-wifibox/tar.gz/"$NF}'
 https://codeload.github.com/pgj/freebsd-wifibox/tar.gz/4abcf0936fdd5a04fcd7fd53811ebb5aab7b70a9
 ```
@@ -269,7 +269,7 @@ Now that we have everything downloaded, we copy the `freebsd-wifibox-port` repos
 
 Now, on the Macbook running FreeBSD we:
 
-```bash
+```console?prompt=$,#
 $ mkdir /usr/ports/distfiles/wifibox-alpine/
 ```
 
@@ -279,7 +279,7 @@ We also copy the `freebsd-wifibox-port` repository to the Macbook.
 
 We then install the `grub2-bhyve`, `socat`, `gtar`, `patchelf`, and `squashfs-tools-ng` packages:
 
-```bash
+```console?prompt=$,#
 $ pkg add gtar-1.35_1.pkg
 $ pkg add patchelf-0.14.3_1.pkg
 $ pkg add squashfs-tools-ng-1.3.1.pkg
@@ -289,7 +289,7 @@ $ pkg add socat-1.8.0.1.pkg
 
 Now it's time to prepare the building of wifibox:
 
-```bash
+```console?prompt=$,#
 $ cd freebsd-wifibox-port
 $ make -C net/wifibox-core config
 ```
@@ -298,7 +298,7 @@ We need to enable the option `RECOVER_SUSPEND_VMM`, as suspending while `wifibox
 
 Next, we set the options for the Alpine Linux VM which will be running.
 
-```bash
+```console?prompt=$,#
 $ make -C net/wifibox-alpine config
 ```
 
@@ -313,7 +313,7 @@ KERN_LTS
 
 Now we can build:
 
-```bash
+```console?prompt=$,#
 $ kldload linux64
 $ mkdir -p /compat/linux
 $ make -C net/wifibox-alpine install
@@ -331,7 +331,7 @@ Now we need to configure the `wifibox` service.
 
 We need to find the PCI socket that the wifi chip is located in. On my system, it's `pci:0:3:0:0`:
 
-```bash
+```console?prompt=$,#
 $ pciconf -lv |grep -B3 network
 none@pci0:3:0:0:	class=0x028000 rev=0x01 hdr=0x00 vendor=0x14e4 device=0x43ba subvendor=0x106b subdevice=0x0152
     vendor     = 'Broadcom Inc. and subsidiaries'
@@ -351,13 +351,13 @@ to correspond to the PCI socket identified before (note `pci0:3:0:0` becomes `3/
 
 The `wpa_supplicant.conf` file containing the wifi details for the guest (Linux) VM is accesible from the (FreeBSD) host in `/usr/local/etc/wifibox/wpa_supplicant/wpa_supplicant.conf`. We can create a hardlink (a symlink will not work) from `/etc/wpa_supplicant.conf` on the host to that file, making it accessible from the VM:
 
-```bash
+```console?prompt=$,#
 $ ln /etc/wpa_supplicant.conf /usr/local/etc/wifibox/wpa_supplicant/wpa_supplicant.conf
 ```
 
 From the host, we can then edit `/etc/wpa_supplicant.conf` manually, or append to the file with something like this:
 
-```bash
+```console?prompt=$,#
 $ wpa_passphrase ssid passphrase
 network={
 	ssid="ssid"
@@ -370,7 +370,7 @@ network={
 
 Now we test whether it all works. Starting the `wifibox` service, we then request a session from the guest VM's DHCP server using `dhclient`:
 
-```bash
+```console?prompt=$,#
 $ service wifibox onestart
 Starting wifibox.......OK
 $ dhclient wifibox0
@@ -385,7 +385,7 @@ PING 1.1.1.1 (1.1.1.1): 56 data bytes
 
 Once you're connected, you can view all of the DHCP information in `/var/db/dhclient.leases.wifibox0`. For example:
 
-```bash
+```console?prompt=$,#
 $ cat /var/db/dhclient.leases.wifibox0
 lease {
   interface "wifibox0";
@@ -516,7 +516,7 @@ From FreeBSD-14.0, the `devd` rule shouldn't be necessary. In commit [2cf8ef5910
 
 We'll be using Xorg. We need to install Xorg, xf86-video-intel, and the meta-package [drm-kmod](https://www.freshports.org/graphics/drm-kmod/):
 
-```bash
+```console?prompt=$,#
 $ pkg install xorg drm-kmod xf86-video-intel
 ```
 
@@ -524,7 +524,7 @@ $ pkg install xorg drm-kmod xf86-video-intel
 
 **Note**: The older `xf86-video-intel` package is used because the GPU on this Macbook is fairly outdated, and significant screen tearing occurs with kernel modesetting ([DRM](https://web.archive.org/web/20240927033058/https://wiki.ubuntu.com/X/Glossary#What_is_.22DRI.22.3F__What_is_.22DRM.22.3F_.22DDX.22.3F)). **If and only if** you want to try your luck _without_ the `xf86-video-intel` package and instead use [DDX](https://web.archive.org/web/20240927033058/https://wiki.ubuntu.com/X/Glossary#What_is_.22DRI.22.3F__What_is_.22DRM.22.3F_.22DDX.22.3F), you need to manually load the kernel module and/or set it to be loaded automatically:
 
-```bash
+```console?prompt=$,#
 $ kldload /boot/modules/i915kms.ko
 $ sysrc kld_list+="/boot/modules/i915kms.ko"
 ```
@@ -535,19 +535,19 @@ YMMV: I've only added this in case you would like to see what screen tearing loo
 
 We need to add any user that will be using Xorg to the `video` group:
 
-```bash
+```console?prompt=$,#
 $ pw groupmod video -m user
 ```
 
 And finally, we need to set `sysctl kern.evdev.rcpt_mask=3`. This will be important for when we set up the trackpad later. We also make this persistent:
 
-```bash
+```console?prompt=$,#
 $ echo 'kern.evdev.rcpt_mask=3' >> /etc/sysctl.conf
 ```
 
 The installation message of `xorg` explains what's going on here:
 
-```
+```console?prompt=$,#
 $ pkg info -xD xorg-server
 [..]
 If your kernel is compiled with the EVDEV_SUPPORT option enabled (default starting from FreeBSD 12.1) it is 
@@ -865,7 +865,7 @@ Basically, it's used to save the volume level and then set the volume to zero wh
 
 [scrot(1)](https://www.freshports.org/graphics/scrot/) is used to take screenshots. Make sure you have those installed:
 
-```bash
+```console?prompt=$,#
 $ pkg install playerctl asmctl scrot
 ```
 
@@ -877,7 +877,7 @@ The left or right cmd buttons (AKA `Mode_switch`), in combination with `shift` a
 
 I use the unicode rxvt terminal. It's basic and gets the job I want done:
 
-```bash
+```console?prompt=$,#
 $ pkg install rxvt-unicode
 ```
 
@@ -964,7 +964,7 @@ devmatch_blocklist="ng_ubt ubtbcmfw bcm5974 wmt hms ums psm hcons"
 
 **Note**: At the moment, when the system suspends and resumes resumes, the wsp driver loses the trackpad and the `usbhid` driver is used instead. I do not currently have a fix for this other than compiling the kernel myself. My patch for that issue is simply:
 
-```
+```diff
 diff --git a/sys/dev/usb/input/wsp.c b/sys/dev/usb/input/wsp.c
 index d5a801d10081..d668e91e853f 100644
 --- a/sys/dev/usb/input/wsp.c
@@ -988,7 +988,7 @@ The commonly used `acpi_video` driver does not seem to work on this system, so t
 
 A bug seems to exist in the screen. When you set the backlight to a value, it seems to make the backlight one value lower than expected. For example:
 
-```bash
+```console?prompt=$,#
 $ backlight 50
 $ backlight
 brightness: 49
@@ -1006,13 +1006,13 @@ Anyways, instead of using `backlight(8)`, you can also use [asmctl(1)](https://w
 
 The CPU used in this Macbook supports hardware acceleration for AVC/H264 and VP9 decoding. The `libva-intel-driver` package provides acceleration support, and the FreeBSD handbook [recommends two other packages](https://docs.freebsd.org/en/books/handbook/x11/):
 
-```bash
+```console?prompt=$,#
 $ pkg install libva-intel-driver mesa-libs mesa-dri
 ```
 
 We could also install the `libva-utils` package which provides `vainfo`, which we could confirm use to check that acceleration is working:
 
-```bash
+```console?prompt=$,#
 $ vainfo
 Trying display: wayland
 error: XDG_RUNTIME_DIR is invalid or not set in the environment.
@@ -1086,7 +1086,7 @@ The first one makes the power button suspend instead of shutdown. The second mak
 
 Some sound devices are automatically picked up by pcm:
 
-```bash
+```console?prompt=$,#
 $ cat /dev/sndstat 
 Installed devices:
 pcm0: <Intel Haswell (HDMI/DP 8ch)> (play)
@@ -1187,7 +1187,7 @@ May be specified as a set of space-separated “num=value” pairs, where num is
 
 By default, the value is:
 
-```bash
+```console?prompt=$,#
 $ sysctl dev.hdaa.1.gpio_state
 dev.hdaa.1.gpio_state: 0=output(0) 1=disabled 2=disabled 3=disabled 4=disabled 5=disabled
 ```
@@ -1387,12 +1387,12 @@ echo '*      *       *       *       *       root    /usr/local/bin/asmcfan >/de
 
 Bluetooth works out-of-the-box:
 
-```bash
+```console?prompt=$,#
 $ usbconfig -d ugen0.2 show_ifdrv
 ugen0.2: <Broadcom Corp. Bluetooth USB Host Controller> at usbus0, cfg=0 md=HOST spd=FULL (12Mbps) pwr=ON (0mA)
 ```
 
-```bash
+```console?prompt=$,#
 $ hccontrol -n ubt0hci inquiry
 Inquiry result, num_responses=1
 Inquiry result #0
@@ -1474,7 +1474,7 @@ run_rc_command "$1"
 ```
 
 Make sure the file is executable and owned by root/wheel (it should be already):
-```bash
+```console?prompt=$,#
 $ chmod +x /usr/local/etc/rc.d/kill_usb_devices
 $ chown root:wheel /usr/local/etc/rc.d/kill_usb_devices
 ```
@@ -1492,7 +1492,7 @@ kill_usb_devices_list="Broadcom Corp. Bluetooth USB Host Controller"
 
 We can confirm it works:
 
-```bash
+```console?prompt=$,#
 $ usbconfig -d ugen0.2
 ugen0.2: <Broadcom Corp. Bluetooth USB Host Controller> at usbus0, cfg=0 md=HOST spd=FULL (12Mbps) pwr=ON (0mA)
 $ /usr/local/etc/rc.d/powersave resume
@@ -1539,7 +1539,7 @@ da0: Attempt to query device size failed: NOT READY, Medium not present
 da0: quirks=0x2<NO_6_BYTE>
 ```
 
-```bash
+```console?prompt=$,#
 $ usbconfig -d ugen0.4
 ugen0.4: <Apple Card Reader> at usbus0, cfg=0 md=HOST spd=SUPER (5.0Gbps) pwr=ON (224mA)
 ```
@@ -1675,20 +1675,20 @@ I use encrypted NTP, facilitated by `chronyd`. I have outlined the instructions 
 
 I use `bash` and set it as the default shell for my user:
 
-```bash
+```console?prompt=$,#
 $ pkg install bash
 $ chsh -s /usr/local/bin/bash user
 ```
 
 I use bash-completion:
 
-```bash
+```console?prompt=$,#
 $ pkg install bash-completion
 ```
 
 I symlink `.bashrc` to `.bash_profile`:
 
-```bash
+```console?prompt=$,#
 $ ln -s .bash_profile .bashrc
 ```
 

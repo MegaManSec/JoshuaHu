@@ -9,7 +9,7 @@ description: "Two small package manager surprises: npm 10 runs a git dependency'
 
 Running `npm pack --dry-run --ignore-scripts` is (apparently?) supposed to be benign. This surprised me:
 
-```terminal
+```console?prompt=$,#
 $ npm pack --dry-run --ignore-scripts anythingatall@someone/somerepo
 
 > gitdep@1.0.0 prepare

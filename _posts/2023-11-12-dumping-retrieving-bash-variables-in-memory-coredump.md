@@ -23,7 +23,7 @@ I then ran my script for a considerable amount of time. However, I completely fo
 
 
 First we make a coredump of the running bash _binary_ and load it into gdb:
-```bash
+```console?prompt=$,#
 $ ps ax | grep test
 1234537 pts/2    S+     0:00 bash test.sh
 # gcore -a 1234537
@@ -64,7 +64,7 @@ First we try to simply print `shell_variables` but that fails:
 ```
 
 Since bash hasn't been built with debugging symbols, gdb can't pick up the _VAR_CONTEXT_ type. So, we need to build bash with debugging symbols and add the symbols in gdb.
-```bash
+```console?prompt=$,#
 $ apt-get source bash && \
  cd bash-* && \
  CFLAGS='-g' ./configure && \
@@ -73,7 +73,7 @@ $ apt-get source bash && \
 ```
 
 We then determine the text address location of the newly compiled bash binary and then load them into gdb:
-```bash
+```console?prompt=$,#
 $ readelf -WS ./bash-*/bash | grep .text | awk '{ print "0x"$5 }'
 0x02fdd0
 
