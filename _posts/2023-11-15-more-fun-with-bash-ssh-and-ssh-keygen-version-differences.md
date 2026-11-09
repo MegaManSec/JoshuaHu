@@ -85,8 +85,8 @@ GNU bash, version 4.2.46(1)-release (x86_64-redhat-linux-gnu)
 ```
 
 So how can we test whether a key in the assoc array exists over multiple versions? This hack seems to work:
-```bash
-[[ -v 'my_array["key"]' || ${#my_array["key"]} -gt 0 ]] && echo exists
+```console?prompt=$,#
+$ [[ -v 'my_array["key"]' || ${#my_array["key"]} -gt 0 ]] && echo exists
 ```
 
 ---

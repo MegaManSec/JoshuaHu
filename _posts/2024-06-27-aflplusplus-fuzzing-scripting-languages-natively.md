@@ -19,7 +19,7 @@ The general idea is simple: instead of attempting (and miserably failing) to add
 
 Normally when using AFL++ to fuzz C code, you call the `__AFL_LOOP()` macro to loop through each of the fuzzing payloads. AFL++'s [afl-cc.c](https://github.com/AFLplusplus/AFLplusplus/blob/36db3428ab16156dd72196213d2a02a5eadaed11/src/afl-cc.c#L1560) outlines how this macro is expanded which includes, among other things, a call to the `__afl_persistent_loop(unsigned int max_cnt)` function. This function continuously reads inputs, and copies them into a char buffer. As such, it is as simple as creating an inbuilt Pike function which calls this C function, which will be available when Pike is built using AFL++'s compiler:
 
-```C
+```c
 extern int __afl_persistent_loop(unsigned int count);
 PIKEFUN int AFL_LOOP(unsigned int i)
 {
@@ -31,7 +31,7 @@ This code is added to Pike's [src/builtin.cmod](https://github.com/pikelang/Pike
 
 In order for AFL++ to notice that we are using persistent mode, we also need to include a constant in the code that the fuzzer will find. That is as simple as adding to [src/main.c](https://github.com/pikelang/Pike/blob/1af958923b31838ea1ee95767f2eb4a9b88306b6/src/main.c#L302):
 
-```C
+```c
 static volatile char AFL_PERSISTENT[] = "##SIG_AFL_PERSISTENT##";
 ```
 
@@ -40,7 +40,7 @@ Basically, `afl-fuzz` uses this constant to ensure that the binary was compiled 
 ---
 
 In theory, we could also add a function (and constant) for AFL++'s deferred forkserver mode, which in C are characterized by:
-```C
+```c
 static volatile char AFL_DEFER_FORKSVR[] = "##SIG_AFL_DEFER_FORKSRV##";
 void                 __afl_manual_init();
 ```
@@ -50,7 +50,7 @@ however I didn't do this with Pike: I found that some type of internal state was
 
 In addition to the main AFL++ loop function, I also added internal Pike functions for selectively enabling and disabling coverage, so we can focus the fuzzing on specific functionality and not flood the AFL++ bitmap. By adding `__AFL_COVERAGE_START_OFF();`, fuzzing coverage is not collected until coverage is specifically turned on. Selective instrumentation [is documented here](https://github.com/AFLplusplus/AFLplusplus/blob/stable/instrumentation/README.instrument_list.md#2-selective-instrumentation-with-_afl_coverage-directives). Once again in `src/builtins.cmod`:
 
-```C
+```c
 __AFL_COVERAGE();
 __AFL_COVERAGE_START_OFF();
 extern void __afl_coverage_on();
@@ -68,10 +68,10 @@ PIKEFUN void AFL_END_COVERAGE()
 ---
 
 Now we need to build the interpreter. For Pike, this ended up being more difficult than expected, due to its antiquated build system. Specifically, compiling the interpreter without `-O1` would not allow AFL++'s llvm module to correctly use LTO. And forget about any type of parallelized building, either:
-```bash
-export CC=afl-clang-lto
-export CXX=afl-clang-lto++
-CFLAGS='-O1 -fcf-protection=none -flto -fno-common -fno-inline' CPPFLAGS='-O1 -fcf-protection=none -flto -fno-common -fno-inline' AFL_HARDEN=1 make CONFIGUREARGS='--without-dynamic-modules --without-copt --without-machine-code --without-fuse'
+```console?prompt=$,#
+$ export CC=afl-clang-lto
+$ export CXX=afl-clang-lto++
+$ CFLAGS='-O1 -fcf-protection=none -flto -fno-common -fno-inline' CPPFLAGS='-O1 -fcf-protection=none -flto -fno-common -fno-inline' AFL_HARDEN=1 make CONFIGUREARGS='--without-dynamic-modules --without-copt --without-machine-code --without-fuse'
 ```
 
 ---
@@ -79,7 +79,7 @@ CFLAGS='-O1 -fcf-protection=none -flto -fno-common -fno-inline' CPPFLAGS='-O1 -f
 Pike is now built and we can now create a Pike _script_ to start fuzzing the internal functions of the language (or we could simply fuzz whatever Pike/scripting code we have and find non-memory-related bugs, but note that coverage is based on the native C code, not on the Pike script). We have a lot of C code to choose from in Pike: image decoders, JSON parsers, BSON parsers, and so on. In this case, we'll look at Pike's serializer and deserializer: [encode_value](https://pike.lysator.liu.se/generated/manual/modref/ex/predef_3A_3A/encode_value.html) and [decode_value](https://pike.lysator.liu.se/generated/manual/modref/ex/predef_3A_3A/decode_value.html#decode_value). These functions are defined in the [~5,500-LOC src/encode](https://github.com/pikelang/Pike/blob/b92b3513f379531244b2382eb77df355294244e7/src/encode.c) file of the source code.
 
 Thus our Pike script to fuzz the C function looks like this:
-```C
+```c
 int main() {
         while(__builtin.AFL_LOOP(10000)) { // Read 10,000 fuzzing payloads before restarting.
                 string data = Stdio.stdin.read(); // Read fuzzing payload from stdin.
@@ -104,7 +104,7 @@ Fuzzing scripting languages is not only about finding memory-related crashes in 
 
 In the aforementioned looping of fuzzing payloads, the interpreter has a pre-defined path of execution: 1) begin, 2) perform actions, 3) exit. But what if something goes wrong during this path and the interpreter doesn't behave as expected? That's something that was discovered. In the following code, calling `do_something(data)` should never make the interpreter cease execution, since any errors should be caught:
 
-```C
+```c
 int main() {
         while(__builtin.AFL_LOOP(10000)) {
                 string data = Stdio.stdin.read();
@@ -124,7 +124,7 @@ As it turned out, there was a bug in the `do_something` function which, given a 
 
 When fuzzing the aforementioned `decode_value` function, hundreds of empty files were being created in the directory that the fuzzer was running. Since this wasn't causing any type of crash, determining which fuzzing inputs were causing the files to appear required first retrieving a count of files in the current directory, calling the fuzzed function, then again retrieving a count of the files in the current directory: if there was a new file, then we forcefully crashed:
 
-```C
+```c
 int main() {
         while(__builtin.AFL_LOOP(10000)) {
                 string data = Stdio.stdin.read();
@@ -147,7 +147,7 @@ int main() {
 
 Testing for "correctness" of functions also proved to be quite helpful with some bugs found. That involves doing something like:
 
-```C
+```c
 int main() {
         while(__builtin.AFL_LOOP(10000)) {
                 string data = Stdio.stdin.read();

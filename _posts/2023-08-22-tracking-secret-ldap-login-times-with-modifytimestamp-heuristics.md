@@ -24,8 +24,8 @@ Operational attributes are a special type of attributes that provide metadata ab
 
 
 You can search for operational attributes using the '+' query, such as:
-```bash
-ldapsearch -o ldif-wrap=no -x -LLL -H ldaps://ldap.server -b "ou=users,dc=example,dc=com"  '+'
+```console?prompt=$,#
+$ ldapsearch -o ldif-wrap=no -x -LLL -H ldaps://ldap.server -b "ou=users,dc=example,dc=com"  '+'
 ```
 
 where we can see, for example:
