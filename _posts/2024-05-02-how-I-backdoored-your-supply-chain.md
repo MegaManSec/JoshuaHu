@@ -7,7 +7,7 @@ description: "Supply chain attacks go beyond code. Explore overlooked vectors li
 
 I recently read a blog post with a [similar title as this one](https://kerkour.com/backdoored-dependencies-and-supply-chain-attacks), which outlined different supply chain attacks on CI/CD pipelines, and largely focused on software immediately related to the deployment and development of products. Although the post contained a few well-known attacks, I thought I could expand on them with a greater focus on supply chains which may not be noticed by (especially) smaller organizations. Variations and combinations of each of these may also be a concern.
 
-### Your hosting provider is easily socially-engineered
+# Your hosting provider is easily socially-engineered
 
 One day, your hosting provider receives a phone call appearing to come from _your_ number. _"Hello, my name is Archibald Tuttle. I have a few servers with you and have locked myself out of my account. How can I gain access back again?"_
 
@@ -15,19 +15,19 @@ After a quick chat where _Archibald_ exchanges some not-so-private information l
 
 Quickly, _"you"_ use the remote administration tool provided by the hosting provider to gain root access to all of the servers and siphon off all the assets you'd ever want, either disappearing into thin-air after that or performing some sort of defacement or whatever.
 
-### Your hosting provider is vulnerable to ...
+# Your hosting provider is vulnerable to ...
 
 SQL Injection, IDOR, or even insecure random-number-generation for password resets, _you_ cannot know how secure your hosting provider is. An attacker could compromise your account by hacking the actual hosting provider itself, and either simply log in as you, or perform actions on your behalf: sometimes without your knowledge.
 
 When your hosting company gets popped, [like Linode](https://www.exploit-db.com/papers/25306) (rip zee), you won't have a chance to even know you've been compromised because the hosting provider can do anything on its assets either through BMCs using `init=/bin/bash`, "management tools" that don't require any login for the system, or some tool to reset the root password otherwise. In some cases a reboot may happen, but would your first instinct be that "someone has hacked my hosting provider" if your server reboots unexpectedly? 
 
-### Your domain registrar is vulnerable to ...
+# Your domain registrar is vulnerable to ...
 
 Like above, this one is more likely than one cares to think. Smaller domain registrars are really easy to hack (or social engineer).
 
 Once an attacker has access to either your account or the whole infrastructure, they can simply change the DNS records (likely without you being any the wiser) and generate TLS certificates using Let's Encrypt. From there, they can set up a server or two to do ssl bridging (aka decrypt traffic then re-encrypt it) to monitor the traffic and sniff private information like logins, admin cookies, etc. More than that, you can also intercept mail, and other communication depending on the situation.
 
-### Your BGP routes are hijacked; or a dependencies' routes
+# Your BGP routes are hijacked; or a dependencies' routes
 
 This happens more and more often these days for obvious reasons (cryptocurrency), and [BGP hijacking](https://www.kentik.com/blog/bgp-hijacks-targeting-cryptocurrency-services/) can be really profitable, with very few defenses available in many cases. It's not just _your_ BGP route that may be hijacked, it may also be your users' routes, or more interestingly, your dependencies' routes.
 
@@ -36,7 +36,7 @@ A few years ago, the South Korean KakaoTalk platform suffered a BGP hijacking wh
 What could KlaySwap do? Host its own version of KakaoTalk's SDK? Use subresource integrity and hope that KakaoTalk will communicate changes to the script in the future? (Perhaps a better system could use subresource integrity, and temporarily disable the functionality that the SDK provides the platform in case the hash changes, informing someone at KlaySwap that they should check the changes and update the resource hash if it looks reasonable; something that may be difficult or annoying if the script is minimized and obfuscated.)
 
 
-### Your bug-bounty provider's support panel gets infiltrated
+# Your bug-bounty provider's support panel gets infiltrated
 
 It's like an adversary's dream: a panel with a big list of vulnerabilities in your system, past and present, for any of the hundreds of support panel workers to view. It just takes one to be compromised for that RCE that can be used to take total control over your network -- which takes one month (!) to fix -- to be viewed and exploited by someone watching. Or they can get insights into the most vulnerable locations of your products, network, or whatever.
 

@@ -30,7 +30,7 @@ It seems that somehow, for over two years, the patch for _that_ vulnerability in
 
 As always, it's not so simple. Different versions of ssh (the client) report different error messages. I've discovered three variations so far that indicate whether a user exists or not.
 
-### OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13, OpenSSL 1.0.1f 6 Jan 2014
+# OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13, OpenSSL 1.0.1f 6 Jan 2014
 
 ```console?prompt=$,#
 $ ssh -q invalid@10.0.0.1
@@ -41,7 +41,7 @@ Connection closed by 10.0.0.1
 ssh's `-q` flag suppresses the error which indicates the username does not exist on the remote host.
 
 
-### OpenSSH_7.2p2 Ubuntu-4ubuntu2.10, OpenSSL 1.0.2g 1 Mar 2018
+# OpenSSH_7.2p2 Ubuntu-4ubuntu2.10, OpenSSL 1.0.2g 1 Mar 2018
 ```console?prompt=$,#
 $ ssh invalid@10.0.0.1
 Connection to 10.0.0.1 closed by remote host.
@@ -55,14 +55,14 @@ sdev@n22-04-04:~$ ssh lol@172.17.64.169
 Connection to 172.17.64.169 closed by remote host.
 Connection to 172.17.64.169 closed.
 
-### OpenSSH_7.6p1 Ubuntu-4ubuntu0.3, OpenSSL 1.0.2n  7 Dec 2017
+# OpenSSH_7.6p1 Ubuntu-4ubuntu0.3, OpenSSL 1.0.2n  7 Dec 2017
 ```console?prompt=$,#
 $ ssh -q invalid@10.0.0.1
 $ ssh invalid@10.0.0.1
 Connection closed by 10.0.0.1 port 22
 ```
 
-### OpenSSH_8.2p1 Ubuntu-4ubuntu0.9, OpenSSL 1.1.1f 31 Mar 2020
+# OpenSSH_8.2p1 Ubuntu-4ubuntu0.9, OpenSSL 1.1.1f 31 Mar 2020
 ```console?prompt=$,#
 $ ssh -q invalid@10.0.0.1
 $ ssh invalid@10.0.0.1
@@ -70,7 +70,7 @@ Connection closed by 10.0.0.1 port 22
 ```
 The same as above.
 
-### OpenSSH_8.4p1 Debian-5+deb11u2, OpenSSL 1.1.1w  11 Sep 2023
+# OpenSSH_8.4p1 Debian-5+deb11u2, OpenSSL 1.1.1w  11 Sep 2023
 ```console?prompt=$,#
 $ ssh invalid@10.0.0.1
 invalid@10.0.0.1: Permission denied (publickey).
