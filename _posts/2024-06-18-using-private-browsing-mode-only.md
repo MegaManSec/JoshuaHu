@@ -19,8 +19,6 @@ The purpose of experimenting with this was to determine whether it's viable to l
 
 ### My Notes:
 
----
-
 99% of my browsing history is useless. Knowing that I went to the page https://website.com/page?id=2, then https://website.com/page?id=3, then https://website.com/page?id=4 and so on, does not help me in the slightest, except when I already have the tab open (to go backwards/forwards).
 
 ---

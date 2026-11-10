@@ -23,8 +23,6 @@ The source code of what I _did_ create is on [my GitHub](https://github.com/Mega
 
 ## Debian Package Archive
 
----
-
 Debian provides a comprehensive archive of published packages at [https://snapshot.debian.org/](https://snapshot.debian.org/), dating all the way back to March, 2005. Daily (and sometimes more often) snapshots include all of the packages ever published, and can act as drop-ins for the normal Debian archives:
 
 ```
@@ -47,8 +45,6 @@ We can also do a reverse-lookup, based on the package. Looking up `tmux` at [htt
 With this information, we can create a script which will download each of the Debian packages. Hopefully.
 
 ### List of Debian packages
-
----
 
 The first step is to parse each of the categories from the snapshot homepage. This is easy enough:
 
@@ -84,8 +80,6 @@ for package in packages:
 
 ### List of package versions
 
----
-
 `http://snapshot.debian.org/mr/binary/{package_name}` can be used to retrieve a JSON representation of the list of all of the versions for a package. For example from [https://snapshot.debian.org/mr/binary/tmux/](https://snapshot.debian.org/mr/binary/tmux/):
 
 ```json
@@ -100,8 +94,6 @@ for package in packages:
 ```
 
 ### List of package architectures available
-
----
 
 With each of the versions, we next need to retrieve `http://snapshot.debian.org/mr/binary/{name}/{binary_version}/binfiles?fileinfo=1`. This retrieves a list of individual packages for the version of the package. For example from [https://snapshot.debian.org/mr/binary/tmux/0.8-4/binfiles?fileinfo=1](https://snapshot.debian.org/mr/binary/tmux/0.8-4/binfiles?fileinfo=1):
 
@@ -145,8 +137,6 @@ With this, we have the following information:
 Each `.deb` file can then be downloaded, e.g. from [https://snapshot.debian.org/archive/debian/20090518T042230Z/pool/main/t/tmux/tmux_0.8-4_sparc.deb](https://snapshot.debian.org/archive/debian/20090518T042230Z/pool/main/t/tmux/tmux_0.8-4_sparc.deb) and [https://snapshot.debian.org/archive/debian/20090518T042230Z/pool/main/t/tmux/tmux_0.8-4_amd64.deb](https://snapshot.debian.org/archive/debian/20090518T042230Z/pool/main/t/tmux/tmux_0.8-4_amd64.deb).
 
 ### Get and handle binfile
-
----
 
 With the retrieved information, it is possible to reconstruct a download link for each architecture automatically, for each version of the package:
 
@@ -193,8 +183,6 @@ for url in urls:
 This is semi-structured mass crawling, so of course not!
 
 ### Crawling Debian's .deb archive
-
----
 
 First, let's recap a bit.
 
@@ -269,8 +257,6 @@ I didn't completely implement the above: on a re-run, the `/binfiles` link would
 
 ### Retrieving md5sums files
 
----
-
 So how about retrieving the `.deb` file, extracting the control archive, and then extracting the `md5sums` file, AKA what `get_and_parse_deb_url()` should do? Well, that's where the fun really begins.
 
 We have multiple problems to solve:
@@ -279,8 +265,6 @@ We have multiple problems to solve:
 2. How do we download millions (probably) of `.deb` files without being rate-limited?
 
 ### What's in a .deb file, anyway?
-
----
 
 The deb file format consists of three compressed data structures, across three sections: "_package section_", "_control section_", and "_data section_". The package and control sections begin with fixed-length metadata: 132-bytes in total. Each section of the metadata use pre-defined lengths. So, we can parse: `file identifier` and `file size in bytes`, by specifically retrieving bytes `73-88` and `121-130` respectively. For example:
 
@@ -359,8 +343,6 @@ Great, so now we're only downloading the control data archive and completely ski
 
 ### Extracting the control archive data
 
----
-
 Next, we need to extract the control data. Three types of control data archive formats are used: `control.tar.gz`, `control.tar.xz`, and `control.tar.zst`.
 
 I forgot to log when an unexpected filename was found in the metadata, which could have been interesting. In various packages, tar files which could not be decompressed were discovered, though (which I did not research further). In some cases, the `.deb` files either had missing bytes, or simply didn't exist at all, despite being referenced.
@@ -384,8 +366,6 @@ def extract_control_tar(deb_data):
 
 ### Extracting the md5sums file
 
----
-
 With that `tar_data`, we then extract the md5sums data:
 
 ```python
@@ -406,8 +386,6 @@ def extract_md5sums_file(tar_data):
 
 
 ### Rate-limiting in Debian's Puppet Policy
-
----
 
 How do we address the second question from [receiving md5sums files](#receiving-md5sums-files), "_How do we download millions (probably) of `.deb` files without being rate-limited?_"
 
@@ -494,8 +472,6 @@ roles::snapshot_web::ipv6addr_apache:  '2001:630:206:4000:1a1a:0:c13e:ca1a'
 
 ### Proxy fun
 
----
-
 So, basically, things look like this:
 
 - IPv4 on port 443: User -> HAproxy (193.62.202.27:443, drop http keepalive) -> Varnish (193.62.202.27:6081) -> Apache (127.0.0.1:80) -> wsgi.
@@ -505,8 +481,6 @@ So, basically, things look like this:
 - IPv6 on port 80: User -> Varnish ([2001:630:206:4000:1a1a:0:c13e:ca1b]:80, drop http keepalive) -> Apache (127.0.0.1:80) -> wsgi.
 
 ### Bypassing rate-limiting
-
----
 
 There seems to be a hole in the above, though. It's impossible to connect directly to Apache with IPv4 (e.g. on port 80) because of the PREROUTING rule. But the IPv6 `ipv6addr_apache` address is sitting wide open on port 80, meaning we can directly interact with Apache -- which means our `Connection: keep-alive` will be honored, and we can bypass any network-based ratelimiting, as we can simply use a single connection to request multiple files:
 
@@ -581,8 +555,6 @@ So we need to ensure we don't follow the redirect but download the correct data 
 
 ### IPv6 fun
 
----
-
 As I've mentioned before in [Credential Stuffing Done Right: Some Tips](https://joshua.hu/credential-stuffing-done-right) and [A RuneScape Hacker's Dream: An Authenticator and PIN Bypass](https://joshua.hu/runescape-bank-pin-exploit-bypass-username-enumeration-captchaless-login), IPv6 is a dream for crackers and the like looking to bypass captchas or IP-based ratelimiting. Need 4 billion ip addresses? Well, that's fewer than 50 Euros a month!
 
 So that's what I also built into my script, too. _Why build one when you can build two at twice the price_" -- S.R.Hadden
@@ -590,8 +562,6 @@ So that's what I also built into my script, too. _Why build one when you can bui
 In reality, much of the code discussed is not exactly the same as what I wrote. I actually wrote two Python scripts: one which handles retrieving the _list_ of URLs, and a separate one which actually downloads and extracts the md5sums data from those lists.
 
 ### Fetcher
-
----
 
 One of the scripts which I call `fetcher`, ingests a list of URLs (in JSON) via HTTP using Flask:
 
@@ -723,8 +693,6 @@ So when deciding which source address to use, fetcher will never use a source ad
 
 ###  Runner
 
----
-
 The main script, _runner_, handles the retrieval of the _lists_ of `.deb` files to be downloaded as discussed before, except instead of processing each `.deb` file individually, it sends a request to a fetcher with a list of `.deb` files to retrieve. It then loops over the results, and handles 
 
 ```python
@@ -808,8 +776,6 @@ Since the Flask app is multi-threaded, we can also run `runner.py` concurrently 
 I should have made `runner.py` multi-threaded too, but never did it.
 
 ## Conclusion
-
----
 
 All in all, this project was more of a way to work on more Python code. In reality, a better solution would be to contact the snapshot administrators and ask if they could export these md5sums files somehow -- no aggressive, unwanted, and IMO "rude" mirroring necessary. It was also a nice way to learn about the `.deb` format, and have fun with IPv6 and broken ratelimiting.
 

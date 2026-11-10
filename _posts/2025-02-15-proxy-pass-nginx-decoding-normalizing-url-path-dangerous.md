@@ -9,8 +9,6 @@ I have recently been looking into dangerous path normalization by webservers (an
 
 # The Problem
 
----
-
 At its most basic, the problem I'm looking at is that paths in HTTP are no different from paths anywhere else: they can contain `/../` to traverse a path backwards. For example, `/dir1/../dir3/` really just means `/dir3/`. This has resulted in a whole vulnerability class called "path traversal vulnerability", where some applications will, for example, open a user-defined file like `/legit-file/../../../../etc/passwd` and read the server's password file.
 
 Great, not really anything interesting there: it's a known problem. However, browsers do the same thing. When your browser visits, for example, `https://example.com/dir1/../dir3/`, it _normalizes_ the `/dir1/../dir3/` path before the request is even sent, sending only `/dir3/`. The rules for this normalization follow the [WHATWG URL Standard](https://url.spec.whatwg.org/), and include horrible historical edgecases like `\` being treated as `/`.
@@ -19,13 +17,9 @@ Some webservers do accept the `/../` (or even `\..\`) syntax in their paths and 
 
 ## %2F%2E%2E%2F
 
----
-
 The problem is that some webservers will process `%2F%2E%2E%2F` -- the URL-encoded version of `/../` -- as a traversal, too. Some webservers do, some don't. Browsers do not. There are various security-related issues related to this, but let's look at three.
 
 ### Cache Poisoning
-
----
 
 Consider a system with two servers: a frontend reverse proxy, and a backend server. The frontend is configured to cache all responses for the path `/static/.*`, and never cache responses for the path `/login/my-account-details`.
 
@@ -41,8 +35,6 @@ This is a case of frontend (no-decoding), backend (decoding then normalizing).
 
 ### Path Confusion Authentication Bypass
 
----
-
 Consider a system with two servers, similar to the above one. However, instead of caching, the problem relates to access control.
 
 If the frontend server is used to restrict access to, for example, `/secret-endpoint`, and the backend server has no authentication and decodes url-encoded paths, an attacker can access `/public%2F%2E%2E%2Fsecret-endpoint` and bypass the frontend's restriction.
@@ -53,8 +45,6 @@ This type of vulnerability led to the Tomcat webserver introducing a [ALLOW_ENCO
 
 
 ### Client-Side Path Traversal (CSPT)
-
----
 
 CSPT is a type of vulnerability which relies on the fact that browsers also normalize paths when visiting pages. For example, if a website uses javascript dynamically send requests or retrieve pages. Take for example a (poor) example:
 
@@ -75,16 +65,12 @@ These types of vulnerabilities are still under-researched, but some interesting 
 
 ## nginx proxy_pass
 
----
-
 Considering the first two vulnerabilities above pertained to a frontend (no-decoding, only normalizing) and backend (decoding and normalizing), it is possible to think of the third vulnerability in a similar manner: the frontend is simply the browser (no-decoding, only normalizing), and the backend is the webserver (decoding and normalizing).
 
 This is where it gets interesting. nginx's `proxy_pass` directive _will_ perform decoding and normalization in most circumstances. While the first two vulnerabilities are less likely to be affected, since `location` matching _[is performed against a normalized URI, after decoding the text encoded in the “%XX” form, resolving references to relative path components “.” and “..”](https://nginx.org/en/docs/http/ngx_http_core_module.html)_ (i.e. it is both decoded and normalized), the third vulnerability is still valid.
 
 
 ### Vulnerable proxy_pass Configuration
-
----
 
 Consider the following configuration:
 
@@ -106,8 +92,6 @@ From the example before, when the frontend server handles `https://example.com/s
 
 ### Safe proxy_pass Configuration
 
----
-
 The above vulnerable configuration about _is_ documented in [proxy_pass](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass):
 
 >If the `proxy_pass` directive is specified with a URI, then when a request is passed to the server, the part of a [normalized](https://nginx.org/en/docs/http/ngx_http_core_module.html#location) request URI matching the location is replaced by a URI specified in the directive:
@@ -128,8 +112,6 @@ In the above case, if we send a request with the path `/1/%2E%2E%2F`, the backen
 
 ### Vulnerable Advanced proxy_pass Configuration
 
----
-
 But, what about the consumption of `/1/`? We don't want the backend to see the `/1/` path either, so what can we do?
 
 An **incorrect** solution would be the following:
@@ -147,8 +129,6 @@ This is incorrect when rewrite rules are used, because when rewrite rules are us
 2. There is no path specified in the `proxy_pass` directive.
 
 ### Safe Advanced proxy_pass Configuration
-
----
 
 The solution then, is this:
 
@@ -186,8 +166,6 @@ location /1/ {
 
 #### return 400
 
----
-
 Why is the `return 400;` required? Basically, rewriting (and the return statement) and `proxy_pass` occur in different passes of the configuration. The `return 400` is part of the rewriting processing. Consider the configuration without it:
 
 1. `rewrite ^ $request_uri;` -- sets the location to `$request_uri`.
@@ -203,8 +181,6 @@ Exhausting, no?
 
 
 ### Safe Advanced proxy_pass Configuration 2
-
----
 
 A more advanced configuration may look like this, too:
 
@@ -223,8 +199,6 @@ No decoding will occur, so you're safe!
 
 
 ## Automatically Identifying the Problem
-
----
 
 I was surprised to find that there were no online tools to automatically detect this issue on webservers, either externally or internally (i.e. by probing the webserver versus analysis of configuration). Therefore, I plan to make a tool which can detect these issues automatically.
 

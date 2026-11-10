@@ -39,8 +39,6 @@ where we can see, for example:
 **entryCSN**: 20230818070127.624230Z#000000#002#000000 \
 **modifiersName**: cn=root,dc=example,dc=com
 
----
-
 ## The 'modifyTimestamp' Trick
 
 **modifyTimestamp** is an _"operational attribute"_ in LDAP which is specifically designed to track the last modification time for an entry. Each user account has this attribute which looks like **20230809062809Z**. This is the YearMonthDayHourMinuteSecond that the user's account was changed _somehow_.
