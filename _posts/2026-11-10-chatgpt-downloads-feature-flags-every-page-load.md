@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Annoying ChatGPT Data Usage"
+title: "Annoying ChatGPT data usage"
 tags: [web_platform, browsers, programming]
 description: "Every reload of chatgpt.com downloads the full set of Statsig feature flags (around 780KB compressed, 5.7MB of JSON), because the client always asks for everything since time zero. It then tries to cache them in localStorage, runs out of space, and reports the error back to the server. Every time."
 ---
