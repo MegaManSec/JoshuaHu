@@ -21,6 +21,8 @@ DATE_PREFIX = re.compile(r"^\d{4}-\d{2}-\d{2}-")
 FRONTMATTER = re.compile(r"\A---\s*\n(.*?)\n---\s*(?:\n|$)", re.DOTALL)
 TAGS_LINE = re.compile(r"^tags:\s*(.*\S)?\s*$", re.MULTILINE)
 DESC_LINE = re.compile(r"^description:\s*(.*\S)?\s*$", re.MULTILINE)
+TITLE_LINE = re.compile(r"^title:\s*(.*\S)?\s*$", re.MULTILINE)
+MAX_TITLE_LEN = 90  # titles longer than this overflow the homepage
 EMPTY_LIST = re.compile(r"^\[\s*\]$")
 TOPIC_URL = re.compile(r"https?://joshua\.hu/([^\s)>#?\"']+)", re.IGNORECASE)
 
@@ -61,6 +63,15 @@ def check_post(post: Path, topic_paths: set[str]) -> list[str]:
             value = strip_quotes(desc_match.group(1) or "")
             if not value:
                 errors.append("frontmatter `description:` is empty")
+
+        title_match = TITLE_LINE.search(fm)
+        if title_match:
+            title = strip_quotes(title_match.group(1) or "")
+            if len(title) > MAX_TITLE_LEN:
+                errors.append(
+                    f"frontmatter `title:` is {len(title)} chars -- keep it under "
+                    f"{MAX_TITLE_LEN + 1} (longer titles overflow the homepage)"
+                )
 
     stem = post.stem
     slug = DATE_PREFIX.sub("", stem)
