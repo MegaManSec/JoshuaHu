@@ -13,8 +13,6 @@ Recently having been gifted an older Apple MacBook Pro 11.4 Retina (Mid 2015) (A
 
 # Why FreeBSD?
 
----
-
 Why not?
 
 I'm a big fan of FreeBSD in general and made the jump from Ubuntu around 10 years ago. I've found that FreeBSD has a more-sane [filesystem hierarchy](https://man.freebsd.org/cgi/man.cgi?query=hier) than most Linux-based operating systems, especially in terms of local programs and user-installed utilities, is easier to manage over time, is more lightweight and simple, and in general, is easier to tinker as necessary. Most importantly, however, it also makes things harder to skip steps when you need to make changes to the system -- there are fewer training wheels like Linux-based operating systems have, and RTFM is normally the best option; so when you do things, you really need to understand what you're doing. Note: I don't think FreeBSD is inherently any more or less safe than Linux: I think more hackers' eyes are on the Linux kernel than FreeBSD, so fewer exploits are found in FreeBSD. FreeBSD jails are cool. I also think FreeBSD is just fun to play with, and I believe in _technodiversity_, and a Linux monoculture benefits few.
@@ -22,8 +20,6 @@ I'm a big fan of FreeBSD in general and made the jump from Ubuntu around 10 year
 A git repository of all the configurations outlined in this post can be found [here on Github](https://github.com/MegaManSec/dotfiles/).
 
 # Macbook Pro 11.4 A1398 Hardware
-
----
 
 This version of the Macbook Pro comes with the following hardware:
 
@@ -43,11 +39,7 @@ The only component that I do not have working yet is the webcam. More on this la
 
 # Installation
 
----
-
 ## FreeBSD Base OS Installation
-
----
 
 I used the [FreeBSD 13.3 memstick installer](https://www.freebsd.org/where/). Use the amd64 version. When turning on the Macbook, hold and press the Alt (left) button. Choose the FreeBSD Boot Installer, and begin the installation.
 
@@ -80,8 +72,6 @@ $ chmod 1777 /tmp
 
 ## Wi-Fi
 
----
-
 This Macbook uses a Broadcom [BCM43602](https://web.archive.org/web/20240910104837/https://www.broadcom.com/products/wireless/wireless-lan-infrastructure/bcm4360) chip for WiFi. Although the chip is supported on Linux, it will never be officially supported by FreeBSD due to licensing and technical reasons (a proprietary, closed-source driver is necessary). But, it is still possible to use it on a FreeBSD system.
 
 [Wifibox(8)](https://www.freshports.org/net/wifibox/) is an extremely helpful project that spins up a very-low-resource Alpine Linux VM using FreeBSD's [bhyve (BSD hypervisor)](https://wiki.freebsd.org/bhyve), and passes through the system's wireless card from the FreeBSD machine into the guest, essentially using the Linux VM as a wifi driver. That's how we'll be using wifi on this system.
@@ -98,8 +88,6 @@ If you don't have a USB WiFi or Ethernet dongle, then we can install `wifibox` a
 **Note**: If you do have an alternative method of using internet on the Macbook temporarily (like with a dongle), just do that and install `wifibox` from the ports tree and save yourself a lot of messing around.
 
 ### Using packages from the FreeBSD pkg repository
-
----
 
 On a _different_ FreeBSD system that _is_ connected to the internet, you can run the following command which will retrieve the pre-compiled pkg files for `wifibox`:
 
@@ -149,8 +137,6 @@ The only problem with this method is that the default _RECOVERY_ option for `wif
 
 #### Building from ports
 
----
-
 When you finally get internet working here, my recommendation is to install `wifibox-core` and `wifibox-alpine` from the ports tree, and replace the pre-compiled package:
 
 ```console?prompt=$,#
@@ -191,8 +177,6 @@ $ make reinstall
 ```
 
 ### Building with source code
-
----
 
 This method is quite convoluted.
 
@@ -508,11 +492,7 @@ From FreeBSD-14.0, the `devd` rule shouldn't be necessary. In commit [2cf8ef5910
 
 ## Graphics
 
----
-
 ### Xorg
-
----
 
 We'll be using Xorg. We need to install Xorg, xf86-video-intel, and the meta-package [drm-kmod](https://www.freshports.org/graphics/drm-kmod/):
 
@@ -567,13 +547,9 @@ kern.evdev.rcpt_mask=3
 
 ### i3
 
----
-
 I use the `i3` window manager. One day I'll use `sway`, but for the time being: `pkg install i3 i3lock i3status dmenu i3bar xautolock`.
 
 #### .xinitrc
-
----
 
 We then need to create a `.xinitrc` file in the user's home directory, which will be called when we start X. It's a basic shell script which loads some X resources, a modmap, starts a `urxvt` daemon (more on this later), sets xrandr to output at 2880x1800px, and then start `i3`:
 
@@ -606,8 +582,6 @@ It also deletes any serverauth files which haven't been cleaned up on a system s
 
 #### .Xresources
 
----
-
 Then, we create `.Xresources`:
 
 ```bash
@@ -618,8 +592,6 @@ Xcursor.size: 21
 These two settings ensure that the screen and cursor are sized appropriately for the screen size.
 
 #### .Xmodmap
-
----
 
 Then we need to create `.Xmodmap`. This file is used to map key button presses to symbols. These values can be retrieved using `xev(1)`.
 
@@ -679,8 +651,6 @@ The third part corresponds to the `cmd` buttons on the left and right of the key
 If you don't want to set the `cmd` buttons to be `Mode_switch`, you can change each of the F-buttons' second column ("_Shift modifier + the key_", AKA _NoSymbol_ in my version), which you can then use `Shift+F[1-12]` to switch VTs. So for example, `keycode  67 = F1 F1 F1 F1 F1 F1 XF86Switch_VT_1` would instead become `keycode  67 = XF86MonBrightnessDown XF86Switch_VT_1`, and you would use `Shift+F1` to switch to VT1.
 
 #### i3 config
-
----
 
 Now that we have everything set up for X, we need to create a configuration for `i3`.
 
@@ -873,8 +843,6 @@ The left or right cmd buttons (AKA `Mode_switch`), in combination with `shift` a
 
 #### urxvt
 
----
-
 I use the unicode rxvt terminal. It's basic and gets the job I want done:
 
 ```console?prompt=$,#
@@ -936,8 +904,6 @@ The source code can be found [on my Github](https://github.com/MegaManSec/urxvt-
 
 ### wsp
 
----
-
 The [wellspring touchpad driver](https://man.freebsd.org/cgi/man.cgi?query=wsp) (`wsp`) module is the most up-to-date and most-compatible module for the Macbook's touchpad. However, it had various bugs and problems. You could not single-click and then continue using the trackpad without raising your finger first. Likewise, I added the functionality to allow a single-click to be held down, and a second finger to move freely (for example to single-select and move the selection-point). Some other issues were also fixed. I submitted [freebsd-src#1365](https://github.com/freebsd/freebsd-src/pull/1365) and as of today it has landed, but it may not be in `releng/13.3`. Cherry-pick it and build the kernel yourself if you need to (you can check whether you are using the patched version by checking whether `sysctl hw.usb.wsp.max_double_tap_distance` returns an error or not).
 
 In order to use the `wsp` module, ensure it is loaded in `/boot/loader.conf`:
@@ -960,8 +926,6 @@ devmatch_blocklist="ng_ubt ubtbcmfw bcm5974 wmt hms ums psm hcons"
 
 #### wsp suspension issues
 
----
-
 **Note**: At the moment, when the system suspends and resumes resumes, the wsp driver loses the trackpad and the `usbhid` driver is used instead. I do not currently have a fix for this other than compiling the kernel myself. My patch for that issue is simply:
 
 ```diff
@@ -982,8 +946,6 @@ index d5a801d10081..d668e91e853f 100644
 
 ### Screen Backlight
 
----
-
 The commonly used `acpi_video` driver does not seem to work on this system, so the associated `sysctl` values cannot be used. However, the screen backlight can be controlled using the [backlight(8)](https://man.freebsd.org/cgi/man.cgi?query=backlight) program (and its associated kernel module).
 
 A bug seems to exist in the screen. When you set the backlight to a value, it seems to make the backlight one value lower than expected. For example:
@@ -1001,8 +963,6 @@ Due to this bug, it is also impossible to decrease the backlight by a single dig
 Anyways, instead of using `backlight(8)`, you can also use [asmctl(1)](https://www.freshports.org/sysutils/asmctl) -- more on this later.
 
 ### Hardware Acceleration
-
----
 
 The CPU used in this Macbook supports hardware acceleration for AVC/H264 and VP9 decoding. The `libva-intel-driver` package provides acceleration support, and the FreeBSD handbook [recommends two other packages](https://docs.freebsd.org/en/books/handbook/x11/):
 
@@ -1065,8 +1025,6 @@ kern.vt.suspendswitch=0
 
 ## Suspend/Resume
 
----
-
 Suspend/resume works fine. You can only suspend/resume after the graphic drivers are loaded. So, either start X, or add the following to `/etc/rc.conf`: `kld_list="i915kms"`. This ensures that the driver is loaded on boot.
 
 Also, make sure the necessary changes outlined above with respect to `wifibox` are made (AKA: check whether the patches have been committed and that you've built `wifibox-core` with `RECOVER_SUSPEND_VMM`).
@@ -1081,8 +1039,6 @@ hw.acpi.lid_switch_state=S3
 The first one makes the power button suspend instead of shutdown. The second makes the system suspend when the lid is closed.
 
 ## Sound
-
----
 
 Some sound devices are automatically picked up by pcm:
 
@@ -1228,8 +1184,6 @@ If the sound is too quiet, you can experiment with the sysctl `hw.snd.vpc_0db`. 
 
 ## Keyboard
 
----
-
 The keyboard mostly works fine out of the box. The only problem is that the LED on the capslock button does not work. For whatever reason, the default [ukbd(4)](https://man.freebsd.org/cgi/man.cgi?query=ukbd&sektion=4&format=html) driver cannot send the proper signal to the inbuilt keyboard to set LEDs. However, the [hkbd(4)](https://man.freebsd.org/cgi/man.cgi?query=hkbd&sektion=4&manpath=freebsd-release-ports) driver _does_ work. It's not really obvious why ukbd doesn't work, but we need to force the system first to _not_ use ukbd, and second to _use_ hkbd. As the manual states:
 
 ```
@@ -1264,13 +1218,9 @@ boot -s
 
 ## Webcam
 
----
-
 The webcam does not work. However, I am hopeful that in the future with FreeBSD's [webcamd](https://github.com/hselasky/webcamd) and [facetimehd](https://github.com/patjak/facetimehd), I can get it working. Once that's done, I will update this post as well as outline in a new post how I achieved that.
 
 ## ASMC
-
----
 
 Apple System Management Controller (SMC) (ASMC) is the subsystem used by this Macbook for controlling (among other things) the keyboard backlight and fans. It is also used for temperature monitoring. At the time of writing this, FreeBSD does not recognize this Macbook as using ASMC, but I have submitted a patch in [freebsd#1366](https://github.com/freebsd/freebsd-src/pull/1366) that fixes that. The patch may not be in `releng/13.3` yet -- if not, cherry-pick the patch and build the kernel. Once that is introduced, you can add the following to `/boot/loader.conf` to load the asmc module:
 
@@ -1290,8 +1240,6 @@ dev.asmc.0.light.control
 The first three values are the fanspeed (the first one being read-only), and the final one is the keyboard backlight. On this Macbook, there is a maximum value of 9000 (probably rpm) for the fanspeeds. The light.control value is from 0 to 100.
 
 ### asmctl
-
----
 
 [asmctl(1)](https://www.freshports.org/sysutils/asmctl) can be used to control the screen brightness and keyboard backlight without requiring root (it uses setuid as root).
 
@@ -1330,8 +1278,6 @@ notify 20 {
 ```
 
 #### Fan Control
-
----
 
 To automatically control the fan, I created a script (inspired by [this](https://wiki.freebsd.org/Laptops/Apple_MacBookPro9%2C2?action=AttachFile&do=view&target=asmcfan) in `/usr/local/bin/asmcfan`:
 
@@ -1382,8 +1328,6 @@ $ echo '*      *       *       *       *       root    /usr/local/bin/asmcfan >/
 ```
 
 ## Bluetooth
-
----
 
 Bluetooth works out-of-the-box:
 
@@ -1502,8 +1446,6 @@ ugen0.2: <Broadcom Corp. Bluetooth USB Host Controller> at usbus0, cfg=255 md=HO
 
 ## Thunderbolt
 
----
-
 I've never used the Thunderbolt ports on any Mac. However, I noticed that on this system the only way for them to even appear (in `pciconf -lv`) is to set the following in `/boot/loader.conf`:
 
 ```bash
@@ -1525,8 +1467,6 @@ none3@pci0:4:0:0:       class=0x088000 rev=0x00 hdr=0x00 vendor=0x8086 device=0x
 ```
 
 ## SD-Card Reader
-
----
 
 The SD-card reader works out-of-the-box, located at `/dev/da0`:
 
@@ -1553,11 +1493,7 @@ kill_usb_devices_list="Broadcom Corp. Bluetooth USB Host Controller,Apple Card R
 
 ## Other Changes
 
----
-
 ### Coredump saving
-
----
 
 For some reason when a kernel coredump occurred, the coredump would not be saved, and the system would boot with the error:
 
@@ -1587,8 +1523,6 @@ to
 Coredumps now save correctly. 
 
 ### Power Saving
-
----
 
 As with all of these types of systems, I set up `powerd` to conserve power. In `/etc/rc.conf`, I have:
 
@@ -1632,8 +1566,6 @@ Likewise, this in `/boot/device.hints`: `hint.ahcich.0.pm_level=5` -- which ensu
 
 ### Enhanced mouse movements
 
----
-
 [moused(8)](https://man.freebsd.org/cgi/man.cgi?moused(8)) is used to enhance some movements of the mouse. I set the following:
 
 ```bash
@@ -1643,15 +1575,11 @@ moused_flags="-A 1.3,2.6 -a 1.4 -r high"
 
 ### Auto-boot with power adapter
 
----
-
 When Macbooks are turned off but plugged into a power socket, they will automatically boot. I don't like this behavior, especially because it just automatically boots into my zfs loader encryption key prompt and runs my CPU hot. This behavior can be disabled by changing the value in the NVRAM. This requires booting into the recovery mode of the Macbook. Reboot, and hold the left Cmd button and the 'r' button: [this blog post](https://osxdaily.com/2017/05/18/access-terminal-recovery-mode-mac/) outlines the steps.
 
 In the terminal, then type `nvram AutoBoot=%00`. It can be turned back on with `nvram AutoBoot=%03`.
 
 ### Expose
-
----
 
 Since we set up all of the F-buttons except F3 and F4, I looked into whether it's possible to get a similar experience to the one on a Macbook: [expose](https://en.wikipedia.org/wiki/Mission_Control_(macOS)).
 
@@ -1659,19 +1587,13 @@ Apparently [i3expo-ng](https://github.com/morrolinux/i3expo-ng) provides the fun
 
 ### Encrypted DNS over TLS with unbound
 
----
-
 I use encrypted DNS over TLS by running a recursive caching DNS server (`unbound`) on my system, using Mullvad's DoT server. I have outlined instructions of doing that [on this blog](https://joshua.hu/encrypted-dns-over-tls-unbound-mullvad-freebsd-block-unencrypted-dns-traffic) already.
 
 ### Encrypted NTP with NTS with chronyd
 
----
-
 I use encrypted NTP, facilitated by `chronyd`. I have outlined the instructions to getting that working already [on this blog](https://joshua.hu/encrypted-ntp-nts-chronyd-freebsd).
 
 ### Bash
-
----
 
 I use `bash` and set it as the default shell for my user:
 
@@ -1733,8 +1655,6 @@ fi
 ```
 
 ### Nano
-
----
 
 I use nano. My config is pretty basic:
 

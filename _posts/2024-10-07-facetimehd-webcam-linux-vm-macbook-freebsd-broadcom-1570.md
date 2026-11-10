@@ -7,8 +7,6 @@ description: "Enable the FacetimeHD webcam on a MacBook running FreeBSD. A guide
 
 ## Introduction
 
----
-
 In my previous post, _[A Full Guide: FreeBSD 13.3 on a MacBook Pro 11.4 (Mid 2015) (A1398)](https://joshua.hu/FreeBSD-on-MacbookPro-114-A1398)_, I outlined how to get nearly every device on a Macbook Pro 11,4 functioning while running FreeBSD. Nearly everything: except for the webcam.
 
 In this post, I'll outline how to get the camera working on FreeBSD, by using a tiny Alpine Linux VM using FreeBSD's hypervisor bhyve, and PCI passthrough. At the end of this post, you'll have a working webcam.
@@ -19,15 +17,11 @@ In the following screenshot, you see me running `webcamd` on the FreeBSD host (t
 
 ## Broadcom 1570
 
----
-
 The Broadcom 1570 (the webcam used by this and many other Mac products) is apparently "[_based on Ambarellas S2 series of IP cameras; likely a nerfed version of the S2Lm._](https://github.com/patjak/facetimehd/wiki/Specification---Features)". The camera can be turned on [without activating the green light](https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-brocker.pdf).
 
 Broadcom does not offer any driver for this device, but luckily it has been reverse-engineered by someone and a driver exists for Linux.
 
 ## PCI Passthrough and Alpine Linux
-
----
 
 In order to utilize the Linux driver, we obviously need to be running... Linux. So, the plan is to start a tiny VM running Alpine Linux, install the `facetimehd` driver, and stream the webcam back to the FreeBSD host, ultimately using `webcamd` to turn the stream into a webcam device.
 
@@ -36,8 +30,6 @@ In order to utilize the Linux driver, we obviously need to be running... Linux. 
 
 ## bhyve VM installation
 
----
-
 First we install the `bhyve-firmware` and `vm-bhyve` packages:
 
 ```console?prompt=$,#
@@ -45,8 +37,6 @@ $ pkg install bhyve-firmware vm-bhyve
 ```
 
 ### vm, gateway, pf
-
----
 
 We're going to use FreeBSD's Packet Filter (pf) to forward packets from the VM to the correct interface. This is necessary because if you're using `wifibox`, you can't do `vm switch add public wifibox0` to get the VM to use wifibox's network. We need to enable gateways (AKA `sysctl net.inet.ip.forwarding=1`). We also need to disable VM host checks because it causes a system crash for some reason. In `/etc/rc.conf`, we handle all of this (and enable VMs):
 
@@ -60,8 +50,6 @@ vm_disable_host_checks="yes"
 
 ### vm dataset
 
----
-
 We need to create a ZFS dataset in `zroot/vm`:
 
 ```console?prompt=$,#
@@ -70,8 +58,6 @@ $ zfs create zroot/vm
 
 ### nat gateway
 
----
-
 In `/etc/pf.conf`, we set up the gateway. If your interface is not `wifibox0`, replace both instances with whatever you're using:
 
 ```
@@ -79,8 +65,6 @@ nat on wifibox0 from {192.168.8.0/24} to any -> (wifibox0)
 ```
 
 ### start services
-
----
 
 We can either reboot, or manually start the `vm` service and deal with the other related services and settings:
 
@@ -92,8 +76,6 @@ $ zfs mount zroot/vm
 ```
 
 ### initalize vm
-
----
 
 Now we need to initalize the VM. `vm` will download the ISO provided in the link. You may want to use a newer version.
 
@@ -107,8 +89,6 @@ $ EDITOR=nano vm configure alpine
 ```
 
 ### configure vm
-
----
 
 You will now have the option to configure some configurations of the VM. Here's mine:
 
@@ -138,8 +118,6 @@ Some things to note:
 
 ### pci passthrough
 
----
-
 Next, we need to set the device for the PCI device to `ppt`:
 
 ```console?prompt=$,#
@@ -147,8 +125,6 @@ $ devctl set driver pci0:4:0:0 ppt
 ```
 
 ### install/setup vm
-
----
 
 With that done, we can now boot into the installer:
 
@@ -164,29 +140,19 @@ $ setup-alpine
 
 #### networking
 
----
-
 When asked about networking, I specified `192.168.8.2` for the address, `255.255.255.0` for the broadcast address, and `192.168.8.1` for the gateway.
 
 #### gateway wifibox bug
-
----
 
 For some reason, the forwarding of the network to `wifibox0` doesn't work inside the Alpine VM if I start `wifibox` automatically in `/etc/rc.conf`. So, I set `wifibox_enable=NO` in `/etc/rc.conf` and reboot, and manually start wifibox using `service wifibox onestart`.
 
 #### halt
 
----
-
 You can run `halt` once everything is done, and type `~.` to exit the [nmdm tty](https://man.freebsd.org/cgi/man.cgi?query=nmdm).
 
 ## Webcam VM setup
 
----
-
 ### boot into vm
-
----
 
 Now start the VM, and use the console (or use SSH, if you set that up):
 
@@ -199,8 +165,6 @@ Test if the network is working using `ping`. Again, if it's not working, try dis
 
 ### mount shared directory
 
----
-
 If you decided to share a folder between the host and VM, you can mount it now:
 
 ```console?prompt=$,#
@@ -208,8 +172,6 @@ $ mount -t 9p -o trans=virtio share_name /mnt
 ```
 
 ### install packages
-
----
 
 First we include the community packages by editing `/etc/apk/repositories` and uncommenting the commented line. Then we install `doas`, and some packages used for building the `facetimehd` driver.
 
@@ -224,8 +186,6 @@ $ echo 'permit persist :abuild' >> /etc/doas.conf
 ```
 
 ### build packages
-
----
 
 Now we need to build some packages. This process might take awhile because we've set the VM to only have one VM and 256MB of memory; we could raise that by running `vm configure alpine` again, build the packages, then change it back, or we can just wait a bit for it all to finish.
 
@@ -256,8 +216,6 @@ $ abuild -r
 
 ### install build packages
 
----
-
 Now we need to install the packages we've just build.
 
 ```console?prompt=$,#
@@ -266,8 +224,6 @@ $ doas apk add *.apk
 ```
 
 ### enable facetimehd driver
-
----
 
 Now load the `facetimehd` driver and confirm it working using `dmesg`:
 
@@ -355,8 +311,6 @@ $ dmesg
 
 ### camera device information
 
----
-
 We can also use `v4l2-ctl` from the `v4l-utils-libs` package we installed to list information about the camera:
 
 ```console?prompt=$,#
@@ -421,8 +375,6 @@ User Controls
 
 ### troubleshooting
 
----
-
 It's possible that the device cannot be activated for some reason, especially with an error message like:
 
 ```
@@ -434,11 +386,7 @@ This error message seems to stem from the same issue [I have previously debugged
 
 ## Webcam-over-Network
 
----
-
 ### inside the VM
-
----
 
 At this stage, we can interact with the webcam inside the VM. Now, we want to expose it on the network so our FreeBSD host can use it.
 
@@ -460,11 +408,7 @@ You can lower the CPU usage by playing around with the `-s` and `-r` parameters.
 
 ### freebsd host
 
----
-
 #### install and enable webcamd and cuse
-
----
 
 On the FreeBSD host, you must install and enable `webcamd` as well as `cuse`:
 
@@ -483,8 +427,6 @@ $ service webcamd onestart
 
 #### v4l2loopback device with webcamd
 
----
-
 Now we need to create a video4linux device:
 
 ```console?prompt=$,#
@@ -492,8 +434,6 @@ $ webcamd -c v4l2loopback
 ```
 
 #### connect to vm and pipe data to device
-
----
 
 Finally, we need to connect to the VM on port 8888 and simply pipe the data received into `ffmpeg`, which will write the data to `/dev/video` -- the device created by `webcamd`:
 
@@ -503,8 +443,6 @@ $ nc -N -n --no-tcpopt 192.168.8.2 8888 | ffmpeg -hide_banner -r 25 -i pipe: -f 
 
 #### looking in the mirror
 
----
-
 We can use the `pwcview` program to view the webcam (or any other way, like Firefox):
 
 ```console?prompt=$,#
@@ -512,8 +450,6 @@ $ pwcview -y -f 25
 ```
 
 ## Sensor calibration
-
----
 
 When you load the `facetimehd` driver, you will see the following warning (it is not an error):
 
@@ -544,8 +480,6 @@ $ modprobe facetimehd
 ```
 
 # The Future
-
----
 
 The setup outlined in this post was heavily inspired by [wifibox](https://github.com/pgj/freebsd-wifibox). In the longterm, I would like to create something that mimicks wifibox: a mini read-only VM which automatically handles everything outlined in this post, which runs as a service on the FreeBSD host. Likewise, since wifibox already runs a mini VM for WiFi, I would like to just simply add my `facetimehd` packages into that, since there's no need to run two Alpine VMs at the same time.
 
