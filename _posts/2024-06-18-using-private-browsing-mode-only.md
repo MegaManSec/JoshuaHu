@@ -7,7 +7,9 @@ description: "I used only Private Browsing mode for six months. Read my experien
 
 Since the beginning of the year, I've been experimenting with a nearly-permanent use of "private browsing" in the browser on my computers, and phone.
 
-### The Setup
+---
+
+# The Setup
 
 On the computers, I used Firefox with "Always use private browsing mode" enabled (_Privacy & Security -> History -> Always use private browsing mode._) I shut down my computers when I'm not using them.
 
@@ -17,7 +19,7 @@ I use AdGuard's DNS-based adblocking on both my computer and my phone, to make l
 
 The purpose of experimenting with this was to determine whether it's viable to live without the hundreds of thousands of lines of history amassing in your browser, and whether any improvements could be suggested for browsers. If it's bearable, using private mode all the time can enhance your privacy, as if your history isn't stored, it can't be reconstructed simply by retrieving your device.
 
-### My Notes:
+# My Notes:
 
 99% of my browsing history is useless. Knowing that I went to the page https://website.com/page?id=2, then https://website.com/page?id=3, then https://website.com/page?id=4 and so on, does not help me in the slightest, except when I already have the tab open (to go backwards/forwards).
 
@@ -51,7 +53,7 @@ Bookmarks, bookmarks, bookmarks. For everything I wanted to look at later (which
 
 ---
 
-### Summary
+# Summary
 
 Overall, the experience was fine: I lost a few websites and pages that I wanted to keep, but life goes on.
 

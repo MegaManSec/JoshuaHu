@@ -88,7 +88,7 @@ Compiling it with afl-fuzz, we find two unique issues within about 5 seconds.
 
 ---
 
-### Infinite loop in sortlist handling
+# Infinite loop in sortlist handling
 The first issue is related to the _sortlist_ directive. _sortlist_ is an obsolete directive which allows for networks or subnets to be prefered if [multiple addresses are received from a dns query](https://docstore.mik.ua/orelly/networking_2ndEd/dns/ch06_01.htm#dns4-CHP-6-SECT-1.5.html). The C code for parsing this directive looks like:
 ```C
 while (true)
@@ -116,7 +116,7 @@ Cycling through the line until the value for for the _sortlist_ directive is fou
 
 Therefore, if we print, say, `\x321 ` into a value for _sortlist_, this will loop forever. `printf "sortlist 192.0\3212.0" >> /etc/resolv.conf ; ping example.com` will hang forever. I can imagine embedded devices which allow you to set `/etc/resolv.conf` could be completely bricked by this, as anything using glibc's libresolv when any function that calls `res_init()` (AKA all libresolv functions) will simply hang forever. Reported in [31025](https://sourceware.org/bugzilla/show_bug.cgi?id=31025).
 
-### Reachable assertion in resolv_conf.c:570: update_from_conf: Assertion `resolv_conf_matches (resp, conf)' failed.
+# Reachable assertion in resolv_conf.c:570: update_from_conf: Assertion `resolv_conf_matches (resp, conf)' failed.
 
 Another less interesting issue was an assert in the _search_ directive. The technical details are boring, but I'm surprised nobody has noticed this before:
 ```console?prompt=$,#
