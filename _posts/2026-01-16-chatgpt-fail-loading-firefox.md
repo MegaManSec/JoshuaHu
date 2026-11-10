@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "wtf is NS_ERROR_INVALID_CONTENT_ENCODING? investigating shared dictionaries and ChatGPT breakage in Firefox"
+title: "WTF Is NS_ERROR_INVALID_CONTENT_ENCODING? Debugging ChatGPT in Firefox"
 tags: [browsers, firefox, web_platform, ai]
 description: "Investigating and diagnosing ChatGPT's outage for Firefox users, resulting in endless loading and inoperable buttons."
 ---
