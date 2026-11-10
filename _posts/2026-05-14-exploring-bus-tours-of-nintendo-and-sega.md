@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Exploring \"Bus Tours\" of Nintendo and Sega: The Nintendo Challenger, Campus Challenge, and More."
+title: "Exploring Nintendo and Sega Bus Tours: Challenger, Campus Challenge, and More"
 tags: [gaming, history, nintendo, sega]
 description: "A look at Nintendo's and Sega's 1990s on-the-road advertising tours: the Sega On the Road Bus, the 21-ton Nintendo Challenger truck, Mighty Metro, the rare Nintendo Campus Challenge cartridges, Panasonic's 3DO Showliner, and the Sega Euro Challenge train."
 ---

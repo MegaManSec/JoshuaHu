@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Firefox now automatically trusting the operating system's root store for TLS certificates - update: it does so only for user-added ones"
+title: "Firefox Now Trusts System Root Certificates, but Only User-Added Ones"
 tags: [firefox, browsers, tls_http, security]
 description: "Firefox now defaults to trusting user-added certificates in the OS root store. Learn about this policy shift, its security implications, and how it affects you."
 ---

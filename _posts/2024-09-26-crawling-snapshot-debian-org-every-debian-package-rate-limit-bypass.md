@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Crawling every Debian .deb package in history from snapshot.debian.org, learning the .deb format, and finding rate-limiting bypasses"
+title: "Crawling Debian's Entire Package History and Discovering Rate-Limit Bypasses"
 tags: [data_scraping, linux, security, programming]
 description: "A deep dive into crawling snapshot.debian.org for historical .deb packages. Learn about the .deb format and techniques to bypass rate limits using IPv6."
 ---

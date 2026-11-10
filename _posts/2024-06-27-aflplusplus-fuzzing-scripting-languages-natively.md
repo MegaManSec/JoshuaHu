@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Fuzzing scripting languages' interpreters' native functions using AFL++ to find memory corruption and more"
+title: "Fuzzing Scripting Language Interpreters with AFL++ to Find Memory Corruption"
 tags: [fuzzing, aflpp, memory_corruption, security]
 description: "Learn to fuzz scripting languages like Pike using AFL++. Discover how to hook internal C functions via scripts to find memory corruption and interpreter bugs."
 ---
