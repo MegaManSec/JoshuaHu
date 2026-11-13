@@ -47,6 +47,7 @@ Debugging writeups from the web's plumbing: HTTP/2 breakage in intercepting
 proxies, TLS session key extraction, sandboxed iframes, broken feed caching,
 and making Firefox behave.
 
+* [Making ChatGPT stop defaulting to Work mode](https://joshua.hu/chatgpt-stop-fix-opening-in-work-mode-chat-default)
 * [Annoying ChatGPT data usage](https://joshua.hu/chatgpt-downloads-feature-flags-every-page-load)
 * [What's going on with Taiwan's RDAP server?](https://joshua.hu/taiwan-rdap-servers)
 * [Debugging failures of HTTP/2 in Burp, mitmproxy, and browsers](https://joshua.hu/http2-burp-proxy-mitmproxy-nginx-failing-load-resources-chromium)
