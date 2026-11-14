@@ -15,8 +15,6 @@ Whether you get Chat or Work mode by default depends on two things: 1. a server-
 
 Anyways, I tested various ways to get the website to always use Chat mode, but nothing really worked. So instead, I made a very simple browser extension which supports Chrome, Firefox, and Safari (even on iOS!). It's [really small](https://github.com/MegaManSec/ChatGPT-Chat-By-Default/blob/main/src/content.ts). The plugin watches the page for changes and automatically clicks the Chat button whenever Work mode becomes active -- unless it detects that the user deliberately selected Work.
 
-The first version had a bug, too: if you opened an old conversation and then clicked "New chat", you'd land in Work mode again. ChatGPT flips the toggle back to Work a couple of times by itself in the first fraction of a second after a new chat, and the extension was counting that as me deliberately choosing Work, so it gave up. It now clicks Chat again every time the site does that, and only an actual click on the Work button counts as a choice.
-
 - Firefox Add-ons: <https://addons.mozilla.org/en-US/firefox/addon/chat-by-default/>
 - Chrome Web Store: <https://chromewebstore.google.com/detail/chat-by-default/fdfndhmkmdcmbnfhkdnmbddhdiidopod>
 - App Store (macOS and iOS): <https://apps.apple.com/us/app/chat-by-default/id6832335375>
