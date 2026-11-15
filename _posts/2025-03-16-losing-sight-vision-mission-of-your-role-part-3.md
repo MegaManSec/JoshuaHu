@@ -9,7 +9,7 @@ _Part two can be found [here](https://joshua.hu/losing-sight-vision-mission-of-y
 
 You: You're a developer for a website which offers various functionality to paid, logged-in users. One day, you're tasked with making sure your website is secure from hackers. After reading about how to protect from malicious activity, you think to yourself, well golly, I'll just configure my state-of-the-art Web Application Firewall (WAF) that will block unwanted traffic. Even better, you see an option called "Super Bot Fight Mode" and enable it immediately! Super Fighting Protection™! Now when those hackers, bots, and malicious actors try to connect to your website, they'll have to go through Cloudflare's Turnstile! That'll show 'em!
 
-![Cloudflare Turnstile](https://cf-assets.www.cloudflare.com/zkvhlag99gkb/10LzRAr38KzxAANQIVxwZT/0fe5ec0867c70f8217a6deff4b244f9b/image2.gif)
+![Cloudflare Turnstile](/files/cloudflare-turnstile.gif)
 
 ---
 
