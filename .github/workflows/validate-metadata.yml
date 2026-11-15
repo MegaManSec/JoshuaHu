@@ -2,7 +2,8 @@ name: Validate metadata
 
 # Builds the site with Jekyll and validates the metadata that actually ships:
 # Open Graph / Twitter tags, JSON-LD, canonical URLs, social-image existence
-# and dimensions, and per-article uniqueness. Runs on every push/PR (no path
+# and dimensions, per-article uniqueness, and that no page loads images,
+# scripts, styles or fonts from another origin. Runs on every push/PR (no path
 # filter) so it always reports and needs no no-op twin for branch protection.
 
 on:
@@ -34,3 +35,6 @@ jobs:
 
       - name: Validate social and structured metadata
         run: python3 .github/scripts/validate_metadata.py
+
+      - name: Validate nothing loads from other origins
+        run: python3 .github/scripts/validate_resources.py

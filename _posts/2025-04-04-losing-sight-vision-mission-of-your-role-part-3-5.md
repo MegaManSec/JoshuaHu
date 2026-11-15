@@ -11,7 +11,7 @@ This post is a minified version of part 3, as the exact same issue has occured.
 
 You: You're a developer for a website/service (report-uri.com) which provides an endpoint for Content-Security-Policy (CSP) violation reports to be sent to, which are automatically sent by browsers (opaque to the user). One day, you configure your state-of-the-art Web Application Firewall (WAF) that will block unwanted traffic. Even better, you see an option called "Super Bot Fight Mode" and enable it immediately! Super Fighting Protection™! Now when those hackers, bots, and malicious actors try to connect to your website, they'll have to go through Cloudflare's Turnstile! That'll show 'em! Super Fighter!!!1! Tekkin Mortal Kormat Super FIIGGHHTTTEERRRR.
 
-![Cloudflare Turnstile](https://cf-assets.www.cloudflare.com/zkvhlag99gkb/10LzRAr38KzxAANQIVxwZT/0fe5ec0867c70f8217a6deff4b244f9b/image2.gif)
+![Cloudflare Turnstile](/files/cloudflare-turnstile.gif)
 
 ---
 

@@ -51,19 +51,19 @@ _BloodHound mapping the shortest paths to Domain Admins in an Active Directory t
 
 In terms of those visualizations, the result is quite pretty (I recommend opening the images in new tabs):
 
-![A graph visualizing the relation between systems using SSH](https://raw.githubusercontent.com/MegaManSec/SSH-Snake/main/tools/SSH-Snake-dot-circo.png)
+![A graph visualizing the relation between systems using SSH](/files/SSH-Snake-dot-circo.png)
 
 The blue nodes indicate the _destination_ can connect to itself (user@host<-->user@host). The red edges indicate that the connection is bi-directional (user1@host1<-->user2@host2).
 
 ---
 
-![A graph visualizing the relation between systems using SSH](https://github.com/MegaManSec/SSH-Snake/raw/main/tools/SSH-Snake-Gephi.svg)
+![A graph visualizing the relation between systems using SSH](/files/SSH-Snake-Gephi.svg)
 
 The green nodes indicate a _host_ (without a username) that can connect to itself (host1<-->host1). The green edges indicate that the connection is bi-directional (host1<-->host2). The gray host in the top right corner is the host that the script was initially executed on.
 
 ---
 
-![A graph visualizing the relation between systems using SSH](https://github.com/MegaManSec/SSH-Snake/raw/main/tools/SSH-Snake-CytoScape.svg)
+![A graph visualizing the relation between systems using SSH](/files/SSH-Snake-CytoScape.svg)
 
 The blue nodes indicate the _destination_ can connect to itself (user@host<-->user@host). The red edges indicate that the connection is bi-directional (user1@host1<-->user2@host2).
 
