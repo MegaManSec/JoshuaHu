@@ -36,11 +36,11 @@ The only really necessary options settings are `LDAP_SERVER`, `USE_SSL`, `BASE_D
 
 ### Colored Output:
 
-![The colored output](https://raw.githubusercontent.com/MegaManSec/LDAP-Monitoring-Watchdog/main/example.png)
+![The colored output](/files/LDAP-Watchdog-example.png)
 
 ### Slack Output:
 
-![The slack output](https://raw.githubusercontent.com/MegaManSec/LDAP-Monitoring-Watchdog/main/example-slack.png)
+![The slack output](/files/LDAP-Watchdog-example-slack.png)
 
 ## Features
 
