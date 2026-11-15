@@ -146,15 +146,6 @@ article h6 .anchor-link::after {
   }
 }
 
-p > code.language-plaintext.highlighter-rouge {
-  white-space: nowrap;
-  overflow-x: auto;
-  display: inline-block;
-  max-width: 100%;
-  vertical-align: -0.52em;
-  line-height: 1.2; 
-}
-
 article {
   word-wrap: break-word; /* Wraps long words at the end of a line */
   overflow-wrap: break-word; /* Ensures words wrap properly without breaking them mid-word */

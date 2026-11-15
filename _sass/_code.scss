@@ -12,6 +12,13 @@ code {
   background-color: $code-background-color;
   border-radius: 3px;
 }
+:not(pre) > code {
+  display: inline-block;
+  box-sizing: border-box;
+  max-width: 100%;
+  line-height: 1.2;
+  text-decoration: inherit;
+}
 pre {
   display: block;
   margin-top: 0;
