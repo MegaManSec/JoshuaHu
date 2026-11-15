@@ -56,7 +56,7 @@ Luckily(?) the exact same guard works fine during `npm install`, which builds it
 
 So the "exploit", if you can call it that, is a file:
 
-```terminal
+```console?prompt=$,#
 $ cat attacker-pkg/package.json
 { "name": "attacker-pkg", "version": "1.0.0" }
 
@@ -96,7 +96,7 @@ Note: that needs `allow-git` turned on explicitly (npm 12 defaults to off as men
 
 It has the same issue as everything else here: works for `file:`, works for `link:`, but git deps still walk through it. The problem is a bit different, though. The policy lives in Arborist's rebuild queue (`isScriptAllowed(node, this.options.allowScripts)`), which runs _after_ extraction, and a git dependency's `prepare` runs _during_ extraction, in the same `DirFetcher`, where the only gate is the blunt `ignoreScripts` flag. The `allowScripts` verdict never gets turned into `ignoreScripts` for that node, so unless you literally passed `--ignore-scripts`, the `prepare` runs:
 
-```terminal
+```console?prompt=$,#
 $ npm install --foreground-scripts
 > evil-gitdep@1.0.0 prepare
 PACK_IGNORE_SCRIPTS_BYPASSED
@@ -114,7 +114,7 @@ But of course, it didn't (too late!)
 
 Amusingly, `--strict-allow-scripts` (the stricter CLI variant of the same list) does get it right. It checks the tree _before_ anything is extracted, so the `prepare` never runs at all:
 
-```terminal
+```console?prompt=$,#
 $ npm install --strict-allow-scripts
 npm error code ESTRICTALLOWSCRIPTS
 npm error --strict-allow-scripts: 1 package(s) have install scripts not covered by allowScripts:
@@ -136,7 +136,7 @@ const fetchOrigin = ['fetch', 'origin', revDoc.rawRef]
 
 Since neither `--end-of-options` nor `--` is used, and there's nothing between `origin` and a ref name the server chose, a repo advertising a ref called `--upload-pack=/tmp/payload` turns that into `git fetch origin --upload-pack=/tmp/payload`:
 
-```terminal
+```console?prompt=$,#
 $ cat app/.npmrc
 ignore-scripts=true
 allow-git=all
