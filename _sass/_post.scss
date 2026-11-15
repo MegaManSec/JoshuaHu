@@ -287,6 +287,7 @@ article {
 .related-link {
   display: flex;
   justify-content: space-between;
+  gap: 0.5rem;
   text-decoration: none;
 }
 
@@ -308,6 +309,7 @@ article {
   text-decoration-thickness: 1px;
   font-weight: normal;
   font-size: inherit;
+  overflow-wrap: anywhere;
 }
 
 .related-post-date {

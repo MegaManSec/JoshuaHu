@@ -1,0 +1,33 @@
+name: Validate layout
+
+# Builds the site with Jekyll and renders every page in headless Chrome at
+# 320px, 375px and 1280px, failing if anything makes the page scroll sideways
+# or sticks out past the text column. Runs on every push/PR (no path filter)
+# so it always reports and needs no no-op twin for branch protection.
+
+on:
+  push:
+    branches: [gh-pages]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Layout fits phone and desktop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: ruby/setup-ruby@b3aaceaef7e0ee231b499e7b5f49c03fc1d32199 # v1.338.0
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Build site
+        run: bundle exec jekyll build
+
+      - name: Validate nothing overflows the screen or the text column
+        run: python3 .github/scripts/validate_layout.py
