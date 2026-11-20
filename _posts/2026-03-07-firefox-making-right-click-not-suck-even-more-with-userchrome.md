@@ -11,7 +11,7 @@ In my [previous post](https://joshua.hu/firefox-making-right-click-not-suck), I 
 
 | <img src="/files/holyshit-firefox.png" alt="Firefox fresh-install right-click" width="400"> | <img src="/files/firefox-fail.png" alt="Firefox right-click after disabling the above options" width="400"> |
 | :--: | :--: |
-| *Freshly installed Firefox, right-clicking* | *Firefox right-clicking, after disabling everything above, __using about:config__ * |
+| *Freshly installed Firefox, right-clicking* | *Firefox right-clicking, after disabling everything above, __using about:config__* |
 
 My post concluded (the technical section) that the remaining useless buttons like "Set Image as Desktop Background...", "Email Image...", "Bookmark Page...", "Bookmark Link...", and so on, could only be removed by creating (or editing) [userChrome.css](https://www.userchrome.org/what-is-userchrome-css.html), which is a file containing style rules that "_allows you to make changes to fonts and colors, hide unnecessary items, adjust spacing, and make other changes to the appearance of Firefox._" In other words, this is useful because instead of disabling functionality, it lets us hide any and all menu items (including the ones we couldn't get rid of at all with `about:config`). This post documents how to actually do that.
 
