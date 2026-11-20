@@ -19,8 +19,6 @@ The bug was first worked on at the beginning of April 2025, in [this](https://ch
 
 Anyways, nearly two years later, the bug was fixed. A $2,000 USD bounty was awarded.
 
-# Timeline
-
 | Date | Event |
 |---|---|
 | 2021-05-27 | [CL 2896901](https://chromium-review.googlesource.com/c/chromium/src/+/2896901) was merged. A Chromium engineer later said this change probably introduced the bug. |
