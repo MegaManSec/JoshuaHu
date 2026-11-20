@@ -47,6 +47,7 @@ Debugging writeups from the web's plumbing: HTTP/2 breakage in intercepting
 proxies, TLS session key extraction, sandboxed iframes, broken feed caching,
 and making Firefox behave.
 
+* [Chromium leaking the Referer header despite no-referrer](https://joshua.hu/chromium-referer-leaking-no-referrer-policy)
 * [Making ChatGPT stop defaulting to Work mode](https://joshua.hu/chatgpt-stop-fix-opening-in-work-mode-chat-default)
 * [Annoying ChatGPT data usage](https://joshua.hu/chatgpt-downloads-feature-flags-every-page-load)
 * [What's going on with Taiwan's RDAP server?](https://joshua.hu/taiwan-rdap-servers)
