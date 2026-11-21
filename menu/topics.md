@@ -47,6 +47,7 @@ Debugging writeups from the web's plumbing: HTTP/2 breakage in intercepting prox
 * [One-Way Sandboxed Iframes: Creating a Read-Only Iframe Sandbox That Can't Read Back](https://joshua.hu/rendering-sandboxing-arbitrary-html-content-iframe-interacting)
 * [Feedburner's Caching Problem](https://joshua.hu/google-feedburner-broken-caching-if-modified-since)
 * [wtf Google: cacheable rss feeds are dead, and Atom feeds are delayed](https://joshua.hu/wtf-google-feedburner-cache-problem-atom-rss)
+* [Fixing Google's Feedburner problem: ?redirect=false, and caching that half works](https://joshua.hu/fixing-google-feedburner-cache-problem-atom-rss)
 * [Firefox now automatically trusting the operating system's root store for TLS certificates - update: it does so only for user-added ones](https://joshua.hu/mozilla-firefox-trusting-system-root-stores-qwacs-eu)
 * [Slack login is broken with noscript](https://joshua.hu/slack-is-broken-with-noscript)
 * [Making Firefox's right-click not suck with about:config](https://joshua.hu/firefox-making-right-click-not-suck)
