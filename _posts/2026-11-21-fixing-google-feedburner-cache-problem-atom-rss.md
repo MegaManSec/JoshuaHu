@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Fixing Google's Feedburner problem: ?redirect=false, and caching that half works"
+title: "Fixing Google's Feedburner problem, and caching that half works"
 tags: [rss_feeds, web_platform]
 description: "Blogger's ?redirect=false skips the stale Feedburner copy of the Chrome Releases feed. ETags work with gzip; If-Modified-Since only works via a one-second cache."
 ---
@@ -47,8 +47,6 @@ accept-ranges: none
 vary: Accept-Encoding
 ```
 
-It looks like this parameter has been available forever, it's just undocumented.
-
 Since we can now pull in fresh results from the Chrome Release blog, it means that CCBot can start working properly again. Its source is still [on GitHub](https://github.com/MegaManSec/CCBot), and I'm sure Opera still uses it (lol).
 
 In terms of the [feed caching problem](https://joshua.hu/google-feedburner-broken-caching-if-modified-since) I also previously wrote about, where both the RSS feed and the Feedburner Atom feed refused any caching techniques which RSS feeds typically allow to be utilized, it turns out the `redirect=false` feed supports them. Sort of.
@@ -67,7 +65,7 @@ expires: Mon, 01 Jan 1990 00:00:00 GMT
 date: Sat, 21 Nov 2026 22:35:16 GMT
 ```
 
-It's also still slow. On the 30th of October, a post published at 07:58 PT was still missing from the Feedburner feed nearly two hours later.
+It's also still serving outdated results, for example on the 30th of October, a post published at 07:58 PT was still missing from the Feedburner feed nearly two hours later.
 
 The `redirect=false` feed, on the other hand, does respond with `304 Not Modified`. Sometimes. Here's the same request, with an `If-Modified-Since` in the future, made twelve times in a row:
 
@@ -112,7 +110,7 @@ location: http://feeds.feedburner.com/GoogleChromeReleases
 
 That's probably also the real reason for the redirect in my last post. The documentation I quoted in my original post said that the old GData feed URLs would keep working, but that "the response is the same as blogspot.com feeds". The Chrome Releases blog's own feeds were already redirecting to Feedburner at the time (that's Blogger's "Post feed redirect URL" setting), so once the GData API was finally switched off, the blogger.com URL started redirecting too. So it probably wasn't me emailing Feedburner's support after all.
 
-`redirect=false` is how you get around that setting, and it's not quite as undocumented as I thought: a [Feedburner help page about Google Webmaster Tools](https://support.google.com/feedburner/answer/97090) mentions `http://mybloggerblog.blogspot.com/feeds/posts/default?redirect=false` as a feed URL format that "should always work" for Blogger users.
+`redirect=false` is how you get around that setting, and it's not completely secret, either: a [Feedburner help page about Google Webmaster Tools](https://support.google.com/feedburner/answer/97090) mentions `http://mybloggerblog.blogspot.com/feeds/posts/default?redirect=false` as a feed URL format that "should always work" for Blogger users.
 
 ---
 
