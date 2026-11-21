@@ -5,6 +5,8 @@ tags: [rss_feeds, web_platform]
 description: "Blogger's ?redirect=false skips the stale Feedburner copy of the Chrome Releases feed. ETags work with gzip; If-Modified-Since only works via a one-second cache."
 ---
 
+# Getting around Feedburner
+
 In a [previous post](https://joshua.hu/wtf-google-feedburner-cache-problem-atom-rss), I talked about how Google's [Chrome Releases blog](https://chromereleases.googleblog.com/) was serving stale results on its Atom feed, and had set up a redirect from its RSS feed (which was serving up-to-date results) to ... the stale Atom feed. This meant results were up to a few days old. This was particularly annoying because my [CCBot](https://joshua.hu/ccbot-chrome-checker-bot-googlechromereleases-chromium-updates) parsed the blog's feed to notify me (Opera!) about Chromium vulnerabilities which were fixed. When I wrote that post, the Atom feed was days behind:
 
 ```console?prompt=$,#
@@ -49,7 +51,7 @@ vary: Accept-Encoding
 
 Since we can now pull in fresh results from the Chrome Releases blog, it means that CCBot can start working properly again. Its source is still [on GitHub](https://github.com/MegaManSec/CCBot), and I'm sure Opera still uses it (lol).
 
-# Does caching work now?
+# Caching with If-Modified-Since
 
 In terms of the [feed caching problem](https://joshua.hu/google-feedburner-broken-caching-if-modified-since) I also previously wrote about, where the Feedburner Atom feed refused any caching techniques which RSS feeds typically allow to be utilized, it turns out the `redirect=false` feed supports them. Sort of.
 
@@ -101,22 +103,7 @@ $ for i in $(seq 10); do curl -s -o /dev/null -w '%{http_code} ' -H 'if-modified
 
 So for anything that polls the feed every few minutes, the one-second copy will always have expired by the time the next request comes in, and `If-Modified-Since` never gets a `304`.
 
-# Where the redirect came from
-
-That's different to what I found in my original post. Back then, the blogger.com URL was still served by the old GData API (that's what the `sunset` and `link` headers in that post were about), and it answered `If-Modified-Since` with a `304`. Those headers are gone now, and the responses come from `server: blogger-renderd`, which is the same server that handles the blog's own feeds on chromereleases.googleblog.com, redirect included:
-
-```console?prompt=$,#&output=http
-$ hcurl 'https://chromereleases.googleblog.com/feeds/posts/default'
-HTTP/2 302
-server: blogger-renderd
-location: http://feeds.feedburner.com/GoogleChromeReleases
-```
-
-That's probably also the real reason for the redirect in my last post. The documentation I quoted in my original post said that the old GData feed URLs would keep working, but that "the response is the same as blogspot.com feeds". The Chrome Releases blog's own feeds were already redirecting to Feedburner at the time (that's Blogger's "Post feed redirect URL" setting), so once the GData API was finally switched off, the blogger.com URL started redirecting too. So it probably wasn't me emailing Feedburner's support after all, too bad.
-
-`redirect=false` is how you get around that setting, and it's not quite as undocumented as I originally thought: a [Feedburner help page about Google Webmaster Tools](https://support.google.com/feedburner/answer/97090) mentions `http://mybloggerblog.blogspot.com/feeds/posts/default?redirect=false` as a feed URL format that "should always work" for Blogger users.
-
-# ETags and If-None-Match
+# Caching with If-None-Match
 
 What's also interesting is that `If-None-Match` _does_ work on the `redirect=false` feed. The catch is that you get an `ETag` if and only if you ask for a compressed response (wtf). Without `Accept-Encoding: gzip`, there's no `ETag` at all:
 
@@ -156,6 +143,14 @@ $ for i in $(seq 10); do curl -s --compressed -o /dev/null -w '%{http_code} ' -H
 
 This saves quite a bit, which I had originally intended and wanted to do. The full feed is 1,725,860 bytes uncompressed and 57,817 bytes gzipped, and a `304` is practically nothing. Feedburner still sends 55,792 gzipped bytes (1,615,960 uncompressed) every time.
 
+# Where the redirect came from
+
+When I wrote my original post, the blogger.com URL answered `If-Modified-Since` with a `304`. Back then, it was still served by the old GData API (that's what the `sunset` and `link` headers in that post were about). Those headers are gone now, and the responses come from `server: blogger-renderd` (see the `redirect=false` response at the start of this post), which is the same server that handles the blog's own feeds on chromereleases.googleblog.com.
+
+That's probably also the real reason for the redirect in my last post. The documentation I quoted in my original post said that the old GData feed URLs would keep working, but that "the response is the same as blogspot.com feeds". The Chrome Releases blog's own feeds were already redirecting to Feedburner at the time (that's Blogger's "Post feed redirect URL" setting), so once the GData API was finally switched off, the blogger.com URL started redirecting too. So it probably wasn't me emailing Feedburner's support after all, too bad.
+
+`redirect=false` is how you get around that setting, and it's not quite as undocumented as I originally thought: a [Feedburner help page about Google Webmaster Tools](https://support.google.com/feedburner/answer/97090) mentions `http://mybloggerblog.blogspot.com/feeds/posts/default?redirect=false` as a feed URL format that "should always work" for Blogger users.
+
 Oh, and the "RSS feed" I've been talking about in these posts is actually an Atom feed (`content-type: application/atom+xml`), and the real RSS version is accessed with `?alt=rss&redirect=false`, which behaves exactly the same way on both blogger.com and chromereleases.googleblog.com.
 
 # Redirecting to plain HTTP
@@ -165,6 +160,7 @@ Another interesting thing is that every one of the blog's feed URLs redirects to
 ```console?prompt=$,#&output=http
 $ hcurl 'https://chromereleases.googleblog.com/feeds/posts/default'
 HTTP/2 302
+server: blogger-renderd
 location: http://feeds.feedburner.com/GoogleChromeReleases
 ```
 
@@ -178,7 +174,7 @@ Content-Type: text/xml; charset=utf-8
 
 In other words, anything subscribed to one of the Chrome Releases blog's own feed links gets Chrome's security release announcements unencrypted, and anybody on the network path can change them, like adding a fake release post, or removing a real security update so something like CCBot never sees it.
 
-# Summing up
+# Which feed URL to use
 
 So, to sum it all up:
 
