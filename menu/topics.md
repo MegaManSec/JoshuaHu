@@ -5,15 +5,11 @@ description: "Browse the various posts written by Joshua Rogers, ordered and gro
 permalink: /topics
 ---
 
-Every post on this site, grouped by subject. If you're new here, this is the
-fastest way to work out what this blog is about: pick whichever cluster looks
-interesting and go from there.
+Every post on this site, grouped by subject. If you're new here, this is the fastest way to work out what this blog is about: pick whichever cluster looks interesting and go from there.
 
-## AI, LLMs, and AI slop (culture + security + tooling)
+# AI, LLMs, and AI slop (culture + security + tooling)
 
-Critiques of LLM-generated code and culture, alongside hands-on evaluations of
-AI-powered security tooling: what these tools actually find, and the messes
-they leave behind.
+Critiques of LLM-generated code and culture, alongside hands-on evaluations of AI-powered security tooling: what these tools actually find, and the messes they leave behind.
 
 * [Lessons from using sanitizers as an oracle for LLM vulnerability triage](https://joshua.hu/lessons-using-sanitizers-oracle-llm-vulnerability-triage)
 * [Design taste in the age of LLMs: visualizing CVE data](https://joshua.hu/design-taste-visualizing-cve-data-llms)
@@ -25,12 +21,9 @@ they leave behind.
 * [Retrospective: AI-powered security engineers and source code scanners](https://joshua.hu/retrospective-zeropath-ai-sast-source-code-security-scanners-vulnerability)
 * [Hacking with AI SASTs: An overview of "AI Security Engineers" / "LLM Security Scanners" for Penetration Testers and Security Teams](https://joshua.hu/llm-engineer-review-sast-security-ai-tools-pentesters)
 
-## Nginx, Gixy-Next, ReDoS, and regex security
+# Nginx, Gixy-Next, ReDoS, and regex security
 
-Research into nginx configuration pitfalls — proxy_pass URL normalization,
-DNS caching, allow/deny surprises — plus Gixy-Next (the maintained fork of the
-Gixy configuration scanner) and work on detecting ReDoS-vulnerable regular
-expressions.
+Research into nginx configuration pitfalls — proxy_pass URL normalization, DNS caching, allow/deny surprises — plus Gixy-Next (the maintained fork of the Gixy configuration scanner) and work on detecting ReDoS-vulnerable regular expressions.
 
 * [Gixy-Next: an overview of a Gixy fork with updated, improved, and new checks](https://joshua.hu/gixy-ng-new-version-gixy-updated-checks)
 * [Identifying ReDoS Vulnerabilities in Nginx Configurations Using Gixy-Next](https://joshua.hu/regex-redos-recheck-nginx-gixy)
@@ -41,11 +34,9 @@ expressions.
 * [nginx "allow" and "deny" directives with "return"](https://joshua.hu/nginx-return-allow-deny)
 * [nginx's proxy_pass DNS caching problem](https://joshua.hu/nginx-dns-caching)
 
-## Web platform, browsers, feeds, and HTTP/TLS debugging
+# Web platform, browsers, feeds, and HTTP/TLS debugging
 
-Debugging writeups from the web's plumbing: HTTP/2 breakage in intercepting
-proxies, TLS session key extraction, sandboxed iframes, broken feed caching,
-and making Firefox behave.
+Debugging writeups from the web's plumbing: HTTP/2 breakage in intercepting proxies, TLS session key extraction, sandboxed iframes, broken feed caching, and making Firefox behave.
 
 * [Chromium leaking the Referer header despite no-referrer](https://joshua.hu/chromium-referer-leaking-no-referrer-policy)
 * [Making ChatGPT stop defaulting to Work mode](https://joshua.hu/chatgpt-stop-fix-opening-in-work-mode-chat-default)
@@ -62,10 +53,9 @@ and making Firefox behave.
 * [Making Firefox's right-click not suck, even more, with userChrome.css](https://joshua.hu/firefox-making-right-click-not-suck-even-more-with-userchrome)
 * [Always 'Copy Clean Link' when possible on Firefox, with userChrome.css](https://joshua.hu/firefox-always-copy-clean-link-url-userchrome-css)
 
-## FreeBSD, Macs, and hardened networking
+# FreeBSD, Macs, and hardened networking
 
-Running FreeBSD on Apple hardware, locking down the network layer with
-encrypted DNS and NTP, and assorted macOS and desktop quality-of-life fixes.
+Running FreeBSD on Apple hardware, locking down the network layer with encrypted DNS and NTP, and assorted macOS and desktop quality-of-life fixes.
 
 * [A Full Guide: FreeBSD 13.3 on a MacBook Pro 11.4 (Mid 2015) (A1398)](https://joshua.hu/FreeBSD-on-MacbookPro-114-A1398)
 * [Webcam support on a Macbook running FreeBSD using PCI passthrough](https://joshua.hu/facetimehd-webcam-linux-vm-macbook-freebsd-broadcom-1570)
@@ -80,11 +70,9 @@ encrypted DNS and NTP, and assorted macOS and desktop quality-of-life fixes.
 * [Exclusive i3 keysyms for specific programs. or: Binding Escape on imagemagick's import](https://joshua.hu/program-specific-i3-keysym-keybinds-screenshot-imagemagick-import-escape)
 * [Cute color progression for my battery status indicator](https://joshua.hu/progressively-change-battery-percentage-color)
 
-## Fuzzing and vulnerability research (AFL++, harnessing, corpora)
+# Fuzzing and vulnerability research (AFL++, harnessing, corpora)
 
-Practical fuzzing engineering with AFL++: harnessing interpreters and
-libraries, tuning campaigns, and the tricks that make large-scale fuzzing
-actually work.
+Practical fuzzing engineering with AFL++: harnessing interpreters and libraries, tuning campaigns, and the tricks that make large-scale fuzzing actually work.
 
 * [Fuzzing scripting languages' interpreters' native functions using AFL++ to find memory corruption and more](https://joshua.hu/aflplusplus-fuzzing-scripting-languages-natively)
 * [Automatically Generating a Well-Tuned Fuzzing Campaign With AFL++](https://joshua.hu/aflplusplus-generate-fuzzing-campaign-commands-options-secondary-fuzzers)
@@ -93,11 +81,9 @@ actually work.
 * [Fuzzing with multiple servers in parallel: AFL++ with Network File Systems](https://joshua.hu/fuzzing-multiple-servers-parallel-aflplusplus-nfs)
 * [Attacking a scripting language's cryptographic functions with Wycheproof](https://joshua.hu/pikeproof-wycheproof-pike-checks)
 
-## SSH, LDAP, and internal-network offensive engineering
+# SSH, LDAP, and internal-network offensive engineering
 
-Offensive tooling and techniques for internal networks: SSH-Snake, SSH
-backdoors and quirks, LDAP monitoring, and post-exploitation adventures in
-Kubernetes and Vault.
+Offensive tooling and techniques for internal networks: SSH-Snake, SSH backdoors and quirks, LDAP monitoring, and post-exploitation adventures in Kubernetes and Vault.
 
 * [SSH-Snake: Automatic traversal of networks using SSH private keys](https://joshua.hu/ssh-snake-ssh-network-traversal-discover-ssh-private-keys-network-graph)
 * [SSH-Snake Update: Multi-IP Domain Resolution](https://joshua.hu/ssh-snake-multi-ip-domain-resolution-bash-cannot-assign-list-to-array-member)
@@ -113,10 +99,9 @@ Kubernetes and Vault.
 * [Describing All Kubernetes Pods of All Namespaces for Fun and Profit](https://joshua.hu/kubernetes-describe-all-pods)
 * [Stealing All of Hashicorp Vault's Secrets Using Login Enumeration](https://joshua.hu/hashicorp-vault-secret-dumping)
 
-## Big writeups: incidents, vulns, audits, and DoS
+# Big writeups: incidents, vulns, audits, and DoS
 
-The long ones: a 55-vulnerability Squid audit, supply-chain backdoors, libwebp
-fallout, and other incidents, audits, and denial-of-service research.
+The long ones: a 55-vulnerability Squid audit, supply-chain backdoors, libwebp fallout, and other incidents, audits, and denial-of-service research.
 
 * [Two parse5 bugs: text turning into HTML, and a two-character crash](https://joshua.hu/parse5-rewriting-stream-xss-surrogate-crash)
 * [33 Vulnerabilities in cJSON](https://joshua.hu/cjson-json-parser-cve-vulnerabilities)
@@ -126,7 +111,7 @@ fallout, and other incidents, audits, and denial-of-service research.
 * [55 Vulnerabilities in Squid Caching Proxy and 35 0days](https://joshua.hu/squid-security-audit-35-0days-45-exploits)
 * [CVE-2023-4863: Fallout hits Facebook; probably much much more](https://joshua.hu/libwebp-fallout-facebook-image-compression-proxies)
 * [Two infinite loop / DoS vulnerabilities in image-size](https://joshua.hu/image-size-infinite-loop-dos-vulnerabilities)
-* [How to DoS MySQL/MariaDB and PostgresSQL Servers With Fewer Than 55kb of Data](https://joshua.hu/postgresql-mysql-mariadb-denial-of-service-dos-attack)
+* [How to DoS MySQL/MariaDB and PostgreSQL Servers With Fewer Than 55kb of Data](https://joshua.hu/postgresql-mysql-mariadb-denial-of-service-dos-attack)
 * [root with a single command: sudo logrotate](https://joshua.hu/gaining-root-with-logrotate-sudo-ubuntu)
 * [Supply chain attacks and the many (other) different ways I've backdoored your dependencies](https://joshua.hu/how-I-backdoored-your-supply-chain)
 * [NXDOMAIN'd: Catching unregistered domains for fun and profit](https://joshua.hu/nxdomaind-catch-unregistered-expired-domains-browser-supply-chain-attacks)
@@ -140,10 +125,9 @@ fallout, and other incidents, audits, and denial-of-service research.
 * [Some Thoughts on "Fixing Security Issues"](https://joshua.hu/Thoughts-on-Fixing-security-issues)
 * [RCE (kind of) in Transmission BitTorrent's daemon](https://joshua.hu/transmission-cors-rpc-csrf-rce-drive-by-exploit)
 
-## Auth, accounts, and credential abuse
+# Auth, accounts, and credential abuse
 
-How authentication breaks in practice: hardware keys and 2FA, session
-persistence, credential stuffing, and one very broken bank PIN.
+How authentication breaks in practice: hardware keys and 2FA, session persistence, credential stuffing, and one very broken bank PIN.
 
 * [Security doesn't (always) have to be... so fucking annoying](https://joshua.hu/security-useless-changes-theatre)
 * [The End of Yubikeys as 2-Factor-Authentication? Google Breaks 2FA with Yubikeys in Favor of Passkeys](https://joshua.hu/enrolling-hardware-keys-2fa-google-workspace)
@@ -151,10 +135,9 @@ persistence, credential stuffing, and one very broken bank PIN.
 * [Credential Stuffing Done Right: Some Tips](https://joshua.hu/credential-stuffing-done-right)
 * [A RuneScape Hacker's Dream: An Authenticator and PIN Bypass](https://joshua.hu/runescape-bank-pin-exploit-bypass-username-enumeration-captchaless-login)
 
-## Programming, tooling, and practical notes
+# Programming, tooling, and practical notes
 
-Smaller tools and practical notes: bash oddities, decompiler abuse, crawlers,
-and development-environment setups that actually work.
+Smaller tools and practical notes: bash oddities, decompiler abuse, crawlers, and development-environment setups that actually work.
 
 * [Python's ipaddress is_global and is_private](https://joshua.hu/python-ipaddress-is-global-patch-releases)
 * [npm pack \-\-ignore-scripts, .npm-extension](https://joshua.hu/npm-pack-ignore-scripts-npm-extension-arborist)
@@ -173,7 +156,7 @@ and development-environment setups that actually work.
 * [Crawling every Debian .deb package in history from snapshot.debian.org, learning the .deb format, and finding rate-limiting bypasses](https://joshua.hu/crawling-snapshot-debian-org-every-debian-package-rate-limit-bypass)
 * [Creating an eBay crawler for fun and profit](https://joshua.hu/automating-ebay-browsing-for-fun-and-profit)
 
-## Recon and scanning
+# Recon and scanning
 
 Making nmap dramatically faster at service scanning, with measurements.
 
@@ -181,20 +164,18 @@ Making nmap dramatically faster at service scanning, with measurements.
 * [Speeding up nmap service scanning 16x](https://joshua.hu/nmap-speedup-service-scanning-16x)
 * [Improve nmap's service scanning with this 1 weird trick!](https://joshua.hu/nmap-improving-service-scanning-results)
 
-## Video game history and culture series
+# Video game history and culture series
 
-Research into retro video game history around the world: regional markets,
-promotional bus tours, and cross-cultural essays.
+Research into retro video game history around the world: regional markets, promotional bus tours, and cross-cultural essays.
 
 * [Video Games Around The World: South Africa](https://joshua.hu/video-games-around-the-world-south-africa)
 * [Video Game History Around The World: An Essay](https://joshua.hu/video-game-history-around-the-world-essay)
 * [Exploring "Bus Tours" of Nintendo and Sega: The Nintendo Challenger, Campus Challenge, and More](https://joshua.hu/exploring-bus-tours-of-nintendo-and-sega)
 * [Some Thoughts on Cross-Cultural Video Game and Music](https://joshua.hu/some-thoughts-on-cross-cultural-video-game-and-music)
 
-## Personal essays, travel, and culture series
+# Personal essays, travel, and culture series
 
-Travel, immigration adventures, workplace culture, and the other things that
-don't fit anywhere else.
+Travel, immigration adventures, workplace culture, and the other things that don't fit anywhere else.
 
 * [Being silly is the whole point](https://joshua.hu/whole-point-being-weird-silly)
 * [A natural life](https://joshua.hu/natural-life)

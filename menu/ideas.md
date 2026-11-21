@@ -5,7 +5,7 @@ description: "Explore a collection of cybersecurity research ideas and future pr
 permalink: /ideas
 ---
 
-- A service which stores credentials for websites that a team/company has a single login for, and allows team-members to use the service without knowing the password (like proxy with persistent cookies for login). This may include "modules" for certain websites that handle login on the website automatically.
+- A service which stores credentials for websites that a team/company has a single login for, and allows team members to use the service without knowing the password (like a proxy with persistent cookies for login). This may include "modules" for certain websites that handle login on the website automatically.
 
 - Fuzz scripting languages' _scripts_ using AFL++ to instrument actual in-script functions.
 
@@ -13,11 +13,11 @@ permalink: /ideas
 
 - Talk about how multibillion dollar companies are being taken over by children
 
-- Discuss movie posters history
+- Discuss the history of movie posters
 
-- Invent an IPv6 blocklist algorithm that works for hosting and residential
+- Invent an IPv6 blocklist algorithm that works for hosting and residential networks
 
-- On being """arrested""" in 2013, 2014, 2024, and thoughts on police priorities and goals
+- On being "arrested" in 2013, 2014, 2024, and thoughts on police priorities and goals
 
 - Create a page that tracks BA members now/then.
 
@@ -25,7 +25,7 @@ permalink: /ideas
 
 - Slack watcher, similar to LDAP
 
-- Javascript security
+- JavaScript security
 
 - Okta phishing (disabling FastPass script check)
 
@@ -35,4 +35,4 @@ permalink: /ideas
 
 - ReDoS linter
 
-- About how the fake security research at DEFCON, and how it should be celebrated.
+- The fake security research at DEFCON, and why it should be celebrated.

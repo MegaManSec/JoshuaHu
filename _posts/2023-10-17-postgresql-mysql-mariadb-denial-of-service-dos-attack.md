@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to DoS MySQL/MariaDB and PostgresSQL Servers With Fewer Than 55kb of Data"
+title: "How to DoS MySQL/MariaDB and PostgreSQL Servers With Fewer Than 55kb of Data"
 tags: [security, appsec, dos, vuln_research]
 description: "Demonstrating how a few dozen kilobytes of traffic and unauthenticated connections are enough to exhaust MySQL, MariaDB, or PostgreSQL connection limits and deny service."
 ---
@@ -9,17 +9,17 @@ At the heart of any Denial of Service (DoS) attack, there are two variables: a r
 Traditionally, in any successful DoS attack an attacker needs to use of at least the same resource for which they are attacking.
 For example, if you're performing a DoS attack on a server with a 10GbE uplink, an attacker will need attack with 10Gb/s of resources to exhaust the resources of the uplink.
 
-That's why I was surprised to discover that it's incredibly easy to DoS MySQL/MariaDB and PostgresSQL servers with very few resources. In this case, the resource that can be exhausted is the number of connections to the database itself.
+That's why I was surprised to discover that it's incredibly easy to DoS MySQL/MariaDB and PostgreSQL servers with very few resources. In this case, the resource that can be exhausted is the number of connections to the database itself.
 
 ---
 
-I was recently reading the documentation for PostgresSQL. Specifically, the _max_connections_ attribute: _max_connections (integer)_: _Determines the maximum number of concurrent connections to the database server. The default is typically 100 connections, but might be less if your kernel settings will not support it (as determined during initdb). This parameter can only be set at server start._
+I was recently reading the documentation for PostgreSQL. Specifically, the _max_connections_ attribute: _max_connections (integer)_: _Determines the maximum number of concurrent connections to the database server. The default is typically 100 connections, but might be less if your kernel settings will not support it (as determined during initdb). This parameter can only be set at server start._
 
-It made me wonder: is it possible to open 100 connections to a PostgresSQL database and let it idle, denying service to legitimate connections of the database? As it turns out, yes, and __even without credentials to access any database__: as long as the SQL server is reachable and it can receive our TCP packets, we can easily deny access to it for legitimate users.
+It made me wonder: is it possible to open 100 connections to a PostgreSQL database and let it idle, denying service to legitimate connections of the database? As it turns out, yes, and __even without credentials to access any database__: as long as the SQL server is reachable and it can receive our TCP packets, we can easily deny access to it for legitimate users.
 
 ---
 
-I made a quick script to open 100 connections to a local PostgresSQL server:
+I made a quick script to open 100 connections to a local PostgreSQL server:
 
 ```python
 import socket
@@ -79,7 +79,7 @@ Total data transferred: 53.0273 KB
 ```
 
 
-So with just 53KB of data, we can totally exhaust PostgresSQL's connection limit. This isn't a rate of data exchange either, as the connection only needs to be left open: data does not need to be sent or received.
+So with just 53KB of data, we can totally exhaust PostgreSQL's connection limit. This isn't a rate of data exchange either, as the connection only needs to be left open: data does not need to be sent or received.
 
 ---
 
@@ -91,14 +91,14 @@ In some cases, there can be either a (legitimate or not) reason to have an SQL s
 
 We could raise the _max_connections_ limit, but then an attacker can just open more connections. We could use stateful firewalling like Linux's iptables to rate-limit connections, but then an attacker could perform a spoofed syn-flood from a single server [which could overflow the conntrack table](https://blog.cloudflare.com/conntrack-tales-one-thousand-and-one-flows/). Some middleware like pgbouncer or pgpool could also be effective, but then who knows whether we would just exhaust the [connection limit for those softwares](https://www.pgbouncer.org/config.html#max_client_conn).
 
-One might be able to hack away at the source of MySQL/MariaDB or PostgresSQL and not count unauthenticated requests in the _max_connections_ count, but then we might just be able to exhaust the open file descriptor limits. On my system, MariaDB has both soft and hard limits of 32768 ([which is configurable](https://dev.mysql.com/doc/refman/8.0/en/mysqld-safe.html#option_mysqld_safe_open-files-limit)). :
+One might be able to hack away at the source of MySQL/MariaDB or PostgreSQL and not count unauthenticated requests in the _max_connections_ count, but then we might just be able to exhaust the open file descriptor limits. On my system, MariaDB has both soft and hard limits of 32768 ([which is configurable](https://dev.mysql.com/doc/refman/8.0/en/mysqld-safe.html#option_mysqld_safe_open-files-limit)). :
 ```console?prompt=$,#
 # sudo systemctl show mariadb | grep LimitNOFILE
 LimitNOFILE=32768
 LimitNOFILESoft=32768
 ```
 
-On my system with PostgresSQL, the soft and hard limits are 1024 and 4096 respectively via ulimit. In reality, this limit is 1000 by default, as [the postgres daemon has an option](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-FILES-PER-PROCESS) to ensure the soft limit won't be reached.
+On my system with PostgreSQL, the soft and hard limits are 1024 and 4096 respectively via ulimit. In reality, this limit is 1000 by default, as [the postgres daemon has an option](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-FILES-PER-PROCESS) to ensure the soft limit won't be reached.
 ```console?prompt=$,#
 # cat /proc/$(ps ax | grep '/[p]ostgres' | awk '{print $1}')/limits | grep 'Max open files'
 Max open files            1024                 4096                 files
@@ -114,7 +114,7 @@ All in all, I don't have much of a solution here. Monitoring and proactively DRO
 
 ---
 
-I also made a short script which can take down any reachable MySQL/MariaDB and PostgresSQL server:
+I also made a short script which can take down any reachable MySQL/MariaDB and PostgreSQL server:
 
 ```python
 import socket
