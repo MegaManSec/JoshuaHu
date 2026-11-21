@@ -110,7 +110,7 @@ location: http://feeds.feedburner.com/GoogleChromeReleases
 
 That's probably also the real reason for the redirect in my last post. The documentation I quoted in my original post said that the old GData feed URLs would keep working, but that "the response is the same as blogspot.com feeds". The Chrome Releases blog's own feeds were already redirecting to Feedburner at the time (that's Blogger's "Post feed redirect URL" setting), so once the GData API was finally switched off, the blogger.com URL started redirecting too. So it probably wasn't me emailing Feedburner's support after all, too bad.
 
-`redirect=false` is how you get around that setting, and it's not quite as undocumented as I thought: a [Feedburner help page about Google Webmaster Tools](https://support.google.com/feedburner/answer/97090) mentions `http://mybloggerblog.blogspot.com/feeds/posts/default?redirect=false` as a feed URL format that "should always work" for Blogger users.
+`redirect=false` is how you get around that setting, and it's not quite as undocumented as I originally thought: a [Feedburner help page about Google Webmaster Tools](https://support.google.com/feedburner/answer/97090) mentions `http://mybloggerblog.blogspot.com/feeds/posts/default?redirect=false` as a feed URL format that "should always work" for Blogger users.
 
 ---
 
@@ -182,4 +182,6 @@ So, to sum it all up:
 | `/feeds/posts/default` and `?alt=rss`, on chromereleases.googleblog.com or blogger.com | n/a (302 to Feedburner, over HTTP) | n/a | n/a |
 | The same URLs with `redirect=false` | Only from the one-second cache | Works, if you ask for gzip to get the `ETag` | Yes |
 
-If you're polling a Blogger feed that's redirected to Feedburner, use `?redirect=false`, ask for gzip, keep the `ETag`, and send it back as `If-None-Match`. Python's `requests` (as used by CCBot) already asks for gzip by default, so it's only the last two you need to do yourself.
+So, if you're polling a Blogger feed that's redirected to Feedburner, use `?redirect=false`, ask for gzip, keep the `ETag`, and send it back as `If-None-Match`. Python's `requests` (as used by CCBot) already asks for gzip by default, so it's only the last two you need to do yourself.
+
+In other news, CCBot 1.1.2 has been published!
