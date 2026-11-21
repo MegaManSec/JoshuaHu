@@ -145,7 +145,7 @@ This saves quite a bit, which I had originally intended and wanted to do. The fu
 
 # Where the redirect came from
 
-When I wrote my original post, the blogger.com URL answered `If-Modified-Since` with a `304`. Back then, it was still served by the old GData API (that's what the `sunset` and `link` headers in that post were about). Those headers are gone now, and the responses come from `server: blogger-renderd` (see the `redirect=false` response at the start of this post), which is the same server that handles the blog's own feeds on chromereleases.googleblog.com.
+All of this is different to what I found in my original post. Back then, the blogger.com URL was still served by the old GData API (that's what the `sunset` and `link` headers in that post were about), and it answered `If-Modified-Since` with a `304`. Those headers are gone now, and the responses come from `server: blogger-renderd` (see the `redirect=false` response at the start of this post), which is the same server that handles the blog's own feeds on chromereleases.googleblog.com.
 
 That's probably also the real reason for the redirect in my last post. The documentation I quoted in my original post said that the old GData feed URLs would keep working, but that "the response is the same as blogspot.com feeds". The Chrome Releases blog's own feeds were already redirecting to Feedburner at the time (that's Blogger's "Post feed redirect URL" setting), so once the GData API was finally switched off, the blogger.com URL started redirecting too. So it probably wasn't me emailing Feedburner's support after all, too bad.
 
