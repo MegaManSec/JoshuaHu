@@ -51,7 +51,7 @@ CSPT is a type of vulnerability which relies on the fact that browsers also norm
 ```js
 const articleName = new URLSearchParams(window.location.search).get('articleName');
 
-const articleUrl = `https://example.com/static/article/{$articleName}`;
+const articleUrl = `https://example.com/static/article/${articleName}`;
 const response = await fetch(articleUrl);
 ```
 
@@ -59,7 +59,7 @@ In this example, the `articleName` parameter is retrieved from the URL that user
 
 A (poor) solution to this issue is to use the [encodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) function on the variable. This function encodes various characters, including `? & / \`. If performed, the retrieved URL would be `https://example.com/static/article/..%2F..%2Fuser-uploads%2Fmalicious-file.txt`.
 
-This also affects other operations which result in loading resources, like `<img src />`, for example: the browser will always normalize, if it can -- but it will _not_ decode.
+This also affects other operations which result in loading resources, like `<img src />`, for example: the browser will always normalize, if it can -- but it will _not_ decode (with one exception: `%2e` counts as a `.` when normalizing, so `%2e%2e/` is also a traversal; `%2F` is never treated as `/`).
 
 These types of vulnerabilities are still under-researched, but some interesting research can be found [here](https://medium.com/@renwa/client-side-path-traversal-cspt-bug-bounty-reports-and-techniques-8ee6cd2e7ca1). Likewise, you can read the [proposal](https://megamansec.github.io/CSPT-CSP-Mitigation-Proposal/) I have written for more details of this issue.
 
@@ -67,7 +67,7 @@ These types of vulnerabilities are still under-researched, but some interesting 
 
 Considering the first two vulnerabilities above pertained to a frontend (no-decoding, only normalizing) and backend (decoding and normalizing), it is possible to think of the third vulnerability in a similar manner: the frontend is simply the browser (no-decoding, only normalizing), and the backend is the webserver (decoding and normalizing).
 
-This is where it gets interesting. nginx's `proxy_pass` directive _will_ perform decoding and normalization in most circumstances. While the first two vulnerabilities are less likely to be affected, since `location` matching _[is performed against a normalized URI, after decoding the text encoded in the “%XX” form, resolving references to relative path components “.” and “..”](https://nginx.org/en/docs/http/ngx_http_core_module.html)_ (i.e. it is both decoded and normalized), the third vulnerability is still valid.
+This is where it gets interesting. nginx's `proxy_pass` directive _will_ perform decoding and normalization in many common configurations: whenever a path is specified in `proxy_pass`, or a `rewrite` has changed the path. While the first two vulnerabilities are less likely to be affected, since `location` matching _[is performed against a normalized URI, after decoding the text encoded in the “%XX” form, resolving references to relative path components “.” and “..”](https://nginx.org/en/docs/http/ngx_http_core_module.html)_ (i.e. it is both decoded and normalized), the third vulnerability is still valid.
 
 
 ### Vulnerable proxy_pass Configuration
@@ -84,11 +84,11 @@ When a request is made to the server with the path `/1/filename`, the request is
 
 However, when the request is made with the path `/1/filename%2F%2E%2E%2F`, nginx first decodes the path to `/1/filename/../`, and then normalizes it to `/1/`. Since the `location` still matches the decoded-normalized value, it then passes **the decoded-normalized value** to the backend. The backend server sees the path `/`.
 
-This is because the rewrite-rule variable `$1` is set to `$uri` (which is the **decoded** path) when a path (such as `/`) in the `proxy_pass` directive is set.
+This is because when a path (such as `/`) is set in the `proxy_pass` directive, nginx builds the path it sends from `$uri`, which is the **decoded** and normalized path: the part of `$uri` that matched the `location` is replaced with the path from `proxy_pass`.
 
 This means that protection afforded by the aforementioned `encodeURIComponent()` function are useless: the browser encodes the path, and the frontend server just decodes it before sending it to the backend.
 
-From the example before, when the frontend server handles `https://example.com/static/article/..%2F..%2Fuser-uploads%2Fmalicious-file.txt`, the backend server will simply see `https://example.com/user-uploads/malicious-file.txt`.
+From the example before, if the frontend server uses `location / { proxy_pass http://127.0.0.1:8080/; }`, when it handles `https://example.com/static/article/..%2F..%2Fuser-uploads%2Fmalicious-file.txt`, the backend server will simply see `https://example.com/user-uploads/malicious-file.txt`. (The normalized path still has to match the `location`, which `location /` always does.)
 
 ### Safe proxy_pass Configuration
 
@@ -108,7 +108,7 @@ location /1/ {
 }
 ```
 
-In the above case, if we send a request with the path `/1/%2E%2E%2F`, the backend will see the exact same thing -- i.e. no decoding, because `$1` (also known as `$uri`) is the raw path.
+In the above case, if we send a request with the path `/1/filename%2F%2E%2E%2F`, the backend will see the exact same thing -- i.e. no decoding, because without a path in `proxy_pass`, nginx sends `$request_uri`: the path exactly as the client sent it. (nginx still uses the decoded-normalized path, `/1/`, to pick the `location`.)
 
 ### Vulnerable Advanced proxy_pass Configuration
 
@@ -123,9 +123,9 @@ location /1/ {
 }
 ```
 
-This is incorrect when rewrite rules are used, because when rewrite rules are used, the default uri (`$uri`/`$1`) is the **decoded** path. It's counter-intuitive, but `$1` is the raw path for `proxy_pass` only when:
+This is incorrect because rewrite rules operate on `$uri`, which is the **decoded** path: `$1` captures part of the decoded path, and once a rewrite rule has changed the path, `proxy_pass` sends the new, decoded path instead of the raw one. It's counter-intuitive, but `proxy_pass` sends the raw path only when:
 
-1. No rewrite rule is in place,
+1. No rewrite rule has changed the path,
 2. There is no path specified in the `proxy_pass` directive.
 
 ### Safe Advanced proxy_pass Configuration
@@ -141,7 +141,7 @@ location /1/ {
 }
 ```
 
-`$request_uri` is the full, non-decoded, un-normalized path. Effectively, the first rewrite rule sets `$1`/`$uri` to the raw path.
+`$request_uri` is the full, non-decoded, un-normalized path (including the query string). Effectively, the first rewrite rule sets `$uri` to the raw path, so the second rewrite rule captures `$1` from the raw path, too.
 
 Any value after `/1/` is extracted, and set to the path that is sent to the backend server.
 
@@ -153,12 +153,12 @@ Note: In the above example, the backend will actually be passed a path with two 
 
 Also note that the following rule results in double-encoding and should not be used either:
 
-```
+```nginx
 location /1/ {
   rewrite ^ $request_uri;
   rewrite ^/1(/.*) $1 break;
   return 400;
-  proxy_pass http://127.0.0.1:8080/
+  proxy_pass http://127.0.0.1:8080/;
 }
 ```
 
@@ -168,9 +168,9 @@ location /1/ {
 
 Why is the `return 400;` required? Basically, rewriting (and the return statement) and `proxy_pass` occur in different passes of the configuration. The `return 400` is part of the rewriting processing. Consider the configuration without it:
 
-1. `rewrite ^ $request_uri;` -- sets the location to `$request_uri`.
-2. `rewrite ^/1(/.*) $1 break;` -- matches and rewrites `$1` from `/1/[..]` to `/[..]` and breaks from rewriting. location is still `/1/[..]`, but `$1`, which `proxy_pass` uses, is `/[..]`.
-3. If there was a match in the above rewriting, rewriting processing stops due to the `break` directive, the location block is tried again. Since location still begins with `/1/`, `proxy_pass` is used.
+1. `rewrite ^ $request_uri;` -- sets the location to `$request_uri`. This rule has no flag, so rewriting continues, and once rewriting finishes, nginx looks up the location block again for the new location.
+2. `rewrite ^/1(/.*) $1 break;` -- if the location begins with `/1/`, captures the rest as `$1`, rewrites the location from `/1/[..]` to `/[..]`, and breaks from rewriting.
+3. If there was a match in the above rewriting, rewriting processing stops due to the `break` directive, and `break` also cancels the second location lookup: nginx stays in this location block, so `proxy_pass` is used, with `$1`.
 4. If no match was made, i.e. the `$request_uri` doesn't begin with `/1/` but the normalized path does, the rewriting processing continues, with the location still being the unnormalized `$request_uri`. The rewriting processing finishes, and the location is checked again -- since it doesn't begin with `/1/` anymore (remember: it started as being the normalized location, then was switched to `$request_uri`), the location block is no longer valid -- so no `proxy_pass` is used.
 
 If the requested path was `//1/`, the location would initially be `/1/` (since location is normalized), then would get changed to `//1/` (since it's the `$request_uri`), and the second pass of the location check would therefore no longer match. `return 400` stops the rewriting processing from occuring when no match in step 2 occurs in the above steps.
@@ -189,11 +189,13 @@ location /1/ {
   rewrite ^ $request_uri;
   rewrite ^/1(/.*) /special/location$1/folder/ break;
   return 400; # extremely important!
-  proxy_pass http://127.0.0.1:8080/$1;
+  proxy_pass http://127.0.0.1:8080$uri;
 }
 ```
 
-A request made to `/1/2` will be the the back-end server as `/special/location/1/2/folder`.
+A request made to `/1/2` will be sent to the back-end server as `/special/location/2/folder/`.
+
+Note that `proxy_pass` uses `$uri` here, not `$1`: when the path in `proxy_pass` contains a variable, nginx sends exactly that path instead of the rewritten one, so the rewritten path has to be passed with `$uri`. With `proxy_pass http://127.0.0.1:8080/$1;`, the back-end server would receive `//2`.
 
 No decoding will occur, so you're safe!
 
@@ -202,4 +204,4 @@ No decoding will occur, so you're safe!
 
 I was surprised to find that there were no online tools to automatically detect this issue on webservers, either externally or internally (i.e. by probing the webserver versus analysis of configuration). Therefore, I plan to make a tool which can detect these issues automatically.
 
-In the meantime, I've created a plugin for [Gixy-Next](https://gixy.io/) to detect this issue. The documentation can be found [here](https://gixy.io/plugins/proxy_pass_normalized/). Gixy-Next is an actively maintained fork of Yandex's nginx configuration static analyzer. This issue will be detected automatically if you use it. Source code here: [MegaManSec/Gixy-Next](https://github.com/megamansec/gixy-next).
+In the meantime, I've created a plugin for [Gixy-Next](https://gixy.io/) to detect this issue. The documentation can be found [here](https://gixy.io/plugins/proxy_pass_normalized/). Gixy-Next is an actively maintained fork of Yandex's nginx configuration static analyzer. It detects some forms of this issue, such as a `proxy_pass` path built from `$uri` or a capture of it, and the double-encoding above. Source code here: [MegaManSec/Gixy-Next](https://github.com/megamansec/gixy-next).
