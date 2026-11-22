@@ -15,9 +15,11 @@ location /a_folder/ {
 }
 ```
 
-The problem is, this doesn't work as one would expect. During nginx's runtime, the first "stage" of a request is its rewrite phase ([source](https://web.archive.org/web/20250517011347/https://nginx.org/en/docs/dev/development_guide.html#http_phases)). This rewrite phase is responsible for the directives [break, if, return, rewrite, rewrite_log, set, and uninitalized_variable_warn](https://web.archive.org/web/20250517012614/http://nginx.org/en/docs/http/ngx_http_rewrite_module.html). The famous saying in nginx is "[if is evil](https://web.archive.org/web/20231227223503/https://www.nginx.com/resources/wiki/start/topics/depth/ifisevil/)". But what about `return`? Indeed, `return` can be evil, too.
+The problem is, this doesn't work as one would expect. During nginx's runtime, one of the first "stages" of a request is its rewrite phase, which runs before the access phase ([source](https://web.archive.org/web/20250517011347/https://nginx.org/en/docs/dev/development_guide.html#http_phases)). This rewrite phase is responsible for the directives [break, if, return, rewrite, rewrite_log, set, and uninitalized_variable_warn](https://web.archive.org/web/20250517012614/http://nginx.org/en/docs/http/ngx_http_rewrite_module.html). The famous saying in nginx is "[if is evil](https://web.archive.org/web/20231227223503/https://www.nginx.com/resources/wiki/start/topics/depth/ifisevil/)". But what about `return`? Indeed, `return` can be evil, too.
 
 In the above example, first the `return` is evaluated in the rewrite stage, and then _in theory_, the `allow` and `deny` directives are evaluated (in the `ngx_http_access_module` module). However, since `return`.. returns, the access directives are never evaluated, and the endpoint will always return what is set, no matter the intention of the configuration.
+
+The same goes for a `rewrite` that redirects (with the `redirect` or `permanent` flag, or a replacement starting with `http://`, `https://`, or `$scheme`), and for `auth_basic` and `auth_request`, which also run in the access phase.
 
 In order to do what is intended, the correct configuration is:
 
