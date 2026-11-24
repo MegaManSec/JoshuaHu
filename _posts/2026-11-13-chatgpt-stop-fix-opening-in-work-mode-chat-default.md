@@ -11,6 +11,8 @@ In congruence with my typical fight against ~~the world~~ annoying UX that makes
 |:--:|
 | *"What should we work on?" Nothing, thank you for your attention to this matter.* |
 
+If chatgpt.com keeps automatically opening the Work tab instead of Chat, here's why, and how to stop it.
+
 Whether you get Chat or Work mode by default depends on two things: 1. a server-side experiment, and 2. a client-side cookie. If Work mode is the default, it means the server is telling you to use Work. If you pick Chat, the cookie only remembers that choice for four hours (and some accounts seemingly ignore it completely); after those 4 hours, ChatGPT will load in Work mode again. This is... extremely annoying for someone who does not want to use Work mode at all, like me.
 
 Anyways, I tested various ways to get the website to always use Chat mode, but nothing really worked. So instead, I made a very simple browser extension which supports Chrome, Firefox, and Safari (even on iOS!). It's [really small](https://github.com/MegaManSec/ChatGPT-Chat-By-Default/blob/main/src/content.ts). The plugin watches the page for changes and automatically clicks the Chat button whenever Work mode becomes active -- unless it detects that the user deliberately selected Work.
