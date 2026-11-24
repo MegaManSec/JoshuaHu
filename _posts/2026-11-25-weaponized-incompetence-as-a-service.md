@@ -226,6 +226,7 @@ This outdated approach fails to recognize the extraordinary amount of effort req
 | **RFC Proliferation™** | Create extensive requests for comment about decisions that nobody needed to make. |
 | **Progress Narrative Engineering™** | Replace descriptions of completed work with descriptions of ongoing conversations and emerging opportunities. |
 | **AI-Generated Collateral™** | Generate every flyer, diagram, and slide deck with AI, and publish it without reading it. |
+| **Strategic Pixelation™** | Share every dashboard and error message as a blurry, pixelated screenshot, or a phone photo of a monitor, so nobody can read the numbers or notice that they're bad. |
 | **Status Report Inflation™** | Turn "nothing happened" into a compelling three-page update about strategic exploration and stakeholder alignment. |
 
 Our reporting methodology is built around a single principle:
@@ -247,6 +248,27 @@ Our reporting methodology is built around a single principle:
 We don't prevent people from working.
 
 **We make sure working and accomplishing something become two completely unrelated activities.**
+
+## 6. Thought Leadership & Execution Avoidance
+
+*Thought leadership, without the thought or the leadership.*
+
+Doing things is risky. Things that get done can be measured, and things that can be measured can fail.
+
+Thinking about things carries no such risk.
+
+| Service | What we deliver |
+|---|---|
+| **Thought Leadership™** | Publish LinkedIn posts about the lessons we learned from projects we never finished. |
+| **North Star Definition™** | Define a North Star, three strategic pillars, and a set of guiding principles, none of which say what anyone should do on Monday. |
+| **Framework Authorship™** | Invent a framework with a memorable acronym, then spend the quarter explaining what each letter stands for. |
+| **Big-Picture Thinking™** | Stay at 30,000 feet, where none of the details are visible and none of the work is. |
+| **Strategic Offsite Facilitation™** | Fly the leadership team to a hotel for two days, and bring back one photo of a whiteboard, shared via Strategic Pixelation™. |
+| **Keynote Enablement™** | Speak at conferences about best practices our own team has never followed. |
+
+Our consultants have never shipped anything, which gives them a uniquely unbiased perspective on how things should be shipped.
+
+**We don't have all the answers. We have all the frameworks.**
 
 ---
 
@@ -343,6 +365,7 @@ IaaS is different.
 | Avoids responsibility | Encourages shared ownership |
 | Produces nothing | Delivers comprehensive documentation |
 | Causes confusion | Promotes intellectual diversity |
+| Knows nothing about the subject | Is a thought leader in the space |
 | Misses deadlines | Reassesses delivery expectations |
 | Requires supervision | Requests ongoing alignment |
 | Can be fired | Becomes a critical organizational dependency |
@@ -503,6 +526,10 @@ Cancellation requests are reviewed by our Customer Retention Alignment Committee
 > "I asked him a yes-or-no question. He sent back six paragraphs from ChatGPT, starting with 'Great question!'"
 >
 > — Staff Engineer
+
+> "He has a framework for everything except finishing things."
+>
+> — Product Manager
 
 ---
 
