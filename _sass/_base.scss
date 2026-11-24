@@ -66,6 +66,14 @@ blockquote {
   line-height: 1.5;
 }
 
+blockquote cite {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: $sans-serif-font-family;
+  font-size: 0.9em;
+  font-style: normal;
+}
+
 hr {
   border-top: 1px solid $extra-light-gray-color;
 }
