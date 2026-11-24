@@ -91,7 +91,7 @@ Our **Expertise Erosion™** service addresses these systemic risks.
 | **Enigmatic Disengagement™** | Raise a topic we know nothing about in a room full of people who do. When they start answering, say "Hmm, I'm not sure," and walk away, as though we know something they don't. |
 | **Semantic Obstruction™** | Spend 45 minutes debating whether something is technically a "feature," "capability," or "experience." |
 
-**Example engagement:**
+### Example engagement
 
 **Senior Engineer:** "We've already investigated this. The approach won't work because of X, Y, and Z."
 
@@ -221,22 +221,6 @@ Our door is always open.
 
 And conversations, unlike deliverables, can continue indefinitely.
 
-### Our Support Commitment™
-
-We believe support should be accessible, responsive, and empowering.
-
-That's why we offer three priority levels:
-
-| Priority | Response commitment |
-|---|---|
-| **Low** | We'll refer you to documentation that may or may not exist. |
-| **Medium** | We'll ask you for information that was already in your original request. |
-| **Critical** | We'll immediately schedule a meeting to determine whether the issue is genuinely critical. |
-
-Our support team closes every ticket as quickly as possible.
-
-**Resolving the underlying issue is not required for closure.**
-
 ## 5. Productivity Camouflage & Deliverable Simulation
 
 *Creating overwhelming evidence that work is happening.*
@@ -281,28 +265,7 @@ We don't prevent people from working.
 
 **We make sure working and accomplishing something become two completely unrelated activities.**
 
-## 6. Thought Leadership & Execution Avoidance
-
-*Thought leadership, without the thought or the leadership.*
-
-Doing things is risky. Things that get done can be measured, and things that can be measured can fail.
-
-Thinking about things carries no such risk.
-
-| Service | What we deliver |
-|---|---|
-| **Thought Leadership™** | Publish LinkedIn posts about the lessons we learned from projects we never finished. |
-| **North Star Definition™** | Define a North Star, three strategic pillars, and a set of guiding principles, none of which say what anyone should do on Monday. |
-| **Framework Authorship™** | Invent a framework with a memorable acronym, then spend the quarter explaining what each letter stands for. |
-| **Big-Picture Thinking™** | Stay at 30,000 feet, where none of the details are visible and none of the work is. |
-| **Strategic Offsite Facilitation™** | Fly the leadership team to a hotel for two days, and bring back one photo of a whiteboard, shared via Strategic Pixelation™. |
-| **Keynote Enablement™** | Speak at conferences about best practices our own team has never followed. |
-
-Our consultants have never shipped anything, which gives them a uniquely unbiased perspective on how things should be shipped.
-
-**We don't have all the answers. We have all the frameworks.**
-
-## 7. Technology Modernization & Workflow Disruption
+## 6. Technology Modernization & Workflow Disruption
 
 *Why improve your tools when you can replace them?*
 
@@ -324,6 +287,27 @@ We don't force people to adopt new tools. We simply eliminate every viable alter
 The migration is complete when everyone has moved over. Whether they can still do their jobs is out of scope.
 
 **We don't migrate because the new tool is better. We migrate because we've already paid for it.**
+
+## 7. Thought Leadership & Execution Avoidance
+
+*Thought leadership, without the thought or the leadership.*
+
+Doing things is risky. Things that get done can be measured, and things that can be measured can fail.
+
+Thinking about things carries no such risk.
+
+| Service | What we deliver |
+|---|---|
+| **Thought Leadership™** | Publish LinkedIn posts about the lessons we learned from projects we never finished. |
+| **North Star Definition™** | Define a North Star, three strategic pillars, and a set of guiding principles, none of which say what anyone should do on Monday. |
+| **Framework Authorship™** | Invent a framework with a memorable acronym, then spend the quarter explaining what each letter stands for. |
+| **Big-Picture Thinking™** | Stay at 30,000 feet, where none of the details are visible and none of the work is. |
+| **Strategic Offsite Facilitation™** | Fly the leadership team to a hotel for two days, and bring back one photo of a whiteboard, shared via Strategic Pixelation™. |
+| **Keynote Enablement™** | Speak at conferences about best practices our own team has never followed. |
+
+Our consultants have never shipped anything, which gives them a uniquely unbiased perspective on how things should be shipped.
+
+**We don't have all the answers. We have all the frameworks.**
 
 ---
 
@@ -436,6 +420,31 @@ Every unanswered question becomes a workshop.
 And every attempt to stop the process becomes further evidence that the organization needs more process.
 
 **You can't solve a problem that has become responsible for defining what a problem is.**
+
+---
+
+# Customer testimonials
+
+> "We used to ship every Friday. Now we have a steering committee."
+> <cite>— VP of Engineering</cite>
+
+> "He didn't actually disagree with me. He just asked enough questions that I forgot what I was proposing."
+> <cite>— Senior Developer</cite>
+
+> "I've never seen someone work so hard to accomplish so little."
+> <cite>— Former Colleague</cite>
+
+> "Our velocity dropped by 80%, but stakeholder engagement increased by 240%. Leadership is thrilled."
+> <cite>— Engineering Manager</cite>
+
+> "The best part is that whenever someone points out he's not doing his job, he somehow manages to make it their fault."
+> <cite>— Anonymous, for obvious reasons</cite>
+
+> "I asked him a yes-or-no question. He sent back six paragraphs from ChatGPT, starting with 'Great question!'"
+> <cite>— Staff Engineer</cite>
+
+> "He has a framework for everything except finishing things."
+> <cite>— Product Manager</cite>
 
 ---
 
@@ -556,35 +565,21 @@ Cancellation requests are reviewed by our Customer Retention Alignment Committee
 
 ---
 
-# Customer testimonials
+# Our Support Commitment™
 
-> "We used to ship every Friday. Now we have a steering committee."
->
-> — VP of Engineering
+We believe support should be accessible, responsive, and empowering.
 
-> "He didn't actually disagree with me. He just asked enough questions that I forgot what I was proposing."
->
-> — Senior Developer
+That's why we offer three priority levels:
 
-> "I've never seen someone work so hard to accomplish so little."
->
-> — Former Colleague
+| Priority | Response commitment |
+|---|---|
+| **Low** | We'll refer you to documentation that may or may not exist. |
+| **Medium** | We'll ask you for information that was already in your original request. |
+| **Critical** | We'll immediately schedule a meeting to determine whether the issue is genuinely critical. |
 
-> "Our velocity dropped by 80%, but stakeholder engagement increased by 240%. Leadership is thrilled."
->
-> — Engineering Manager
+Our support team closes every ticket as quickly as possible.
 
-> "The best part is that whenever someone points out he's not doing his job, he somehow manages to make it their fault."
->
-> — Anonymous, for obvious reasons
-
-> "I asked him a yes-or-no question. He sent back six paragraphs from ChatGPT, starting with 'Great question!'"
->
-> — Staff Engineer
-
-> "He has a framework for everything except finishing things."
->
-> — Product Manager
+**Resolving the underlying issue is not required for closure.**
 
 ---
 
