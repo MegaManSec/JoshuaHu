@@ -81,6 +81,7 @@ Practical fuzzing engineering with AFL++: harnessing interpreters and libraries,
 * [Fuzzing glibc's libresolv's res_init()](https://joshua.hu/fuzzing-glibc-libresolv)
 * [Fuzzing with multiple servers in parallel: AFL++ with Network File Systems](https://joshua.hu/fuzzing-multiple-servers-parallel-aflplusplus-nfs)
 * [Attacking a scripting language's cryptographic functions with Wycheproof](https://joshua.hu/pikeproof-wycheproof-pike-checks)
+* [Why ASan crashes one run in four in Docker on Ubuntu](https://joshua.hu/asan-docker-ubuntu-mmap-rnd-bits-one-in-four)
 
 # SSH, LDAP, and internal-network offensive engineering
 
