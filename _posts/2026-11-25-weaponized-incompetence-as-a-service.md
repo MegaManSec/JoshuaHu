@@ -472,6 +472,12 @@ A minimum twelve-month commitment is required because we believe meaningful orga
 
 Cancellation requests are reviewed by our Customer Retention Alignment Committee, which meets quarterly to discuss the possibility of scheduling its next meeting.
 
+**Are your competitors achieving their goals, winning new customers, and impressing their investors?**
+
+IaaS makes a thoughtful gift.
+
+Refer one of our consultants to a competitor's hiring manager, and within two quarters their product roadmap will consist entirely of alignment meetings.
+
 ---
 
 # Customer testimonials
