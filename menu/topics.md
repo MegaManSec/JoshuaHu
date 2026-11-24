@@ -179,6 +179,7 @@ Research into retro video game history around the world: regional markets, promo
 
 Travel, immigration adventures, workplace culture, and the other things that don't fit anywhere else.
 
+* [Incompetence as a Service™](https://joshua.hu/weaponized-incompetence-as-a-service)
 * [Being silly is the whole point](https://joshua.hu/whole-point-being-weird-silly)
 * [A natural life](https://joshua.hu/natural-life)
 * [On self-imposed constraints and shame](https://joshua.hu/self-imposed-constraints)
