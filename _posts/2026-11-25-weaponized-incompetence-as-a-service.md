@@ -133,6 +133,7 @@ We believe work should be treated as an occasional interruption to the organizat
 | **Closure Prevention™** | End every meeting by identifying open questions that justify another meeting. |
 | **Asynchronous Synchronization™** | Respond to every written question with "Can we jump on a quick call?" |
 | **Calendar Bracketing™** | Book every "we should hop on a call to discuss" for 8:30 AM, and every follow-up for 5 PM, so nobody gets to start focused work or leave on time. |
+| **Calendar Sovereignty™** | Schedule urgent meetings without checking anyone's availability, preferably in the middle of uninterrupted focus time. Interpret scheduling conflicts as a lack of commitment to collaboration. |
 
 ### Introducing The Alignment Loop™
 
@@ -150,7 +151,11 @@ This is an unacceptable escalation.
 
 **Step 3: Schedule an alignment meeting.**
 
+Put it in the middle of the longest block of focus time on their calendar.
+
 It's essential that everyone has the opportunity to share their perspective.
+
+Declining the invitation may indicate insufficient commitment to collaboration.
 
 **Step 4: Identify new misalignments.**
 
@@ -190,6 +195,11 @@ We leverage this vocabulary to transform measurable performance concerns into co
 | **Process Grievance Escalation™** | Transform a straightforward technical disagreement into a discussion about team culture and interpersonal dynamics. |
 | **Intent Reframing™** | When confronted with the consequences of our actions, redirect attention toward our positive intentions. |
 | **Messenger Accountability™** | Ask a direct question, receive an accurate answer, then complain about the person who gave it, as though the facts were their idea. |
+| **Open Door Policy™** | Tell colleagues to reach out any time, don't reply when they do, then ask why they didn't try to work it out themselves. |
+
+Our door is always open.
+
+**Our inbox is another matter.**
 
 ### A practical example
 
@@ -211,6 +221,22 @@ We leverage this vocabulary to transform measurable performance concerns into co
 
 And conversations, unlike deliverables, can continue indefinitely.
 
+### Our Support Commitment™
+
+We believe support should be accessible, responsive, and empowering.
+
+That's why we offer three priority levels:
+
+| Priority | Response commitment |
+|---|---|
+| **Low** | We'll refer you to documentation that may or may not exist. |
+| **Medium** | We'll ask you for information that was already in your original request. |
+| **Critical** | We'll immediately schedule a meeting to determine whether the issue is genuinely critical. |
+
+Our support team closes every ticket as quickly as possible.
+
+**Resolving the underlying issue is not required for closure.**
+
 ## 5. Productivity Camouflage & Deliverable Simulation
 
 *Creating overwhelming evidence that work is happening.*
@@ -228,7 +254,12 @@ This outdated approach fails to recognize the extraordinary amount of effort req
 | **Progress Narrative Engineering™** | Replace descriptions of completed work with descriptions of ongoing conversations and emerging opportunities. |
 | **AI-Generated Collateral™** | Generate every flyer, diagram, and slide deck with AI, and publish it without reading it. |
 | **Strategic Pixelation™** | Share every dashboard and error message as a blurry, pixelated screenshot, or a phone photo of a monitor, so nobody can read the numbers or notice that they're bad. |
+| **Screenshot Documentation™** | Write every set of instructions as a series of screenshots, cropped just before the one line that matters. |
 | **Status Report Inflation™** | Turn "nothing happened" into a compelling three-page update about strategic exploration and stakeholder alignment. |
+
+A picture is worth a thousand words. Unfortunately, the password was in the part we cropped out.
+
+We believe documentation should demonstrate that knowledge exists, without unnecessarily facilitating its transfer.
 
 Our reporting methodology is built around a single principle:
 
@@ -270,6 +301,29 @@ Thinking about things carries no such risk.
 Our consultants have never shipped anything, which gives them a uniquely unbiased perspective on how things should be shipped.
 
 **We don't have all the answers. We have all the frameworks.**
+
+## 7. Technology Modernization & Workflow Disruption
+
+*Why improve your tools when you can replace them?*
+
+Tools that work are a risk. People learn them, stop needing help, and start getting things done without involving anyone.
+
+A new platform fixes that for at least a year.
+
+| Service | What we deliver |
+|---|---|
+| **Mandatory Modernization™** | Replace a tool that works with a more expensive one that solves a problem nobody had. |
+| **License-Driven Transformation™** | Buy enterprise licenses for our favorite software, then make it mandatory so the purchase looks justified. |
+| **Manufactured Obsolescence™** | Introduce our preferred software to a small group, gradually make existing workflows incompatible with it, then declare the legacy system unsustainable. Present a mandatory company-wide migration as the only reasonable solution. |
+| **Migration Roadmap™** | Have every team move years of existing work into the new tool, and report the months lost as transformation progress. |
+| **Forced Standardization™** | Replace several specialized tools that each work well with one platform that works adequately for nobody. |
+| **Tooling Evangelism™** | Treat complaints from experienced users as proof that they need more training, not that the new tool is worse. |
+
+We don't force people to adopt new tools. We simply eliminate every viable alternative and celebrate organic adoption.
+
+The migration is complete when everyone has moved over. Whether they can still do their jobs is out of scope.
+
+**We don't migrate because the new tool is better. We migrate because we've already paid for it.**
 
 ---
 
@@ -560,6 +614,14 @@ We offer seamless integration with Slack, Jira, Notion, Confluence, Google Docs,
 
 Our enterprise integration layer can convert a single Slack message into a Jira ticket, three Confluence pages, a Google Doc, and a recurring calendar invitation.
 
+**Q: What if our existing tools are working perfectly well?**
+
+That's when modernization matters most.
+
+The new platform doesn't need to be better. It needs to be adopted.
+
+Any productivity lost during the migration is a transformation cost. If productivity ever gets back to where it was before, we'll call it a transformation success.
+
 **Q: Do you work asynchronously?**
 
 Of course.
@@ -609,6 +671,16 @@ Absolutely.
 We guarantee 99.99% activity uptime.
 
 We make no guarantees regarding useful output.
+
+**Q: What if I need help?**
+
+Please don't hesitate to reach out. We're always happy to help.
+
+After your third unanswered message, we'll ask whether you've tried solving the problem yourself.
+
+If you explain that you're missing information, we'll send you a screenshot of the documentation, with the important part cropped out.
+
+We believe in empowering people to find their own answers.
 
 **Q: What if someone simply does the work without involving you?**
 
