@@ -88,6 +88,7 @@ Our **Expertise Erosion™** service addresses these systemic risks.
 | **Confidence Without Competence™** | Offer strong opinions on subjects we encountered for the first time that morning. |
 | **Unsolicited Legal Counsel™** | Review colleagues' personal GitHub profiles and warn them that their Wile E. Coyote avatar may be a copyright infringement. Then ask whether what the team is doing is even legal, without naming a law or a lawyer. |
 | **Epistemic Reset™** | Whenever confronted with evidence, suggest revisiting our fundamental assumptions. |
+| **Enigmatic Disengagement™** | Raise a topic we know nothing about in a room full of people who do. When they start answering, say "Hmm, I'm not sure," and walk away, as though we know something they don't. |
 | **Semantic Obstruction™** | Spend 45 minutes debating whether something is technically a "feature," "capability," or "experience." |
 
 **Example engagement:**
