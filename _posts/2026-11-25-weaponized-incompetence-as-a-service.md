@@ -221,7 +221,24 @@ Our door is always open.
 
 And conversations, unlike deliverables, can continue indefinitely.
 
-## 5. Productivity Camouflage & Deliverable Simulation
+## 5. Blame Redistribution & Accountability Externalization
+
+*Because every failure deserves an owner. Preferably someone else.*
+
+| Service | What we deliver |
+|---|---|
+| **Blame as a Service™ (BaaS)** | Ensure every failure is attributed to someone outside our immediate reporting structure. |
+| **Responsibility Hot Potato™** | Transfer ownership between departments until the original incident is no longer relevant. |
+| **Dependency Scapegoating™** | Attribute missed deadlines to another team's failure to provide something we never actually requested. |
+| **Collective Accountability™** | Insist that successes belong to us, while failures belong to the organization. |
+| **Retrospective Revisionism™** | Reconstruct past decisions to demonstrate that our concerns were always clearly communicated, preferably without written evidence. |
+| **Escalation Laundering™** | Turn our failure to deliver into another team's failure to escalate early enough. |
+
+At IaaS, we don't point fingers. We facilitate collaborative discussions to determine whose finger should be pointing at whom.
+
+**Success has many fathers. Failure has a cross-functional ownership committee.**
+
+## 6. Productivity Camouflage & Deliverable Simulation
 
 *Creating overwhelming evidence that work is happening.*
 
@@ -265,7 +282,9 @@ We don't prevent people from working.
 
 **We make sure working and accomplishing something become two completely unrelated activities.**
 
-## 6. Technology Modernization & Workflow Disruption
+<p align="center"><img src="/files/incompetence-as-a-service/certified-zero-impact.jpg" alt="A gold seal reading 'Certified Zero Impact™', with a ribbon reading 'ISO 0000 – Independently unverified' and the rim text 'Audited internally. Findings inconclusive.'" width="300"></p>
+
+## 7. Technology Modernization & Workflow Disruption
 
 *Why improve your tools when you can replace them?*
 
@@ -288,7 +307,9 @@ The migration is complete when everyone has moved over. Whether they can still d
 
 **We don't migrate because the new tool is better. We migrate because we've already paid for it.**
 
-## 7. Thought Leadership & Execution Avoidance
+<p align="center"><img src="/files/incompetence-as-a-service/certified-legacy-disruption.jpg" alt="A round badge reading 'Certified Legacy Disruption™': arrows swap a working computer for a tangle of machinery, above ribbons reading 'If it works, replace it.' and '100% migration. 0% improvement.'" width="300"></p>
+
+## 8. Thought Leadership & Execution Avoidance
 
 *Thought leadership, without the thought or the leadership.*
 
@@ -308,6 +329,8 @@ Thinking about things carries no such risk.
 Our consultants have never shipped anything, which gives them a uniquely unbiased perspective on how things should be shipped.
 
 **We don't have all the answers. We have all the frameworks.**
+
+<p align="center"><img src="/files/incompetence-as-a-service/institute-of-advanced-thought-leadership.jpg" alt="A crest under a mortarboard reading 'Institute of Advanced Thought Leadership™', with a ribbon reading 'Thinking about doing things since 2026.' and the motto 'Cogito, ergo non facio. I think, therefore I do not do.'" width="300"></p>
 
 ---
 
@@ -517,6 +540,8 @@ For maximum impact, we recommend booking flights before confirming whether an in
 
 **We bring incompetence to you. Travel expenses are the only thing we deliver on time.**
 
+<p align="center"><img src="/files/incompetence-as-a-service/global-inaction-response-team.jpg" alt="A round patch reading 'Global Inaction Response Team™': a plane circles a globe above a briefcase and a coffee mug, over ribbons reading 'Deploying inefficiency worldwide.' and 'First class travel. Third class results.'" width="300"></p>
+
 ## Our location-independent guarantee
 
 Whether we're sitting next to you, joining from another continent, or temporarily unreachable in an airport lounge, you can expect the same consistent standard of non-performance.
@@ -580,6 +605,8 @@ That's why we offer three priority levels:
 Our support team closes every ticket as quickly as possible.
 
 **Resolving the underlying issue is not required for closure.**
+
+<p align="center"><img src="/files/incompetence-as-a-service/response-avoidance-guarantee.jpg" alt="A round badge reading '100% Response Avoidance Guarantee™': a grinning rotary phone with its cord unplugged, over ribbons reading 'Your ticket is our journey.' and 'Every ticket closed. No problems solved.'" width="300"></p>
 
 ---
 
