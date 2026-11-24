@@ -238,6 +238,8 @@ At IaaS, we don't point fingers. We facilitate collaborative discussions to dete
 
 **Success has many fathers. Failure has a cross-functional ownership committee.**
 
+<p align="center"><img src="/files/incompetence-as-a-service/blame-redistribution-seal.jpg" alt="A vintage seal reading 'Blame Redistribution &amp; Accountability Externalization™': five people in suits around a meeting table toss a hot potato between them, next to an IaaS mug, above a ribbon reading 'Success has many fathers • Failure has a committee'" width="300"></p>
+
 ## 6. Productivity Camouflage & Deliverable Simulation
 
 *Creating overwhelming evidence that work is happening.*
