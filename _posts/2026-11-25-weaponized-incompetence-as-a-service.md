@@ -82,7 +82,7 @@ Our **Expertise Erosion™** service addresses these systemic risks.
 | **Weaponized Curiosity™** | Ask unlimited seemingly innocent questions with no intention of applying the answers. |
 | **Contextual Humility™** | Remind experts that "we shouldn't make assumptions" until they begin questioning established facts. |
 | **Confidence Without Competence™** | Offer strong opinions on subjects we encountered for the first time that morning. |
-| **Unsolicited Legal Counsel™** | Review colleagues' personal GitHub profiles and warn them that their Wile E. Coyote avatar may be a copyright infringement. |
+| **Unsolicited Legal Counsel™** | Review colleagues' personal GitHub profiles and warn them that their Wile E. Coyote avatar may be a copyright infringement. Then ask whether what the team is doing is even legal, without naming a law or a lawyer. |
 | **Epistemic Reset™** | Whenever confronted with evidence, suggest revisiting our fundamental assumptions. |
 | **Semantic Obstruction™** | Spend 45 minutes debating whether something is technically a "feature," "capability," or "experience." |
 
@@ -221,6 +221,7 @@ This outdated approach fails to recognize the extraordinary amount of effort req
 | **Process Optimization Theater™** | Redesign workflows that were working perfectly well while actual work remains blocked. |
 | **RFC Proliferation™** | Create extensive requests for comment about decisions that nobody needed to make. |
 | **Progress Narrative Engineering™** | Replace descriptions of completed work with descriptions of ongoing conversations and emerging opportunities. |
+| **AI-Generated Collateral™** | Generate every flyer, diagram, and slide deck with AI, and publish it without reading it. |
 | **Status Report Inflation™** | Turn "nothing happened" into a compelling three-page update about strategic exploration and stakeholder alignment. |
 
 Our reporting methodology is built around a single principle:
@@ -542,6 +543,12 @@ Extensively.
 Every question you send us is pasted into ChatGPT, and whatever comes back is pasted into Slack, unread.
 
 We call this human-in-the-loop.
+
+**Q: Why does your flyer say "Identify hew misalignments"?**
+
+Our design team is an AI image generator, and we don't believe in micromanaging it.
+
+A meeting to align on the spelling of "new" has been scheduled for 8:30 AM.
 
 **Q: What if someone asks you to take ownership?**
 
