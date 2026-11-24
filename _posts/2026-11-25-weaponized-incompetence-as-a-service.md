@@ -18,6 +18,10 @@ Are your colleagues getting too much done? Are your projects moving forward with
 
 **That sounds like a serious organizational problem.**
 
+Are your competitors achieving their goals, winning new customers, and impressing their investors?
+
+**Then it's time to make sure your company gets even less done, closes even fewer deals, and leaves every potential customer unhappy.**
+
 Introducing **Incompetence as a Service™ (IaaS)**, the world's first fully managed organizational friction platform.
 
 We offer a comprehensive suite of professional services designed to transform productive teams into thriving ecosystems of meetings, misalignment, circular discussions, and carefully managed frustration.
@@ -471,12 +475,6 @@ Travel, accommodation, meals, incidental expenses, and time spent deciding wheth
 A minimum twelve-month commitment is required because we believe meaningful organizational dysfunction takes time.
 
 Cancellation requests are reviewed by our Customer Retention Alignment Committee, which meets quarterly to discuss the possibility of scheduling its next meeting.
-
-**Are your competitors achieving their goals, winning new customers, and impressing their investors?**
-
-IaaS makes a thoughtful gift.
-
-Refer one of our consultants to a competitor's hiring manager, and within two quarters their product roadmap will consist entirely of alignment meetings.
 
 ---
 
