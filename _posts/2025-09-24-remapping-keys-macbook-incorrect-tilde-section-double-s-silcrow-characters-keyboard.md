@@ -63,8 +63,7 @@ Creating the file `~/Library/LaunchAgents/local.hidutilKeyMapping.plist`, we add
 
     <key>LimitLoadToSessionType</key>
     <array>
-
-    <string>StandardIO</string>
+        <string>Aqua</string>
     </array>
 </dict>
 </plist>
