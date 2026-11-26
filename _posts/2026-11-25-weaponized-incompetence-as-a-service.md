@@ -131,9 +131,14 @@ We believe work should be treated as an occasional interruption to the organizat
 | **Consensus Paralysis™** | Insist that every stakeholder must feel heard before any decision can be made. |
 | **Meta-Discussion Facilitation™** | Stop discussing the problem and start discussing how we're discussing the problem. |
 | **Closure Prevention™** | End every meeting by identifying open questions that justify another meeting. |
+| **Agenda-Free Alignment™** | Schedule meetings with no agenda, context, or stated objective. Use vague invitations such as "Let's talk" or "Quick sync." Allow participants to spend the first 20 minutes discovering why they're there. |
 | **Asynchronous Synchronization™** | Respond to every written question with "Can we jump on a quick call?" |
 | **Calendar Bracketing™** | Book every "we should hop on a call to discuss" for 8:30 AM, and every follow-up for 5 PM, so nobody gets to start focused work or leave on time. |
 | **Calendar Sovereignty™** | Schedule urgent meetings without checking anyone's availability, preferably in the middle of uninterrupted focus time. Interpret scheduling conflicts as a lack of commitment to collaboration. |
+
+An agenda creates expectations.
+
+**We prefer to keep our meetings open to possibility.**
 
 ### Introducing The Alignment Loop™
 
@@ -258,11 +263,14 @@ This outdated approach fails to recognize the extraordinary amount of effort req
 | **AI-Generated Collateral™** | Generate every flyer, diagram, and slide deck with AI, and publish it without reading it. |
 | **Strategic Pixelation™** | Share every dashboard and error message as a blurry, pixelated screenshot, or a phone photo of a monitor, so nobody can read the numbers or notice that they're bad. |
 | **Screenshot Documentation™** | Write every set of instructions as a series of screenshots, cropped just before the one line that matters. |
+| **Performative Overwork™** | Schedule Slack messages for 3 AM to create the appearance of extraordinary dedication. During business hours, casually express concern about colleagues who don't demonstrate the same level of commitment. |
 | **Status Report Inflation™** | Turn "nothing happened" into a compelling three-page update about strategic exploration and stakeholder alignment. |
 
 A picture is worth a thousand words. Unfortunately, the password was in the part we cropped out.
 
 We believe documentation should demonstrate that knowledge exists, without unnecessarily facilitating its transfer.
+
+We don't measure productivity in deliverables. We measure it in how inconveniently timed your Slack messages are.
 
 Our reporting methodology is built around a single principle:
 
@@ -653,6 +661,20 @@ Of course.
 We'll respond to your detailed written explanation with "Can we jump on a quick call?"
 
 It will be at 8:30 AM.
+
+**Q: Do you expect employees to work outside business hours?**
+
+Absolutely not. We strongly support work-life balance.
+
+However, we believe commitment should be visible.
+
+That's why our consultants regularly communicate at 3 AM, demonstrating the kind of dedication that distinguishes high performers.
+
+We would never explicitly ask colleagues to do the same.
+
+We simply make a note of who doesn't.
+
+We respect your work-life balance. We just don't consider it a leadership quality.
 
 **Q: Do you use AI?**
 
