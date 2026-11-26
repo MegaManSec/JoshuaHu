@@ -476,6 +476,9 @@ And every attempt to stop the process becomes further evidence that the organiza
 > "I asked him a yes-or-no question. He sent back six paragraphs from ChatGPT, starting with 'Great question!'"
 > <cite>— Staff Engineer</cite>
 
+> "So many tokens, so little progress."
+> <cite>— CFO, reviewing the AI invoice</cite>
+
 > "He has a framework for everything except finishing things."
 > <cite>— Product Manager</cite>
 
