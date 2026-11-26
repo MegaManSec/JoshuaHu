@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Making ChatGPT stop defaulting to Work mode"
+title: "Making ChatGPT stop defaulting to Work mode / tab"
 tags: [browsers, web_platform, programming]
 description: "Enterprise ChatGPT keeps opening on Work mode, and picking Chat is only remembered for four hours. So I made a 79-line browser extension for Chrome, Firefox and Safari that clicks Chat for you, and then fixed the New chat case it missed."
 ---
